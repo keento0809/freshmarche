@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
 import Home from "./Home";
 import NotFound from "./NotFound";
 
@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/">
+        <Route path="/" exact>
           <Redirect to="/home" />
         </Route>
         <Route path="/home" exact>

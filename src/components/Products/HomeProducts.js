@@ -1,6 +1,7 @@
 import React from "react";
 import ProductsBox from "../UIcomponents/Products/ProductsBox";
 import Typography from "@mui/material/Typography";
+import ProductList from "./ProductsList";
 
 const HomeProducts = () => {
   return (
@@ -9,6 +10,7 @@ const HomeProducts = () => {
         Products
       </Typography>
       <p>I'm gonna display products here.</p>
+      <ProductList />
     </ProductsBox>
   );
 };

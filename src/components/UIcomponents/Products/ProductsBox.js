@@ -5,7 +5,7 @@ import ContainerUI from "../Container/ContainerUI";
 const ProductsBox = (props) => {
   return (
     <Box
-      sx={{ width: "100%", height: "450px", bgcolor: "background.default" }}
+      sx={{ width: "100%", height: "100%", bgcolor: "background.default" }}
       paddingTop={3}
       paddingBottom={3}
     >

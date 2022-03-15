@@ -10,14 +10,16 @@ const ProductPaper = (props) => {
         "& > :not(style)": {
           m: 1,
           width: 100,
-          height: 100,
+          height: 200,
         },
+        border: "1px solid transparent",
+        borderRadius: "12px",
         bgcolor: "transparent",
         // For checking
         // bgcolor: "white",
       }}
     >
-      <Paper sx={{ bgcolor: "background.default" }} elevation={6}>
+      <Paper sx={{ bgcolor: "white" }} elevation={6}>
         {props.children}
       </Paper>
     </Box>

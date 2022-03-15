@@ -7,9 +7,6 @@ const ProductPaper = (props) => {
     <Box
       sx={{
         width: 120,
-        // display: "flex",
-        // flexDirection: "row",
-        // flexWrap: "wrap",
         "& > :not(style)": {
           m: 1,
           width: 100,
@@ -20,7 +17,7 @@ const ProductPaper = (props) => {
         // bgcolor: "white",
       }}
     >
-      <Paper sx={{ bgcolor: "transparent" }} elevation={6}>
+      <Paper sx={{ bgcolor: "background.default" }} elevation={6}>
         {props.children}
       </Paper>
     </Box>

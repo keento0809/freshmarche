@@ -1,10 +1,14 @@
 import Main from "./pages/Main";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme/theme";
 
 function App() {
   return (
-    <div className="App">
-      <Main />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Main />
+      </div>
+    </ThemeProvider>
   );
 }
 

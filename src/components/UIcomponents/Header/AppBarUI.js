@@ -25,7 +25,7 @@ const AppBarUI = () => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenSearchBar = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -33,12 +33,12 @@ const AppBarUI = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseSearchBar = () => {
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: "background.default" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -59,38 +59,15 @@ const AppBarUI = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon color="primary" />
             </IconButton>
-            {/* <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
           </Box>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            color="primary"
           >
             FreshMarche
           </Typography>
@@ -108,7 +85,7 @@ const AppBarUI = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <SearchIcon />
+              <SearchIcon color="primary" />
             </Tooltip>
           </Box>
         </Toolbar>

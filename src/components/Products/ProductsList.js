@@ -1,5 +1,11 @@
 import { Fragment } from "react";
 import Product from "./Product";
+import { styled } from "@mui/system";
+
+const UlComponent = styled("ul")({
+  paddingLeft: 0,
+  listStyle: "none",
+});
 
 const DUMMY_PRODUCTS = [
   {
@@ -38,7 +44,7 @@ const ProductList = (props) => {
 
   return (
     <Fragment>
-      <ul>{products}</ul>
+      <UlComponent>{products}</UlComponent>
     </Fragment>
   );
 };

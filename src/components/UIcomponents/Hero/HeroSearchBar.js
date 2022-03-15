@@ -53,7 +53,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const HeroSearchBar = () => {
   return (
-    <Toolbar>
+    <Toolbar
+      sx={{
+        paddingLeft: 0,
+        paddingRight: 0,
+      }}
+    >
       <Search>
         <SearchIconWrapper>
           <SearchIcon />

@@ -6,10 +6,12 @@ import ProductList from "./ProductsList";
 const HomeProducts = () => {
   return (
     <ProductsBox>
-      <Typography variant="h4" component="h4">
+      <Typography variant="h4" component="h4" color="primary">
         Products
       </Typography>
-      <p>I'm gonna display products here.</p>
+      <Typography variant="body1" color="primary">
+        I'm gonna display products here.
+      </Typography>
       <ProductList />
     </ProductsBox>
   );

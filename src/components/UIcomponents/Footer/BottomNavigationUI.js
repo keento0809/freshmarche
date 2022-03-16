@@ -22,7 +22,6 @@ const BottomNavigationUI = () => {
         position: "fixed",
         bottom: 0,
         backgroundColor: "primary.main",
-        color: "text.primary",
       }}
       value={value}
       onChange={handleChange}

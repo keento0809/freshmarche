@@ -4,10 +4,10 @@ import HomeProducts from "../Products/HomeProducts";
 
 const HomeMain = () => {
   return (
-    <Fragment>
+    <div className="allMain">
       <HomeHero />
       <HomeProducts />
-    </Fragment>
+    </div>
   );
 };
 

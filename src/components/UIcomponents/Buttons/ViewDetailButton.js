@@ -6,12 +6,17 @@ const ViewDetailButton = (props) => {
   return (
     <Button
       sx={{
+        display: "block",
         fontSize: "0.5rem",
         padding: "2px 8px",
         color: "text.primary",
-        borderColor: "text.primary",
+        width: "64px",
+        margin: "1rem auto 0",
+        textAlign: "center",
       }}
-      variant="outlined"
+      // variant="outlined"
+      variant="contained"
+      href="#"
     >
       {props.text}
     </Button>

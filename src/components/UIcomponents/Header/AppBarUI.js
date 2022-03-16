@@ -45,12 +45,21 @@ const AppBarUI = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            sx={{
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+            }}
+            color="primary"
           >
             FreshMarche
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -58,6 +67,7 @@ const AppBarUI = () => {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              cursor="pointer"
             >
               <MenuIcon color="primary" />
             </IconButton>
@@ -66,13 +76,16 @@ const AppBarUI = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+            }}
             color="primary"
           >
             FreshMarche
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -80,12 +93,12 @@ const AppBarUI = () => {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <SearchIcon color="primary" />
+            <Tooltip title="Search Products">
+              <SearchIcon color="primary" cursor="pointer" />
             </Tooltip>
           </Box>
         </Toolbar>

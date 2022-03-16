@@ -7,7 +7,7 @@ import { styled } from "@mui/system";
 
 const TextComponent = styled("p")({
   textAlign: "center",
-  color: "white",
+  color: "secondary",
   fontWeight: "Bold",
 });
 
@@ -21,7 +21,7 @@ const HomeHero = (props) => {
         component="h4"
         sx={{ textAlign: "left" }}
         paddingTop={6}
-        sx={{ color: "white" }}
+        sx={{ color: "secondary.main" }}
       >
         Search Products
       </Typography>

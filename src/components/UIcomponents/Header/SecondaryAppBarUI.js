@@ -4,13 +4,10 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // Add manually
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,7 +15,7 @@ import SearchIcon from "@mui/icons-material/Search";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const AppBarUI = () => {
+const SecondaryAppBarUI = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -69,7 +66,8 @@ const AppBarUI = () => {
               color="inherit"
               cursor="pointer"
             >
-              <MenuIcon color="primary" />
+              <ArrowBackIcon color="primary" />
+              {/* <MenuIcon color="primary" /> */}
             </IconButton>
           </Box>
           <Typography
@@ -97,10 +95,6 @@ const AppBarUI = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* Original code */}
-            {/* <Tooltip title="Search Products">
-              <SearchIcon color="primary" cursor="pointer" />
-            </Tooltip> */}
             <IconButton size="large">
               <SearchIcon color="primary" cursor="pointer" />
             </IconButton>
@@ -110,4 +104,4 @@ const AppBarUI = () => {
     </AppBar>
   );
 };
-export default AppBarUI;
+export default SecondaryAppBarUI;

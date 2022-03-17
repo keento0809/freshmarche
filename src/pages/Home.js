@@ -7,18 +7,16 @@ import HomeProducts from "../components/Products/HomeProducts";
 import { styled } from "@mui/system";
 
 const HomeComponent = styled("div")({
-  display: "flex",
-  flexDirection: "column",
   minHeight: "100vh",
 });
 
 const Home = () => {
   return (
-    <div className="わけわからん">
+    <HomeComponent>
       <MainHeader />
       <HomeMain />
       <MainFooter />
-    </div>
+    </HomeComponent>
   );
 };
 

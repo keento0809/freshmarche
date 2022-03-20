@@ -1,12 +1,13 @@
 import Info from "./Info";
 import DetailHero from "./DetailHero";
+import ContainerUI from "../UIcomponents/Container/ContainerUI";
 
 const ProductDetailComponent = () => {
   return (
-    <div>
+    <ContainerUI>
       <DetailHero />
       <Info />
-    </div>
+    </ContainerUI>
   );
 };
 

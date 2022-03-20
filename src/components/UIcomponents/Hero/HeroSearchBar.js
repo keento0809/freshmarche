@@ -58,6 +58,7 @@ const HeroSearchBar = () => {
         paddingLeft: 0,
         paddingRight: 0,
         bgcolor: "background.paper",
+        borderRadius: "12px",
       }}
     >
       <Search className="どれがTextInputやねん">

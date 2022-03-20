@@ -45,6 +45,12 @@ const theme = createTheme({
       fontSize: "1.5rem",
       letterSpacing: "-1px",
     },
+    h5: {
+      fontFamily: ["Circular Pro", "Verdana", "sans-serif"].join(","),
+      fontWeight: 600,
+      fontSize: "1.2rem",
+      letterSpacing: "-1px",
+    },
     h6: {
       fontFamily: ["Circular Pro", "Verdana", "sans-serif"].join(","),
       fontWeight: 600,
@@ -75,6 +81,7 @@ const theme = createTheme({
       paper: "#A7FFEB",
       default: "#3E2723",
       secondary: "#76FF03",
+      third: "#bdbdbd",
     },
     text: {
       primary: "#263238",

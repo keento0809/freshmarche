@@ -5,7 +5,7 @@ import { Fragment } from "react";
 
 const CartSummaryUI = () => {
   return (
-    <Fragment>
+    <Box padding="2rem 0">
       <Box width="90%" margin="0 auto">
         <Box display="flex" justifyContent="space-between">
           <Typography variant="body1" component="p" color="white">
@@ -32,8 +32,10 @@ const CartSummaryUI = () => {
           </Typography>
         </Box>
       </Box>
-      <AddToCartButton />
-    </Fragment>
+      <Box textAlign="center" marginTop={3}>
+        <AddToCartButton />
+      </Box>
+    </Box>
   );
 };
 

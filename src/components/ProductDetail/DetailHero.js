@@ -1,5 +1,5 @@
 import MainBoxUI from "../UIcomponents/Box/MainBox";
-import Typography from "@mui/material/Typography";
+import TitleUI from "../UIcomponents/Title/TitleUI";
 import { styled } from "@mui/system";
 
 const ImageComponent = styled("img")({
@@ -13,9 +13,7 @@ const ImageComponent = styled("img")({
 const DetailHero = (props) => {
   return (
     <MainBoxUI margin="1rem 0">
-      <Typography variant="h4" component="h4" color="secondary">
-        Product A
-      </Typography>
+      <TitleUI title="Product A" />
       <ImageComponent
         src="https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716"
         alt="product"

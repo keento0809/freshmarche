@@ -57,13 +57,15 @@ const HeroSearchBar = () => {
       sx={{
         paddingLeft: 0,
         paddingRight: 0,
+        bgcolor: "background.paper",
       }}
     >
-      <Search>
+      <Search className="どれがTextInputやねん">
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
+          sx={{ width: "100%" }}
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
         />

@@ -22,6 +22,10 @@ const Main = () => {
             <Home />
           </Route>
           {/* temporary */}
+          <Route path="/mycart" exact>
+            <ProductDetail />
+          </Route>
+          {/* temporary */}
           <Route path="/products/detail" exact>
             <ProductDetail />
           </Route>

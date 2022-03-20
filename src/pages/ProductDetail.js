@@ -1,14 +1,14 @@
 import { Fragment } from "react";
-import SecondaryAppBarUI from "../components/UIcomponents/Header/SecondaryAppBarUI";
-import BottomNavigationUI from "../components/UIcomponents/Footer/BottomNavigationUI";
+import SecondHeader from "../components/Header/SecondHeader";
+import MainFooter from "../components/Footer/MainFooter";
 import ProductDetailComponent from "../components/ProductDetail/ProductDetailComponent";
 
 const ProductDetail = () => {
   return (
     <Fragment>
-      <SecondaryAppBarUI />
+      <SecondHeader />
       <ProductDetailComponent />
-      <BottomNavigationUI />
+      <MainFooter />
     </Fragment>
   );
 };

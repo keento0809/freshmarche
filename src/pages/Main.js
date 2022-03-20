@@ -7,6 +7,7 @@ import {
 import Home from "./Home";
 import NotFound from "./NotFound";
 import ProductDetail from "./ProductDetail";
+import MyCart from "./MyCart";
 
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
 
@@ -23,7 +24,7 @@ const Main = () => {
           </Route>
           {/* temporary */}
           <Route path="/mycart" exact>
-            <ProductDetail />
+            <MyCart />
           </Route>
           {/* temporary */}
           <Route path="/products/detail" exact>

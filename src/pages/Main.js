@@ -1,4 +1,9 @@
-import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  Redirect,
+  BrowserRouter as Router,
+} from "react-router-dom";
 import Home from "./Home";
 import NotFound from "./NotFound";
 import ProductDetail from "./ProductDetail";
@@ -7,7 +12,7 @@ import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
 
 const Main = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <ScopedCssBaseline>
         <Switch>
           <Route path="/" exact>
@@ -25,7 +30,7 @@ const Main = () => {
           </Route>
         </Switch>
       </ScopedCssBaseline>
-    </BrowserRouter>
+    </Router>
   );
 };
 

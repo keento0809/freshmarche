@@ -3,7 +3,9 @@ import Product from "./Product";
 import { styled } from "@mui/system";
 
 const UlComponent = styled("ul")({
-  paddingLeft: 0,
+  margin: 0,
+  // paddingLeft: 0,
+  padding: "0.5rem 0",
   listStyle: "none",
   display: "flex",
   flexDirection: "row",
@@ -45,6 +47,24 @@ const DUMMY_PRODUCTS = [
   },
   {
     id: "p6",
+    name: "Grape",
+    price: 7.99,
+    image: "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png",
+  },
+  {
+    id: "p7",
+    name: "Grape",
+    price: 7.99,
+    image: "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png",
+  },
+  {
+    id: "p8",
+    name: "Grape",
+    price: 7.99,
+    image: "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png",
+  },
+  {
+    id: "p9",
     name: "Grape",
     price: 7.99,
     image: "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png",

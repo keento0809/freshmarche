@@ -38,7 +38,8 @@ const AppBarUI = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "background.default" }}>
+    // <AppBar position="static" sx={{ bgcolor: "background.default" }}>
+    <AppBar position="sticky" sx={{ bgcolor: "background.default" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -84,23 +85,9 @@ const AppBarUI = () => {
           >
             FreshMarche
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {/* {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))} */}
-          </Box>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* Original code */}
-            {/* <Tooltip title="Search Products">
-              <SearchIcon color="primary" cursor="pointer" />
-            </Tooltip> */}
             <IconButton size="large">
               <SearchIcon color="primary" cursor="pointer" />
             </IconButton>

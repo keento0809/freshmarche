@@ -7,35 +7,43 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 
-const userInfoBox = (props) => {
+const UserInfoBox = (props) => {
   const [icon, setIcon] = useState();
 
   const selectIconType = (val) => {
-    if (val === "username") setIcon(<AccountCircleIcon />);
-    if (val === "address") setIcon(<LocationOnIcon />);
-    if (val === "email") setIcon(<EditIcon />);
-    if (val === "password") setIcon(<LockIcon />);
+    if (val === "Username") setIcon(<AccountCircleIcon />);
+    if (val === "Address") setIcon(<LocationOnIcon />);
+    if (val === "Email") setIcon(<EmailIcon />);
+    if (val === "Password") setIcon(<LockIcon />);
   };
 
   useEffect(() => {
-    userInfoBox(props.label);
+    selectIconType(props.label);
   }, []);
 
   return (
-    <Box display="flex" justifyContent="space-between" alignItems="center">
-      <Box display="flex">
+    <Box
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      bgcolor="white"
+      padding="0.5rem 1rem"
+      borderRadius="8px"
+      marginBottom={1}
+    >
+      <Box display="flex" alignItems="center">
         <Box>{icon}</Box>
         <Box
           display="flex"
           flexDirection="column"
-          alignItems="center"
+          alignItems="flex-start"
           justifyContent="center"
         >
           <Typography variant="h5" component="h5">
             {props.label}
           </Typography>
-          <Typography variant="" component="">
-            {props.username}
+          <Typography variant="body1" component="p" width="100%">
+            {props.val}
           </Typography>
         </Box>
       </Box>

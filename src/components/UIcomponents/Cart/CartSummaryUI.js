@@ -4,7 +4,7 @@ import AddToCartButton from "../Buttons/AddToCartButton";
 import MoveNextButton from "../Buttons/MoveNextButton";
 import { Fragment } from "react";
 
-const CartSummaryUI = () => {
+const CartSummaryUI = (props) => {
   return (
     <Box padding="2rem 0">
       <Box width="90%" margin="0 auto">
@@ -34,7 +34,7 @@ const CartSummaryUI = () => {
         </Box>
       </Box>
       <Box textAlign="center" marginTop={3}>
-        <MoveNextButton label="CHECKOUT" />
+        <MoveNextButton label={props.label} />
       </Box>
     </Box>
   );

@@ -3,19 +3,18 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
+import CartSummaryUI from "../UIcomponents/Cart/CartSummaryUI";
 
-const AddPaymentMethod = () => {
+const OrderSummaryComponent = () => {
   return (
     <ContainerUI>
-      <TitleUI title="Payment Method" />
+      <TitleUI title="Order Summary" />
       <Box padding="0.5rem 0">
         <CheckoutStepper />
       </Box>
-      <Box textAlign="center" marginTop={2}>
-        <MoveNextButton label="NEXT" />
-      </Box>
+      <CartSummaryUI label="PLACE ORDER" />
     </ContainerUI>
   );
 };
 
-export default AddPaymentMethod;
+export default OrderSummaryComponent;

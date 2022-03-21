@@ -11,7 +11,7 @@ import MyCart from "./MyCart";
 import Favorites from "./Favorites";
 import PaymentMethod from "./PaymentMethod";
 import MyInfo from "./MyInfo";
-
+import OrderSummary from "./OrderSummary";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
 
 const Main = () => {
@@ -44,6 +44,10 @@ const Main = () => {
           {/* temporary */}
           <Route path="/payment" exact>
             <PaymentMethod />
+          </Route>
+          {/* temporary */}
+          <Route path="/ordersummary" exact>
+            <OrderSummary />
           </Route>
           <Route path="*">
             <NotFound />

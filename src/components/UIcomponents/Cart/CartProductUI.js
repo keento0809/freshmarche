@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -6,6 +6,12 @@ import ChangeAmountButton from "../Buttons/ChangeAmountButton";
 // import ChangeAmountButton from "../Buttons/changeAmountButton";
 
 const CartProductUI = () => {
+  const [isFavoriteItem, setIsFavoriteItem] = useState(false);
+
+  useEffect(() => {
+    setIsFavoriteItem(false);
+  }, []);
+
   return (
     <Box bgcolor="white" borderRadius="12px" margin="1rem 0">
       <Box
@@ -44,8 +50,12 @@ const CartProductUI = () => {
         bgcolor="background.third"
         borderRadius="12px"
       >
-        {/* <ChangeAmountButton /> */}
-        <ChangeAmountButton sx={{ width: "80%" }} />
+        {isFavoriteItem && (
+          <Typography variant="body2" component="span">
+            View Detail
+          </Typography>
+        )}
+        {!isFavoriteItem && <ChangeAmountButton sx={{ width: "80%" }} />}
         <DeleteIcon color="text.primary" />
       </Box>
     </Box>

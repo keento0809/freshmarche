@@ -9,6 +9,8 @@ import NotFound from "./NotFound";
 import ProductDetail from "./ProductDetail";
 import MyCart from "./MyCart";
 import Favorites from "./Favorites";
+import PaymentMethod from "./PaymentMethod";
+import MyInfo from "./MyInfo";
 
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
 
@@ -24,6 +26,10 @@ const Main = () => {
             <Home />
           </Route>
           {/* temporary */}
+          <Route path="/mypage" exact>
+            <MyInfo />
+          </Route>
+          {/* temporary */}
           <Route path="/mycart" exact>
             <MyCart />
           </Route>
@@ -34,6 +40,10 @@ const Main = () => {
           {/* temporary */}
           <Route path="/products/detail" exact>
             <ProductDetail />
+          </Route>
+          {/* temporary */}
+          <Route path="/payment" exact>
+            <PaymentMethod />
           </Route>
           <Route path="*">
             <NotFound />

@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AddToCartButton from "../Buttons/AddToCartButton";
+import MoveNextButton from "../Buttons/MoveNextButton";
 import { Fragment } from "react";
 
 const CartSummaryUI = () => {
@@ -33,7 +34,7 @@ const CartSummaryUI = () => {
         </Box>
       </Box>
       <Box textAlign="center" marginTop={3}>
-        <AddToCartButton />
+        <MoveNextButton label="CHECKOUT" />
       </Box>
     </Box>
   );

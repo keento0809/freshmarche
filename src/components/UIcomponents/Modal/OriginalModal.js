@@ -1,4 +1,5 @@
 import * as React from "react";
+import { NavLink } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -18,9 +19,9 @@ const style = {
   bgcolor: "background.secondary",
   border: "2px solid primary",
   boxShadow: 24,
-  // p: 4,
   textAlign: "center",
   listStyle: "none",
+  textDecoration: "none",
 };
 
 const UlStyle = styled("ul")({ padding: 0, listStyle: "none" });
@@ -47,42 +48,62 @@ const OriginalModal = (props) => {
         <Fade in={props.isOpen}>
           <Box sx={style}>
             <UlStyle>
-              <Typography
-                variant="body1"
-                component="p"
-                display="block"
-                paddingBottom="1rem"
-                cursor="pointer"
+              <NavLink
+                to="/mypage"
+                style={{ textDecoration: "none", color: "inherit" }}
               >
-                My Info
-              </Typography>
-              <Typography
-                variant="body1"
-                component="p"
-                display="block"
-                paddingBottom="1rem"
-                cursor="pointer"
+                <Typography
+                  variant="body1"
+                  component="p"
+                  display="block"
+                  paddingBottom="1rem"
+                  cursor="pointer"
+                >
+                  My Info
+                </Typography>
+              </NavLink>
+              <NavLink
+                to="/mycart"
+                style={{ textDecoration: "none", color: "inherit" }}
               >
-                My Cart
-              </Typography>
-              <Typography
-                variant="body1"
-                component="p"
-                display="block"
-                paddingBottom="1rem"
-                cursor="pointer"
+                <Typography
+                  variant="body1"
+                  component="p"
+                  display="block"
+                  paddingBottom="1rem"
+                  cursor="pointer"
+                >
+                  My Cart
+                </Typography>
+              </NavLink>
+              <NavLink
+                to="/favorites"
+                style={{ textDecoration: "none", color: "inherit" }}
               >
-                Favorites
-              </Typography>
-              <Typography
-                variant="body1"
-                component="p"
-                display="block"
-                // paddingBottom="1rem"
-                cursor="pointer"
+                <Typography
+                  variant="body1"
+                  component="p"
+                  display="block"
+                  paddingBottom="1rem"
+                  cursor="pointer"
+                >
+                  Favorites
+                </Typography>
+              </NavLink>
+              <NavLink
+                to="#"
+                style={{ textDecoration: "none", color: "inherit" }}
               >
-                Logout
-              </Typography>
+                <Typography
+                  variant="body1"
+                  component="p"
+                  display="block"
+                  // paddingBottom="1rem"
+                  cursor="pointer"
+                >
+                  Logout
+                </Typography>
+              </NavLink>
             </UlStyle>
           </Box>
         </Fade>

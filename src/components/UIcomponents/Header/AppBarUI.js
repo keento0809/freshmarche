@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { useHistory, NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,21 +12,17 @@ import Container from "@mui/material/Container";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-// Add manually
-import SearchIcon from "@mui/icons-material/Search";
-
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const AppBarUI = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isHomePage, setIsHomePage] = useState(true);
 
+  const history = useHistory();
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-    props.onOpen();
-    console.log("Modal open??");
+    isHomePage && props.onOpen();
+    !isHomePage && history.push("/");
   };
   const handleOpenSearchBar = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -37,6 +34,11 @@ const AppBarUI = (props) => {
 
   const handleCloseSearchBar = () => {
     setAnchorElUser(null);
+  };
+
+  const handleOpenUserInfo = () => {
+    // test code
+    history.push("/mypage");
   };
 
   useEffect(() => {
@@ -83,22 +85,25 @@ const AppBarUI = (props) => {
               {/* <MenuIcon color="primary" /> */}
             </IconButton>
           </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "flex", md: "none" },
-            }}
-            color="primary"
-          >
-            FreshMarche
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}></Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <NavLink to="/" display="block" color="inherit">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "flex", md: "none" },
+                }}
+                color="primary"
+              >
+                FreshMarche
+              </Typography>
+            </NavLink>
+          </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton size="large">
+            <IconButton size="large" onClick={handleOpenUserInfo}>
               <AccountCircleIcon color="primary" cursor="pointer" />
             </IconButton>
           </Box>

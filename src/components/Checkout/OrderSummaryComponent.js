@@ -3,7 +3,7 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
 import CartSummaryUI from "../UIcomponents/Cart/CartSummaryUI";
-import LoadingSpinner from "../UIcomponents/LoadingSpinner/LoadingSpinnerUI";
+import ModalUI from "../UIcomponents/Modal/ModalUI";
 
 const OrderSummaryComponent = () => {
   return (
@@ -13,7 +13,7 @@ const OrderSummaryComponent = () => {
         <CheckoutStepper />
       </Box>
       {/* test */}
-      {/* <LoadingSpinner /> */}
+      <ModalUI />
       <CartSummaryUI label="PLACE ORDER" />
     </ContainerUI>
   );

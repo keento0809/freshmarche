@@ -23,6 +23,7 @@ const AppBarUI = (props) => {
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
+    console.log("Modal will open soon.");
   };
   const handleOpenSearchBar = (event) => {
     setAnchorElUser(event.currentTarget);

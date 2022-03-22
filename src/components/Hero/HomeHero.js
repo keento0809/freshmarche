@@ -11,18 +11,17 @@ const TextComponent = styled("p")({
   fontWeight: "Bold",
 });
 
+const style = {
+  textAlign: "center",
+  color: "secondary.main",
+};
+
 const HomeHero = (props) => {
   return (
     <HeroBox>
       <div className="container"></div>
       <TextComponent>Explore Freshest Foods.</TextComponent>
-      <Typography
-        variant="h4"
-        component="h4"
-        sx={{ textAlign: "left" }}
-        paddingTop={6}
-        sx={{ color: "secondary.main" }}
-      >
+      <Typography variant="h4" component="h4" paddingTop={6} sx={style}>
         Search Products
       </Typography>
       <HeroSearchBar />

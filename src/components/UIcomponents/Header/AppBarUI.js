@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 // Add manually
 import SearchIcon from "@mui/icons-material/Search";
@@ -98,7 +99,7 @@ const AppBarUI = (props) => {
 
           <Box sx={{ flexGrow: 0 }}>
             <IconButton size="large">
-              <SearchIcon color="primary" cursor="pointer" />
+              <AccountCircleIcon color="primary" cursor="pointer" />
             </IconButton>
           </Box>
         </Toolbar>

@@ -1,12 +1,12 @@
 import { Fragment } from "react";
-import SecondHeader from "../components/Header/SecondHeader";
+import MainHeader from "../components/Header/MainHeader";
 import MainFooter from "../components/Footer/MainFooter";
 import OrderSummaryComponent from "../components/Checkout/OrderSummaryComponent";
 
 const OrderSummary = () => {
   return (
     <Fragment>
-      <SecondHeader />
+      <MainHeader isHome={false} />
       <OrderSummaryComponent />
       <MainFooter />
     </Fragment>

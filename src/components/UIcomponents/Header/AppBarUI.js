@@ -1,16 +1,14 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+// import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // Add manually
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,9 +16,10 @@ import SearchIcon from "@mui/icons-material/Search";
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const AppBarUI = () => {
+const AppBarUI = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isHomePage, setIsHomePage] = useState(true);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,6 +35,10 @@ const AppBarUI = () => {
   const handleCloseSearchBar = () => {
     setAnchorElUser(null);
   };
+
+  useEffect(() => {
+    props.isHome ? setIsHomePage(true) : setIsHomePage(false);
+  }, []);
 
   return (
     // <AppBar position="static" sx={{ bgcolor: "background.default" }}>
@@ -70,7 +73,9 @@ const AppBarUI = () => {
               color="inherit"
               cursor="pointer"
             >
-              <MenuIcon color="primary" />
+              {isHomePage && <MenuIcon color="primary" />}
+              {!isHomePage && <ArrowBackIcon color="primary" />}
+              {/* <MenuIcon color="primary" /> */}
             </IconButton>
           </Box>
           <Typography

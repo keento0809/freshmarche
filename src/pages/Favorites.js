@@ -1,12 +1,12 @@
 import { Fragment } from "react";
-import SecondHeader from "../components/Header/SecondHeader";
+import MainHeader from "../components/Header/MainHeader";
 import MainFooter from "../components/Footer/MainFooter";
 import MyFavorites from "../components/MyFavorites/MyFavorites";
 
 const Favorites = () => {
   return (
     <Fragment>
-      <SecondHeader />
+      <MainHeader isHome={false} />
       <MyFavorites />
       <MainFooter />
     </Fragment>

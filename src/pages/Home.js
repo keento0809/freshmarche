@@ -13,7 +13,7 @@ const HomeComponent = styled("div")({
 const Home = () => {
   return (
     <HomeComponent>
-      <MainHeader />
+      <MainHeader isHome={true} />
       <HomeMain />
       <MainFooter />
     </HomeComponent>

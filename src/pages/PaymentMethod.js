@@ -1,12 +1,12 @@
 import { Fragment } from "react";
 import AddPaymentMethod from "../components/Checkout/AddPaymentMethod";
 import MainFooter from "../components/Footer/MainFooter";
-import SecondHeader from "../components/Header/SecondHeader";
+import MainHeader from "../components/Header/MainHeader";
 
 const PaymentMethod = () => {
   return (
     <Fragment>
-      <SecondHeader />
+      <MainHeader isHome={false} />
       <AddPaymentMethod />
       <MainFooter />
     </Fragment>

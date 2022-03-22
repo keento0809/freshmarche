@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import AppBarUI from "../UIcomponents/Header/AppBarUI";
 
-const MainHeader = () => {
+const MainHeader = (props) => {
   return (
     <Fragment>
-      <AppBarUI />
+      <AppBarUI isHome={props.isHome} />
     </Fragment>
   );
 };

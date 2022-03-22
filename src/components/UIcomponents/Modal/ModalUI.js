@@ -1,4 +1,5 @@
 import * as React from "react";
+import ReactDOM from "react-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -22,10 +23,10 @@ const ModalUI = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const portalElement = document.querySelector("modal");
 
-  return (
-    <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+  const ModalComponent = () => {
+    return (
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -48,6 +49,13 @@ const ModalUI = () => {
           </Box>
         </Fade>
       </Modal>
+    );
+  };
+
+  return (
+    <div>
+      <Button onClick={handleOpen}>Open modal</Button>
+      {ReactDOM.createPortal(<ModalComponent />, portalElement)}
     </div>
   );
 };

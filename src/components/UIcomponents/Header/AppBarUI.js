@@ -23,7 +23,8 @@ const AppBarUI = (props) => {
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-    console.log("Modal will open soon.");
+    props.onOpen();
+    console.log("Modal open??");
   };
   const handleOpenSearchBar = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -40,6 +41,8 @@ const AppBarUI = (props) => {
   useEffect(() => {
     props.isHome ? setIsHomePage(true) : setIsHomePage(false);
   }, []);
+
+  // const onClickHandle = isHomePage ? :
 
   return (
     // <AppBar position="static" sx={{ bgcolor: "background.default" }}>

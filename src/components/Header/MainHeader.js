@@ -4,7 +4,11 @@ import AppBarUI from "../UIcomponents/Header/AppBarUI";
 const MainHeader = (props) => {
   return (
     <Fragment>
-      <AppBarUI isHome={props.isHome} />
+      <AppBarUI
+        isHome={props.isHome}
+        onOpen={props.onOpen}
+        onClose={props.onClose}
+      />
     </Fragment>
   );
 };

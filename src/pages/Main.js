@@ -6,13 +6,7 @@ import {
 } from "react-router-dom";
 import React, { Suspense } from "react";
 import Home from "./Home";
-// import NotFound from "./NotFound";
-// import ProductDetail from "./ProductDetail";
-// import MyCart from "./MyCart";
-// import Favorites from "./Favorites";
-// import PaymentMethod from "./PaymentMethod";
-// import MyInfo from "./MyInfo";
-// import OrderSummary from "./OrderSummary";
+// import OrderComplete from "./OrderComplete";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
 
 const NotFound = React.lazy(() => import("./NotFound"));
@@ -22,6 +16,7 @@ const Favorites = React.lazy(() => import("./Favorites"));
 const PaymentMethod = React.lazy(() => import("./PaymentMethod"));
 const MyInfo = React.lazy(() => import("./MyInfo"));
 const OrderSummary = React.lazy(() => import("./OrderSummary"));
+const OrderComplete = React.lazy(() => import("./OrderComplete"));
 
 const Main = () => {
   return (
@@ -58,6 +53,10 @@ const Main = () => {
             {/* temporary */}
             <Route path="/ordersummary" exact>
               <OrderSummary />
+            </Route>
+            {/* temporary */}
+            <Route path="/complete" exact>
+              <OrderComplete />
             </Route>
             <Route path="*">
               <NotFound />

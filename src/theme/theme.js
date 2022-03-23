@@ -54,7 +54,7 @@ const theme = createTheme({
     h6: {
       fontFamily: ["Circular Pro", "Verdana", "sans-serif"].join(","),
       fontWeight: 600,
-      fontSize: "1.5rem",
+      fontSize: "0.9rem",
       letterSpacing: "-1px",
     },
     body1: {

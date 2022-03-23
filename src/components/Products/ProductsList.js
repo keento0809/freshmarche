@@ -17,7 +17,7 @@ const DUMMY_PRODUCTS = [
   {
     id: "p1",
     name: "Banana",
-    price: 10.99,
+    price: 2.99,
     image:
       "https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716",
   },

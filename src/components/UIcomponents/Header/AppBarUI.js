@@ -86,7 +86,12 @@ const AppBarUI = (props) => {
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 1 }}>
-            <NavLink to="/" display="block" color="inherit">
+            <NavLink
+              to="/"
+              display="block"
+              color="inherit"
+              style={{ textDecoration: "none" }}
+            >
               <Typography
                 variant="h6"
                 noWrap

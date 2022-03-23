@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Product from "./Product";
 import { styled } from "@mui/system";
+import dummyData from "../../data/dummyData.json";
 
 const UlComponent = styled("ul")({
   margin: 0,
@@ -72,7 +73,9 @@ const DUMMY_PRODUCTS = [
 ];
 
 const ProductList = (props) => {
-  const products = DUMMY_PRODUCTS.map((product, index) => {
+  // original code
+  // const products = DUMMY_PRODUCTS.map((product, index) => {
+  const products = dummyData.map((product, index) => {
     return (
       <Product
         key={index}

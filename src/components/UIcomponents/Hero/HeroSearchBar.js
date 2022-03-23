@@ -62,7 +62,7 @@ const HeroSearchBar = () => {
       }}
     >
       <Search className="どれがTextInputやねん">
-        <SearchIconWrapper>
+        <SearchIconWrapper className="これか？？">
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase

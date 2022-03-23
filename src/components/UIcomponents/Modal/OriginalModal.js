@@ -16,7 +16,7 @@ const style = {
   // Original code
   // width: 400,
   width: "100%",
-  bgcolor: "background.secondary",
+  bgcolor: "background.default",
   border: "2px solid primary",
   boxShadow: 24,
   textAlign: "center",
@@ -58,6 +58,7 @@ const OriginalModal = (props) => {
                   display="block"
                   paddingBottom="1rem"
                   cursor="pointer"
+                  color="primary"
                 >
                   My Info
                 </Typography>
@@ -72,6 +73,7 @@ const OriginalModal = (props) => {
                   display="block"
                   paddingBottom="1rem"
                   cursor="pointer"
+                  color="primary"
                 >
                   My Cart
                 </Typography>
@@ -86,6 +88,7 @@ const OriginalModal = (props) => {
                   display="block"
                   paddingBottom="1rem"
                   cursor="pointer"
+                  color="primary"
                 >
                   Favorites
                 </Typography>
@@ -100,6 +103,7 @@ const OriginalModal = (props) => {
                   display="block"
                   // paddingBottom="1rem"
                   cursor="pointer"
+                  color="primary"
                 >
                   Logout
                 </Typography>

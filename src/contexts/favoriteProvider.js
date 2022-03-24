@@ -1,8 +1,9 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import FavoriteContext from "./favorite-context";
+import { addAction, removeAction } from "../actions/favorite-action";
 
 const initialState = {
-  favoriteList: [],
+  listProducts: [],
   totalQuantity: 0,
 };
 
@@ -12,14 +13,19 @@ const favoriteProvider = (props) => {
     initialState
   );
 
-  const handleAddToFavoriteList = () => {
-    dispatchAction();
+  const handleAddToFavoriteList = (product) => {
+    dispatchAction(addAction(product));
   };
-  const handleRemoveFromFavoriteList = () => {
-    dispatchAction();
+  const handleRemoveFromFavoriteList = (id) => {
+    dispatchAction(removeAction(id));
   };
 
-  const favoriteContext = {};
+  const favoriteContext = {
+    favoriteList: favoriteState.listProducts,
+    totalQuantity: favoriteState.totalQuantity,
+    addToFavoriteList: handleAddToFavoriteList,
+    removeFromFavoriteList: handleRemoveFromFavoriteList,
+  };
 
   return (
     <FavoriteContext.Provider value={favoriteContext}>

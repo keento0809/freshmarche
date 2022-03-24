@@ -12,7 +12,7 @@ const ImageComponent = styled("img")({
 
 const DetailHero = (props) => {
   return (
-    <MainBoxUI margin="1rem 0">
+    <MainBoxUI>
       <TitleUI title={props.name} />
       <ImageComponent
         src={props.imageUrl}

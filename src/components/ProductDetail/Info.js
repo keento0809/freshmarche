@@ -7,13 +7,17 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Typography from "@mui/material/Typography";
 
 const Info = (props) => {
+  const handleAddToFavorites = () => {
+    console.log("test log of addToFavorites.");
+  };
+
   return (
     <MainBoxUI>
       <Box display="flex" justifyContent="center" alignItems="center">
         <Typography variant="body1" component="span" color="secondary">
           {props.name}
         </Typography>
-        <FavoriteIcon sx={{ color: "violet" }} />
+        <FavoriteIcon sx={{ color: "violet" }} onClick={handleAddToFavorites} />
       </Box>
       <Box>
         <ChangeAmountButton />

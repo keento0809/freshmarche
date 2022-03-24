@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ChangeAmountButton from "../Buttons/ChangeAmountButton";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // import ChangeAmountButton from "../Buttons/changeAmountButton";
 
 const CartProductUI = () => {
   const [isFavoriteItem, setIsFavoriteItem] = useState(false);
 
   useEffect(() => {
-    setIsFavoriteItem(false);
+    // test
+    setIsFavoriteItem(true);
   }, []);
 
   return (
@@ -51,7 +54,13 @@ const CartProductUI = () => {
         borderRadius="12px"
       >
         {isFavoriteItem && (
-          <Typography variant="body2" component="span">
+          <Typography
+            variant="body2"
+            component={RouterLink}
+            to="/products/detail"
+            sx={{ textDecoration: "none", color: "text.primary" }}
+          >
+            <ArrowForwardIosIcon sx={{ width: "0.8rem", height: "0.8rem" }} />{" "}
             View Detail
           </Typography>
         )}

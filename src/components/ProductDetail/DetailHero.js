@@ -13,9 +13,10 @@ const ImageComponent = styled("img")({
 const DetailHero = (props) => {
   return (
     <MainBoxUI margin="1rem 0">
-      <TitleUI title="Product A" />
+      <TitleUI title={props.name} />
       <ImageComponent
-        src="https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716"
+        src={props.imageUrl}
+        // src="https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716"
         alt="product"
       />
     </MainBoxUI>

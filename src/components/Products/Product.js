@@ -1,8 +1,9 @@
+import { Link as RouterLink, useParams } from "react-router-dom";
 import ProductPaper from "../UIcomponents/Products/ProductPaper";
 import ViewDetailButton from "../UIcomponents/Buttons/ViewDetailButton";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
-import { autocompleteClasses } from "@mui/material";
+import dummyData from "../../data/dummyData.json";
 
 const ImageComponent = styled("img")({
   width: "100%",
@@ -12,6 +13,9 @@ const ImageComponent = styled("img")({
 });
 
 const Product = (props) => {
+  const params = useParams();
+  const product = dummyData.find((product) => product.id === params.productId);
+
   return (
     <ProductPaper sx={{ display: "inline-block" }}>
       <li key={props.index}>
@@ -36,7 +40,7 @@ const Product = (props) => {
           ${props.price}
         </Typography>
         {/* <img src={props.imageUrl} alt="" /> */}
-        <ViewDetailButton text="Detail" />
+        <ViewDetailButton text="Detail" id={props.id} />
       </li>
     </ProductPaper>
   );

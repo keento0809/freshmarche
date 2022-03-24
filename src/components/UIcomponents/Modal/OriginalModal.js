@@ -9,8 +9,8 @@ import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 
 const style = {
-  position: "absolute",
-  top: "0%",
+  position: "fixed",
+  top: "56px",
   left: "0%",
   // transform: "translate(-50%, -50%)",
   // Original code

@@ -1,8 +1,13 @@
+import ContainerUI from "../components/UIcomponents/Container/ContainerUI";
+import Typography from "@mui/material/Typography";
+
 const NotFound = () => {
   return (
-    <div>
-      <p>Page Not Found.</p>
-    </div>
+    <ContainerUI>
+      <Typography variant="body1" component="p" color="#fff" textAlign="center">
+        Page Not Found.
+      </Typography>
+    </ContainerUI>
   );
 };
 

@@ -1,6 +1,6 @@
 import * as React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
-import { padding } from "@mui/system";
 
 const ViewDetailButton = (props) => {
   return (
@@ -16,7 +16,8 @@ const ViewDetailButton = (props) => {
       }}
       // variant="outlined"
       variant="contained"
-      href="#"
+      component={RouterLink}
+      to={`/products/${props.id}`}
     >
       {props.text}
     </Button>

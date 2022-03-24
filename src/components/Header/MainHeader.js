@@ -8,6 +8,9 @@ const MainHeader = (props) => {
         isHome={props.isHome}
         onOpen={props.onOpen}
         onClose={props.onClose}
+        isLoggedIn={props.isLoggedIn}
+        onLogin={props.handleLogin}
+        onLogOut={props.handleLogout}
       />
     </Fragment>
   );

@@ -6,19 +6,19 @@ import ChangeAmountButton from "../UIcomponents/Buttons/ChangeAmountButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Typography from "@mui/material/Typography";
 
-const Info = () => {
+const Info = (props) => {
   return (
     <MainBoxUI>
       <Box display="flex" justifyContent="center" alignItems="center">
         <Typography variant="body1" component="span" color="secondary">
-          Product A
+          {props.name}
         </Typography>
         <FavoriteIcon sx={{ color: "violet" }} />
       </Box>
       <Box>
         <ChangeAmountButton />
         <Typography variant="h2" component="h3" color="white">
-          $10.99
+          ${props.price}
         </Typography>
         <Typography variant="span" component="p" color="secondary">
           Description

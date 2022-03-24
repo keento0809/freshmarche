@@ -1,5 +1,5 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -29,8 +29,8 @@ const BottomNavigationUI = () => {
       <BottomNavigationAction
         label=""
         value="MyPage"
-        // temporary
-        href="/mypage"
+        component={RouterLink}
+        to="/mypage"
         icon={<AccountCircleIcon />}
         sx={{ padding: "0.8rem 0" }}
       />
@@ -39,14 +39,16 @@ const BottomNavigationUI = () => {
       <BottomNavigationAction
         label=""
         value="favorites"
-        href="/favorites"
+        component={RouterLink}
+        to="/favorites"
         icon={<FavoriteIcon />}
         sx={{ padding: "0.8rem 0" }}
       />
       <BottomNavigationAction
         label=""
-        value="folder"
-        href="/mycart"
+        value="MyCart"
+        component={RouterLink}
+        to="/mycart"
         icon={<ShoppingCartIcon />}
         sx={{ padding: "0.8rem 0" }}
       />

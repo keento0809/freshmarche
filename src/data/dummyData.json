@@ -14,19 +14,19 @@
   {
     "id": "p3",
     "name": "Grape",
-    "price": 7.99,
+    "price": 10.59,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
   },
   {
     "id": "p4",
     "name": "Grape2",
-    "price": 7.99,
+    "price": 14.99,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
   },
   {
     "id": "p5",
     "name": "Grape3",
-    "price": 7.99,
+    "price": 22.19,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
   },
   {
@@ -38,19 +38,19 @@
   {
     "id": "p7",
     "name": "Grape5",
-    "price": 7.99,
+    "price": 17.89,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
   },
   {
     "id": "p8",
     "name": "Grape6",
-    "price": 7.99,
+    "price": 15.99,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
   },
   {
     "id": "p9",
     "name": "Grape7",
-    "price": 7.99,
+    "price": 30.99,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
   }
 ]

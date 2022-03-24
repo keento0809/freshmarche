@@ -43,7 +43,7 @@ const Main = () => {
               <Favorites />
             </Route>
             {/* temporary */}
-            <Route path="/products/detail" exact>
+            <Route path="/products/:productId">
               <ProductDetail />
             </Route>
             {/* temporary */}

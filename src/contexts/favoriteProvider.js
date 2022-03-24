@@ -1,13 +1,16 @@
 import React, { useReducer } from "react";
 import FavoriteContext from "./favorite-context";
 import { addAction, removeAction } from "../actions/favorite-action";
+import FavoriteReducer from "../reducers/FavoriteReducer";
 
 const initialState = {
   listProducts: [],
   totalQuantity: 0,
 };
 
-const favoriteProvider = (props) => {
+console.log(initialState);
+
+const FavoriteProvider = (props) => {
   const [favoriteState, dispatchAction] = useReducer(
     FavoriteReducer,
     initialState
@@ -34,4 +37,4 @@ const favoriteProvider = (props) => {
   );
 };
 
-export default favoriteProvider;
+export default FavoriteProvider;

@@ -7,7 +7,7 @@ import ChangeAmountButton from "../Buttons/ChangeAmountButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // import ChangeAmountButton from "../Buttons/changeAmountButton";
 
-const CartProductUI = () => {
+const CartProductUI = (props) => {
   const [isFavoriteItem, setIsFavoriteItem] = useState(false);
 
   useEffect(() => {
@@ -26,12 +26,12 @@ const CartProductUI = () => {
       >
         <Box>
           <Typography variant="h5" component="h5" color="text.primary">
-            Product A
+            Product A{/* {props.name} */}
           </Typography>
         </Box>
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography variant="h5" component="h5" color="primary">
-            1
+            1{props.quantity}
           </Typography>
           <Typography
             variant="h5"
@@ -40,6 +40,7 @@ const CartProductUI = () => {
             paddingLeft="1rem"
           >
             $10.99
+            {/* {props.price} */}
           </Typography>
         </Box>
       </Box>
@@ -61,11 +62,12 @@ const CartProductUI = () => {
             sx={{ textDecoration: "none", color: "text.primary" }}
           >
             <ArrowForwardIosIcon sx={{ width: "0.8rem", height: "0.8rem" }} />{" "}
+            {/* I need to add the link jumping to the productDetail page */}
             View Detail
           </Typography>
         )}
         {!isFavoriteItem && <ChangeAmountButton sx={{ width: "80%" }} />}
-        <DeleteIcon color="text.primary" />
+        <DeleteIcon color="text.primary" onClick={props.onClick} />
       </Box>
     </Box>
   );

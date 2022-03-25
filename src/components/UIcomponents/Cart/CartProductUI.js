@@ -12,7 +12,7 @@ const CartProductUI = (props) => {
 
   useEffect(() => {
     // test
-    setIsFavoriteItem(true);
+    setIsFavoriteItem(props.isFavoriteItem);
   }, []);
 
   const handleClick = (value) => {

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import FavoriteContext from "../../contexts/favorite-context";
+import CartContext from "../../contexts/cart-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import AddToCartButton from "../UIcomponents/Buttons/AddToCartButton";
 import MainBoxUI from "../UIcomponents/Box/MainBox";
@@ -10,9 +11,10 @@ import Typography from "@mui/material/Typography";
 
 const Info = (props) => {
   // manage the quantity of the product
-  const [orderQuantity, setOrderQuantity] = useState(0);
+  const [orderQuantity, setOrderQuantity] = useState(1);
 
   const favoriteCtx = useContext(FavoriteContext);
+  const cartCtx = useContext(CartContext);
 
   const productInfo = {
     id: props.id,
@@ -23,6 +25,10 @@ const Info = (props) => {
 
   const handleAddToFavorites = (product) => {
     favoriteCtx.addToFavoriteList(product);
+  };
+
+  const handleAddToCart = (product) => {
+    cartCtx.addToCart(product);
   };
 
   return (
@@ -50,7 +56,11 @@ const Info = (props) => {
         <KeyboardArrowDownIcon display="inline-block" color="secondary" />
       </Box>
       <Box margin="2rem 0">
-        <AddToCartButton />
+        <AddToCartButton
+          onClick={() => handleAddToCart(productInfo)}
+          label="ADDTOCART"
+          productInfo={productInfo}
+        />
       </Box>
     </MainBoxUI>
   );

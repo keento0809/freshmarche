@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-const AddToCartButton = () => {
+const AddToCartButton = (props) => {
   return (
     <Button
       variant="contained"
@@ -13,8 +13,9 @@ const AddToCartButton = () => {
         bgcolor: "background.paper",
         padding: "0.7rem 0",
       }}
+      onClick={props.onClick}
     >
-      ADDTOCART
+      {props.label}
     </Button>
   );
 };

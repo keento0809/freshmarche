@@ -33,7 +33,7 @@ const Info = (props) => {
         </Typography>
         <FavoriteIcon
           sx={{ color: "violet" }}
-          onClick={handleAddToFavorites.bind(null, productInfo)}
+          onClick={() => handleAddToFavorites(productInfo)}
         />
       </Box>
       <Box>

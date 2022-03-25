@@ -8,8 +8,6 @@ const initialState = {
   totalQuantity: 0,
 };
 
-console.log(initialState);
-
 const FavoriteProvider = (props) => {
   const [favoriteState, dispatchAction] = useReducer(
     FavoriteReducer,

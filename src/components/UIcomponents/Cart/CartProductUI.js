@@ -26,12 +26,13 @@ const CartProductUI = (props) => {
       >
         <Box>
           <Typography variant="h5" component="h5" color="text.primary">
-            Product A{/* {props.name} */}
+            {/* Product A */}
+            {props.name}
           </Typography>
         </Box>
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography variant="h5" component="h5" color="primary">
-            1{props.quantity}
+            {props.quantity}
           </Typography>
           <Typography
             variant="h5"
@@ -39,8 +40,7 @@ const CartProductUI = (props) => {
             color="primary"
             paddingLeft="1rem"
           >
-            $10.99
-            {/* {props.price} */}
+            {/* $10.99 */}${props.price}
           </Typography>
         </Box>
       </Box>

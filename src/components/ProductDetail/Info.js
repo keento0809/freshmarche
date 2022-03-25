@@ -21,6 +21,7 @@ const Info = (props) => {
     name: props.name,
     price: props.price,
     quantity: orderQuantity,
+    subTotalPrice: props.price * orderQuantity,
   };
 
   const handleAddToFavorites = (product) => {

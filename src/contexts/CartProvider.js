@@ -6,7 +6,7 @@ import CartReducer from "../reducers/CartReducer";
 const initialState = {
   cartProducts: [],
   totalQuantity: 0,
-  totalAmount: 0,
+  totalPrice: 0,
 };
 
 const CartProvider = (props) => {

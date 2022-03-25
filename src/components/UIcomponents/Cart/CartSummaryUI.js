@@ -13,7 +13,7 @@ const CartSummaryUI = (props) => {
             Sub-total
           </Typography>
           <Typography variant="body1" component="p" color="white">
-            $10.99
+            ${props.totalCartPrice}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="space-between">
@@ -21,7 +21,7 @@ const CartSummaryUI = (props) => {
             Delivery
           </Typography>
           <Typography variant="body1" component="p" color="white">
-            Standard(free)
+            ${props.deliveryFee}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="space-between">
@@ -29,7 +29,7 @@ const CartSummaryUI = (props) => {
             Total
           </Typography>
           <Typography variant="h4" component="h4" color="white">
-            $10.99
+            ${props.totalCartPrice}
           </Typography>
         </Box>
       </Box>

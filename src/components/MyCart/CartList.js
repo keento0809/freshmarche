@@ -17,6 +17,7 @@ const CartList = () => {
             id={product.id}
             name={product.name}
             price={product.price}
+            subTotalPrice={product.subTotalPrice}
             quantity={product.quantity}
             isFavoriteItem={false}
           />
@@ -26,7 +27,12 @@ const CartList = () => {
   }, [cartCtx.cartList]);
 
   let content = (
-    <Typography variant="body1" component="p" color="primary">
+    <Typography
+      variant="body1"
+      component="p"
+      color="primary"
+      textAlign="center"
+    >
       No Products fond in your cart.
     </Typography>
   );

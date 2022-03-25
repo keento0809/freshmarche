@@ -2,6 +2,7 @@ const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
       const addingProduct = action.payload;
+      console.log(addingProduct);
       const updatedTotalQuantity = state.totalQuantity + addingProduct.quantity;
       const updatedTotalPrice =
         state.totalPrice + addingProduct.quantity * addingProduct.price;
@@ -10,9 +11,6 @@ const CartReducer = (state, action) => {
       )
         ? [...state.cartProducts]
         : [...state.cartProducts, addingProduct];
-
-      console.log(...state.cartProducts);
-      console.log(updatedTotalQuantity);
 
       // I need refactoring!!
       let sample;
@@ -23,9 +21,8 @@ const CartReducer = (state, action) => {
           (product) => product.id === addingProduct.id
         );
         sample.quantity += action.payload.quantity;
+        sample.subTotalPrice += action.payload.subTotalPrice;
       }
-      console.log(sample);
-      console.log(updatedCartProducts);
 
       return {
         cartProducts: updatedCartProducts,

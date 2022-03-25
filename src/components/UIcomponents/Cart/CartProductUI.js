@@ -44,7 +44,7 @@ const CartProductUI = (props) => {
             color="primary"
             paddingLeft="1rem"
           >
-            {/* $10.99 */}${props.price}
+            {/* $10.99 */}${props.subTotalPrice}
           </Typography>
         </Box>
       </Box>

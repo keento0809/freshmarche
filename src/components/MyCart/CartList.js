@@ -5,8 +5,8 @@ const CartList = () => {
     <div>
       {/* <ul></ul> */}
       {/* dummy */}
-      <CartProductUI />
-      <CartProductUI />
+      {/* <CartProductUI />
+      <CartProductUI /> */}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import ContainerUI from "../components/UIcomponents/Container/ContainerUI";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../components/UIcomponents/Buttons/MoveNextButton";
+import SuccessAlert from "../components/UIcomponents/Alert/SuccessAlert";
 
 const OrderComplete = () => {
   const style = {
@@ -16,6 +17,8 @@ const OrderComplete = () => {
   return (
     <ContainerUI>
       <Box sx={style}>
+        {/* test */}
+        <SuccessAlert />
         <Typography variant="h5" component="h5" color="primary">
           Your order is successful.
         </Typography>

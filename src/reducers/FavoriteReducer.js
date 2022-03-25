@@ -6,26 +6,35 @@ const FavoriteReducer = (state, action) => {
         (product) => product.id === addingProduct.id
       );
 
-      let updatedListProduct;
-      let updatedTotalQuantity;
-
-      if (isExisting === undefined) {
-        updatedListProduct = [...state.listProducts, action.payload];
-        updatedTotalQuantity = state.totalQuantity + 1;
-      } else {
-        alert("You've already added this to your favorite lists.");
-        updatedListProduct = state.listProducts;
-        updatedTotalQuantity = state.totalQuantity;
-      }
-      console.log(updatedListProduct);
+      const updatedListProduct =
+        isExisting === undefined
+          ? [...state.listProducts, action.payload]
+          : state.listProducts;
+      const updatedTotalQuantity =
+        isExisting === undefined
+          ? state.totalQuantity + 1
+          : state.totalQuantity;
       return {
         listProducts: updatedListProduct,
         totalQuantity: updatedTotalQuantity,
       };
     }
     case "REMOVE": {
-      console.log("Removing the product that you chose.");
-      return state;
+      const removingProductId = action.payload;
+      const changedListProducts = state.listProducts.filter(
+        (product) => product.id !== removingProductId
+      );
+
+      const changedTotalQuantity =
+        state.totalQuantity === 0
+          ? state.totalQuantity
+          : state.totalQuantity - 1;
+      console.log(changedTotalQuantity);
+
+      return {
+        listProducts: changedListProducts,
+        totalQuantity: changedTotalQuantity,
+      };
     }
   }
 };

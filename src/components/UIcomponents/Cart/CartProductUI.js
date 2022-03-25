@@ -15,6 +15,10 @@ const CartProductUI = (props) => {
     setIsFavoriteItem(true);
   }, []);
 
+  const handleClick = (value) => {
+    props.onClick(value);
+  };
+
   return (
     <Box bgcolor="white" borderRadius="12px" margin="1rem 0">
       <Box
@@ -67,7 +71,10 @@ const CartProductUI = (props) => {
           </Typography>
         )}
         {!isFavoriteItem && <ChangeAmountButton sx={{ width: "80%" }} />}
-        <DeleteIcon color="text.primary" onClick={props.onClick} />
+        <DeleteIcon
+          color="text.primary"
+          onClick={() => handleClick(props.id)}
+        />
       </Box>
     </Box>
   );

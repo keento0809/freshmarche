@@ -19,8 +19,12 @@ const ChangeAmountButton = (props) => {
     props.onClick(props.quantity + 1);
     // console.log(product);
     // cartCtx.addToCart(product);
-    if (props.isAddCartPushed) setDisplayQuantity(1);
-    props.onCheck(false);
+    if (props.isAddCartPushed) {
+      setDisplayQuantity(1);
+      props.onClick(2);
+    }
+    console.log("regulation would be working...");
+    if (props.onCheck) props.onCheck(false);
   };
 
   const handleSubtractProductOne = () => {
@@ -29,6 +33,10 @@ const ChangeAmountButton = (props) => {
       return;
     }
     props.onClick(props.quantity - 1);
+    if (props.isAddCartPushed) {
+      setDisplayQuantity(1);
+      props.onClick(2);
+    }
     // cartCtx.subtractFromCart(props.productInfo);
     // console.log("test");
     if (props.isAddCartPushed) setDisplayQuantity(1);

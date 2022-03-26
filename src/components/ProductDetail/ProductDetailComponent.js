@@ -10,6 +10,7 @@ const ProductDetailComponent = (props) => {
         id={props.id}
         name={props.name}
         price={props.price}
+        quantity={props.quantity}
         subTotalPrice={props.subTotalPrice}
         imageUrl={props.imageUrl}
       />

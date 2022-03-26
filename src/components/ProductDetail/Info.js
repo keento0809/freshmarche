@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import FavoriteContext from "../../contexts/favorite-context";
 import CartContext from "../../contexts/cart-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -32,6 +32,12 @@ const Info = (props) => {
     cartCtx.addToCart(product);
   };
 
+  console.log(orderQuantity);
+
+  // useEffect(() => {
+  //   setOrderQuantity();
+  // }, [orderQuantity]);
+
   return (
     <MainBoxUI>
       <Box display="flex" justifyContent="center" alignItems="center">
@@ -45,8 +51,9 @@ const Info = (props) => {
       </Box>
       <Box>
         <ChangeAmountButton
-          value={orderQuantity}
-          onSetOrderQuantity={setOrderQuantity}
+          quantity={orderQuantity}
+          onClick={setOrderQuantity}
+          productInfo={productInfo}
         />
         <Typography variant="h2" component="h3" color="white">
           ${props.price}

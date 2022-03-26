@@ -23,6 +23,7 @@ const ProductList = (props) => {
         id={product.id}
         name={product.name}
         price={product.price}
+        quantity={1}
         imageUrl={product.image}
       />
     );

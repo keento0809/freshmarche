@@ -3,7 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Box from "@mui/material/Box";
 
@@ -30,8 +30,8 @@ const BottomNavigationUI = () => {
         label=""
         value="MyPage"
         component={RouterLink}
-        to="/mypage"
-        icon={<AccountCircleIcon />}
+        to="/"
+        icon={<HomeIcon />}
         sx={{ padding: "0.8rem 0" }}
       />
       {/* <NavLink to="/mypage"> */}

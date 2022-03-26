@@ -9,10 +9,23 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const CartProductUI = (props) => {
   const [isFavoriteItem, setIsFavoriteItem] = useState(false);
+  const [updatedOrderQuantity, setUpdatedOrderQuantity] = useState(
+    props.quantity
+  );
+
+  const productInfo = {
+    id: props.id,
+    name: props.name,
+    price: props.price,
+    subTotalPrice: props.price * props.quantity,
+    quantity: props.quantity,
+    isFavoriteItem: props.isFavoriteItem,
+  };
 
   useEffect(() => {
     // test
     setIsFavoriteItem(props.isFavoriteItem);
+    setUpdatedOrderQuantity(props.quantity);
   }, []);
 
   const handleClick = (value) => {
@@ -70,7 +83,15 @@ const CartProductUI = (props) => {
             View Detail
           </Typography>
         )}
-        {!isFavoriteItem && <ChangeAmountButton sx={{ width: "80%" }} />}
+        {!isFavoriteItem && (
+          <ChangeAmountButton
+            sx={{ width: "80%" }}
+            // default code. Do not delete !!
+            // quantity={props.quantity}
+            quantity={updatedOrderQuantity}
+            onClick={setUpdatedOrderQuantity}
+          />
+        )}
         <DeleteIcon
           color="text.primary"
           onClick={() => handleClick(props.id)}

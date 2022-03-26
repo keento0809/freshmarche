@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useContext } from "react";
+import CartContext from "../../../contexts/cart-context";
 import { Link as RouterLink } from "react-router-dom";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -8,6 +10,8 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Box from "@mui/material/Box";
 
 const BottomNavigationUI = () => {
+  const cartCtx = useContext(CartContext);
+
   const [value, setValue] = React.useState("recents");
 
   const handleChange = (event, newValue) => {

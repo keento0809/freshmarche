@@ -28,8 +28,13 @@ const CartProductUI = (props) => {
   useEffect(() => {
     // test
     setIsFavoriteItem(props.isFavoriteItem);
-    setUpdatedOrderQuantity(props.quantity);
+    // setUpdatedOrderQuantity();
   }, []);
+
+  const handleUpdateOrderQuantity = () => {
+    console.log("Updating...???");
+    // setUpdatedOrderQuantity(props.quantity + 1);
+  };
 
   const handleClick = (product) => {};
 
@@ -90,7 +95,7 @@ const CartProductUI = (props) => {
             // default code. Do not delete !!
             // quantity={props.quantity}
             quantity={updatedOrderQuantity}
-            onClick={setUpdatedOrderQuantity}
+            onClick={handleUpdateOrderQuantity}
             productInfo={productInfo}
           />
         )}

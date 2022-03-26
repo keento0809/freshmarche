@@ -16,6 +16,7 @@ const ChangeAmountButton = (props) => {
       alert("You can add cart ten at the maximum.");
       return;
     }
+    console.log(props.quantity);
     props.onClick(props.quantity + 1);
     // console.log(product);
     // cartCtx.addToCart(product);

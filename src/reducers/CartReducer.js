@@ -2,7 +2,6 @@ const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
       const addingProduct = action.payload;
-      console.log(addingProduct);
       const updatedTotalQuantity = state.totalQuantity + addingProduct.quantity;
       const updatedTotalPrice =
         state.totalPrice + addingProduct.quantity * addingProduct.price;
@@ -22,6 +21,7 @@ const CartReducer = (state, action) => {
         );
         sample.quantity += action.payload.quantity;
         sample.subTotalPrice += action.payload.subTotalPrice;
+        console.log(sample);
       }
 
       return {

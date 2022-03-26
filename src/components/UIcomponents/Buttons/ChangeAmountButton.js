@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import CartContext from "../../../contexts/cart-context";
 import Button from "@mui/material/Button";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -9,16 +9,30 @@ import { hover } from "@testing-library/user-event/dist/hover";
 const ChangeAmountButton = (props) => {
   const cartCtx = useContext(CartContext);
   const [itemInfo, setItemInfo] = useState({});
+  const [displayQuantity, setDisplayQuantity] = useState(props.quantity);
 
-  const handleAddProductOne = (product) => {
+  const handleAddProductOne = () => {
+    if (props.quantity > 9) {
+      alert("You can add cart ten at the maximum.");
+      return;
+    }
     props.onClick(props.quantity + 1);
     // console.log(product);
-    cartCtx.addToCart(product);
+    // cartCtx.addToCart(product);
+    if (props.isAddCartPushed) setDisplayQuantity(1);
+    props.onCheck(false);
   };
+
   const handleSubtractProductOne = () => {
+    if (props.quantity < 2) {
+      alert("You cannot subtract this product more.");
+      return;
+    }
     props.onClick(props.quantity - 1);
-    cartCtx.subtractFromCart(props.productInfo);
+    // cartCtx.subtractFromCart(props.productInfo);
     // console.log("test");
+    if (props.isAddCartPushed) setDisplayQuantity(1);
+    props.onCheck(false);
   };
 
   const buttonStyle = {
@@ -45,7 +59,9 @@ const ChangeAmountButton = (props) => {
         hover: "background.secondary",
       }}
     >
-      {props.quantity}
+      {/* default code. Do not delete! */}
+      {/* {props.quantity} */}
+      {displayQuantity}
     </Button>
   );
 };

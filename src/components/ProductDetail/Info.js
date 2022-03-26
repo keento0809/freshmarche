@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 const Info = (props) => {
   // manage the quantity of the product
   const [orderQuantity, setOrderQuantity] = useState(1);
+  const [isAddCartPushed, setIsAddCartPushed] = useState(false);
 
   const favoriteCtx = useContext(FavoriteContext);
   const cartCtx = useContext(CartContext);
@@ -29,7 +30,9 @@ const Info = (props) => {
   };
 
   const handleAddToCart = (product) => {
+    console.log(product);
     cartCtx.addToCart(product);
+    setIsAddCartPushed(true);
   };
 
   console.log(orderQuantity);
@@ -54,6 +57,8 @@ const Info = (props) => {
           quantity={orderQuantity}
           onClick={setOrderQuantity}
           productInfo={productInfo}
+          isAddCartPushed={isAddCartPushed}
+          onCheck={setIsAddCartPushed}
         />
         <Typography variant="h2" component="h3" color="white">
           ${props.price}

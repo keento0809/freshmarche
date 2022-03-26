@@ -11,14 +11,16 @@ const ChangeAmountButton = (props) => {
   const [itemInfo, setItemInfo] = useState({});
   const [displayQuantity, setDisplayQuantity] = useState(props.quantity);
 
+  console.log(props.quantity);
+
   const handleAddProductOne = () => {
     if (props.quantity > 9) {
       alert("You can add cart ten at the maximum.");
       return;
     }
-    console.log(props.quantity);
     props.onClick(props.quantity + 1);
-    // console.log(product);
+    setDisplayQuantity(displayQuantity + 1);
+    console.log("Props.onClick executed~~~!!");
     // cartCtx.addToCart(product);
     if (props.isAddCartPushed) {
       setDisplayQuantity(1);
@@ -41,7 +43,7 @@ const ChangeAmountButton = (props) => {
     // cartCtx.subtractFromCart(props.productInfo);
     // console.log("test");
     if (props.isAddCartPushed) setDisplayQuantity(1);
-    props.onCheck(false);
+    if (props.onCheck) props.onCheck(false);
   };
 
   const buttonStyle = {

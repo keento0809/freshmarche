@@ -21,6 +21,15 @@ const CartProductUI = (props) => {
     name: props.name,
     price: props.price,
     subTotalPrice: props.price * props.quantity,
+    quantity: props.quantity,
+    isFavoriteItem: props.isFavoriteItem,
+  };
+
+  const productInfoSingle = {
+    id: props.id,
+    name: props.name,
+    price: props.price,
+    subTotalPrice: props.price,
     quantity: 1,
     isFavoriteItem: props.isFavoriteItem,
   };
@@ -33,6 +42,7 @@ const CartProductUI = (props) => {
 
   const handleUpdateOrderQuantity = () => {
     console.log("Updating...???");
+    cartCtx.addToCart(productInfoSingle);
     // setUpdatedOrderQuantity(props.quantity + 1);
   };
 
@@ -49,13 +59,13 @@ const CartProductUI = (props) => {
       >
         <Box>
           <Typography variant="h5" component="h5" color="text.primary">
-            {/* Product A */}
             {props.name}
           </Typography>
         </Box>
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography variant="h5" component="h5" color="primary">
             {props.quantity}
+            {/* {updatedOrderQuantity} */}
           </Typography>
           <Typography
             variant="h5"
@@ -63,7 +73,7 @@ const CartProductUI = (props) => {
             color="primary"
             paddingLeft="1rem"
           >
-            {/* $10.99 */}${props.subTotalPrice}
+            ${props.subTotalPrice}
           </Typography>
         </Box>
       </Box>

@@ -18,15 +18,17 @@ const ChangeAmountButton = (props) => {
       alert("You can add cart ten at the maximum.");
       return;
     }
+    // change the quantity of product on productDetail page
     props.onClick(props.quantity + 1);
     setDisplayQuantity(displayQuantity + 1);
-    console.log("Props.onClick executed~~~!!");
-    // cartCtx.addToCart(product);
+
+    // change the quantity of cartProduct on cartList
+    if (props.productInfoSingle) cartCtx.addToCart(props.productInfoSingle);
+
     if (props.isAddCartPushed) {
       setDisplayQuantity(1);
       props.onClick(2);
     }
-    console.log("regulation would be working...");
     if (props.onCheck) props.onCheck(false);
   };
 
@@ -35,13 +37,19 @@ const ChangeAmountButton = (props) => {
       alert("You cannot subtract this product more.");
       return;
     }
+
+    // change the quantity of product on productDetail page
     props.onClick(props.quantity - 1);
+    setDisplayQuantity(displayQuantity - 1);
+
+    // change the quantity of cartProduct on cartList
+    if (props.productInfoSingle) cartCtx.subtractFromCart(props.productInfo);
+
     if (props.isAddCartPushed) {
       setDisplayQuantity(1);
       props.onClick(2);
     }
-    // cartCtx.subtractFromCart(props.productInfo);
-    // console.log("test");
+
     if (props.isAddCartPushed) setDisplayQuantity(1);
     if (props.onCheck) props.onCheck(false);
   };
@@ -57,8 +65,14 @@ const ChangeAmountButton = (props) => {
 
   return (
     <Button
-      startIcon={<RemoveIcon onClick={handleSubtractProductOne} />}
+      startIcon={
+        // original code. Do not delete!!
+        <RemoveIcon
+          onClick={() => handleSubtractProductOne(props.productInfo)}
+        />
+      }
       endIcon={
+        // original code. Do not delete!!
         <AddIcon onClick={() => handleAddProductOne(props.productInfo)} />
       }
       sx={{

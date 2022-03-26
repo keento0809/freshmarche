@@ -40,10 +40,23 @@ const CartProductUI = (props) => {
     // setUpdatedOrderQuantity();
   }, []);
 
-  const handleUpdateOrderQuantity = () => {
+  const handleUpdateOrderQuantity = (product, text) => {
     console.log("Updating...???");
-    cartCtx.addToCart(productInfoSingle);
+    // temporary
+    // cartCtx.addToCart(productInfoSingle);
+
+    if (text === "plus") console.log("Plus counts.");
+    if (text === "minus") console.log("Minus counts.");
+
     // setUpdatedOrderQuantity(props.quantity + 1);
+  };
+
+  const test1 = () => {
+    console.log("test1 ....");
+  };
+
+  const test2 = () => {
+    console.log("test2 ....");
   };
 
   const handleClick = (product) => {};
@@ -107,6 +120,7 @@ const CartProductUI = (props) => {
             quantity={updatedOrderQuantity}
             onClick={handleUpdateOrderQuantity}
             productInfo={productInfo}
+            productInfoSingle={productInfoSingle}
           />
         )}
         <DeleteIcon

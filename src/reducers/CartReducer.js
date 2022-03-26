@@ -30,6 +30,28 @@ const CartReducer = (state, action) => {
         totalPrice: updatedTotalPrice,
       };
     }
+    case "SUBTRACT": {
+      const subtractingProductId = action.payload.id;
+      const subtractingProduct = state.cartProducts.find(
+        (product) => product.id === subtractingProductId
+      );
+      const newTotalQuantity = state.totalQuantity - 1;
+      const newTotalPrice = state.totalPrice - subtractingProduct.price;
+
+      subtractingProduct.quantity--;
+      subtractingProduct.subTotalPrice -= subtractingProduct.price;
+      const newCartProducts =
+        subtractingProduct.quantity === 0
+          ? state.cartProducts.filter(
+              (product) => product.id !== subtractingProductId
+            )
+          : [...state.cartProducts];
+      return {
+        cartProducts: newCartProducts,
+        totalQuantity: newTotalQuantity,
+        totalPrice: newTotalPrice,
+      };
+    }
     case "REMOVE": {
       console.log(action.payload);
       return state;

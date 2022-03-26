@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import CartContext from "../../../contexts/cart-context";
 import Button from "@mui/material/Button";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -7,15 +7,18 @@ import AddIcon from "@mui/icons-material/Add";
 import { hover } from "@testing-library/user-event/dist/hover";
 
 const ChangeAmountButton = (props) => {
+  const cartCtx = useContext(CartContext);
   const [itemInfo, setItemInfo] = useState({});
 
-  const handleAddProductOne = () => {
+  const handleAddProductOne = (product) => {
     props.onClick(props.quantity + 1);
-    console.log(props.quantity);
+    // console.log(product);
+    cartCtx.addToCart(product);
   };
   const handleSubtractProductOne = () => {
     props.onClick(props.quantity - 1);
-    console.log("test");
+    cartCtx.subtractFromCart(props.productInfo);
+    // console.log("test");
   };
 
   const buttonStyle = {
@@ -30,7 +33,9 @@ const ChangeAmountButton = (props) => {
   return (
     <Button
       startIcon={<RemoveIcon onClick={handleSubtractProductOne} />}
-      endIcon={<AddIcon onClick={handleAddProductOne} />}
+      endIcon={
+        <AddIcon onClick={() => handleAddProductOne(props.productInfo)} />
+      }
       sx={{
         width: "50%",
         borderRadius: "50px",

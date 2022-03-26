@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ChangeAmountButton from "../Buttons/ChangeAmountButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CartContext from "../../../contexts/cart-context";
 // import ChangeAmountButton from "../Buttons/changeAmountButton";
 
 const CartProductUI = (props) => {
+  const cartCtx = useContext(CartContext);
+
   const [isFavoriteItem, setIsFavoriteItem] = useState(false);
   const [updatedOrderQuantity, setUpdatedOrderQuantity] = useState(
     props.quantity
@@ -18,7 +21,7 @@ const CartProductUI = (props) => {
     name: props.name,
     price: props.price,
     subTotalPrice: props.price * props.quantity,
-    quantity: props.quantity,
+    quantity: 1,
     isFavoriteItem: props.isFavoriteItem,
   };
 
@@ -28,9 +31,7 @@ const CartProductUI = (props) => {
     setUpdatedOrderQuantity(props.quantity);
   }, []);
 
-  const handleClick = (value) => {
-    props.onClick(value);
-  };
+  const handleClick = (product) => {};
 
   return (
     <Box bgcolor="white" borderRadius="12px" margin="1rem 0">
@@ -90,11 +91,12 @@ const CartProductUI = (props) => {
             // quantity={props.quantity}
             quantity={updatedOrderQuantity}
             onClick={setUpdatedOrderQuantity}
+            productInfo={productInfo}
           />
         )}
         <DeleteIcon
           color="text.primary"
-          onClick={() => handleClick(props.id)}
+          onClick={() => handleClick(productInfo)}
         />
       </Box>
     </Box>

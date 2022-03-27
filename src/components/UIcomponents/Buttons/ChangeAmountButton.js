@@ -65,6 +65,7 @@ const ChangeAmountButton = (props) => {
 
   return (
     <Button
+      variant="contained"
       startIcon={
         // original code. Do not delete!!
         <RemoveIcon
@@ -79,9 +80,9 @@ const ChangeAmountButton = (props) => {
         width: "50%",
         borderRadius: "50px",
         justifyContent: "space-around",
-        bgcolor: "background.secondary",
+        // bgcolor: "background.secondary",
         color: "text.primary",
-        hover: "background.secondary",
+        "&:hover": "background.secondary",
       }}
     >
       {/* default code. Do not delete! */}

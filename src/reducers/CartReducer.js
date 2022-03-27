@@ -3,8 +3,16 @@ const CartReducer = (state, action) => {
     case "ADD": {
       const addingProduct = action.payload;
       const updatedTotalQuantity = state.totalQuantity + addingProduct.quantity;
+      // original code. DO NOT Delete
+      // const updatedTotalPrice =
+      //   state.totalPrice + addingProduct.quantity * addingProduct.price;
       const updatedTotalPrice =
-        state.totalPrice + addingProduct.quantity * addingProduct.price;
+        Math.floor(
+          (state.totalPrice + addingProduct.quantity * addingProduct.price) *
+            100
+        ) / 100;
+      console.log(updatedTotalPrice);
+      // state.totalPrice + addingProduct.quantity * addingProduct.price;
       const updatedCartProducts = state.cartProducts.find(
         (product) => product.id === addingProduct.id
       )
@@ -20,8 +28,10 @@ const CartReducer = (state, action) => {
           (product) => product.id === addingProduct.id
         );
         sample.quantity += action.payload.quantity;
-        sample.subTotalPrice += action.payload.subTotalPrice;
-        console.log(sample);
+        // original code. Do Not Delete!
+        // sample.subTotalPrice += action.payload.subTotalPrice;
+        sample.subTotalPrice +=
+          Math.floor(action.payload.subTotalPrice * 100) / 100;
       }
 
       return {

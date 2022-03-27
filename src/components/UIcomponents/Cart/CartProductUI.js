@@ -86,7 +86,7 @@ const CartProductUI = (props) => {
             color="primary"
             paddingLeft="1rem"
           >
-            ${props.subTotalPrice}
+            ${props.subTotalPrice.toFixed(2)}
           </Typography>
         </Box>
       </Box>

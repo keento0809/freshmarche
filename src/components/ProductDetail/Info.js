@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import FavoriteContext from "../../contexts/favorite-context";
 import CartContext from "../../contexts/cart-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import AddToCartButton from "../UIcomponents/Buttons/AddToCartButton";
 import MainBoxUI from "../UIcomponents/Box/MainBox";
 import Box from "@mui/material/Box";
@@ -25,24 +26,28 @@ const Info = (props) => {
     price: props.price,
     quantity: orderQuantity,
     subTotalPrice: props.price * orderQuantity,
+    isFavorite: props.isFavorite,
   };
 
   const handleAddToFavorites = (product) => {
     favoriteCtx.addToFavoriteList(product);
+    history.push("/");
   };
 
   const handleAddToCart = (product) => {
-    console.log(product);
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
     history.push("/");
   };
 
-  console.log(orderQuantity);
+  let isFavoriteVal;
 
-  // useEffect(() => {
-  //   setOrderQuantity();
-  // }, [orderQuantity]);
+  useEffect(() => {
+    isFavoriteVal = favoriteCtx.favoriteList.find(
+      (product) => product.id === props.id
+    );
+    console.log(isFavoriteVal === undefined);
+  }, [favoriteCtx.totalQuantity]);
 
   return (
     <MainBoxUI>
@@ -50,10 +55,18 @@ const Info = (props) => {
         <Typography variant="body1" component="span" color="secondary">
           {props.name}
         </Typography>
-        <FavoriteIcon
-          sx={{ color: "violet" }}
-          onClick={() => handleAddToFavorites(productInfo)}
-        />
+        {isFavoriteVal === undefined && (
+          <FavoriteBorderOutlinedIcon
+            sx={{ color: "violet" }}
+            onClick={() => handleAddToFavorites(productInfo)}
+          />
+        )}
+        {isFavoriteVal !== undefined && (
+          <FavoriteBorderOutlinedIcon
+            sx={{ color: "violet" }}
+            onClick={() => handleAddToFavorites(productInfo)}
+          />
+        )}
       </Box>
       <Box>
         <ChangeAmountButton

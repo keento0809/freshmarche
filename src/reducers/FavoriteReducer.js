@@ -2,22 +2,25 @@ const FavoriteReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
       const addingProduct = action.payload;
+      console.log(addingProduct);
       const isExisting = state.listProducts.find(
         (product) => product.id === addingProduct.id
       );
-
-      const updatedListProduct =
-        isExisting === undefined
-          ? [...state.listProducts, action.payload]
-          : state.listProducts;
-      const updatedTotalQuantity =
-        isExisting === undefined
-          ? state.totalQuantity + 1
-          : state.totalQuantity;
-      return {
-        listProducts: updatedListProduct,
-        totalQuantity: updatedTotalQuantity,
-      };
+      if (isExisting !== undefined) {
+        alert("You've already added this to favorites.");
+        return {
+          listProducts: state.listProducts,
+          totalQuantity: state.totalQuantity,
+        };
+      } else {
+        const updatedListProduct = [...state.listProducts, action.payload];
+        const updatedTotalQuantity = state.totalQuantity + 1;
+        addingProduct.isFavorite = true;
+        return {
+          listProducts: updatedListProduct,
+          totalQuantity: updatedTotalQuantity,
+        };
+      }
     }
     case "REMOVE": {
       const removingProductId = action.payload;

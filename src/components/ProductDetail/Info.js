@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import FavoriteContext from "../../contexts/favorite-context";
 import CartContext from "../../contexts/cart-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -10,6 +11,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Typography from "@mui/material/Typography";
 
 const Info = (props) => {
+  const history = useHistory();
   // manage the quantity of the product
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [isAddCartPushed, setIsAddCartPushed] = useState(false);
@@ -33,6 +35,7 @@ const Info = (props) => {
     console.log(product);
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
+    history.push("/");
   };
 
   console.log(orderQuantity);

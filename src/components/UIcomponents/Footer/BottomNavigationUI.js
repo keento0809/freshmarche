@@ -20,6 +20,7 @@ const BottomNavigationUI = () => {
 
   return (
     <BottomNavigation
+      showLabels
       sx={{
         width: "100%",
         height: "auto",
@@ -31,31 +32,32 @@ const BottomNavigationUI = () => {
       onChange={handleChange}
     >
       <BottomNavigationAction
-        label=""
-        value="MyPage"
+        label="Home"
+        value="Home"
         component={RouterLink}
         to="/"
         icon={<HomeIcon />}
-        sx={{ padding: "0.8rem 0" }}
+        sx={{ padding: "0.5rem 0" }}
       />
       {/* <NavLink to="/mypage"> */}
       {/* </NavLink> */}
       <BottomNavigationAction
-        label=""
+        label="MyFavorites"
         value="favorites"
         component={RouterLink}
         to="/favorites"
         icon={<FavoriteIcon />}
-        sx={{ padding: "0.8rem 0" }}
+        sx={{ padding: "0.5rem 0" }}
       />
       <BottomNavigationAction
-        label=""
+        label={`MyCart`}
         value="MyCart"
         component={RouterLink}
         to="/mycart"
         icon={<ShoppingCartIcon />}
-        sx={{ padding: "0.8rem 0" }}
+        sx={{ padding: "0.5rem 0" }}
       />
+      {cartCtx.totalQuantity}
     </BottomNavigation>
   );
 };

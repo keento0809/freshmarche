@@ -23,6 +23,7 @@ const Info = (props) => {
   // manage the quantity of the product
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [isAddCartPushed, setIsAddCartPushed] = useState(false);
+  const [isInFavoriteList, setIsInFavoriteList] = useState(false);
 
   const productInfo = {
     id: props.id,
@@ -35,8 +36,11 @@ const Info = (props) => {
 
   const handleAddToFavorites = (product) => {
     favoriteCtx.addToFavoriteList(product);
+    setIsInFavoriteList(!isInFavoriteList);
+    console.log(isInFavoriteList);
     notifyCtx.notifyNow("Product added to favorite list!");
-    history.push("/");
+    // test
+    // history.push("/");
   };
 
   const handleAddToCart = (product) => {
@@ -47,7 +51,10 @@ const Info = (props) => {
     history.push("/");
   };
 
-  let isWhy = false;
+  // test
+  useEffect(() => {
+    console.log("re-rendering....");
+  }, [isInFavoriteList]);
 
   return (
     <MainBoxUI>
@@ -55,16 +62,19 @@ const Info = (props) => {
         <Typography variant="body1" component="span" color="secondary">
           {props.name}
         </Typography>
-        <FavoriteBorderOutlinedIcon
-          sx={{ color: "violet" }}
-          onClick={() => handleAddToFavorites(productInfo)}
-        />
-        {isWhy && (
+        {!isInFavoriteList && (
           <FavoriteBorderOutlinedIcon
             sx={{ color: "violet" }}
             onClick={() => handleAddToFavorites(productInfo)}
           />
         )}
+        {isInFavoriteList && (
+          <FavoriteIcon
+            sx={{ color: "violet" }}
+            onClick={() => handleAddToFavorites(productInfo)}
+          />
+        )}
+        {/* <FavoriteIcon sx={{ color: "violet" }} /> */}
       </Box>
       <Box>
         <ChangeAmountButton

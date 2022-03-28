@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useParams } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -12,6 +12,10 @@ import FavoriteContext from "../../../contexts/favorite-context";
 const CartProductUI = (props) => {
   const cartCtx = useContext(CartContext);
   const favoriteCtx = useContext(FavoriteContext);
+
+  // params
+  const params = useParams();
+  // const linkToProductDetail =
 
   // const [isFavoriteItem, setIsFavoriteItem] = useState(false);
   const [updatedOrderQuantity, setUpdatedOrderQuantity] = useState(
@@ -101,7 +105,8 @@ const CartProductUI = (props) => {
           <Typography
             variant="body2"
             component={RouterLink}
-            to="/products/detail"
+            // to="/"
+            to={`/products/${props.id}`}
             sx={{ textDecoration: "none", color: "text.primary" }}
           >
             <ArrowForwardIosIcon sx={{ width: "0.8rem", height: "0.8rem" }} />{" "}

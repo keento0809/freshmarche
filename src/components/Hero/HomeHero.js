@@ -1,7 +1,9 @@
-import React, { Fragment } from "react";
+import React, { useContext } from "react";
+import NotifyContext from "../../contexts/notify-context";
 import HeroBox from "../UIcomponents/Hero/HeroBoxUI";
 import HeroSearchBar from "../UIcomponents/Hero/HeroSearchBar";
 import Typography from "@mui/material/Typography";
+import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 
 import { styled } from "@mui/system";
 
@@ -17,9 +19,12 @@ const style = {
 };
 
 const HomeHero = (props) => {
+  const notifyCtx = useContext(NotifyContext);
+
   return (
     <HeroBox>
       <div className="container"></div>
+      {notifyCtx.isNotifying && <AlertSnackBar />}
       <TextComponent>Explore Freshest Foods.</TextComponent>
       <Typography variant="h4" component="h4" paddingTop={6} sx={style}>
         Search Products

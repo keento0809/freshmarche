@@ -3,6 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme/theme";
 import FavoriteProvider from "./contexts/FavoriteProvider";
 import CartProvider from "./contexts/CartProvider";
+import NotifyProvider from "./contexts/NotifyProvider";
 
 function App() {
   console.log((1 + 1 + 1 + 1).toFixed(2));
@@ -11,9 +12,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <FavoriteProvider>
         <CartProvider>
-          <div className="App">
-            <Main />
-          </div>
+          <NotifyProvider>
+            <div className="App">
+              <Main />
+            </div>
+          </NotifyProvider>
         </CartProvider>
       </FavoriteProvider>
     </ThemeProvider>

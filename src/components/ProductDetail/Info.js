@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import FavoriteContext from "../../contexts/favorite-context";
 import CartContext from "../../contexts/cart-context";
+import NotifyContext from "../../contexts/notify-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import AddToCartButton from "../UIcomponents/Buttons/AddToCartButton";
@@ -13,12 +14,15 @@ import Typography from "@mui/material/Typography";
 
 const Info = (props) => {
   const history = useHistory();
+
+  // contexts
+  const favoriteCtx = useContext(FavoriteContext);
+  const cartCtx = useContext(CartContext);
+  const notifyCtx = useContext(NotifyContext);
+
   // manage the quantity of the product
   const [orderQuantity, setOrderQuantity] = useState(1);
   const [isAddCartPushed, setIsAddCartPushed] = useState(false);
-
-  const favoriteCtx = useContext(FavoriteContext);
-  const cartCtx = useContext(CartContext);
 
   const productInfo = {
     id: props.id,
@@ -37,17 +41,11 @@ const Info = (props) => {
   const handleAddToCart = (product) => {
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
+    notifyCtx.notifyNow("success");
     history.push("/");
   };
 
-  let isFavoriteVal;
-
-  useEffect(() => {
-    isFavoriteVal = favoriteCtx.favoriteList.find(
-      (product) => product.id === props.id
-    );
-    console.log(isFavoriteVal === undefined);
-  }, [favoriteCtx.totalQuantity]);
+  let isWhy = false;
 
   return (
     <MainBoxUI>
@@ -55,13 +53,11 @@ const Info = (props) => {
         <Typography variant="body1" component="span" color="secondary">
           {props.name}
         </Typography>
-        {isFavoriteVal === undefined && (
-          <FavoriteBorderOutlinedIcon
-            sx={{ color: "violet" }}
-            onClick={() => handleAddToFavorites(productInfo)}
-          />
-        )}
-        {isFavoriteVal !== undefined && (
+        <FavoriteBorderOutlinedIcon
+          sx={{ color: "violet" }}
+          onClick={() => handleAddToFavorites(productInfo)}
+        />
+        {isWhy && (
           <FavoriteBorderOutlinedIcon
             sx={{ color: "violet" }}
             onClick={() => handleAddToFavorites(productInfo)}

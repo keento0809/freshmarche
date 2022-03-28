@@ -10,7 +10,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const AlertSnackBar = () => {
+const AlertSnackBar = (props) => {
   const notifyCtx = useContext(NotifyContext);
 
   const [open, setOpen] = React.useState(false);
@@ -30,7 +30,9 @@ const AlertSnackBar = () => {
   return (
     <Stack>
       <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-        Product successfully added!
+        {/* Product successfully added! */}
+        {/* {props.label} */}
+        {notifyCtx.notificationText}
       </Alert>
     </Stack>
   );

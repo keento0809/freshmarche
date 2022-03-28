@@ -3,22 +3,22 @@ import NotifyContext from "./notify-context";
 
 const NotifyProvider = (props) => {
   const [isNotifying, setIsNotifying] = useState(false);
-  const [notificationType, setNotificationType] = useState("");
+  const [notificationText, setNotificationText] = useState("");
 
-  const handleDoNotification = (alertType) => {
-    console.log(alertType);
+  const handleDoNotification = (alertText) => {
+    console.log(alertText);
     setIsNotifying(true);
-    setNotificationType(alertType);
+    setNotificationText(alertText);
   };
 
   const handleDismissNotification = () => {
     setIsNotifying(false);
-    setNotificationType("");
+    setNotificationText("");
   };
 
   const notifyContext = {
     isNotifying: isNotifying,
-    notificationType: notificationType,
+    notificationText: notificationText,
     notifyNow: handleDoNotification,
     dismissNotification: handleDismissNotification,
   };

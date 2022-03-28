@@ -41,7 +41,8 @@ const Info = (props) => {
   const handleAddToCart = (product) => {
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
-    notifyCtx.notifyNow("success");
+    // original code DO NOT Delete!
+    notifyCtx.notifyNow("Product successfully added!");
     history.push("/");
   };
 

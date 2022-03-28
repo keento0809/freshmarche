@@ -24,7 +24,9 @@ const HomeHero = (props) => {
   return (
     <HeroBox>
       <div className="container"></div>
-      {notifyCtx.isNotifying && <AlertSnackBar />}
+      {notifyCtx.isNotifying && (
+        <AlertSnackBar label="Product successfully added!" />
+      )}
       <TextComponent>Explore Freshest Foods.</TextComponent>
       <Typography variant="h4" component="h4" paddingTop={6} sx={style}>
         Search Products

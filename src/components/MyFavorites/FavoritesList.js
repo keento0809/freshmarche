@@ -18,6 +18,7 @@ const FavoritesList = () => {
             name={product.name}
             price={product.price}
             subTotalPrice={product.price}
+            isFavorite={product.isFavorite}
             quantity=""
             onClick={favoriteCtx.removeFromFavoriteList}
           />

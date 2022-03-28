@@ -19,7 +19,7 @@ const CartList = () => {
             price={product.price}
             subTotalPrice={product.subTotalPrice}
             quantity={product.quantity}
-            isFavoriteItem={false}
+            isFavorite={product.isFavorite}
           />
         );
       })

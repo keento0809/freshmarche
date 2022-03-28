@@ -2,6 +2,7 @@ const FavoriteReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
       const addingProduct = action.payload;
+      // test
       console.log(addingProduct);
       const isExisting = state.listProducts.find(
         (product) => product.id === addingProduct.id

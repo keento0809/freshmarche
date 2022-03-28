@@ -6,12 +6,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ChangeAmountButton from "../Buttons/ChangeAmountButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CartContext from "../../../contexts/cart-context";
+import FavoriteContext from "../../../contexts/favorite-context";
 // import ChangeAmountButton from "../Buttons/changeAmountButton";
 
 const CartProductUI = (props) => {
   const cartCtx = useContext(CartContext);
+  const favoriteCtx = useContext(FavoriteContext);
 
-  const [isFavoriteItem, setIsFavoriteItem] = useState(false);
+  // const [isFavoriteItem, setIsFavoriteItem] = useState(false);
   const [updatedOrderQuantity, setUpdatedOrderQuantity] = useState(
     props.quantity
   );
@@ -22,7 +24,7 @@ const CartProductUI = (props) => {
     price: props.price,
     subTotalPrice: props.price * props.quantity,
     quantity: props.quantity,
-    isFavoriteItem: props.isFavoriteItem,
+    isFavorite: props.isFavorite,
   };
 
   const productInfoSingle = {
@@ -31,24 +33,19 @@ const CartProductUI = (props) => {
     price: props.price,
     subTotalPrice: props.price,
     quantity: 1,
-    isFavoriteItem: props.isFavoriteItem,
+    isFavorite: props.isFavorite,
   };
 
   useEffect(() => {
     // test
-    setIsFavoriteItem(props.isFavoriteItem);
-    // setUpdatedOrderQuantity();
-  }, []);
+    console.log(props.isFavorite);
+  }, [favoriteCtx.favoriteList]);
 
   const handleUpdateOrderQuantity = (product, text) => {
     console.log("Updating...???");
-    // temporary
-    // cartCtx.addToCart(productInfoSingle);
 
     if (text === "plus") console.log("Plus counts.");
     if (text === "minus") console.log("Minus counts.");
-
-    // setUpdatedOrderQuantity(props.quantity + 1);
   };
 
   const test1 = () => {
@@ -100,7 +97,7 @@ const CartProductUI = (props) => {
         bgcolor="background.third"
         borderRadius="12px"
       >
-        {isFavoriteItem && (
+        {props.isFavorite && (
           <Typography
             variant="body2"
             component={RouterLink}
@@ -112,7 +109,7 @@ const CartProductUI = (props) => {
             View Detail
           </Typography>
         )}
-        {!isFavoriteItem && (
+        {!props.isFavorite && (
           <ChangeAmountButton
             sx={{ width: "80%" }}
             // default code. Do not delete !!

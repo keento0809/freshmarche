@@ -1,14 +1,15 @@
 import React, { useReducer } from "react";
 import UserContext from "./user-context";
 import { registerNewUser, updateUserInfo } from "../actions/user-action";
+import UserReducer from "../reducers/UserReducer";
 
 const initialState = {
   userInfo: {
     id: "u1",
-    name: "Dummy John",
+    username: "Dummy John",
     address: "816 Granville St. Vancouver BC",
     email: "sample@sample.com",
-    password: "samplepassword",
+    password: "***********",
   },
 };
 
@@ -34,3 +35,5 @@ const UserProvider = (props) => {
     </UserContext.Provider>
   );
 };
+
+export default UserProvider;

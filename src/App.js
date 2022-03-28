@@ -4,6 +4,7 @@ import theme from "./theme/theme";
 import FavoriteProvider from "./contexts/FavoriteProvider";
 import CartProvider from "./contexts/CartProvider";
 import NotifyProvider from "./contexts/NotifyProvider";
+import UserProvider from "../src/contexts/UserProvider";
 
 function App() {
   console.log((1 + 1 + 1 + 1).toFixed(2));
@@ -13,9 +14,11 @@ function App() {
       <FavoriteProvider>
         <CartProvider>
           <NotifyProvider>
-            <div className="App">
-              <Main />
-            </div>
+            <UserProvider>
+              <div className="App">
+                <Main />
+              </div>
+            </UserProvider>
           </NotifyProvider>
         </CartProvider>
       </FavoriteProvider>

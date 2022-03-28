@@ -35,6 +35,7 @@ const Info = (props) => {
 
   const handleAddToFavorites = (product) => {
     favoriteCtx.addToFavoriteList(product);
+    notifyCtx.notifyNow("Product added to favorite list!");
     history.push("/");
   };
 

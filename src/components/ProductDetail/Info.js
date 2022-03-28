@@ -31,12 +31,14 @@ const Info = (props) => {
     price: props.price,
     quantity: orderQuantity,
     subTotalPrice: props.price * orderQuantity,
-    isFavorite: props.isFavorite,
+    // default code. DO NOT Delete
+    // isFavorite: props.isFavorite,
+    isFavorite: isInFavoriteList,
   };
 
   const handleAddToFavorites = (product) => {
     favoriteCtx.addToFavoriteList(product);
-    setIsInFavoriteList(!isInFavoriteList);
+    setIsInFavoriteList(true);
     console.log(isInFavoriteList);
     notifyCtx.notifyNow("Product added to favorite list!");
     // test
@@ -53,7 +55,7 @@ const Info = (props) => {
 
   // test
   useEffect(() => {
-    console.log("re-rendering....");
+    console.log(isInFavoriteList, productInfo);
   }, [isInFavoriteList]);
 
   return (

@@ -17,6 +17,7 @@ const FavoriteReducer = (state, action) => {
         const updatedListProduct = [...state.listProducts, action.payload];
         const updatedTotalQuantity = state.totalQuantity + 1;
         addingProduct.isFavorite = true;
+        console.log(addingProduct.isFavorite);
         return {
           listProducts: updatedListProduct,
           totalQuantity: updatedTotalQuantity,

@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import NotifyContext from "../../contexts/notify-context";
 import MainBoxUI from "../UIcomponents/Box/MainBox";
 import TitleUI from "../UIcomponents/Title/TitleUI";
+import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 import { styled } from "@mui/system";
 
 const ImageComponent = styled("img")({
@@ -11,14 +14,15 @@ const ImageComponent = styled("img")({
 });
 
 const DetailHero = (props) => {
+  const notifyCtx = useContext(NotifyContext);
+
   return (
     <MainBoxUI>
+      {notifyCtx.isNotifying && (
+        <AlertSnackBar label="Product deleted from FavoriteList." />
+      )}
       <TitleUI title={props.name} />
-      <ImageComponent
-        src={props.imageUrl}
-        // src="https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716"
-        alt="product"
-      />
+      <ImageComponent src={props.imageUrl} alt="product" />
     </MainBoxUI>
   );
 };

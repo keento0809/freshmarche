@@ -7,11 +7,13 @@ import ChangeAmountButton from "../Buttons/ChangeAmountButton";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CartContext from "../../../contexts/cart-context";
 import FavoriteContext from "../../../contexts/favorite-context";
+import NotifyContext from "../../../contexts/notify-context";
 // import ChangeAmountButton from "../Buttons/changeAmountButton";
 
 const CartProductUI = (props) => {
   const cartCtx = useContext(CartContext);
   const favoriteCtx = useContext(FavoriteContext);
+  const notifyCtx = useContext(NotifyContext);
 
   // params
   const params = useParams();
@@ -60,7 +62,13 @@ const CartProductUI = (props) => {
     console.log("test2 ....");
   };
 
-  const handleClick = (product) => {};
+  const handleDeleteProduct = (productInfo) => {
+    console.log("Deleting....");
+    if (productInfo.isFavorite) {
+      favoriteCtx.removeFromFavoriteList(productInfo.id);
+      notifyCtx.notifyNow("Product deleted from FavoriteList.");
+    }
+  };
 
   return (
     <Box bgcolor="white" borderRadius="12px" margin="1rem 0">
@@ -79,7 +87,6 @@ const CartProductUI = (props) => {
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography variant="h5" component="h5" color="primary">
             {props.quantity}
-            {/* {updatedOrderQuantity} */}
           </Typography>
           <Typography
             variant="h5"
@@ -127,7 +134,7 @@ const CartProductUI = (props) => {
         )}
         <DeleteIcon
           color="text.primary"
-          onClick={() => handleClick(productInfo)}
+          onClick={() => handleDeleteProduct(productInfo)}
         />
       </Box>
     </Box>

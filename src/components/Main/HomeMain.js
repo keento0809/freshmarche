@@ -5,6 +5,7 @@ import HomeProducts from "../Products/HomeProducts";
 const HomeMain = () => {
   const [searchInput, setSearchInput] = useState("");
 
+  // test
   useEffect(() => {
     console.log("value changing to " + searchInput);
   }, [searchInput]);

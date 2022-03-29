@@ -3,13 +3,13 @@ import ProductsBox from "../UIcomponents/Products/ProductsBox";
 import Typography from "@mui/material/Typography";
 import ProductList from "./ProductsList";
 
-const HomeProducts = () => {
+const HomeProducts = (props) => {
   return (
     <ProductsBox>
       <Typography variant="h4" component="h4" color="secondary">
         Products
       </Typography>
-      <ProductList />
+      <ProductList value={props.value} />
     </ProductsBox>
   );
 };

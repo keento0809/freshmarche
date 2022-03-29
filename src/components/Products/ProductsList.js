@@ -14,9 +14,14 @@ const UlComponent = styled("ul")({
 });
 
 const ProductList = (props) => {
+  // test
+  const filtering = dummyData.filter((product) =>
+    product.name.includes(props.value)
+  );
   // original code
   // const products = DUMMY_PRODUCTS.map((product, index) => {
-  const products = dummyData.map((product, index) => {
+  const products = filtering.map((product, index) => {
+    // const products = dummyData.map((product, index) => {
     return (
       <Product
         key={index}
@@ -28,6 +33,7 @@ const ProductList = (props) => {
       />
     );
   });
+  console.log(filtering);
 
   return (
     <Fragment>

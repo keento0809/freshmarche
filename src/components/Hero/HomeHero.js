@@ -31,7 +31,7 @@ const HomeHero = (props) => {
       <Typography variant="h4" component="h4" paddingTop={6} sx={style}>
         Search Products
       </Typography>
-      <HeroSearchBar />
+      <HeroSearchBar value={props.value} onChange={props.onChange} />
     </HeroBox>
   );
 };

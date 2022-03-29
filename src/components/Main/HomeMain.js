@@ -1,12 +1,18 @@
-import React, { Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import HomeHero from "../Hero/HomeHero";
 import HomeProducts from "../Products/HomeProducts";
 
 const HomeMain = () => {
+  const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    console.log("value changing to " + searchInput);
+  }, [searchInput]);
+
   return (
     <div className="allMain">
-      <HomeHero />
-      <HomeProducts />
+      <HomeHero value={searchInput} onChange={setSearchInput} />
+      <HomeProducts value={searchInput} />
     </div>
   );
 };

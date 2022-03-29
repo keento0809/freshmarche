@@ -51,7 +51,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const HeroSearchBar = () => {
+const HeroSearchBar = (props) => {
+  const handleCheckInputValue = (e) => {
+    props.onChange(e.target.value);
+  };
+
   return (
     <Toolbar
       sx={{
@@ -61,7 +65,7 @@ const HeroSearchBar = () => {
         borderRadius: "12px",
       }}
     >
-      <Search className="どれがTextInputやねん">
+      <Search className="どれがTextInput？">
         <SearchIconWrapper className="これか？？">
           <SearchIcon />
         </SearchIconWrapper>
@@ -69,6 +73,8 @@ const HeroSearchBar = () => {
           sx={{ width: "100%" }}
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
+          // value={props.value}
+          onChange={handleCheckInputValue}
         />
       </Search>
     </Toolbar>

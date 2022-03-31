@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Product from "./Product";
 import { styled } from "@mui/system";
 import dummyData from "../../data/dummyData.json";
+import Typography from "@mui/material/Typography";
 
 const UlComponent = styled("ul")({
   margin: 0,
@@ -15,12 +16,13 @@ const UlComponent = styled("ul")({
 
 const ProductList = (props) => {
   // test
+  console.log(props.value.length > 0);
   const filtering = dummyData.filter((product) =>
     product.name.includes(props.value)
   );
   // original code
   // const products = DUMMY_PRODUCTS.map((product, index) => {
-  const products = filtering.map((product, index) => {
+  let products = filtering.map((product, index) => {
     // const products = dummyData.map((product, index) => {
     return (
       <Product
@@ -33,7 +35,12 @@ const ProductList = (props) => {
       />
     );
   });
-  console.log(filtering);
+  if (props.value.length > 0 && products.length === 0)
+    products = (
+      <Typography variant="body1" component="p" color="primary">
+        No products matched.
+      </Typography>
+    );
 
   return (
     <Fragment>

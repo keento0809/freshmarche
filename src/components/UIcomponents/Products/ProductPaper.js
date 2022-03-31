@@ -8,7 +8,7 @@ const ProductPaper = (props) => {
       sx={{
         width: 120,
         "& > :not(style)": {
-          m: 1,
+          // m: 1,
           width: "100%",
           height: 200,
         },

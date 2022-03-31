@@ -10,6 +10,7 @@ const UlComponent = styled("ul")({
   padding: "0.5rem 0",
   listStyle: "none",
   display: "flex",
+  justifyContent: "center",
   flexDirection: "row",
   flexWrap: "wrap",
 });

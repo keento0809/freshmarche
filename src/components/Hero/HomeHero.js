@@ -16,6 +16,7 @@ const TextComponent = styled("p")({
 const style = {
   textAlign: "center",
   color: "secondary.main",
+  // color: "background.default",
 };
 
 const HomeHero = (props) => {

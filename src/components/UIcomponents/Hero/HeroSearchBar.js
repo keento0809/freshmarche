@@ -16,11 +16,11 @@ const Search = styled("div")(({ theme }) => ({
   "&:hover": {
     backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  marginLeft: 0,
+  margin: "0 8px",
   width: "100%",
   [theme.breakpoints.up("sm")]: {
     marginLeft: theme.spacing(1),
-    width: "auto",
+    width: "100%",
   },
 }));
 
@@ -43,7 +43,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      width: "12ch",
+      // width: "12ch",
+      width: "100%",
       "&:focus": {
         width: "20ch",
       },
@@ -58,15 +59,20 @@ const HeroSearchBar = (props) => {
 
   return (
     <Toolbar
+      paddingLeft={0}
+      paddingRight={0}
       sx={{
         paddingLeft: 0,
         paddingRight: 0,
-        bgcolor: "background.paper",
+        bgcolor: "background.secondary",
         borderRadius: "12px",
+        width: "90%",
+        margin: "0 auto",
       }}
+      className="ツールバー"
     >
-      <Search className="どれがTextInput？">
-        <SearchIconWrapper className="これか？？">
+      <Search className="どれ？">
+        <SearchIconWrapper className="これか？">
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase

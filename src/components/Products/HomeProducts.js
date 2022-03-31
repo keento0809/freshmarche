@@ -6,7 +6,12 @@ import ProductList from "./ProductsList";
 const HomeProducts = (props) => {
   return (
     <ProductsBox>
-      <Typography variant="h4" component="h4" color="secondary">
+      <Typography
+        variant="h4"
+        component="h4"
+        color="secondary"
+        textAlign="center"
+      >
         Products
       </Typography>
       <ProductList value={props.value} />

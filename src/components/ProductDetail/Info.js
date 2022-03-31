@@ -31,15 +31,11 @@ const Info = (props) => {
     price: props.price,
     quantity: orderQuantity,
     subTotalPrice: props.price * orderQuantity,
-    // default code. DO NOT Delete
-    // isFavorite: props.isFavorite,
-    isFavorite: isInFavoriteList,
   };
 
   const handleAddToFavorites = (product) => {
     favoriteCtx.addToFavoriteList(product);
     setIsInFavoriteList(true);
-    console.log(isInFavoriteList);
     notifyCtx.notifyNow("Product added to favorite list!");
     // test
     // history.push("/");
@@ -53,10 +49,16 @@ const Info = (props) => {
     history.push("/");
   };
 
-  // test
   useEffect(() => {
-    console.log(isInFavoriteList, productInfo);
-  }, [isInFavoriteList]);
+    if (
+      !(
+        favoriteCtx.favoriteList.find((item) => item.id === props.id) ===
+        undefined
+      )
+    ) {
+      setIsInFavoriteList(true);
+    }
+  }, [favoriteCtx.favoriteList]);
 
   return (
     <MainBoxUI>

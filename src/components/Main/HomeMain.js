@@ -6,9 +6,9 @@ const HomeMain = () => {
   const [searchInput, setSearchInput] = useState("");
 
   // test
-  useEffect(() => {
-    console.log("value changing to " + searchInput);
-  }, [searchInput]);
+  // useEffect(() => {
+  //   console.log(searchInput);
+  // }, [searchInput]);
 
   return (
     <div className="allMain">

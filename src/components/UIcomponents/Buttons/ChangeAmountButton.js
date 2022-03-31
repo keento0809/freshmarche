@@ -11,7 +11,7 @@ const ChangeAmountButton = (props) => {
   const [itemInfo, setItemInfo] = useState({});
   const [displayQuantity, setDisplayQuantity] = useState(props.quantity);
 
-  console.log(props.quantity);
+  // console.log(props.quantity);
 
   const handleAddProductOne = () => {
     if (props.quantity > 9) {

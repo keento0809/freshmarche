@@ -16,7 +16,7 @@ const UlComponent = styled("ul")({
 
 const ProductList = (props) => {
   // test
-  console.log(props.value.length > 0);
+  // console.log(props.value.length > 0);
   const filtering = dummyData.filter((product) =>
     product.name.includes(props.value)
   );

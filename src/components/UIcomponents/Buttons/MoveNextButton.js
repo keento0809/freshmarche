@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
@@ -13,12 +13,10 @@ const MoveNextButton = (props) => {
         bgcolor: "background.paper",
         padding: "0.7rem 0",
       }}
+      component={RouterLink}
+      to={props.link}
     >
       {props.label}
-      {/* test */}
-      {/* <Link to="/">
-        <Typography>{props.label}</Typography>
-      </Link> */}
     </Button>
   );
 };

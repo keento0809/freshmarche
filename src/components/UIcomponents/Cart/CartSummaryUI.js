@@ -1,8 +1,9 @@
+import { Link as RouterLink } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AddToCartButton from "../Buttons/AddToCartButton";
 import MoveNextButton from "../Buttons/MoveNextButton";
-import { Fragment } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CartSummaryUI = (props) => {
   return (
@@ -34,7 +35,7 @@ const CartSummaryUI = (props) => {
         </Box>
       </Box>
       <Box textAlign="center" marginTop={3}>
-        <MoveNextButton label={props.label} />
+        <MoveNextButton label={props.label} link="/ordersummary" />
       </Box>
     </Box>
   );

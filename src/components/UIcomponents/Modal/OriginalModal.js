@@ -24,7 +24,11 @@ const style = {
   textDecoration: "none",
 };
 
-const UlStyle = styled("ul")({ padding: 0, listStyle: "none" });
+const UlStyle = styled("ul")({
+  padding: "2.1rem 0",
+  listStyle: "none",
+  margin: 0,
+});
 
 const OriginalModal = (props) => {
   return (
@@ -56,7 +60,7 @@ const OriginalModal = (props) => {
                   variant="body1"
                   component="p"
                   display="block"
-                  paddingBottom="1rem"
+                  paddingBottom="1.2rem"
                   cursor="pointer"
                   color="primary"
                 >
@@ -71,7 +75,7 @@ const OriginalModal = (props) => {
                   variant="body1"
                   component="p"
                   display="block"
-                  paddingBottom="1rem"
+                  paddingBottom="1.2rem"
                   cursor="pointer"
                   color="primary"
                 >
@@ -86,7 +90,7 @@ const OriginalModal = (props) => {
                   variant="body1"
                   component="p"
                   display="block"
-                  paddingBottom="1rem"
+                  paddingBottom="1.2rem"
                   cursor="pointer"
                   color="primary"
                 >

@@ -1,6 +1,11 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  // root: {
+  //   [theme.breakpoints.up("lg")]: {
+  //     display: "none",
+  //   },
+  // },
   components: {
     MuiTypography: {
       defaultProps: {

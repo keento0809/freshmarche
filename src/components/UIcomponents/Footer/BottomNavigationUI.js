@@ -7,10 +7,13 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const BottomNavigationUI = () => {
   const cartCtx = useContext(CartContext);
+  const theme = useTheme();
+  // const matches = useMediaQuery(theme.breakpoints.up("xl"));
 
   const [value, setValue] = React.useState("recents");
 
@@ -27,7 +30,11 @@ const BottomNavigationUI = () => {
         position: "fixed",
         bottom: 0,
         backgroundColor: "primary.main",
+        [theme.breakpoints.up("md")]: {
+          display: "none",
+        },
       }}
+      // {`theme.breakpoints.up('xl') matches: display:none;`}
       value={value}
       onChange={handleChange}
     >

@@ -9,10 +9,10 @@ const AddPaymentMethod = () => {
     <ContainerUI>
       <TitleUI title="Payment Method" />
       <Box padding="0.5rem 0">
-        <CheckoutStepper />
+        <CheckoutStepper activeStep={1} />
       </Box>
       <Box textAlign="center" marginTop={2}>
-        <MoveNextButton label="NEXT" />
+        <MoveNextButton label="NEXT" link="/ordersummary" />
       </Box>
     </ContainerUI>
   );

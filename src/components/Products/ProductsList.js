@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 
 const UlComponent = styled("ul")({
   margin: 0,
-  // paddingLeft: 0,
   padding: "0.5rem 0",
   listStyle: "none",
   display: "flex",

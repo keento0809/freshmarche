@@ -92,7 +92,8 @@ const CartProductUI = (props) => {
             variant="h5"
             component="h5"
             color="primary"
-            paddingLeft="1rem"
+            sx={{ paddingLeft: "1rem" }}
+            // paddingleft="1rem"
           >
             ${props.subTotalPrice.toFixed(2)}
           </Typography>

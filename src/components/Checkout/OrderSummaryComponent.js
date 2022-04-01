@@ -20,7 +20,7 @@ const OrderSummaryComponent = () => {
     <ContainerUI>
       <TitleUI title="Order Summary" />
       <Box padding="0.5rem 0">
-        <CheckoutStepper />
+        <CheckoutStepper activeStep={2} />
       </Box>
       <CartSummaryUI
         label="PLACE ORDER"

@@ -37,7 +37,8 @@ const theme = createTheme({
       fontFamily: ["Circular Pro", "Verdana", "sans-serif"].join(","),
       fontWeight: 600,
       fontSize: "2rem",
-      letterSpacing: "-1px",
+      letterSpacing: "-2px",
+      textShadow: "3px 3px 13px #263238",
     },
     h4: {
       fontFamily: ["Circular Pro", "Verdana", "sans-serif"].join(","),

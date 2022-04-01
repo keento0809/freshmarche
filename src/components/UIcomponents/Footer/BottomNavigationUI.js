@@ -42,7 +42,7 @@ const BottomNavigationUI = () => {
       {/* <NavLink to="/mypage"> */}
       {/* </NavLink> */}
       <BottomNavigationAction
-        label="MyFavorites"
+        label="Favorites"
         value="favorites"
         component={RouterLink}
         to="/favorites"
@@ -50,14 +50,13 @@ const BottomNavigationUI = () => {
         sx={{ padding: "0.5rem 0" }}
       />
       <BottomNavigationAction
-        label={`MyCart`}
+        label={`Cart ${cartCtx.totalQuantity}`}
         value="MyCart"
         component={RouterLink}
         to="/mycart"
         icon={<ShoppingCartIcon />}
         sx={{ padding: "0.5rem 0" }}
       />
-      {cartCtx.totalQuantity}
     </BottomNavigation>
   );
 };

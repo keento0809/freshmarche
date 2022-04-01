@@ -7,10 +7,18 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 // import Menu from "@mui/material/Menu";
+import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import HomeIcon from "@mui/icons-material/Home";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
+const pages = [`FAVORITES`, `CART`, `LOGOUT`];
+const iconsArray = [<HomeIcon />, <FavoriteIcon />, <ShoppingCartIcon />];
+console.log(iconsArray[0]);
 
 const AppBarUI = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -52,18 +60,23 @@ const AppBarUI = (props) => {
     <AppBar position="sticky" sx={{ bgcolor: "background.default" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-            }}
-            color="primary"
-          >
-            FreshMarche
-          </Typography>
+          {/* test */}
+          <Box>
+            <NavLink to="/">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{
+                  mr: 2,
+                  display: { xs: "none", md: "flex" },
+                }}
+                color="primary"
+              >
+                FreshMarche
+              </Typography>
+            </NavLink>
+          </Box>
 
           <Box
             sx={{
@@ -105,6 +118,25 @@ const AppBarUI = (props) => {
                 FreshMarche
               </Typography>
             </NavLink>
+          </Box>
+
+          <Box sx={{ flexGrow: 24, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page, index) => (
+              <Button
+                key={page}
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontSize: "0.8rem",
+                  fontWeight: "600",
+                }}
+              >
+                {page}
+                {/* {index} */}
+              </Button>
+            ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

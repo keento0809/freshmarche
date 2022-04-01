@@ -4,7 +4,8 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
+import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 
@@ -30,6 +31,13 @@ const UlStyle = styled("ul")({
   margin: 0,
 });
 
+const closeIconStyle = {
+  position: "absolute",
+  top: "2%",
+  left: "4.4%",
+  color: "primary.main",
+};
+
 const OriginalModal = (props) => {
   return (
     <div>
@@ -51,10 +59,14 @@ const OriginalModal = (props) => {
       >
         <Fade in={props.isOpen}>
           <Box sx={style}>
+            <CloseIcon sx={closeIconStyle} onClick={props.onClose} />
             <UlStyle>
               <NavLink
                 to="/mypage"
-                style={{ textDecoration: "none", color: "inherit" }}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                }}
               >
                 <Typography
                   variant="body1"
@@ -63,6 +75,8 @@ const OriginalModal = (props) => {
                   paddingBottom="1.2rem"
                   cursor="pointer"
                   color="primary"
+                  width="50%"
+                  margin="0 auto"
                 >
                   My Info
                 </Typography>

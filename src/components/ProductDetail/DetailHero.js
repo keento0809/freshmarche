@@ -18,9 +18,7 @@ const DetailHero = (props) => {
 
   return (
     <MainBoxUI>
-      {notifyCtx.isNotifying && (
-        <AlertSnackBar label="Product deleted from FavoriteList." />
-      )}
+      {notifyCtx.isNotifying && <AlertSnackBar />}
       <TitleUI title={props.name} />
       <ImageComponent src={props.imageUrl} alt="product" />
     </MainBoxUI>

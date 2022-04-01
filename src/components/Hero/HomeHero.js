@@ -21,30 +21,29 @@ const style = {
 
 const HomeHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
-  // const [showing, setShowing] = useState("");
 
-  // let snackBarContent = "";
-  // console.log(notifyCtx.isNotifying);
-
-  // useEffect(() => {
-  // snackBarContent = <AlertSnackBar label="Product successfully added!" />;
-  //   console.log("SnackBar re-rendering...");
-  //   setShowing(<AlertSnackBar label="" />);
-  //   setTimeout(() => {
-  //     setShowing("");
-  //   }, 2500);
-  // }, [notifyCtx.isNotifying]);
+  const styleSnackBar = {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+    zIndex: "5",
+  };
 
   return (
-    <HeroBox>
+    <HeroBox sx={{ position: "relative" }}>
       <div className="container"></div>
       {/* original code. Do not delete */}
-      {notifyCtx.isNotifying && (
-        <AlertSnackBar label="Product successfully added!" />
-      )}
+      {notifyCtx.isNotifying && <AlertSnackBar sx={styleSnackBar} />}
       {/* {notifyCtx.isNotifying && showing} */}
-      <TextComponent>Explore Freshest Foods.</TextComponent>
-      <Typography variant="h4" component="h4" paddingTop={6} sx={style}>
+      {/* <TextComponent>Explore Freshest Foods.</TextComponent> */}
+      <Typography
+        variant="h2"
+        component="h2"
+        paddingTop={6}
+        paddingBottom={2}
+        sx={style}
+      >
         Search Products
       </Typography>
       <HeroSearchBar value={props.value} onChange={props.onChange} />

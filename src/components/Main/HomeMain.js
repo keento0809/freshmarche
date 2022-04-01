@@ -5,11 +5,6 @@ import HomeProducts from "../Products/HomeProducts";
 const HomeMain = () => {
   const [searchInput, setSearchInput] = useState("");
 
-  // test
-  // useEffect(() => {
-  //   console.log(searchInput);
-  // }, [searchInput]);
-
   return (
     <div className="allMain">
       <HomeHero value={searchInput} onChange={setSearchInput} />

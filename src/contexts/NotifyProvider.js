@@ -9,6 +9,10 @@ const NotifyProvider = (props) => {
     console.log(alertText);
     setIsNotifying(true);
     setNotificationText(alertText);
+    setTimeout(() => {
+      setIsNotifying(false);
+      setNotificationText("");
+    }, 2500);
   };
 
   const handleDismissNotification = () => {

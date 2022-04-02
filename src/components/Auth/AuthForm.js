@@ -1,43 +1,17 @@
-// import ContainerUI from "../UIcomponents/Container/ContainerUI";
-// import TitleUI from "../UIcomponents/Title/TitleUI";
-// import UserInfoInputUI from "../UIcomponents/Input/UserInfoInputUI";
-// import Typography from "@mui/material/Typography";
-// import Box from "@mui/material/Box";
-
-// const AuthForm = () => {
-//   const submitHandler = () => {
-//     console.log("submitting!");
-//   };
-
-//   return (
-//     <div>
-//       <ContainerUI>
-//         <form action="" onSubmit={submitHandler}>
-//           <TitleUI title="Sign In" />
-//           <Box paddingY={6} textAlign="center">
-//             <UserInfoInputUI type="email" placeHolder="Email" />
-//             <UserInfoInputUI type="password" placeHolder="Password" />
-//           </Box>
-//         </form>
-//       </ContainerUI>
-//     </div>
-//   );
-// };
-
-// export default AuthForm;
-
 import * as React from "react";
+import { useState } from "react";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
+// import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+// import { createTheme, ThemeProvider } from "@mui/material/styles";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { InputAdornment } from "@mui/material";
@@ -66,7 +40,10 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 // const theme = createTheme();
 
-const AuthForm = () => {
+const AuthForm = (props) => {
+  const [isSignup, setIsSignup] = useState(false);
+
+  // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -81,7 +58,7 @@ const AuthForm = () => {
     <ContainerUI>
       {/* <Container component="main" maxWidth="xs"> */}
       <Box paddingY={4}>
-        <TitleUI title="Sign In" />
+        <TitleUI title={props.title} />
       </Box>
       {/* <CssBaseline /> */}
       <Box
@@ -104,6 +81,34 @@ const AuthForm = () => {
           noValidate
           sx={{ paddingY: 14 }}
         >
+          {isSignup && (
+            <TextField
+              variant="standard"
+              margin="normal"
+              required
+              fullWidth
+              id="fullname"
+              //   label="Email Address"
+              name="fullname"
+              placeholder="Full Name"
+              //   autoComplete="email"
+              //   autoFocus
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <PersonOutlineOutlinedIcon />
+                  </InputAdornment>
+                ),
+                disableUnderline: true,
+              }}
+              sx={{
+                borderRadius: "50px",
+                backgroundColor: "background.grey",
+                padding: "0.9rem 1.8rem",
+                mt: 1.5,
+              }}
+            />
+          )}
           <TextField
             variant="standard"
             margin="normal"
@@ -127,7 +132,7 @@ const AuthForm = () => {
               borderRadius: "50px",
               backgroundColor: "background.grey",
               padding: "0.9rem 1.8rem",
-              mt: 1,
+              mt: 1.5,
             }}
           />
           <TextField
@@ -152,10 +157,8 @@ const AuthForm = () => {
               borderRadius: "50px",
               backgroundColor: "background.grey",
               padding: "0.9rem 1.8rem",
-              mt: 1,
+              mt: 1.5,
             }}
-            className="これがtext fieldかえ"
-            //   sx={{ padding: "0.5rem 0.9rem" }}
           />
           {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -179,7 +182,8 @@ const AuthForm = () => {
             }}
             bgColor="red"
           >
-            Sign In
+            {props.btnLabel}
+            {/* Sign In */}
           </Button>
           {/* <Grid container>
               <Grid item xs>
@@ -194,8 +198,11 @@ const AuthForm = () => {
               </Grid>
             </Grid> */}
           <Box textAlign="center">
-            <Link href="#" variant="body2">
-              {"CREATE ACCOUNT"}
+            <Link
+              href={isSignup ? "/authentication" : "/signup"}
+              variant="body2"
+            >
+              {isSignup ? "SIGN IN" : "CREATE ACCOUNT"}
             </Link>
           </Box>
         </Box>

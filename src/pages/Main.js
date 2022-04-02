@@ -18,6 +18,7 @@ const MyInfo = React.lazy(() => import("./MyInfo"));
 const OrderSummary = React.lazy(() => import("./OrderSummary"));
 const OrderComplete = React.lazy(() => import("./OrderComplete"));
 const AuthPage = React.lazy(() => import("./AuthPage"));
+const Signup = React.lazy(() => import("./Signup"));
 
 const Main = () => {
   return (
@@ -33,6 +34,9 @@ const Main = () => {
             </Route>
             <Route path="/authentication" exact>
               <AuthPage />
+            </Route>
+            <Route path="/signup" exact>
+              <Signup />
             </Route>
             {/* temporary */}
             <Route path="/mypage" exact>

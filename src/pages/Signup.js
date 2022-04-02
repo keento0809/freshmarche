@@ -1,15 +1,14 @@
+import { Fragment } from "react";
 import AuthForm from "../components/Auth/AuthForm";
 import MainHeader from "../components/Header/MainHeader";
-import { Fragment } from "react";
 
-const AuthPage = () => {
+const Signup = () => {
   return (
     <Fragment>
       <MainHeader />
-      <AuthForm btnLabel="SIGN IN" title="Sign In" />
-      {/* <MainFooter /> */}
+      <AuthForm btnLabel="CREATE ACCOUNT" title="Create Account" />
     </Fragment>
   );
 };
 
-export default AuthPage;
+export default Signup;

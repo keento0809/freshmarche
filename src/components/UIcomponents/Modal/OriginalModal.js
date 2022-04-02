@@ -32,9 +32,9 @@ const UlStyle = styled("ul")({
 });
 
 const closeIconStyle = {
-  position: "absolute",
-  top: "2%",
-  left: "4.4%",
+  position: "fixed",
+  top: "7%",
+  left: "27px",
   color: "primary.main",
 };
 

@@ -1,7 +1,6 @@
 import { Link as RouterLink } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import AddToCartButton from "../Buttons/AddToCartButton";
 import MoveNextButton from "../Buttons/MoveNextButton";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 

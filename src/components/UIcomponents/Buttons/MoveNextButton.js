@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 const MoveNextButton = (props) => {
   return (
     <Button
       variant="contained"
+      startIcon={props.label === "ADDTOCART" ? <AddShoppingCartIcon /> : ""}
       sx={{
         width: "95%",
         borderRadius: "50px",
@@ -15,6 +16,8 @@ const MoveNextButton = (props) => {
       }}
       component={RouterLink}
       to={props.link}
+      // test
+      onClick={props.onClick}
     >
       {props.label}
     </Button>

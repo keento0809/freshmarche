@@ -5,7 +5,7 @@ import CartContext from "../../contexts/cart-context";
 import NotifyContext from "../../contexts/notify-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import AddToCartButton from "../UIcomponents/Buttons/AddToCartButton";
+import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
 import MainBoxUI from "../UIcomponents/Box/MainBox";
 import Box from "@mui/material/Box";
 import ChangeAmountButton from "../UIcomponents/Buttons/ChangeAmountButton";
@@ -78,7 +78,6 @@ const Info = (props) => {
             onClick={() => handleAddToFavorites(productInfo)}
           />
         )}
-        {/* <FavoriteIcon sx={{ color: "violet" }} /> */}
       </Box>
       <Box>
         <ChangeAmountButton
@@ -97,7 +96,7 @@ const Info = (props) => {
         <KeyboardArrowDownIcon display="inline-block" color="secondary" />
       </Box>
       <Box margin="2rem 0">
-        <AddToCartButton
+        <MoveNextButton
           onClick={() => handleAddToCart(productInfo)}
           label="ADDTOCART"
           productInfo={productInfo}

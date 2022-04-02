@@ -4,7 +4,7 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from "react-router-dom";
-import React, { Suspense, useState } from "react";
+import React, { Suspense } from "react";
 import Home from "./Home";
 // import OrderComplete from "./OrderComplete";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
@@ -17,6 +17,7 @@ const PaymentMethod = React.lazy(() => import("./PaymentMethod"));
 const MyInfo = React.lazy(() => import("./MyInfo"));
 const OrderSummary = React.lazy(() => import("./OrderSummary"));
 const OrderComplete = React.lazy(() => import("./OrderComplete"));
+const AuthPage = React.lazy(() => import("./AuthPage"));
 
 const Main = () => {
   return (
@@ -29,6 +30,9 @@ const Main = () => {
             </Route>
             <Route path="/home" exact>
               <Home />
+            </Route>
+            <Route path="/authentication" exact>
+              <AuthPage />
             </Route>
             {/* temporary */}
             <Route path="/mypage" exact>

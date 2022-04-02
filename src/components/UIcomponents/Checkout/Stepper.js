@@ -44,13 +44,13 @@ const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundImage:
-        "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
+        "linear-gradient( 95deg,rgb(69, 255, 162) 0%,rgb(118, 255, 3) 50%,rgb(118, 255, 3) 100%)",
     },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
       backgroundImage:
-        "linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)",
+        "linear-gradient( 95deg,rgb(69, 255, 162) 0%,rgb(118, 255, 3) 50%,rgb(118, 255, 3) 100%)",
     },
   },
   [`& .${stepConnectorClasses.line}`]: {
@@ -75,12 +75,17 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   alignItems: "center",
   ...(ownerState.active && {
     backgroundImage:
-      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+      // default code
+      // "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+      // "linear-gradient( 136deg, rgb(118, 255, 3) 0%, rgb(118, 255, 3) 50%, rgb(138,35,135) 100%)",
+      "linear-gradient( 136deg, rgb(118, 255, 3) 0%, rgb(118, 255, 3) 50%, rgb(118,255,3) 100%)",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   }),
   ...(ownerState.completed && {
     backgroundImage:
-      "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+      // default code
+      // "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
+      "linear-gradient( 136deg, rgb(118, 255, 3) 0%, rgb(118, 255, 3) 50%, rgb(118,255,3) 100%)",
   }),
 }));
 
@@ -130,15 +135,15 @@ const StepperUI = (props) => {
       alternativeLabel
       activeStep={props.activeStep}
       connector={<ColorlibConnector />}
+      sx={{ paddingY: "1.5rem" }}
     >
       {steps.map((label) => (
         <Step key={label}>
           <StepLabel
             sx={{ color: "green" }}
-            className="ドッドドドドド"
             StepIconComponent={ColorlibStepIcon}
           >
-            {label}
+            {/* {label} */}
           </StepLabel>
         </Step>
       ))}

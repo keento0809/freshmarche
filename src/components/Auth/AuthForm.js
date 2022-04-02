@@ -211,7 +211,7 @@ const AuthForm = (props) => {
               component={RouterLink}
               to={props.isSignup ? "/authentication" : "/signup"}
               sx={{
-                color: "primary",
+                color: "primary.main",
                 textDecoration: "none",
                 fontSize: "1rem",
               }}

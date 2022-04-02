@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -41,8 +41,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // const theme = createTheme();
 
 const AuthForm = (props) => {
-  const [isSignup, setIsSignup] = useState(false);
-
   // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -81,7 +79,7 @@ const AuthForm = (props) => {
           noValidate
           sx={{ paddingY: 14 }}
         >
-          {isSignup && (
+          {props.isSignup && (
             <TextField
               variant="standard"
               margin="normal"
@@ -198,12 +196,29 @@ const AuthForm = (props) => {
               </Grid>
             </Grid> */}
           <Box textAlign="center">
-            <Link
-              href={isSignup ? "/authentication" : "/signup"}
+            {/* original code. DO NOT Delete */}
+            {/* <Link
+              href={props.isSignup ? "/authentication" : "/signup"}
               variant="body2"
             >
-              {isSignup ? "SIGN IN" : "CREATE ACCOUNT"}
-            </Link>
+              {props.isSignup ? "SIGN IN" : "CREATE ACCOUNT"}
+            </Link> */}
+
+            {/* test */}
+            <Typography
+              // href={props.isSignup ? "/authentication" : "/signup"}
+              variant="body2"
+              component={RouterLink}
+              to={props.isSignup ? "/authentication" : "/signup"}
+              sx={{
+                color: "primary",
+                textDecoration: "none",
+                fontSize: "1rem",
+              }}
+              color="red"
+            >
+              {props.isSignup ? "SIGN IN" : "CREATE ACCOUNT"}
+            </Typography>
           </Box>
         </Box>
       </Box>

@@ -6,7 +6,11 @@ const Signup = () => {
   return (
     <Fragment>
       <MainHeader />
-      <AuthForm btnLabel="CREATE ACCOUNT" title="Create Account" />
+      <AuthForm
+        btnLabel="CREATE ACCOUNT"
+        title="Create Account"
+        isSignup={true}
+      />
     </Fragment>
   );
 };

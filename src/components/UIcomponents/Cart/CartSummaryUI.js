@@ -35,7 +35,7 @@ const CartSummaryUI = (props) => {
         </Box>
       </Box>
       <Box textAlign="center" marginTop={3}>
-        <MoveNextButton label={props.label} link="/payment" />
+        <MoveNextButton label={props.label} link={props.link} />
       </Box>
     </Box>
   );

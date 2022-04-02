@@ -24,7 +24,7 @@ const OrderComplete = () => {
           Thank you for choosing us!
         </Typography>
         <Box paddingTop={10}>
-          <MoveNextButton label="BACK TO TOP" />
+          <MoveNextButton label="BACK TO TOP" link={"/"} />
         </Box>
       </Box>
     </ContainerUI>

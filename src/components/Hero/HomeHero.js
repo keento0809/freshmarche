@@ -4,9 +4,8 @@ import HeroBox from "../UIcomponents/Hero/HeroBoxUI";
 import HeroSearchBar from "../UIcomponents/Hero/HeroSearchBar";
 import Typography from "@mui/material/Typography";
 import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
-
 import { styled } from "@mui/system";
-import { SnackbarContent } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const TextComponent = styled("p")({
   textAlign: "center",
@@ -21,6 +20,7 @@ const style = {
 
 const HomeHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
+  const theme = useTheme();
 
   const styleSnackBar = {
     position: "absolute",
@@ -38,8 +38,8 @@ const HomeHero = (props) => {
       {/* {notifyCtx.isNotifying && showing} */}
       {/* <TextComponent>Explore Freshest Foods.</TextComponent> */}
       <Typography
-        variant="h2"
-        component="h2"
+        variant="h4"
+        component="h4"
         paddingTop={6}
         paddingBottom={2}
         sx={style}

@@ -13,6 +13,7 @@ const CartSummaryComponent = () => {
   return (
     <CartSummaryUI
       label="CHECKOUT"
+      link={"/payment"}
       totalCartPrice={totalCartPrice.toFixed(2)}
       deliveryFee={0}
     />

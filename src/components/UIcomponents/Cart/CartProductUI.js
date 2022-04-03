@@ -48,19 +48,19 @@ const CartProductUI = (props) => {
   }, [favoriteCtx.favoriteList]);
 
   const handleUpdateOrderQuantity = (product, text) => {
-    console.log("Updating...???");
+    // console.log("Updating...???");
 
     if (text === "plus") console.log("Plus counts.");
     if (text === "minus") console.log("Minus counts.");
   };
 
-  const test1 = () => {
-    console.log("test1 ....");
-  };
+  // const test1 = () => {
+  //   console.log("test1 ....");
+  // };
 
-  const test2 = () => {
-    console.log("test2 ....");
-  };
+  // const test2 = () => {
+  //   console.log("test2 ....");
+  // };
 
   const handleDeleteProduct = (productInfo) => {
     console.log("Deleting....");

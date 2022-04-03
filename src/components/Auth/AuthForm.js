@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -41,14 +42,73 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // const theme = createTheme();
 
 const AuthForm = (props) => {
+  // declare useState
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+
+    const enteredEmail = data.get("email");
+    const enteredPassword = data.get("password");
+    if (props.isSignup) {
+      const enteredFullName = data.get("fullName");
+      const enteredPasswordConfirmation = data.get("passwordConfirmation");
+
+      if (enteredFullName === "") return;
+      if (enteredPassword !== enteredPasswordConfirmation) {
+        console.log("password invalid");
+        return;
+      }
+    }
+
+    const sendRequest = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(
+          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: enteredEmail,
+              password: enteredPassword,
+              returnSecureToken: true,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (!response.ok) {
+          console.log(response);
+          throw new Error("Authorization failed..!!");
+        }
+
+        const data = await response.json();
+        console.log("Fetch succeed!", data);
+
+        // execute login
+      } catch (error) {
+        console.log(error.message);
+        setError(error.message);
+      }
+      setIsLoading(false);
+    };
+    sendRequest();
+    // props.isSignup &&
+    //   console.log({
+    //     name: data.get("fullname"),
+    //     passwordConfirmation: data.get("passwordConfirmation"),
+    //   });
+
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
   };
 
   return (
@@ -85,9 +145,9 @@ const AuthForm = (props) => {
               margin="normal"
               required
               fullWidth
-              id="fullname"
+              id="fullName"
               //   label="Email Address"
-              name="fullname"
+              name="fullName"
               placeholder="Full Name"
               //   autoComplete="email"
               //   autoFocus
@@ -105,6 +165,7 @@ const AuthForm = (props) => {
                 padding: "0.9rem 1.8rem",
                 mt: 1.5,
               }}
+              // ref={enteredFullName}
             />
           )}
           <TextField
@@ -132,6 +193,7 @@ const AuthForm = (props) => {
               padding: "0.9rem 1.8rem",
               mt: 1.5,
             }}
+            // ref={enteredEmail}
           />
           <TextField
             variant="standard"
@@ -157,16 +219,47 @@ const AuthForm = (props) => {
               padding: "0.9rem 1.8rem",
               mt: 1.5,
             }}
+            // ref={enteredPassword}
           />
+          {props.isSignup && (
+            <TextField
+              variant="standard"
+              margin="normal"
+              required
+              fullWidth
+              name="passwordConfirmation"
+              placeholder="Repeat password"
+              type="password"
+              id="passwordConfirmation"
+              // autoComplete="current-password"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LockOutlinedIcon />
+                  </InputAdornment>
+                ),
+                disableUnderline: true,
+              }}
+              sx={{
+                borderRadius: "50px",
+                backgroundColor: "background.grey",
+                padding: "0.9rem 1.8rem",
+                mt: 1.5,
+              }}
+              // ref={enteredPasswordConfirmation}
+            />
+          )}
           {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
-          <Box textAlign="center" sx={{ mt: 2 }}>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Box>
+          {!props.isSignup && (
+            <Box textAlign="center" sx={{ mt: 2 }}>
+              <Link href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Box>
+          )}
           <Button
             type="submit"
             fullWidth

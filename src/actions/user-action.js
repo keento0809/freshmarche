@@ -1,7 +1,7 @@
-export const registerNewUser = (user) => {
+export const registerNewUser = (userInfo) => {
   return {
     type: "REGISTER",
-    payload: user,
+    payload: userInfo,
   };
 };
 

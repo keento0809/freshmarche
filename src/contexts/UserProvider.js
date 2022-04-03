@@ -5,19 +5,26 @@ import UserReducer from "../reducers/UserReducer";
 
 const initialState = {
   userInfo: {
-    id: "u1",
-    username: "Dummy John",
-    address: "816 Granville St. Vancouver BC",
-    email: "sample@sample.com",
-    password: "***********",
+    // default code
+    // id: "u1",
+    // username: "Dummy John",
+    // address: "816 Granville St. Vancouver BC",
+    // email: "sample@sample.com",
+    // password: "***********",
+
+    // id: "u1",
+    username: "",
+    address: "",
+    email: "",
+    password: "",
   },
 };
 
 const UserProvider = (props) => {
   const [userState, dispatchAction] = useReducer(UserReducer, initialState);
 
-  const handleRegisterNewUser = (user) => {
-    dispatchAction(registerNewUser(user));
+  const handleRegisterNewUser = (userInfo) => {
+    dispatchAction(registerNewUser(userInfo));
   };
 
   const handleUpdateUserInfo = (userId) => {

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
-import { useHistory, NavLink } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useHistory, NavLink, Link as RouterLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,15 +15,22 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import LoginIcon from "@mui/icons-material/Login";
+import AuthContext from "../../../contexts/auth-context";
 
 const pages = [`FAVORITES`, `CART`, `LOGOUT`];
 const iconsArray = [<HomeIcon />, <FavoriteIcon />, <ShoppingCartIcon />];
 console.log(iconsArray[0]);
 
 const AppBarUI = (props) => {
+  // declare useState
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [isHomePage, setIsHomePage] = useState(true);
+  const [navLink, setNavLink] = useState("");
+
+  // declare useContext
+  const authCtx = useContext(AuthContext);
 
   const history = useHistory();
 
@@ -32,21 +39,27 @@ const AppBarUI = (props) => {
     isHomePage && props.onOpen();
     !isHomePage && history.push("/");
   };
-  const handleOpenSearchBar = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleOpenSearchBar = (event) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  // const handleCloseNavMenu = () => {
+  //   setAnchorElNav(null);
+  // };
 
-  const handleCloseSearchBar = () => {
-    setAnchorElUser(null);
-  };
+  // const handleCloseSearchBar = () => {
+  //   setAnchorElUser(null);
+  // };
 
   const handleOpenUserInfo = () => {
     // test code
     history.push("/mypage");
+  };
+
+  const handleJumpToLink = (page) => {
+    if (page === "FAVORITES") history.push("/favorites");
+    if (page === "CART") history.push("/mycart");
+    if (page === "LOGOUT") history.push("/authentication");
   };
 
   useEffect(() => {
@@ -124,7 +137,7 @@ const AppBarUI = (props) => {
             {pages.map((page, index) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleJumpToLink(page)}
                 sx={{
                   my: 2,
                   color: "white",
@@ -132,6 +145,8 @@ const AppBarUI = (props) => {
                   fontSize: "0.8rem",
                   fontWeight: "600",
                 }}
+                // component={RouterLink}
+                // to="/favorites"
               >
                 {page}
                 {/* {index} */}
@@ -140,9 +155,22 @@ const AppBarUI = (props) => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton size="large" onClick={handleOpenUserInfo}>
+            {authCtx.isLoggedIn && (
+              <IconButton size="large" onClick={handleOpenUserInfo}>
+                <AccountCircleIcon color="primary" cursor="pointer" />
+              </IconButton>
+            )}
+            {/* <IconButton size="large" onClick={handleOpenUserInfo}>
               <AccountCircleIcon color="primary" cursor="pointer" />
-            </IconButton>
+            </IconButton> */}
+            {!authCtx.isLoggedIn && (
+              <IconButton size="large" onClick={handleOpenUserInfo}>
+                <LoginIcon color="primary" cursor="pointer" />
+              </IconButton>
+            )}
+            {/* <IconButton size="large" onClick={handleOpenUserInfo}>
+              <AccountCircleIcon color="primary" cursor="pointer" />
+            </IconButton> */}
           </Box>
         </Toolbar>
       </Container>

@@ -1,5 +1,6 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "../../contexts/auth-context";
 import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -46,6 +47,9 @@ const AuthForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // declare useContext
+  const authCtx = useContext(AuthContext);
+
   // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -68,9 +72,16 @@ const AuthForm = (props) => {
       setIsLoading(true);
       setError(null);
 
+      let url;
+
+      url = props.isSignup
+        ? "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI"
+        : "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
+
       try {
         const response = await fetch(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI",
+          // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI",
+          url,
           {
             method: "POST",
             body: JSON.stringify({
@@ -92,6 +103,7 @@ const AuthForm = (props) => {
         console.log("Fetch succeed!", data);
 
         // execute login
+        authCtx.login(data.idToken);
       } catch (error) {
         console.log(error.message);
         setError(error.message);
@@ -99,11 +111,6 @@ const AuthForm = (props) => {
       setIsLoading(false);
     };
     sendRequest();
-    // props.isSignup &&
-    //   console.log({
-    //     name: data.get("fullname"),
-    //     passwordConfirmation: data.get("passwordConfirmation"),
-    //   });
 
     // console.log({
     //   email: data.get("email"),

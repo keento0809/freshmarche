@@ -34,6 +34,10 @@ const AppBarUI = (props) => {
   const history = useHistory();
 
   const handleOpenNavMenu = (event) => {
+    if (!authCtx.isLoggedIn) {
+      alert("Please login.");
+      return;
+    }
     setAnchorElNav(event.currentTarget);
     isHomePage && props.onOpen();
     !isHomePage && history.push("/");
@@ -105,9 +109,12 @@ const AppBarUI = (props) => {
               color="inherit"
               cursor="pointer"
             >
-              {isHomePage && <MenuIcon color="primary" />}
-              {!isHomePage && <ArrowBackIcon color="primary" />}
-              {/* <MenuIcon color="primary" /> */}
+              {/* !authCtx.isLoggedIn : icon is dummy */}
+              {!authCtx.isLoggedIn && <MenuIcon color="primary" />}
+              {authCtx.isLoggedIn && isHomePage && <MenuIcon color="primary" />}
+              {authCtx.isLoggedIn && !isHomePage && (
+                <ArrowBackIcon color="primary" />
+              )}
             </IconButton>
           </Box>
           <Box sx={{ flexGrow: 1 }}>
@@ -133,10 +140,8 @@ const AppBarUI = (props) => {
           </Box>
 
           <Box sx={{ flexGrow: 24, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page, index) => (
+            {!authCtx.isLoggedIn && (
               <Button
-                key={page}
-                onClick={() => handleJumpToLink(page)}
                 sx={{
                   my: 2,
                   color: "white",
@@ -144,13 +149,29 @@ const AppBarUI = (props) => {
                   fontSize: "0.8rem",
                   fontWeight: "600",
                 }}
-                // component={RouterLink}
-                // to="/favorites"
               >
-                {page}
-                {/* {index} */}
+                LOG IN
               </Button>
-            ))}
+            )}
+            {authCtx.isLoggedIn &&
+              pages.map((page, index) => (
+                <Button
+                  key={page}
+                  onClick={() => handleJumpToLink(page)}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    fontSize: "0.8rem",
+                    fontWeight: "600",
+                  }}
+                  // component={RouterLink}
+                  // to="/favorites"
+                >
+                  {page}
+                  {/* {index} */}
+                </Button>
+              ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

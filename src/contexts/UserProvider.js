@@ -6,17 +6,17 @@ import UserReducer from "../reducers/UserReducer";
 const initialState = {
   userInfo: {
     // default code
-    // id: "u1",
-    // username: "Dummy John",
-    // address: "816 Granville St. Vancouver BC",
-    // email: "sample@sample.com",
-    // password: "***********",
+    id: "u1",
+    username: "Dummy John",
+    address: "816 Granville St. Vancouver BC",
+    email: "sample@sample.com",
+    password: "***********",
 
     // id: "u1",
-    username: "",
-    address: "",
-    email: "",
-    password: "",
+    // username: "",
+    // address: "",
+    // email: "",
+    // password: "",
   },
 };
 

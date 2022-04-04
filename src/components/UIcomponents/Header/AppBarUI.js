@@ -20,7 +20,6 @@ import AuthContext from "../../../contexts/auth-context";
 
 const pages = [`FAVORITES`, `CART`, `LOGOUT`];
 const iconsArray = [<HomeIcon />, <FavoriteIcon />, <ShoppingCartIcon />];
-console.log(iconsArray[0]);
 
 const AppBarUI = (props) => {
   // declare useState

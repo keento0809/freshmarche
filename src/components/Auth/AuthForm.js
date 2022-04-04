@@ -21,6 +21,8 @@ import { InputAdornment } from "@mui/material";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { ConstructionOutlined } from "@mui/icons-material";
+// import { getAuth, signInAnonymously } from "firebase/auth";
 
 // function Copyright(props) {
 //   return (
@@ -116,6 +118,18 @@ const AuthForm = (props) => {
     //   email: data.get("email"),
     //   password: data.get("password"),
     // });
+  };
+
+  // test
+  const handleLoginAsGuestUser = (e) => {
+    e.preventDefault();
+    console.log("Guest login now");
+
+    const sentGuestLoginRequest = async () => {
+      setIsLoading(true);
+      setError(null);
+    };
+    sentGuestLoginRequest();
   };
 
   return (
@@ -267,6 +281,20 @@ const AuthForm = (props) => {
               </Link>
             </Box>
           )}
+
+          {/* test */}
+          {/* <Box textAlign="center">
+            <Button
+              type="submit"
+              variant="outlined"
+              color="primary"
+              onSubmit={handleLoginAsGuestUser}
+              sx={{ fontWeight: "normal" }}
+            >
+              Login As Guest
+            </Button>
+          </Box> */}
+
           <Button
             type="submit"
             fullWidth
@@ -278,7 +306,6 @@ const AuthForm = (props) => {
               borderRadius: "50px",
               padding: "1rem 2rem",
             }}
-            bgColor="red"
           >
             {props.btnLabel}
             {/* Sign In */}
@@ -295,6 +322,7 @@ const AuthForm = (props) => {
                 </Link>
               </Grid>
             </Grid> */}
+
           <Box textAlign="center">
             {/* original code. DO NOT Delete */}
             {/* <Link

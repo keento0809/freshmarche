@@ -34,10 +34,10 @@ const AppBarUI = (props) => {
   const history = useHistory();
 
   const handleOpenNavMenu = (event) => {
-    if (!authCtx.isLoggedIn) {
-      alert("Please login.");
-      return;
-    }
+    // if (!authCtx.isLoggedIn) {
+    //   alert("Please login.");
+    //   return;
+    // }
     setAnchorElNav(event.currentTarget);
     isHomePage && props.onOpen();
     !isHomePage && history.push("/");

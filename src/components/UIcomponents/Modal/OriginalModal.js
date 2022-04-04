@@ -1,5 +1,7 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../../contexts/auth-context";
+import { NavLink, useHistory } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -39,6 +41,17 @@ const closeIconStyle = {
 };
 
 const OriginalModal = (props) => {
+  const authCtx = React.useContext(AuthContext);
+
+  const history = useHistory();
+
+  const handleLogout = () => {
+    props.onClose();
+    authCtx.logout();
+    // ???
+    // history.replaceState("/signup");
+  };
+
   return (
     <div>
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
@@ -61,71 +74,124 @@ const OriginalModal = (props) => {
           <Box sx={style}>
             <CloseIcon sx={closeIconStyle} onClick={props.onClose} />
             <UlStyle>
-              <NavLink
-                to="/mypage"
-                style={{
-                  textDecoration: "none",
-                  color: "inherit",
-                }}
-              >
-                <Typography
-                  variant="body1"
-                  component="p"
-                  display="block"
-                  paddingBottom="1.2rem"
-                  cursor="pointer"
-                  color="primary"
-                  width="50%"
-                  margin="0 auto"
+              {!authCtx.isLoggedIn && (
+                <NavLink
+                  to="/authentication"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
                 >
-                  My Info
-                </Typography>
-              </NavLink>
-              <NavLink
-                to="/mycart"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <Typography
-                  variant="body1"
-                  component="p"
-                  display="block"
-                  paddingBottom="1.2rem"
-                  cursor="pointer"
-                  color="primary"
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    display="block"
+                    paddingBottom="1.2rem"
+                    cursor="pointer"
+                    color="primary"
+                    width="50%"
+                    margin="0 auto"
+                  >
+                    Login
+                  </Typography>
+                </NavLink>
+              )}
+              {!authCtx.isLoggedIn && (
+                <NavLink
+                  to="/signup"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
                 >
-                  My Cart
-                </Typography>
-              </NavLink>
-              <NavLink
-                to="/favorites"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <Typography
-                  variant="body1"
-                  component="p"
-                  display="block"
-                  paddingBottom="1.2rem"
-                  cursor="pointer"
-                  color="primary"
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    display="block"
+                    paddingBottom="1.2rem"
+                    cursor="pointer"
+                    color="primary"
+                    width="50%"
+                    margin="0 auto"
+                  >
+                    Signup
+                  </Typography>
+                </NavLink>
+              )}
+              {authCtx.isLoggedIn && (
+                <NavLink
+                  to="/mypage"
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
                 >
-                  Favorites
-                </Typography>
-              </NavLink>
-              <NavLink
-                to="#"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <Typography
-                  variant="body1"
-                  component="p"
-                  display="block"
-                  // paddingBottom="1rem"
-                  cursor="pointer"
-                  color="primary"
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    display="block"
+                    paddingBottom="1.2rem"
+                    cursor="pointer"
+                    color="primary"
+                    width="50%"
+                    margin="0 auto"
+                  >
+                    My Info
+                  </Typography>
+                </NavLink>
+              )}
+              {authCtx.isLoggedIn && (
+                <NavLink
+                  to="/mycart"
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
-                  Logout
-                </Typography>
-              </NavLink>
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    display="block"
+                    paddingBottom="1.2rem"
+                    cursor="pointer"
+                    color="primary"
+                  >
+                    My Cart
+                  </Typography>
+                </NavLink>
+              )}
+              {authCtx.isLoggedIn && (
+                <NavLink
+                  to="/favorites"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    display="block"
+                    paddingBottom="1.2rem"
+                    cursor="pointer"
+                    color="primary"
+                  >
+                    Favorites
+                  </Typography>
+                </NavLink>
+              )}
+              {authCtx.isLoggedIn && (
+                <NavLink
+                  to="#"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    display="block"
+                    // paddingBottom="1rem"
+                    cursor="pointer"
+                    color="primary"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Typography>
+                </NavLink>
+              )}
             </UlStyle>
           </Box>
         </Fade>

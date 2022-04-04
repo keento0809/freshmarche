@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import EditIcon from "@mui/icons-material/Edit";
@@ -9,6 +9,7 @@ import LockIcon from "@mui/icons-material/Lock";
 
 const UserInfoBox = (props) => {
   const [icon, setIcon] = useState();
+  const [isShow, setIsShow] = useState(false);
 
   const selectIconType = (val) => {
     if (val === "Username") setIcon(<AccountCircleIcon />);
@@ -17,40 +18,58 @@ const UserInfoBox = (props) => {
     if (val === "Password") setIcon(<LockIcon />);
   };
 
+  const handleEditUserInfo = () => {
+    console.log("Edit btn clicked!");
+    setIsShow(!isShow);
+  };
+
   useEffect(() => {
     selectIconType(props.label);
   }, []);
 
+  let testing = isShow === true ? "block" : "none";
+
+  const style = {
+    display: testing,
+  };
+
   return (
-    <Box
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-      bgcolor="white"
-      padding="0.5rem 1rem"
-      borderRadius="8px"
-      marginBottom={1}
-    >
-      <Box display="flex" alignItems="center">
-        <Box>{icon}</Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="flex-start"
-          justifyContent="center"
-        >
-          <Typography variant="h5" component="h5">
-            {props.label}
-          </Typography>
-          <Typography variant="body1" component="p" width="100%">
-            {props.val}
-          </Typography>
+    <Fragment>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        bgcolor="white"
+        padding="0.5rem 1rem"
+        borderRadius="8px"
+        marginBottom={1}
+      >
+        <Box display="flex" alignItems="center">
+          <Box>{icon}</Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-start"
+            justifyContent="center"
+          >
+            <Typography variant="h5" component="h5">
+              {props.label}
+            </Typography>
+            <Typography variant="body1" component="p" width="100%">
+              {props.val}
+            </Typography>
+          </Box>
+        </Box>
+        <Box>
+          <EditIcon onClick={handleEditUserInfo} />
         </Box>
       </Box>
-      <Box>
-        <EditIcon />
+      <Box sx={style}>
+        <Typography variant="h4" component="h4" color="white">
+          Edit UserInfo
+        </Typography>
       </Box>
-    </Box>
+    </Fragment>
   );
 };
 

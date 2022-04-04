@@ -66,6 +66,10 @@ const AppBarUI = (props) => {
     if (page === "LOGOUT") history.push("/authentication");
   };
 
+  const handleTrying = (text) => {
+    history.push(`/${text}`);
+  };
+
   useEffect(() => {
     props.isHome ? setIsHomePage(true) : setIsHomePage(false);
   }, []);
@@ -150,8 +154,23 @@ const AppBarUI = (props) => {
                   fontSize: "0.8rem",
                   fontWeight: "600",
                 }}
+                onClick={() => handleTrying("authentication")}
               >
                 LOG IN
+              </Button>
+            )}
+            {!authCtx.isLoggedIn && (
+              <Button
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontSize: "0.8rem",
+                  fontWeight: "600",
+                }}
+                onClick={() => handleTrying("signup")}
+              >
+                SIGN UP
               </Button>
             )}
             {authCtx.isLoggedIn &&

@@ -19,7 +19,6 @@ const UserInfoBox = (props) => {
   };
 
   const handleEditUserInfo = () => {
-    console.log("Edit btn clicked!");
     setIsShow(!isShow);
   };
 
@@ -27,10 +26,12 @@ const UserInfoBox = (props) => {
     selectIconType(props.label);
   }, []);
 
-  let testing = isShow === true ? "block" : "none";
+  let dp = isShow === true ? "block" : "none";
+  let opa = isShow === true ? 1 : 0;
 
   const style = {
-    display: testing,
+    display: dp,
+    opacity: opa,
   };
 
   return (

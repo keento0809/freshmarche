@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import UserContext from "./user-context";
 import AuthContext from "./auth-context";
 
@@ -7,15 +6,12 @@ const AuthProvider = (props) => {
   const [token, setToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const history = useHistory();
-
   // const userCtx = useContext(UserContext);
 
   const handleLogin = (idToken) => {
     console.log("Set !! ", idToken);
     setToken(idToken);
     setIsLoggedIn(true);
-    history.replace("/");
     // userCtx.registerNewUser(userInfo);
   };
 

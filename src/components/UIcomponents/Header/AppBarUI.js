@@ -56,7 +56,8 @@ const AppBarUI = (props) => {
 
   const handleOpenUserInfo = () => {
     // test code
-    history.push("/mypage");
+    if (!authCtx.isLoggedIn) history.push("/authentication");
+    else history.push("/mypage");
   };
 
   const handleJumpToLink = (page) => {

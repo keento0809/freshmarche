@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useState, useContext } from "react";
 import AuthContext from "../../contexts/auth-context";
-import { Link as RouterLink } from "react-router-dom";
+import NotifyContext from "../../contexts/notify-context";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
@@ -51,6 +52,10 @@ const AuthForm = (props) => {
 
   // declare useContext
   const authCtx = useContext(AuthContext);
+  const notifyCtx = useContext(NotifyContext);
+
+  // declare history
+  const history = useHistory();
 
   // submitHandler
   const handleSubmit = (event) => {
@@ -98,7 +103,9 @@ const AuthForm = (props) => {
         );
         if (!response.ok) {
           console.log(response);
-          throw new Error("Authorization failed..!!");
+          const errorMessage = "Authorization failed. Please try it again.";
+          alert(errorMessage);
+          throw new Error(errorMessage);
         }
 
         const data = await response.json();
@@ -106,6 +113,10 @@ const AuthForm = (props) => {
 
         // execute login
         authCtx.login(data.idToken);
+        // Show snackBar as notification
+        notifyCtx.notifyNow("Login success!");
+        // jump to home page
+        history.replace("/");
       } catch (error) {
         console.log(error.message);
         setError(error.message);

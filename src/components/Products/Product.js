@@ -4,14 +4,21 @@ import ViewDetailButton from "../UIcomponents/Buttons/ViewDetailButton";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
 import dummyData from "../../data/dummyData.json";
+import Box from "@mui/material/Box";
 
 const ImageComponent = styled("img")({
   width: "100%",
-  height: "auto",
-  minHeight: "100px",
-  maxHeight: "100px",
+  height: "100%",
+  // minHeight: "100px",
+  // maxHeight: "100px",
   padding: "0.5rem",
+  objectFit: "cover",
 });
+
+const imageDivStyle = {
+  width: "118px",
+  height: "100px",
+};
 
 const Product = (props) => {
   const params = useParams();
@@ -20,7 +27,9 @@ const Product = (props) => {
   return (
     <ProductPaper sx={{ display: "inline-block" }}>
       <li key={props.index}>
-        <ImageComponent src={props.imageUrl} alt="" />
+        <Box sx={imageDivStyle}>
+          <ImageComponent src={props.imageUrl} alt="objectfit" />
+        </Box>
         <Typography
           variant="subtitle2"
           component="p"

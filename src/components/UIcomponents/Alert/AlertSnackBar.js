@@ -13,7 +13,6 @@ const Alert = React.forwardRef(function Alert(props, ref) {
       elevation={6}
       ref={ref}
       variant="filled"
-      // label={props.label}
       {...props}
     />
   );

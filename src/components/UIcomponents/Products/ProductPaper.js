@@ -16,9 +16,10 @@ const ProductPaper = (props) => {
         borderRadius: "12px",
         bgcolor: "transparent",
         boxShadow: "1px 1px 5px #000",
+        margin: "0.05rem",
       }}
     >
-      <Paper sx={{ bgcolor: "white" }} elevation={6}>
+      <Paper sx={{ bgcolor: "white", cursor: "pointer" }} elevation={6}>
         {props.children}
       </Paper>
     </Box>

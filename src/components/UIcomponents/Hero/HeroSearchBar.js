@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { styled, alpha, useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -53,30 +54,38 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const HeroSearchBar = (props) => {
+  const theme = useTheme();
+  const matches = useMediaQuery("(min-width:600px)");
+
   const handleCheckInputValue = (e) => {
     props.onChange(e.target.value);
   };
 
   return (
     <Toolbar
-      paddingLeft={0}
-      paddingRight={0}
       sx={{
         paddingLeft: 0,
         paddingRight: 0,
         bgcolor: "background.secondary",
-        borderRadius: "12px",
+        borderRadius: "8px",
         width: "90%",
         margin: "0 auto",
+        boxShadow: "1px 1px 7px #000",
+        bgcolor: "background.paper",
+        [theme.breakpoints.up("sm")]: {
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
       }}
       className="ツールバー"
     >
-      <Search className="どれ？">
-        <SearchIconWrapper className="これか？">
-          <SearchIcon />
+      <Search>
+        <SearchIconWrapper>
+          <SearchIcon sx={{ color: "secondary" }} />
         </SearchIconWrapper>
         <StyledInputBase
-          sx={{ width: "100%" }}
+          className="インプットですか"
+          sx={{ width: "100%", bgcolor: "white", borderRadius: "8px" }}
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
           // value={props.value}

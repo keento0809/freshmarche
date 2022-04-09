@@ -1,7 +1,7 @@
 import * as React from "react";
 import Box from "@mui/system/Box";
 import ContainerUI from "../Container/ContainerUI";
-import HeroImage from "../../../assets/images/hero-img-freshmarche.jpg";
+import HeroImage from "../../../assets/images/jakub-kapusnak-vnNFWKY7Tj4-unsplash.jpg";
 
 const HeroBox = (props) => {
   return (
@@ -16,10 +16,10 @@ const HeroBox = (props) => {
         textAlign: "center",
       }}
       margin={props.margin}
-      paddingTop={3}
-      paddingBottom={3}
+      paddingTop={1}
+      paddingBottom={1}
     >
-      <ContainerUI>{props.children}</ContainerUI>
+      {props.children}
     </Box>
   );
 };

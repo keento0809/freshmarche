@@ -10,7 +10,7 @@ const ContainerUI = (props) => {
       <Container
         maxWidth="sm"
         className="ここここれですかい"
-        sx={{ paddingBottom: "64px" }}
+        // sx={{ paddingBottom: "64px" }}
       >
         <Box
           sx={{

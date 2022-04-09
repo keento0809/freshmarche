@@ -1,20 +1,23 @@
 import Info from "./Info";
 import DetailHero from "./DetailHero";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
-import { Fragment } from "react";
+import Box from "@mui/material/Box";
 
 const ProductDetailComponent = (props) => {
   return (
     <ContainerUI>
-      <DetailHero id={props.id} name={props.name} imageUrl={props.imageUrl} />
-      <Info
-        id={props.id}
-        name={props.name}
-        price={props.price}
-        quantity={props.quantity}
-        subTotalPrice={props.subTotalPrice}
-        imageUrl={props.imageUrl}
-      />
+      {/* test box */}
+      <Box paddingBottom="100px">
+        <DetailHero id={props.id} name={props.name} imageUrl={props.imageUrl} />
+        <Info
+          id={props.id}
+          name={props.name}
+          price={props.price}
+          quantity={props.quantity}
+          subTotalPrice={props.subTotalPrice}
+          imageUrl={props.imageUrl}
+        />
+      </Box>
     </ContainerUI>
   );
 };

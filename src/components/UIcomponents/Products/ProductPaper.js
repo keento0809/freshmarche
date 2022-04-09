@@ -15,8 +15,7 @@ const ProductPaper = (props) => {
         border: "1px solid transparent",
         borderRadius: "12px",
         bgcolor: "transparent",
-        // For checking
-        // bgcolor: "white",
+        boxShadow: "1px 1px 5px #000",
       }}
     >
       <Paper sx={{ bgcolor: "white" }} elevation={6}>

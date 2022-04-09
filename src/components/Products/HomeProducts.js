@@ -11,6 +11,7 @@ const HomeProducts = (props) => {
         component="h4"
         color="secondary"
         textAlign="center"
+        sx={{ textShadow: "1px 1px 7px #000" }}
       >
         Products
       </Typography>

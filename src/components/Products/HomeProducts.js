@@ -9,9 +9,9 @@ const HomeProducts = (props) => {
       <Typography
         variant="h4"
         component="h4"
-        color="secondary"
+        color="primary"
         textAlign="center"
-        sx={{ textShadow: "1px 1px 7px #000" }}
+        sx={{ textShadow: "1px 1px 7px #000", paddingBottom: "0.5rem" }}
       >
         Products
       </Typography>

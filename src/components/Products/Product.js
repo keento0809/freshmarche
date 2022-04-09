@@ -7,8 +7,9 @@ import dummyData from "../../data/dummyData.json";
 
 const ImageComponent = styled("img")({
   width: "100%",
-  height: "100%",
+  height: "auto",
   minHeight: "100px",
+  maxHeight: "100px",
   padding: "0.5rem",
 });
 

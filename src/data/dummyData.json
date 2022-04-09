@@ -2,55 +2,61 @@
   {
     "id": "p1",
     "name": "Banana",
-    "price": 2.99,
+    "price": 0.69,
     "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716"
   },
   {
     "id": "p2",
-    "name": "Banana",
-    "price": 2.99,
-    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/bannanas_web.png?rev=b27a9f94db1744e9ae702a0ba20871d4&hash=AF03ECA16ACB32D92A74462BE212E716"
+    "name": "Peach",
+    "price": 5.99,
+    "image": "https://www.pngitem.com/pimgs/m/519-5199385_peach-fruit-aesthetic-freetoedit-fruit-peach-hd-png.png"
   },
   {
     "id": "p3",
-    "name": "Grape",
-    "price": 10.59,
-    "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+    "name": "Pear",
+    "price": 8.59,
+    "image": "https://w7.pngwing.com/pngs/728/616/png-transparent-asian-pear-d-anjou-fruit-tree-conference-pear-cherry.png"
   },
   {
     "id": "p4",
-    "name": "Grape2",
-    "price": 14.99,
-    "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+    "name": "Lemon",
+    "price": 3.99,
+    "image": "https://www.seekpng.com/png/detail/8-87198_fresh-lemon-png-clip-art-image-lemon-png.png"
   },
   {
     "id": "p5",
-    "name": "Grape3",
-    "price": 22.19,
-    "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+    "name": "Lime",
+    "price": 2.19,
+    "image": "https://e7.pngegg.com/pngimages/274/772/png-clipart-key-lime-sweet-lemon-lemon-lime-drink-lime-natural-foods-food-thumbnail.png"
   },
   {
     "id": "p6",
-    "name": "Grape4",
-    "price": 7.99,
-    "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+    "name": "Pineapple",
+    "price": 12.99,
+    "image": "https://www.plantgrower.org/uploads/6/5/5/4/65545169/published/pineapple.jpg?1516498929"
   },
   {
     "id": "p7",
-    "name": "Grape5",
-    "price": 17.89,
-    "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+    "name": "Orange",
+    "price": 6.89,
+    "image": "https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg"
   },
   {
     "id": "p8",
-    "name": "Grape6",
+    "name": "Peach",
     "price": 15.99,
-    "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+    "image": "https://i.stack.imgur.com/Nqx6J.png"
   },
   {
     "id": "p9",
-    "name": "Grape7",
+    "name": "Grape",
     "price": 30.99,
     "image": "https://www.hgofarms.com/wp-content/uploads/2021/05/grapes1.png"
+  },
+  {
+    "id": "p10",
+    "name": "Apple",
+    "price": 4.99,
+    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
   }
 ]

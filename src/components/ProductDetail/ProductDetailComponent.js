@@ -1,6 +1,7 @@
 import Info from "./Info";
 import DetailHero from "./DetailHero";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
+import { Fragment } from "react";
 
 const ProductDetailComponent = (props) => {
   return (

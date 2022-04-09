@@ -61,11 +61,30 @@ const Info = (props) => {
   }, [favoriteCtx.favoriteList]);
 
   return (
-    <MainBoxUI>
-      <Box display="flex" justifyContent="center" alignItems="center">
-        <Typography variant="body1" component="span" color="secondary">
+    // <MainBoxUI>
+    <div
+      sx={{
+        width: "100%",
+        height: "auto",
+        bgcolor: "background.default",
+        backgroundSize: "cover",
+        textAlign: "center",
+      }}
+      margin={props.margin}
+      paddingTop={2}
+      paddingBottom={2}
+    >
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
+        className="フレックスなう"
+      >
+        {/* test */}
+        {/* <Typography variant="body1" component="span" color="secondary">
           {props.name}
-        </Typography>
+        </Typography> */}
         {!isInFavoriteList && (
           <FavoriteBorderOutlinedIcon
             sx={{ color: "violet" }}
@@ -79,7 +98,7 @@ const Info = (props) => {
           />
         )}
       </Box>
-      <Box>
+      <Box className="これやな" paddingY={2} textAlign="center">
         <ChangeAmountButton
           quantity={orderQuantity}
           onClick={setOrderQuantity}
@@ -87,22 +106,46 @@ const Info = (props) => {
           isAddCartPushed={isAddCartPushed}
           onCheck={setIsAddCartPushed}
         />
-        <Typography variant="h2" component="h3" color="white">
+        <Typography
+          variant="h2"
+          component="h3"
+          color="white"
+          paddingTop={1}
+          paddingBottom={2}
+        >
           ${props.price}
         </Typography>
-        <Typography variant="span" component="p" color="secondary">
-          Description
-        </Typography>
-        <KeyboardArrowDownIcon display="inline-block" color="secondary" />
+        <Box
+          display="flex"
+          flexDirection="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Typography
+            variant="span"
+            component="p"
+            color="secondary"
+            paddingLeft={1.6}
+          >
+            Description
+          </Typography>
+          {/* original code */}
+          <KeyboardArrowDownIcon
+            display="inline-block"
+            color="secondary"
+            sx={{ fontSize: "1.5rem" }}
+          />
+        </Box>
       </Box>
-      <Box margin="2rem 0">
+      <Box margin="2rem 0" sx={{ textAlign: "center" }}>
         <MoveNextButton
           onClick={() => handleAddToCart(productInfo)}
           label="ADDTOCART"
           productInfo={productInfo}
         />
       </Box>
-    </MainBoxUI>
+    </div>
+    // </MainBoxUI>
   );
 };
 

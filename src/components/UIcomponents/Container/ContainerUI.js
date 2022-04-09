@@ -7,8 +7,17 @@ const ContainerUI = (props) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Box sx={{ bgcolor: "background.default", height: "auto" }} />
+      <Container
+        maxWidth="sm"
+        className="ここここれですかい"
+        sx={{ paddingBottom: "64px" }}
+      >
+        <Box
+          sx={{
+            bgcolor: "background.default",
+            height: "auto",
+          }}
+        />
         {props.children}
       </Container>
     </React.Fragment>

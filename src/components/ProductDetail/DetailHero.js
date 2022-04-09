@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { Fragment, useContext } from "react";
 import NotifyContext from "../../contexts/notify-context";
 import MainBoxUI from "../UIcomponents/Box/MainBox";
 import TitleUI from "../UIcomponents/Title/TitleUI";
@@ -10,18 +10,18 @@ const ImageComponent = styled("img")({
   height: "100%",
   minHeight: "200px",
   padding: "0.5rem",
-  margin: "2rem 0",
+  margin: "1.5rem 0",
 });
 
 const DetailHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
 
   return (
-    <MainBoxUI>
+    <div>
       {notifyCtx.isNotifying && <AlertSnackBar />}
       <TitleUI title={props.name} />
       <ImageComponent src={props.imageUrl} alt="product" />
-    </MainBoxUI>
+    </div>
   );
 };
 

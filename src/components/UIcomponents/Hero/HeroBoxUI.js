@@ -13,6 +13,8 @@ const HeroBox = (props) => {
         bgcolor: props.bgColor,
         backgroundImage: `url(${HeroImage})`,
         backgroundSize: "cover",
+        // option
+        // backgroundPosition: "center center",
         textAlign: "center",
       }}
       margin={props.margin}

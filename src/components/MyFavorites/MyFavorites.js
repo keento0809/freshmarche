@@ -12,7 +12,7 @@ const MyFavorites = () => {
         <FavoritesList />
       </Box>
       <Box textAlign="center" marginTop={2}>
-        <MoveNextButton label="ADDMORE" />
+        <MoveNextButton label="ADDMORE" link="/" />
       </Box>
     </ContainerUI>
   );

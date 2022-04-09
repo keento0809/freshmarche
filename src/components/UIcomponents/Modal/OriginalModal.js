@@ -19,6 +19,8 @@ const style = {
   // Original code
   // width: 400,
   width: "100%",
+  // test
+  minHeight: "198px",
   bgcolor: "background.default",
   border: "2px solid primary",
   boxShadow: 24,
@@ -28,7 +30,7 @@ const style = {
 };
 
 const UlStyle = styled("ul")({
-  padding: "2.1rem 0",
+  padding: "1.9rem 0",
   listStyle: "none",
   margin: 0,
 });

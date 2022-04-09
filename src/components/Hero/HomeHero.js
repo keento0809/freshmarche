@@ -59,7 +59,7 @@ const HomeHero = (props) => {
             paddingBottom={1}
             sx={style}
           >
-            Search Products
+            Explore Fresh
           </Typography>
           <HeroSearchBar value={props.value} onChange={props.onChange} />
         </Box>

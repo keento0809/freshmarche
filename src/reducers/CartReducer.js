@@ -62,9 +62,24 @@ const CartReducer = (state, action) => {
         totalPrice: newTotalPrice,
       };
     }
+    // temporary !!
     case "REMOVE": {
-      console.log(action.payload);
-      return state;
+      const removingProductId = action.payload;
+      const removingProduct = state.cartProducts.find(
+        (product) => product.id === removingProductId
+      );
+      const updateTotalQuantity =
+        state.totalQuantity - removingProduct.quantity;
+      const updatedTotalPrice =
+        state.totalPrice - removingProduct.price * removingProduct.quantity;
+      const updateCartProducts = state.cartProducts.filter(
+        (product) => product.id !== removingProductId
+      );
+      return {
+        cartProducts: updateCartProducts,
+        totalQuantity: updateTotalQuantity,
+        totalPrice: updatedTotalPrice,
+      };
     }
   }
 };

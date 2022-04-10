@@ -10,10 +10,18 @@ const MyInfoComponent = () => {
   return (
     <ContainerUI>
       <TitleUI title="My Info" />
-      <UserInfoBox label="Username" val={userCtx.userInfo.username} />
-      <UserInfoBox label="Address" val={userCtx.userInfo.address} />
-      <UserInfoBox label="Email" val={userCtx.userInfo.email} />
-      <UserInfoBox label="Password" val={userCtx.userInfo.password} />
+      <UserInfoBox
+        label="Username"
+        val={userCtx.userInfo.username}
+        type="text"
+      />
+      <UserInfoBox label="Address" val={userCtx.userInfo.address} type="text" />
+      <UserInfoBox label="Email" val={userCtx.userInfo.email} type="email" />
+      <UserInfoBox
+        label="Password"
+        val={userCtx.userInfo.password}
+        type="password"
+      />
     </ContainerUI>
   );
 };

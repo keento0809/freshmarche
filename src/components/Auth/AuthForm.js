@@ -109,7 +109,7 @@ const AuthForm = (props) => {
         }
 
         const data = await response.json();
-        console.log("Fetch succeed!", data);
+        // console.log("Fetch succeed!", data);
 
         // execute login
         authCtx.login(data.idToken);

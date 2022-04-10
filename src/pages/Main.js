@@ -8,6 +8,7 @@ import React, { Suspense } from "react";
 import Home from "./Home";
 // import OrderComplete from "./OrderComplete";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
+import App from "../stripe/App";
 
 const NotFound = React.lazy(() => import("./NotFound"));
 const ProductDetail = React.lazy(() => import("./ProductDetail"));
@@ -53,6 +54,10 @@ const Main = () => {
             {/* temporary */}
             <Route path="/products/:productId">
               <ProductDetail />
+            </Route>
+            {/* temporary & test */}
+            <Route path="/testing">
+              <App />
             </Route>
             {/* temporary */}
             <Route path="/payment" exact>

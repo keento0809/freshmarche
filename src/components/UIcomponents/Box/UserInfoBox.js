@@ -74,6 +74,7 @@ const UserInfoBox = (props) => {
             onClick={handleEditUserInfo}
             val={props.val}
             label={props.label}
+            type={props.type}
           />
         </Typography>
       </Box>

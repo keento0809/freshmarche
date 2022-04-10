@@ -64,7 +64,12 @@ const AppBarUI = (props) => {
   const handleJumpToLink = (page) => {
     if (page === "FAVORITES") history.push("/favorites");
     if (page === "CART") history.push("/mycart");
-    if (page === "LOGOUT") history.push("/authentication");
+    // test
+    // if (page === "LOGOUT") history.push("/authentication");
+    if (page === "LOGOUT") {
+      authCtx.logout();
+      history.push("/authentication");
+    }
   };
 
   const handleTrying = (text) => {

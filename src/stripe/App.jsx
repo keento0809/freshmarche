@@ -3,7 +3,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
-import "./App.css";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -28,6 +27,11 @@ export default function App() {
 
   const appearance = {
     theme: "stripe",
+    variables: {
+      colorPrimary: "#76ff03",
+      colorBackground: "#3e2724",
+      colorText: "#ffffff",
+    },
   };
   const options = {
     clientSecret,

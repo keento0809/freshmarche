@@ -53,6 +53,8 @@ const UserInfoBox = (props) => {
             flexDirection="column"
             alignItems="flex-start"
             justifyContent="center"
+            sx={{ paddingLeft: "0.6rem" }}
+            className="こいつにpadding-leftつける"
           >
             <Typography variant="h5" component="h5">
               {props.label}
@@ -63,7 +65,7 @@ const UserInfoBox = (props) => {
           </Box>
         </Box>
         <Box>
-          <EditIcon onClick={handleEditUserInfo} />
+          <EditIcon onClick={handleEditUserInfo} sx={{ cursor: "pointer" }} />
         </Box>
       </Box>
       <Box sx={style}>

@@ -17,6 +17,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoginIcon from "@mui/icons-material/Login";
 import AuthContext from "../../../contexts/auth-context";
+import { styled } from "@mui/material/styles";
 
 const pages = [`FAVORITES`, `CART`, `LOGOUT`];
 const iconsArray = [<HomeIcon />, <FavoriteIcon />, <ShoppingCartIcon />];
@@ -74,8 +75,6 @@ const AppBarUI = (props) => {
     props.isHome ? setIsHomePage(true) : setIsHomePage(false);
   }, []);
 
-  // const onClickHandle = isHomePage ? :
-
   return (
     // <AppBar position="static" sx={{ bgcolor: "background.default" }}>
     <AppBar position="sticky" sx={{ bgcolor: "background.default" }}>
@@ -114,7 +113,6 @@ const AppBarUI = (props) => {
               color="inherit"
               cursor="pointer"
             >
-              {/* !authCtx.isLoggedIn : icon is dummy */}
               {!authCtx.isLoggedIn && <MenuIcon color="primary" />}
               {authCtx.isLoggedIn && isHomePage && <MenuIcon color="primary" />}
               {authCtx.isLoggedIn && !isHomePage && (
@@ -146,13 +144,21 @@ const AppBarUI = (props) => {
 
           <Box sx={{ flexGrow: 24, display: { xs: "none", md: "flex" } }}>
             {!authCtx.isLoggedIn && (
+              // test code
+              // I gutta refactor this
               <Button
                 sx={{
                   my: 2,
+                  px: "1rem",
                   color: "white",
                   display: "block",
                   fontSize: "0.8rem",
                   fontWeight: "600",
+                  borderRadius: "20px",
+                  "&.MuiButtonBase-root:hover": {
+                    bgcolor: "background.secondary",
+                    color: "text.primary",
+                  },
                 }}
                 onClick={() => handleTrying("authentication")}
               >
@@ -163,10 +169,16 @@ const AppBarUI = (props) => {
               <Button
                 sx={{
                   my: 2,
+                  px: "1rem",
                   color: "white",
                   display: "block",
                   fontSize: "0.8rem",
                   fontWeight: "600",
+                  borderRadius: "25px",
+                  "&.MuiButtonBase-root:hover": {
+                    bgcolor: "background.secondary",
+                    color: "text.primary",
+                  },
                 }}
                 onClick={() => handleTrying("signup")}
               >
@@ -180,13 +192,17 @@ const AppBarUI = (props) => {
                   onClick={() => handleJumpToLink(page)}
                   sx={{
                     my: 2,
+                    px: "1rem",
                     color: "white",
                     display: "block",
                     fontSize: "0.8rem",
                     fontWeight: "600",
+                    borderRadius: "20px",
+                    "&.MuiButtonBase-root:hover": {
+                      bgcolor: "background.secondary",
+                      color: "text.primary",
+                    },
                   }}
-                  // component={RouterLink}
-                  // to="/favorites"
                 >
                   {page}
                   {/* {index} */}

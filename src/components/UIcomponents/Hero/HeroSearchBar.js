@@ -84,11 +84,10 @@ const HeroSearchBar = (props) => {
           <SearchIcon sx={{ color: "secondary" }} />
         </SearchIconWrapper>
         <StyledInputBase
-          className="インプットですか"
+          className="インプットです"
           sx={{ width: "100%", bgcolor: "white", borderRadius: "8px" }}
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
-          // value={props.value}
           onChange={handleCheckInputValue}
         />
       </Search>

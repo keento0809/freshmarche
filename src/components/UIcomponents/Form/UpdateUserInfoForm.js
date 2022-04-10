@@ -34,7 +34,10 @@ const UpdateUserInfoForm = (props) => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
-                <SaveIcon onClick={handleSubmit} />
+                <SaveIcon
+                  onClick={handleSubmit}
+                  sx={{ color: "text.primary", cursor: "pointer" }}
+                />
               </InputAdornment>
             ),
             disableUnderline: true,

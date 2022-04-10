@@ -13,6 +13,9 @@ const MoveNextButton = (props) => {
         borderRadius: "50px",
         bgcolor: "background.paper",
         padding: "0.7rem 0",
+        "&.MuiButtonBase-root:hover": {
+          bgcolor: "background.paper",
+        },
       }}
       component={RouterLink}
       to={props.link}

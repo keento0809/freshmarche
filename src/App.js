@@ -8,8 +8,6 @@ import UserProvider from "../src/contexts/UserProvider";
 import AuthProvider from "./contexts/AuthProvider";
 
 function App() {
-  console.log((1 + 1 + 1 + 1).toFixed(2));
-
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider>

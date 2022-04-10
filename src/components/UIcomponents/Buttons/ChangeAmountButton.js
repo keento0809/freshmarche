@@ -80,9 +80,10 @@ const ChangeAmountButton = (props) => {
         width: "50%",
         borderRadius: "50px",
         justifyContent: "space-around",
-        // bgcolor: "background.secondary",
         color: "text.primary",
-        "&:hover": "background.secondary",
+        "&.MuiButtonBase-root:hover": {
+          bgcolor: "#89fc3a",
+        },
       }}
     >
       {/* default code. Do not delete! */}

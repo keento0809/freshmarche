@@ -6,13 +6,9 @@ const AuthProvider = (props) => {
   const [token, setToken] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // const userCtx = useContext(UserContext);
-
   const handleLogin = (idToken) => {
-    console.log("Set !! ", idToken);
     setToken(idToken);
     setIsLoggedIn(true);
-    // userCtx.registerNewUser(userInfo);
   };
 
   const handleLogout = () => {

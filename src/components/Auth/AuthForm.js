@@ -1,7 +1,8 @@
 import * as React from "react";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../contexts/auth-context";
 import NotifyContext from "../../contexts/notify-context";
+import UserContext from "../../contexts/user-context";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -25,6 +26,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { ConstructionOutlined } from "@mui/icons-material";
 // import { getAuth, signInAnonymously } from "firebase/auth";
 
+// Copy right form. Do not delete just in case.
 // function Copyright(props) {
 //   return (
 //     <Typography
@@ -47,32 +49,58 @@ import { ConstructionOutlined } from "@mui/icons-material";
 
 const AuthForm = (props) => {
   // declare useState
+  const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // declare useContext
   const authCtx = useContext(AuthContext);
   const notifyCtx = useContext(NotifyContext);
+  const userCtx = useContext(UserContext);
 
   // declare history
   const history = useHistory();
+
+  // create userId for new user
+  function generateUserId(length) {
+    var newId = "";
+    var possible =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < length; i++) {
+      newId += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return newId;
+  }
 
   // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const userIdLength = 16;
 
     const enteredEmail = data.get("email");
     const enteredPassword = data.get("password");
-    if (props.isSignup) {
+
+    if (isSignUp) {
       const enteredFullName = data.get("fullName");
       const enteredPasswordConfirmation = data.get("passwordConfirmation");
 
+      // add validation
       if (enteredFullName === "") return;
       if (enteredPassword !== enteredPasswordConfirmation) {
         console.log("password invalid");
         return;
       }
+
+      const setId = generateUserId(userIdLength);
+      userCtx.registerNewUser({
+        id: setId,
+        username: enteredFullName,
+        address: "",
+        email: enteredEmail,
+        password: "*********",
+      });
     }
 
     const sendRequest = async () => {
@@ -81,40 +109,38 @@ const AuthForm = (props) => {
 
       let url;
 
-      url = props.isSignup
+      url = isSignUp
         ? "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI"
         : "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
 
+      console.log(url);
+
       try {
-        const response = await fetch(
-          // "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI",
-          url,
-          {
-            method: "POST",
-            body: JSON.stringify({
-              email: enteredEmail,
-              password: enteredPassword,
-              returnSecureToken: true,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(url, {
+          method: "POST",
+          body: JSON.stringify({
+            email: enteredEmail,
+            password: enteredPassword,
+            returnSecureToken: true,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         if (!response.ok) {
-          console.log(response);
           const errorMessage = "Authorization failed. Please try it again.";
           alert(errorMessage);
           throw new Error(errorMessage);
         }
 
         const data = await response.json();
-        // console.log("Fetch succeed!", data);
 
-        // execute login
-        authCtx.login(data.idToken);
-        // Show snackBar as notification
-        notifyCtx.notifyNow("Login success!");
+        if (!isSignUp) {
+          // execute login
+          authCtx.login(data.idToken);
+          // Show snackBar as notification
+          notifyCtx.notifyNow("Login succeeded !!");
+        }
         // jump to home page
         history.replace("/");
       } catch (error) {
@@ -124,11 +150,6 @@ const AuthForm = (props) => {
       setIsLoading(false);
     };
     sendRequest();
-
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
   };
 
   // test
@@ -142,6 +163,11 @@ const AuthForm = (props) => {
     };
     sentGuestLoginRequest();
   };
+
+  // test 2
+  useEffect(() => {
+    setIsSignUp(props.isSignUp);
+  }, []);
 
   return (
     // <ThemeProvider theme={theme}>
@@ -169,9 +195,9 @@ const AuthForm = (props) => {
           component="form"
           onSubmit={handleSubmit}
           noValidate
-          sx={{ paddingY: 14 }}
+          sx={{ paddingY: !isSignUp ? 14 : 2 }}
         >
-          {props.isSignup && (
+          {isSignUp && (
             <TextField
               variant="standard"
               margin="normal"
@@ -253,7 +279,7 @@ const AuthForm = (props) => {
             }}
             // ref={enteredPassword}
           />
-          {props.isSignup && (
+          {isSignUp && (
             <TextField
               variant="standard"
               margin="normal"
@@ -285,7 +311,7 @@ const AuthForm = (props) => {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
-          {!props.isSignup && (
+          {!isSignUp && (
             <Box textAlign="center" sx={{ mt: 2 }}>
               <Link href="#" variant="body2">
                 Forgot password?
@@ -345,10 +371,9 @@ const AuthForm = (props) => {
 
             {/* test */}
             <Typography
-              // href={props.isSignup ? "/authentication" : "/signup"}
               variant="body2"
               component={RouterLink}
-              to={props.isSignup ? "/authentication" : "/signup"}
+              to={isSignUp ? "/authentication" : "/signup"}
               sx={{
                 color: "primary.main",
                 textDecoration: "none",
@@ -356,7 +381,7 @@ const AuthForm = (props) => {
               }}
               color="red"
             >
-              {props.isSignup ? "SIGN IN" : "CREATE ACCOUNT"}
+              {isSignUp ? "SIGN IN" : "CREATE ACCOUNT"}
             </Typography>
           </Box>
         </Box>

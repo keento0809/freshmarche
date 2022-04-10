@@ -11,12 +11,6 @@ const initialState = {
     address: "816 Granville St. Vancouver BC",
     email: "sample@sample.com",
     password: "***********",
-
-    // id: "u1",
-    // username: "",
-    // address: "",
-    // email: "",
-    // password: "",
   },
 };
 

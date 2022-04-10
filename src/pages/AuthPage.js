@@ -6,8 +6,7 @@ const AuthPage = () => {
   return (
     <Fragment>
       <MainHeader />
-      <AuthForm btnLabel="SIGN IN" title="Sign In" isSignup={false} />
-      {/* <MainFooter /> */}
+      <AuthForm btnLabel="SIGN IN" title="Sign In" isSignUp={false} />
     </Fragment>
   );
 };

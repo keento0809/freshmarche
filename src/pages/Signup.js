@@ -9,7 +9,7 @@ const Signup = () => {
       <AuthForm
         btnLabel="CREATE ACCOUNT"
         title="Create Account"
-        isSignup={true}
+        isSignUp={true}
       />
     </Fragment>
   );

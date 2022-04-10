@@ -19,7 +19,6 @@ const CartProductUI = (props) => {
   const params = useParams();
   // const linkToProductDetail =
 
-  // const [isFavoriteItem, setIsFavoriteItem] = useState(false);
   const [updatedOrderQuantity, setUpdatedOrderQuantity] = useState(
     props.quantity
   );
@@ -48,28 +47,17 @@ const CartProductUI = (props) => {
   }, [favoriteCtx.favoriteList]);
 
   const handleUpdateOrderQuantity = (product, text) => {
-    // console.log("Updating...???");
-
     if (text === "plus") console.log("Plus counts.");
     if (text === "minus") console.log("Minus counts.");
   };
 
-  // const test1 = () => {
-  //   console.log("test1 ....");
-  // };
-
-  // const test2 = () => {
-  //   console.log("test2 ....");
-  // };
-
   const handleDeleteProduct = (productInfo) => {
-    console.log("Deleting....");
     if (productInfo.isFavorite) {
       favoriteCtx.removeFromFavoriteList(productInfo.id);
-      notifyCtx.notifyNow("Product deleted from FavoriteList.");
+      notifyCtx.notifyNow("Product deleted from FavoriteList.", "warning");
     } else {
       cartCtx.removeFromCart(productInfo.id);
-      notifyCtx.notifyNow("Product deleted from your cart.");
+      notifyCtx.notifyNow("Product deleted from your cart.", "warning");
     }
   };
 

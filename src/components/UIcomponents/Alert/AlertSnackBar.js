@@ -36,7 +36,9 @@ const AlertSnackBar = (props) => {
     <Stack>
       <Alert
         onClose={handleClose}
-        severity="success"
+        // original code. Do Not Delete
+        // severity="success"
+        severity={notifyCtx.severity}
         sx={{ width: "100%", bgColor: "background.secondary" }}
       >
         {/* Product successfully added! */}

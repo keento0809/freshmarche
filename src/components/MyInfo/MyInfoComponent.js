@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import UserContext from "../../contexts/user-context";
+import NotifyContext from "../../contexts/notify-context";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import UserInfoBox from "../UIcomponents/Box/UserInfoBox";
+import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 
 const MyInfoComponent = () => {
+  // declare content
   const userCtx = useContext(UserContext);
+  const notifyCtx = useContext(NotifyContext);
 
   return (
     <ContainerUI>
@@ -22,6 +26,7 @@ const MyInfoComponent = () => {
         val={userCtx.userInfo.password}
         type="password"
       />
+      {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
     </ContainerUI>
   );
 };

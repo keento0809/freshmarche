@@ -9,12 +9,6 @@ import { useTheme } from "@mui/material/styles";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import Box from "@mui/material/Box";
 
-// const TextComponent = styled("p")({
-//   textAlign: "center",
-//   color: "secondary",
-//   fontWeight: "Bold",
-// });
-
 const style = {
   textAlign: "center",
   color: "secondary.main",
@@ -24,13 +18,6 @@ const style = {
 const HomeHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
   const theme = useTheme();
-
-  // const styleSnackBar = {
-  //   position: "absolute",
-  //   top: "70px",
-  //   left: "45%",
-  //   zIndex: "10",
-  // };
 
   return (
     <HeroBox sx={{ position: "relative" }}>

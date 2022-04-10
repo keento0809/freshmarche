@@ -1,5 +1,6 @@
 import { Fragment, useRef, useContext, useState } from "react";
 import AuthContext from "../../../contexts/auth-context";
+import NotifyContext from "../../../contexts/notify-context";
 import { InputAdornment } from "@mui/material";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -10,7 +11,10 @@ const UpdateUserInfoForm = (props) => {
   const updatedValueInputRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // declare context
   const authCtx = useContext(AuthContext);
+  const notifyCtx = useContext(NotifyContext);
 
   const postNewRequest = () => {
     setIsLoading(true);
@@ -67,6 +71,9 @@ const UpdateUserInfoForm = (props) => {
 
     postNewRequest();
     props.onClick();
+
+    // show up notification
+    notifyCtx.notifyNow(`${props.label} is successfully updated !`);
   };
 
   return (

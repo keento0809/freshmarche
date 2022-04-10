@@ -4,10 +4,12 @@ import NotifyContext from "./notify-context";
 const NotifyProvider = (props) => {
   const [isNotifying, setIsNotifying] = useState(false);
   const [notificationText, setNotificationText] = useState("");
+  const [severity, setSeverity] = useState("success");
 
-  const handleDoNotification = (alertText) => {
+  const handleDoNotification = (alertText, severity) => {
     console.log(alertText);
     setIsNotifying(true);
+    if (severity) setSeverity(severity);
     setNotificationText(alertText);
     setTimeout(() => {
       setIsNotifying(false);
@@ -15,16 +17,17 @@ const NotifyProvider = (props) => {
     }, 2500);
   };
 
-  const handleDismissNotification = () => {
+  const handleResetNotification = () => {
     setIsNotifying(false);
     setNotificationText("");
   };
 
   const notifyContext = {
     isNotifying: isNotifying,
+    severity: severity,
     notificationText: notificationText,
     notifyNow: handleDoNotification,
-    dismissNotification: handleDismissNotification,
+    resetNotification: handleResetNotification,
   };
 
   return (

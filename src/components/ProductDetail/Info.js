@@ -45,8 +45,12 @@ const Info = (props) => {
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
     // original code DO NOT Delete!
-    notifyCtx.notifyNow("Product successfully added!");
+    notifyCtx.notifyNow("Product added to cart!");
     history.push("/");
+  };
+
+  const handleTry = () => {
+    console.log("I gutta toggle favorite icon.");
   };
 
   useEffect(() => {
@@ -87,14 +91,14 @@ const Info = (props) => {
         </Typography> */}
         {!isInFavoriteList && (
           <FavoriteBorderOutlinedIcon
-            sx={{ color: "violet" }}
+            sx={{ color: "violet", cursor: "pointer" }}
             onClick={() => handleAddToFavorites(productInfo)}
           />
         )}
         {isInFavoriteList && (
           <FavoriteIcon
-            sx={{ color: "violet" }}
-            onClick={() => handleAddToFavorites(productInfo)}
+            sx={{ color: "violet", cursor: "pointer" }}
+            onClick={() => handleTry()}
           />
         )}
       </Box>

@@ -4,11 +4,15 @@ import AuthContext from "./auth-context";
 
 const AuthProvider = (props) => {
   const [token, setToken] = useState(null);
+  // original code
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // test
+  // const userIsLoggedIn = !!token;
 
   const handleLogin = (idToken) => {
     setToken(idToken);
-    setIsLoggedIn(true);
+    // setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
@@ -18,7 +22,10 @@ const AuthProvider = (props) => {
 
   const authContext = {
     token: token,
+    // original code
     isLoggedIn: isLoggedIn,
+    // test
+    // isLoggedIn: userIsLoggedIn,
     login: handleLogin,
     logout: handleLogout,
   };

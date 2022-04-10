@@ -28,8 +28,9 @@ const BottomNavigationUI = () => {
         width: "100%",
         height: "auto",
         position: "fixed",
+        py: 1,
         bottom: 0,
-        backgroundColor: "primary.main",
+        backgroundColor: "background.default",
         [theme.breakpoints.up("md")]: {
           display: "none",
         },
@@ -44,7 +45,7 @@ const BottomNavigationUI = () => {
         component={RouterLink}
         to="/"
         icon={<HomeIcon />}
-        sx={{ padding: "0.5rem 0" }}
+        sx={{ padding: "0.5rem 0", color: "primary.main" }}
       />
       {/* <NavLink to="/mypage"> */}
       {/* </NavLink> */}
@@ -54,7 +55,7 @@ const BottomNavigationUI = () => {
         component={RouterLink}
         to="/favorites"
         icon={<FavoriteIcon />}
-        sx={{ padding: "0.5rem 0" }}
+        sx={{ padding: "0.5rem 0", color: "primary.main" }}
       />
       <BottomNavigationAction
         label={`Cart ${cartCtx.totalQuantity}`}
@@ -62,7 +63,7 @@ const BottomNavigationUI = () => {
         component={RouterLink}
         to="/mycart"
         icon={<ShoppingCartIcon />}
-        sx={{ padding: "0.5rem 0" }}
+        sx={{ padding: "0.5rem 0", color: "primary.main" }}
       />
     </BottomNavigation>
   );

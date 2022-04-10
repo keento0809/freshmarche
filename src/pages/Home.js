@@ -15,12 +15,12 @@ const Home = () => {
   // state
   const [open, setOpen] = useState(false);
   // dummy
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleLogin = () => setIsLoggedIn(true);
-  const handleLogout = () => setIsLoggedIn(false);
+  // const handleLogin = () => setIsLoggedIn(true);
+  // const handleLogout = () => setIsLoggedIn(false);
 
   const modal = open ? (
     <OriginalModal
@@ -36,14 +36,7 @@ const Home = () => {
   return (
     <HomeComponent>
       {modal}
-      <MainHeader
-        isHome={true}
-        onOpen={handleOpen}
-        onClose={handleClose}
-        isLoggedIn={isLoggedIn}
-        onLogin={handleLogin}
-        onLogOut={handleLogout}
-      />
+      <MainHeader isHome={true} onOpen={handleOpen} onClose={handleClose} />
       <HomeMain />
       <MainFooter />
     </HomeComponent>

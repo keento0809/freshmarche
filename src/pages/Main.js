@@ -4,7 +4,8 @@ import {
   Redirect,
   BrowserRouter as Router,
 } from "react-router-dom";
-import React, { Suspense } from "react";
+import React, { Suspense, useContext } from "react";
+import AuthContext from "../contexts/auth-context";
 import Home from "./Home";
 // import OrderComplete from "./OrderComplete";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
@@ -22,6 +23,8 @@ const AuthPage = React.lazy(() => import("./AuthPage"));
 const Signup = React.lazy(() => import("./Signup"));
 
 const Main = () => {
+  const authCtx = useContext(AuthContext);
+
   return (
     <Router>
       <Suspense fallback={<p>Loading...</p>}>
@@ -33,32 +36,42 @@ const Main = () => {
             <Route path="/home" exact>
               <Home />
             </Route>
-            <Route path="/authentication" exact>
-              <AuthPage />
-            </Route>
-            <Route path="/signup" exact>
-              <Signup />
-            </Route>
+            {!authCtx.isLoggedIn && (
+              <Route path="/authentication" exact>
+                <AuthPage />
+              </Route>
+            )}
+            {!authCtx.isLoggedIn && (
+              <Route path="/signup" exact>
+                <Signup />
+              </Route>
+            )}
             {/* temporary */}
-            <Route path="/mypage" exact>
-              <MyInfo />
-            </Route>
+            {authCtx.isLoggedIn && (
+              <Route path="/mypage" exact>
+                <MyInfo />
+              </Route>
+            )}
             {/* temporary */}
-            <Route path="/mycart" exact>
-              <MyCart />
-            </Route>
+            {authCtx.isLoggedIn && (
+              <Route path="/mycart" exact>
+                <MyCart />
+              </Route>
+            )}
             {/* temporary */}
-            <Route path="/favorites" exact>
-              <Favorites />
-            </Route>
+            {authCtx.isLoggedIn && (
+              <Route path="/favorites" exact>
+                <Favorites />
+              </Route>
+            )}
             {/* temporary */}
             <Route path="/products/:productId">
               <ProductDetail />
             </Route>
             {/* temporary & test */}
-            <Route path="/testing">
+            {/* <Route path="/testing">
               <App />
-            </Route>
+            </Route> */}
             {/* temporary */}
             <Route path="/payment" exact>
               <PaymentMethod />
@@ -73,6 +86,8 @@ const Main = () => {
             </Route>
             <Route path="*">
               <NotFound />
+              {/* test */}
+              {/* <Redirect to="/" /> */}
             </Route>
           </Switch>
         </ScopedCssBaseline>

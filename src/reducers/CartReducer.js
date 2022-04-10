@@ -33,7 +33,6 @@ const CartReducer = (state, action) => {
         sample.subTotalPrice +=
           Math.floor(action.payload.subTotalPrice * 100) / 100;
       }
-      // alert("Product successfully added !");
       return {
         cartProducts: updatedCartProducts,
         totalQuantity: updatedTotalQuantity,

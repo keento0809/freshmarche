@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import { useEffect, useContext } from "react";
 import NotifyContext from "../../contexts/notify-context";
 import MainBoxUI from "../UIcomponents/Box/MainBox";
 import TitleUI from "../UIcomponents/Title/TitleUI";
@@ -15,6 +15,10 @@ const ImageComponent = styled("img")({
 
 const DetailHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
+
+  useEffect(() => {
+    notifyCtx.resetNotification();
+  }, []);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import NotifyContext from "../../contexts/notify-context";
 import HeroBox from "../UIcomponents/Hero/HeroBoxUI";
 import HeroSearchBar from "../UIcomponents/Hero/HeroSearchBar";
@@ -17,7 +17,11 @@ const style = {
 
 const HomeHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
-  const theme = useTheme();
+  // const theme = useTheme();
+
+  useEffect(() => {
+    notifyCtx.resetNotification();
+  }, []);
 
   return (
     <HeroBox sx={{ position: "relative" }}>
@@ -37,8 +41,6 @@ const HomeHero = (props) => {
         </Box>
         <Box className="パディングつける用" paddingTop={6} paddingBottom={2}>
           <div className="container"></div>
-          {/* original code. Do not delete */}
-          {/* {notifyCtx.isNotifying && <AlertSnackBar sx={styleSnackBar} />} */}
           <Typography
             variant="h4"
             component="h4"

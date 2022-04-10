@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import NotifyContext from "./notify-context";
 
+const defaultSeverity = "success";
+
 const NotifyProvider = (props) => {
   const [isNotifying, setIsNotifying] = useState(false);
   const [notificationText, setNotificationText] = useState("");
-  const [severity, setSeverity] = useState("success");
+  const [severity, setSeverity] = useState(defaultSeverity);
 
   const handleDoNotification = (alertText, severity) => {
     console.log(alertText);
@@ -18,8 +20,9 @@ const NotifyProvider = (props) => {
   };
 
   const handleResetNotification = () => {
-    setIsNotifying(false);
-    setNotificationText("");
+    // test temporary disabled
+    // setIsNotifying(false);
+    setSeverity(defaultSeverity);
   };
 
   const notifyContext = {

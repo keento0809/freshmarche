@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../../contexts/user-context";
 import NotifyContext from "../../contexts/notify-context";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
@@ -10,6 +10,10 @@ const MyInfoComponent = () => {
   // declare content
   const userCtx = useContext(UserContext);
   const notifyCtx = useContext(NotifyContext);
+
+  useEffect(() => {
+    notifyCtx.resetNotification();
+  }, []);
 
   return (
     <ContainerUI>

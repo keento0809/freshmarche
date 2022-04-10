@@ -6,6 +6,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
+import UpdateUserInfoForm from "../Form/UpdateUserInfoForm";
 
 const UserInfoBox = (props) => {
   const [icon, setIcon] = useState();
@@ -67,7 +68,11 @@ const UserInfoBox = (props) => {
       </Box>
       <Box sx={style}>
         <Typography variant="h4" component="h4" color="white">
-          Edit UserInfo
+          <UpdateUserInfoForm
+            onClick={handleEditUserInfo}
+            val={props.val}
+            label={props.label}
+          />
         </Typography>
       </Box>
     </Fragment>

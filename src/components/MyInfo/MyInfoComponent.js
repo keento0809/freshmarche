@@ -10,6 +10,12 @@ const MyInfoComponent = () => {
   const notifyCtx = useContext(NotifyContext);
 
   const userInfoInLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
+  const currentUserInfo = {
+    username: userInfoInLocalStorage.username,
+    address: userInfoInLocalStorage.address,
+    email: userInfoInLocalStorage.email,
+    password: userInfoInLocalStorage.password,
+  };
 
   useEffect(() => {
     notifyCtx.resetNotification();
@@ -20,35 +26,14 @@ const MyInfoComponent = () => {
       <TitleUI title="My Info" />
       <UserInfoBox
         label="Username"
-        // original code
-        // val={userCtx.userInfo.username}
-        // test
-        val={userInfoInLocalStorage.username}
+        val={currentUserInfo.username}
         type="text"
       />
-      {/* original one */}
-      {/* <UserInfoBox label="Address" val={userCtx.userInfo.address} type="text" /> */}
-      <UserInfoBox
-        label="Address"
-        val={userInfoInLocalStorage.address}
-        type="text"
-      />
-      {/* original one */}
-      {/* <UserInfoBox label="Email" val={userCtx.userInfo.email} type="email" /> */}
-      <UserInfoBox
-        label="Email"
-        val={userInfoInLocalStorage.email}
-        type="email"
-      />
-      {/* original one */}
-      {/* <UserInfoBox
-        label="Password"
-        val={userCtx.userInfo.password}
-        type="password"
-      /> */}
+      <UserInfoBox label="Address" val={currentUserInfo.address} type="text" />
+      <UserInfoBox label="Email" val={currentUserInfo.email} type="email" />
       <UserInfoBox
         label="Password"
-        val={userInfoInLocalStorage.password}
+        val={currentUserInfo.password}
         type="password"
       />
       {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}

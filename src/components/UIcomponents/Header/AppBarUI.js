@@ -31,7 +31,6 @@ const AppBarUI = (props) => {
 
   // declare useContext
   const authCtx = useContext(AuthContext);
-  console.log(authCtx.isLoggedIn);
 
   const history = useHistory();
 

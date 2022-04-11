@@ -51,8 +51,10 @@ const UpdateUserInfoForm = (props) => {
     })
       .then((res) => {
         if (!res.ok) throw new Error("Post request failed.");
+        console.log("update successful");
       })
       .catch((error) => {
+        console.log("update failed");
         setError(error.message);
       });
     setIsLoading(false);

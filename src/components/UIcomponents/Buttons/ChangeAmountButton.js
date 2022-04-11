@@ -4,12 +4,14 @@ import CartContext from "../../../contexts/cart-context";
 import Button from "@mui/material/Button";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
-import { hover } from "@testing-library/user-event/dist/hover";
+import { useTheme } from "@mui/material";
 
 const ChangeAmountButton = (props) => {
   const cartCtx = useContext(CartContext);
   const [itemInfo, setItemInfo] = useState({});
   const [displayQuantity, setDisplayQuantity] = useState(props.quantity);
+
+  const theme = useTheme();
 
   // console.log(props.quantity);
 
@@ -77,7 +79,13 @@ const ChangeAmountButton = (props) => {
         <AddIcon onClick={() => handleAddProductOne(props.productInfo)} />
       }
       sx={{
+        // original code
         width: "50%",
+        // width: "100%",
+        [theme.breakpoints.up("sm")]: {
+          width: "40%",
+        },
+        maxWidth: "400px",
         borderRadius: "50px",
         justifyContent: "space-around",
         color: "text.primary",

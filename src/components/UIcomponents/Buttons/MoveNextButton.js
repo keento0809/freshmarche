@@ -2,14 +2,20 @@ import * as React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useTheme } from "@mui/material/styles";
 
 const MoveNextButton = (props) => {
+  const theme = useTheme();
+
   return (
     <Button
       variant="contained"
       startIcon={props.label === "ADDTOCART" ? <AddShoppingCartIcon /> : ""}
       sx={{
-        width: "95%",
+        width: "90%",
+        [theme.breakpoints.up("sm")]: {
+          width: "70%",
+        },
         borderRadius: "50px",
         bgcolor: "background.paper",
         padding: "0.7rem 0",

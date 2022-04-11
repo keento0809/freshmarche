@@ -9,6 +9,8 @@ const CartList = () => {
 
   const [cartItems, setCartItems] = useState([]);
 
+  console.log(cartCtx.cartList);
+
   useEffect(() => {
     setCartItems(
       cartCtx.cartList.map((product, index) => {

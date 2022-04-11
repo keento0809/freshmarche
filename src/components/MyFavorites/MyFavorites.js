@@ -23,7 +23,7 @@ const MyFavorites = () => {
       <Box textAlign="center" marginTop={2}>
         <MoveNextButton label="ADDMORE" link="/" />
       </Box>
-      {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
+      {/* {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />} */}
     </ContainerUI>
   );
 };

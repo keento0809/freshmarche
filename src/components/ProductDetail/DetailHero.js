@@ -7,12 +7,21 @@ import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 import { styled } from "@mui/system";
 
 const ImageComponent = styled("img")({
+  // original code
   width: "100%",
   height: "100%",
-  minHeight: "200px",
   padding: "0.5rem",
-  margin: "1.5rem 0",
+  // original code
+  margin: "1rem auto",
+  objectFit: "cover",
 });
+
+const imageDivStyle = {
+  display: "inline-block",
+  width: "100%",
+  height: "100%",
+  text: "center",
+};
 
 const DetailHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
@@ -27,7 +36,9 @@ const DetailHero = (props) => {
         {notifyCtx.isNotifying && <AlertSnackBar />}
       </Box>
       <TitleUI title={props.name} />
-      <ImageComponent src={props.imageUrl} alt="product" />
+      <Box textAlign="center">
+        <ImageComponent src={props.imageUrl} alt="product" />
+      </Box>
     </div>
   );
 };

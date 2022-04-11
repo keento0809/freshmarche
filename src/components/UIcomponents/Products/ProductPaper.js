@@ -16,10 +16,22 @@ const ProductPaper = (props) => {
         borderRadius: "12px",
         bgcolor: "transparent",
         boxShadow: "1px 1px 5px #000",
-        margin: "0.05rem",
+        margin: "0.2rem",
+        // "&:hover": "transform:scale(1.2)",
       }}
     >
-      <Paper sx={{ bgcolor: "white", cursor: "pointer" }} elevation={6}>
+      <Paper
+        sx={{
+          bgcolor: "white",
+          cursor: "pointer",
+          transition: "all 0.4s ease",
+          boxShadow: "0 0 6px 4px #000",
+          "&.MuiPaper-root:hover": {
+            transform: "scale(1.05)",
+          },
+        }}
+        elevation={6}
+      >
         {props.children}
       </Paper>
     </Box>

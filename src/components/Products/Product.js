@@ -9,8 +9,6 @@ import Box from "@mui/material/Box";
 const ImageComponent = styled("img")({
   width: "100%",
   height: "100%",
-  // minHeight: "100px",
-  // maxHeight: "100px",
   padding: "0.5rem",
   objectFit: "cover",
 });
@@ -28,7 +26,7 @@ const Product = (props) => {
     <ProductPaper sx={{ display: "inline-block" }}>
       <li key={props.index}>
         <Box sx={imageDivStyle}>
-          <ImageComponent src={props.imageUrl} alt="objectfit" />
+          <ImageComponent src={props.imageUrl} alt="product" />
         </Box>
         <Typography
           variant="subtitle2"

@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import CartContext from "../../contexts/cart-context";
 import CartProductUI from "../UIcomponents/Cart/CartProductUI";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const CartList = () => {
   const cartCtx = useContext(CartContext);
@@ -39,7 +40,7 @@ const CartList = () => {
 
   if (cartItems.length > 0) content = cartItems;
 
-  return <div>{content}</div>;
+  return <Box sx={{ maxHeight: "480px", overflow: "scroll" }}>{content}</Box>;
 };
 
 export default CartList;

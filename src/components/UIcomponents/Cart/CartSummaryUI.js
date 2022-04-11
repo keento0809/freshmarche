@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CartSummaryUI = (props) => {
   return (
-    <Box padding="2rem 0">
+    <Box sx={{ pt: "1.7rem", pb: "64px" }}>
       <Box width="90%" margin="0 auto">
         <Box display="flex" justifyContent="space-between">
           <Typography variant="body1" component="p" color="white">
@@ -33,7 +33,7 @@ const CartSummaryUI = (props) => {
           </Typography>
         </Box>
       </Box>
-      <Box textAlign="center" marginTop={3}>
+      <Box textAlign="center" mt={3} mb={8}>
         <MoveNextButton label={props.label} link={props.link} />
       </Box>
     </Box>

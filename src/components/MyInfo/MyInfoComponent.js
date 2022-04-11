@@ -26,6 +26,7 @@ const MyInfoComponent = () => {
 
   const handleLogout = () => {
     authCtx.logout();
+    notifyCtx.notifyNow("Successfully Logout !!", "warning");
     history.push("/authentication");
   };
 
@@ -51,7 +52,6 @@ const MyInfoComponent = () => {
       <Box py={6} textAlign="center">
         <MoveNextButton label="Logout" onClick={handleLogout} />
       </Box>
-      {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
     </ContainerUI>
   );
 };

@@ -24,7 +24,7 @@ const UpdateUserInfoForm = (props) => {
     let url;
     let bodyPayload;
     if (props.type === "email") {
-      console.log("Email is gonna be updated.");
+      console.log(updatedValue);
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
       bodyPayload = {

@@ -1,13 +1,20 @@
 import { useContext, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import NotifyContext from "../../contexts/notify-context";
+import AuthContext from "../../contexts/auth-context";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import UserInfoBox from "../UIcomponents/Box/UserInfoBox";
+import Box from "@mui/material/Box";
 import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
+import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
 
 const MyInfoComponent = () => {
   // declare content
   const notifyCtx = useContext(NotifyContext);
+  const authCtx = useContext(AuthContext);
+
+  const history = useHistory();
 
   const userInfoInLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
   const currentUserInfo = {
@@ -15,6 +22,11 @@ const MyInfoComponent = () => {
     address: userInfoInLocalStorage.address,
     email: userInfoInLocalStorage.email,
     password: userInfoInLocalStorage.password,
+  };
+
+  const handleLogout = () => {
+    authCtx.logout();
+    history.push("/authentication");
   };
 
   useEffect(() => {
@@ -36,6 +48,9 @@ const MyInfoComponent = () => {
         val={currentUserInfo.password}
         type="password"
       />
+      <Box py={6} textAlign="center">
+        <MoveNextButton label="Logout" onClick={handleLogout} />
+      </Box>
       {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
     </ContainerUI>
   );

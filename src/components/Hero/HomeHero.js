@@ -31,12 +31,22 @@ const HomeHero = (props) => {
         <Box
           variant="body1"
           component="p"
+          // original code
+          // sx={{
+          //   color: "red",
+          //   fontWeight: "bold",
+          //   position: "absolute",
+          //   top: "70px",
+          //   left: "10%",
+          // }}
+          // test
           sx={{
             color: "red",
             fontWeight: "bold",
-            position: "absolute",
-            top: "70px",
-            left: "10%",
+            width: "95%",
+            mx: "auto",
+            position: "fixed",
+            left: "2%",
           }}
         >
           {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}

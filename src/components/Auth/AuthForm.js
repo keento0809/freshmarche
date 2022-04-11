@@ -2,7 +2,6 @@ import * as React from "react";
 import { useState, useContext, useEffect } from "react";
 import AuthContext from "../../contexts/auth-context";
 import NotifyContext from "../../contexts/notify-context";
-import UserContext from "../../contexts/user-context";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -56,7 +55,6 @@ const AuthForm = (props) => {
   // declare useContext
   const authCtx = useContext(AuthContext);
   const notifyCtx = useContext(NotifyContext);
-  const userCtx = useContext(UserContext);
 
   // declare history
   const history = useHistory();
@@ -92,15 +90,6 @@ const AuthForm = (props) => {
         console.log("password invalid");
         return;
       }
-
-      const setId = generateUserId(userIdLength);
-      userCtx.registerNewUser({
-        id: setId,
-        username: enteredFullName,
-        address: "",
-        email: enteredEmail,
-        password: "*********",
-      });
     }
 
     const sendRequest = async () => {
@@ -114,6 +103,8 @@ const AuthForm = (props) => {
         : "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
 
       console.log(url);
+
+      let enteredFullName;
 
       try {
         const response = await fetch(url, {
@@ -135,10 +126,26 @@ const AuthForm = (props) => {
 
         const data = await response.json();
 
+        if (isSignUp) enteredFullName = data.get("fullName");
+        else enteredFullName = "";
+
+        const setId = generateUserId(userIdLength);
+        const userInfo = {
+          id: setId,
+          username: enteredFullName,
+          address: "",
+          email: enteredEmail,
+          password: "*********",
+        };
+        console.log(userInfo);
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        authCtx.login(data.idToken);
+
+        if (isSignUp) {
+          notifyCtx.notifyNow("Sing up succeeded !!");
+        }
+
         if (!isSignUp) {
-          // execute login
-          authCtx.login(data.idToken);
-          // Show snackBar as notification
           notifyCtx.notifyNow("Login succeeded !!");
         }
         // jump to home page

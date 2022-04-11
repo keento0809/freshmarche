@@ -4,7 +4,6 @@ import theme from "./theme/theme";
 import FavoriteProvider from "./contexts/FavoriteProvider";
 import CartProvider from "./contexts/CartProvider";
 import NotifyProvider from "./contexts/NotifyProvider";
-import UserProvider from "../src/contexts/UserProvider";
 import AuthProvider from "./contexts/AuthProvider";
 
 function App() {
@@ -14,11 +13,9 @@ function App() {
         <FavoriteProvider>
           <CartProvider>
             <NotifyProvider>
-              <UserProvider>
-                <div className="App">
-                  <Main />
-                </div>
-              </UserProvider>
+              <div className="App">
+                <Main />
+              </div>
             </NotifyProvider>
           </CartProvider>
         </FavoriteProvider>

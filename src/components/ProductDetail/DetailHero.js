@@ -1,6 +1,5 @@
 import { useEffect, useContext } from "react";
 import NotifyContext from "../../contexts/notify-context";
-import MainBoxUI from "../UIcomponents/Box/MainBox";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";

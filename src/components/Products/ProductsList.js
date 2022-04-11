@@ -3,18 +3,24 @@ import Product from "./Product";
 import { styled } from "@mui/system";
 import dummyData from "../../data/dummyData.json";
 import Typography from "@mui/material/Typography";
-
-const UlComponent = styled("ul")({
-  margin: 0,
-  padding: "0.5rem 0",
-  listStyle: "none",
-  display: "flex",
-  justifyContent: "center",
-  flexDirection: "row",
-  flexWrap: "wrap",
-});
+import { useTheme } from "@mui/material";
 
 const ProductList = (props) => {
+  const theme = useTheme();
+
+  const UlComponent = styled("ul")({
+    margin: 0,
+    padding: "0.5rem 0",
+    listStyle: "none",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    [theme.breakpoints.up(900)]: {
+      justifyContent: "flex-start",
+      paddingLeft: "1rem",
+    },
+  });
   // test
   // console.log(props.value.length > 0);
   const filtering = dummyData.filter((product) =>

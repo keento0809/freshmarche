@@ -76,12 +76,22 @@ const HeroSearchBar = (props) => {
           paddingLeft: 0,
           paddingRight: 0,
         },
+        [theme.breakpoints.up(900)]: {
+          textAlign: "left",
+          margin: 0,
+          width: "65%",
+          marginLeft: "0.5rem",
+        },
       }}
       className="ツールバー"
     >
       <Search>
         <SearchIconWrapper>
-          <SearchIcon sx={{ color: "secondary" }} />
+          <SearchIcon
+            sx={{
+              color: "secondary",
+            }}
+          />
         </SearchIconWrapper>
         <StyledInputBase
           className="インプットです"

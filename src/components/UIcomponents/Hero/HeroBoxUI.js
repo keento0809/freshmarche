@@ -1,9 +1,11 @@
 import * as React from "react";
 import Box from "@mui/system/Box";
-import ContainerUI from "../Container/ContainerUI";
 import HeroImage from "../../../assets/images/jakub-kapusnak-vnNFWKY7Tj4-unsplash.jpg";
+import { useTheme } from "@mui/material";
 
 const HeroBox = (props) => {
+  const theme = useTheme();
+
   return (
     <Box
       sx={{
@@ -13,8 +15,15 @@ const HeroBox = (props) => {
         bgcolor: props.bgColor,
         backgroundImage: `url(${HeroImage})`,
         backgroundSize: "cover",
+        [theme.breakpoints.up("sm")]: { minHeight: "250px" },
+        [theme.breakpoints.up(900)]: {
+          minHeight: "350px",
+          // backgroundPosition: "center center",
+        },
+        [theme.breakpoints.up(1300)]: {
+          backgroundPosition: "top 25% left 50%",
+        },
         // option
-        // backgroundPosition: "center center",
         textAlign: "center",
       }}
       margin={props.margin}

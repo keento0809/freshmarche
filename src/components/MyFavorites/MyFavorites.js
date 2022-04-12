@@ -5,10 +5,12 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import FavoritesList from "./FavoritesList";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
-import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
+import { useTheme } from "@mui/material";
 
 const MyFavorites = () => {
   const notifyCtx = useContext(NotifyContext);
+
+  const theme = useTheme();
 
   useEffect(() => {
     notifyCtx.resetNotification();
@@ -17,11 +19,17 @@ const MyFavorites = () => {
   return (
     <ContainerUI>
       <TitleUI title="Favorites" />
-      <Box padding="0.5rem 0">
+      <Box
+        sx={{
+          padding: "0.5rem 0",
+          [theme.breakpoints.up(900)]: { width: "90%", mx: "auto" },
+          [theme.breakpoints.up(1300)]: { width: "80%", mx: "auto" },
+        }}
+      >
         <FavoritesList />
-      </Box>
-      <Box textAlign="center" marginTop={2}>
-        <MoveNextButton label="ADDMORE" link="/" />
+        <Box textAlign="center" marginTop={4}>
+          <MoveNextButton label="ADDMORE" link="/" />
+        </Box>
       </Box>
       {/* {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />} */}
     </ContainerUI>

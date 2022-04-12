@@ -16,7 +16,7 @@ const NotifyProvider = (props) => {
     setTimeout(() => {
       setIsNotifying(false);
       setNotificationText("");
-    }, 2500);
+    }, 1200);
   };
 
   const handleResetNotification = () => {

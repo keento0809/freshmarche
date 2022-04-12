@@ -191,6 +191,7 @@ const AuthForm = (props) => {
           flexDirection: "column",
           alignItems: "center",
         }}
+        className="トップ"
       >
         {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
@@ -199,6 +200,7 @@ const AuthForm = (props) => {
             Sign in
           </Typography> */}
         <Box
+          className="セカンド"
           component="form"
           onSubmit={handleSubmit}
           noValidate
@@ -386,7 +388,7 @@ const AuthForm = (props) => {
                 textDecoration: "none",
                 fontSize: "1rem",
               }}
-              color="red"
+              // color="red"
             >
               {isSignUp ? "SIGN IN" : "CREATE ACCOUNT"}
             </Typography>

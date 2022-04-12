@@ -3,13 +3,14 @@ import CartContext from "../../contexts/cart-context";
 import CartProductUI from "../UIcomponents/Cart/CartProductUI";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material";
 
 const CartList = () => {
   const cartCtx = useContext(CartContext);
 
   const [cartItems, setCartItems] = useState([]);
 
-  console.log(cartCtx.cartList);
+  const theme = useTheme();
 
   useEffect(() => {
     setCartItems(
@@ -42,7 +43,17 @@ const CartList = () => {
 
   if (cartItems.length > 0) content = cartItems;
 
-  return <Box sx={{ maxHeight: "480px", overflow: "scroll" }}>{content}</Box>;
+  return (
+    <Box
+      sx={{
+        maxHeight: "390px",
+        overflow: "scroll",
+        [theme.breakpoints.up("sm")]: { maxHeight: "480px" },
+      }}
+    >
+      {content}
+    </Box>
+  );
 };
 
 export default CartList;

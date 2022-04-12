@@ -2,12 +2,18 @@ import { Link as RouterLink } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../Buttons/MoveNextButton";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
+import { useTheme } from "@mui/material";
 
 const CartSummaryUI = (props) => {
+  const theme = useTheme();
+
   return (
     <Box sx={{ pt: "1.7rem", pb: "64px" }}>
-      <Box width="90%" margin="0 auto">
+      <Box
+        margin="0 auto"
+        sx={{ width: "90%", [theme.breakpoints.up("sm")]: { width: "100%" } }}
+      >
         <Box display="flex" justifyContent="space-between">
           <Typography variant="body1" component="p" color="white">
             Sub-total

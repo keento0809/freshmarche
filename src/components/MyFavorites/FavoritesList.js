@@ -3,10 +3,13 @@ import FavoriteContext from "../../contexts/favorite-context";
 import CartProductUI from "../UIcomponents/Cart/CartProductUI";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import { useTheme } from "@mui/material";
 
 const FavoritesList = () => {
   const favoriteCtx = useContext(FavoriteContext);
   const [favoriteItems, setFavoriteItems] = useState([]);
+
+  const theme = useTheme();
 
   useEffect(() => {
     setFavoriteItems(
@@ -35,7 +38,18 @@ const FavoritesList = () => {
 
   if (favoriteItems.length > 0) content = favoriteItems;
 
-  return <Box textAlign="center">{content}</Box>;
+  return (
+    <Box
+      textAlign="center"
+      sx={{
+        maxHeight: "570px",
+        overflow: "scroll",
+        [theme.breakpoints.up("sm")]: { maxHeight: "670px" },
+      }}
+    >
+      {content}
+    </Box>
+  );
 };
 
 export default FavoritesList;

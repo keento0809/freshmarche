@@ -4,18 +4,7 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 import { styled } from "@mui/system";
-
-const ImageComponent = styled("img")({
-  // original code
-  // width: "100%",
-  // height: "100%",
-  width: "382px",
-  height: "328px",
-  padding: "0.5rem",
-  // original code
-  margin: "1rem auto",
-  objectFit: "cover",
-});
+import { useTheme } from "@mui/material";
 
 const imageDivStyle = {
   // display: "inline-block",
@@ -26,6 +15,28 @@ const imageDivStyle = {
 
 const DetailHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
+
+  const theme = useTheme();
+
+  const ImageComponent = styled("img")({
+    // original code
+    // width: "100%",
+    // height: "100%",
+    width: "382px",
+    height: "328px",
+    padding: "0.5rem",
+    // original code
+    margin: "1rem auto",
+    objectFit: "cover",
+    [theme.breakpoints.up("sm")]: {
+      width: "482px",
+      height: "428px",
+    },
+    [theme.breakpoints.up(1300)]: {
+      width: "382px",
+      height: "328px",
+    },
+  });
 
   useEffect(() => {
     notifyCtx.resetNotification();

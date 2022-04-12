@@ -88,12 +88,17 @@ const ChangeAmountButton = (props) => {
         [theme.breakpoints.up(900)]: {
           width: "25%",
         },
+        [theme.breakpoints.up(1300)]: {
+          width: "20%",
+        },
         maxWidth: "400px",
         borderRadius: "50px",
         justifyContent: "space-around",
         color: "text.primary",
+        transition: "all 0.2s ease",
         "&.MuiButtonBase-root:hover": {
           bgcolor: "#89fc3a",
+          transform: "scale(1.02)",
         },
       }}
     >

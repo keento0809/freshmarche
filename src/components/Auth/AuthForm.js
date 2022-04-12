@@ -137,9 +137,12 @@ const AuthForm = (props) => {
           email: enteredEmail,
           password: "*********",
         };
-        console.log(userInfo);
+
         localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        authCtx.login(data.idToken);
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+        authCtx.login(data.idToken, expirationTime.toISOString());
 
         if (isSignUp) {
           notifyCtx.notifyNow("Sing up succeeded !!");
@@ -160,16 +163,16 @@ const AuthForm = (props) => {
   };
 
   // test
-  const handleLoginAsGuestUser = (e) => {
-    e.preventDefault();
-    console.log("Guest login now");
+  // const handleLoginAsGuestUser = (e) => {
+  //   e.preventDefault();
+  //   console.log("Guest login now");
 
-    const sentGuestLoginRequest = async () => {
-      setIsLoading(true);
-      setError(null);
-    };
-    sentGuestLoginRequest();
-  };
+  //   const sentGuestLoginRequest = async () => {
+  //     setIsLoading(true);
+  //     setError(null);
+  //   };
+  //   sentGuestLoginRequest();
+  // };
 
   // test 2
   useEffect(() => {

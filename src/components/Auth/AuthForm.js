@@ -4,16 +4,10 @@ import AuthContext from "../../contexts/auth-context";
 import NotifyContext from "../../contexts/notify-context";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
-// import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-// import { createTheme, ThemeProvider } from "@mui/material/styles";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
@@ -23,7 +17,7 @@ import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { ConstructionOutlined } from "@mui/icons-material";
-// import { getAuth, signInAnonymously } from "firebase/auth";
+import { useTheme } from "@mui/material";
 
 // Copy right form. Do not delete just in case.
 // function Copyright(props) {
@@ -58,6 +52,8 @@ const AuthForm = (props) => {
 
   // declare history
   const history = useHistory();
+
+  const theme = useTheme();
 
   // create userId for new user
   function generateUserId(length) {
@@ -183,7 +179,7 @@ const AuthForm = (props) => {
     // <ThemeProvider theme={theme}>
     <ContainerUI>
       {/* <Container component="main" maxWidth="xs"> */}
-      <Box paddingY={4}>
+      <Box sx={{ py: 4, [theme.breakpoints.up(1023)]: { py: 1 } }}>
         <TitleUI title={props.title} />
       </Box>
       {/* <CssBaseline /> */}
@@ -207,7 +203,12 @@ const AuthForm = (props) => {
           component="form"
           onSubmit={handleSubmit}
           noValidate
-          sx={{ paddingY: !isSignUp ? 14 : 2 }}
+          sx={{
+            paddingY: !isSignUp ? 14 : 2,
+            [theme.breakpoints.up("sm")]: { width: "85%", mx: "auto" },
+            [theme.breakpoints.up(1023)]: { width: "70%", mx: "auto" },
+            [theme.breakpoints.up(1300)]: { width: "50%", mx: "auto" },
+          }}
         >
           {isSignUp && (
             <TextField
@@ -354,6 +355,7 @@ const AuthForm = (props) => {
               mb: 4,
               borderRadius: "50px",
               padding: "1rem 2rem",
+              [theme.breakpoints.up(1023)]: { mt: 10 },
             }}
           >
             {props.btnLabel}

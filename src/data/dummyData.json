@@ -9,43 +9,43 @@
     "id": "p2",
     "name": "Peach",
     "price": 5.99,
-    "image": "https://www.pngitem.com/pimgs/m/519-5199385_peach-fruit-aesthetic-freetoedit-fruit-peach-hd-png.png"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/peaches_cut_web.png?w=1680&rev=901f5c44de2f4117be3adb9c74f4bef1&hash=BE6BCF8AD6FBEB8C705FDAF1DC1078F9"
   },
   {
     "id": "p3",
     "name": "Pear",
     "price": 8.59,
-    "image": "https://w7.pngwing.com/pngs/728/616/png-transparent-asian-pear-d-anjou-fruit-tree-conference-pear-cherry.png"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/pears_cut_web.png?w=1680&rev=b4bdc01dba22459b8f86d29af1a261f4&hash=0FC60A25CD7CAE155B202CB9F7381236"
   },
   {
     "id": "p4",
     "name": "Lemon",
     "price": 3.99,
-    "image": "https://www.seekpng.com/png/detail/8-87198_fresh-lemon-png-clip-art-image-lemon-png.png"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/lemon_cut_web.png?w=1680&rev=2e2e0b44ce744a4d93d56c04614ce6e9&hash=88088D1BEBF678CC358393CCA78CFA6E"
   },
   {
     "id": "p5",
-    "name": "Lime",
-    "price": 2.19,
-    "image": "https://e7.pngegg.com/pngimages/274/772/png-clipart-key-lime-sweet-lemon-lemon-lime-drink-lime-natural-foods-food-thumbnail.png"
+    "name": "Strawberries",
+    "price": 7.19,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/strawberries_web.png?w=1680&rev=7fff9255366349428a2edc38fb69c1b6&hash=C98F6628CA41DCDF4E301CA4AAE4DF92"
   },
   {
     "id": "p6",
     "name": "Pineapple",
     "price": 12.99,
-    "image": "https://www.plantgrower.org/uploads/6/5/5/4/65545169/published/pineapple.jpg?1516498929"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/pineapple_cut_web.png?w=1680&rev=7b07a669415341b486c4d98d1d0e3fef&hash=A060EC834F8DB2F05F76E7ACC832B1DC"
   },
   {
     "id": "p7",
     "name": "Orange",
     "price": 6.89,
-    "image": "https://healthjade.com/wp-content/uploads/2017/10/orange-fruit.jpg"
+    "image": "https://www.dole.com/-/media/project/dole/newsletter-images/newsletter-signup-placeholder/newsletter-signup-orange.png?h=350&w=350&rev=6f441163da93406c9338e54780997a12&hash=06166E574ACAC392D55D05FB44A8B37C"
   },
   {
     "id": "p8",
-    "name": "Peach",
+    "name": "Cherries",
     "price": 15.99,
-    "image": "https://i.stack.imgur.com/Nqx6J.png"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/cherries.png?w=1680&rev=795cd80034184df4911bb7cefbe8521c&hash=3F3C5DCC11ECC8B00CD36DA35BE79006"
   },
   {
     "id": "p9",
@@ -57,66 +57,90 @@
     "id": "p10",
     "name": "Apple",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/apples_cut_web.png?w=1680&rev=d90d9052a81f4790a2cf484fba2505fd&hash=C36FC118FE26D97AA2056D4FE1F1CC1C"
   },
   {
     "id": "p11",
-    "name": "Apple",
+    "name": "Strawberry",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/strawberries_web.png?w=1680&rev=7fff9255366349428a2edc38fb69c1b6&hash=C98F6628CA41DCDF4E301CA4AAE4DF92"
   },
   {
     "id": "p12",
-    "name": "Apple",
+    "name": "Plums",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/plums_cut_web.png?w=1680&rev=1c5b376f9f41492898dd8e305bf0b332&hash=A6DE9942BBC38E72E3D145C7EE0E95B5"
   },
   {
     "id": "p13",
-    "name": "Apple",
-    "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "name": "Blackberries",
+    "price": 1.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/blackberries_web.png?w=1680&rev=de3ffb20b99646fbafcfa977af6164eb&hash=3F3238A6EB4A6AF84A85F67F293A18F5"
   },
   {
     "id": "p14",
-    "name": "Apple",
+    "name": "Papaya",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/papaya_cut_web.png?w=1680&rev=5faafecead904ebda2c3b54069e112ca&hash=C0A46F9816B5F541E693A034CC50EC25"
   },
   {
     "id": "p15",
-    "name": "Apple",
+    "name": "Litchi",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/lychees.png?w=1680&rev=b8e38867914a4dbdaf1281a5577809aa&hash=57D8673192460D8725EFE3A096D7CC08"
   },
   {
     "id": "p16",
-    "name": "Apple",
+    "name": "Raspberries",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/red_raspberries_web.png?w=1680&rev=35fcbc1f247e4b8393a0360642bd0c84&hash=824D4E7B10745B6A710C3FA65F47DDDC"
   },
   {
     "id": "p17",
-    "name": "Apple",
+    "name": "Coconuts",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/coconuts_web.png?w=1680&rev=0abe7bcb38c048dab33e45e32a4c0154&hash=3E48EF67CA71A54BC3585A734772C83B"
   },
   {
     "id": "p18",
-    "name": "Apple",
+    "name": "Kiwis",
     "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/kiwi_cut_web.png?w=1680&rev=3f6f290b193348dd9d0be9d8c47058a0&hash=8B87900BC2F672B22AD6674A7FDFB889"
   },
   {
     "id": "p19",
-    "name": "Apple",
-    "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "name": "Blueberries",
+    "price": 5.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/blueberries_web.png?w=1680&rev=509c50380f0849388ee2a87c11e943f5&hash=F45707AD17143AADFF66FDE4392E3159"
   },
   {
     "id": "p20",
-    "name": "Apple",
-    "price": 4.99,
-    "image": "https://static.libertyprim.com/files/varietes/pomme-dalinette-large.jpg?1589283082"
+    "name": "Grapefruits",
+    "price": 6.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/grapefruits_cut_web.png?w=1680&rev=10c0867c53ff4cbdaa3d0b7b302c1bc6&hash=4EB7253CCBDF58DC9282C6B907FF78AB"
+  },
+  {
+    "id": "p21",
+    "name": "Avocados",
+    "price": 6.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/avocados_cut_web.png?w=1680&rev=561f644ea9f34d5b81f015403a2edb62&hash=6714797BA0F438D221FCB4EA68945111"
+  },
+  {
+    "id": "p22",
+    "name": "Onions",
+    "price": 1.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/vegetables/onions_cut_web.png?w=1680&rev=ab16e4a4d74f45cd9a219ea7742c497a&hash=E0A0E98B6DA4AA0BE1961B6ABA4585DC"
+  },
+  {
+    "id": "p23",
+    "name": "Radish",
+    "price": 6.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/vegetables/radish_web.png?w=1680&rev=c7b5391ff58e489cb568c9e1a8e0b943&hash=1BC71EDDAAFCA22BD018B9CD9404CD1E"
+  },
+  {
+    "id": "p24",
+    "name": "Mushrooms",
+    "price": 6.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/vegetables/mushrooms_cut_web.png?w=1680&rev=fbddea9006b246a0a19a1d6cf260d2ef&hash=1FBC9BE9FA1AC6052E01525676AE785C"
   }
 ]

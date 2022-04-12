@@ -3,6 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
+import { Typography } from "@mui/material";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -45,6 +46,7 @@ export default function App() {
           <CheckoutForm />
         </Elements>
       )}
+      <Typography color="primary">test test test</Typography>
     </div>
   );
 }

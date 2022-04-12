@@ -46,7 +46,6 @@ export default function App() {
           <CheckoutForm />
         </Elements>
       )}
-      <Typography color="primary">test test test</Typography>
     </div>
   );
 }

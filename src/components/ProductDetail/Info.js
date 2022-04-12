@@ -117,7 +117,15 @@ const Info = (props) => {
           paddingTop={1}
           paddingBottom={2}
         >
-          ${props.price}
+          ${props.price}{" "}
+          <Typography
+            variant="body2"
+            component="span"
+            color="white"
+            fontWeight="bold"
+          >
+            /lb
+          </Typography>
         </Typography>
         <Box
           display="flex"

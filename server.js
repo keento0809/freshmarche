@@ -35,3 +35,25 @@ app.post("/create-payment-intent", async (req, res) => {
 });
 
 app.listen(4242, () => console.log("Node server listening on port 4242!"));
+
+// package.json
+
+// default
+// "scripts": {
+//   "start": "react-scripts start",
+//   "build": "react-scripts build",
+//   "test": "react-scripts test",
+//   "eject": "react-scripts eject"
+// },
+
+// "homepage": "http://localhost:3000/checkout",
+// "proxy": "http://localhost:4242",
+
+// "scripts": {
+//   "start-client": "react-scripts start",
+//   "start-server": "node server.js",
+//   "build": "react-scripts build",
+//   "test": "react-scripts test",
+//   "eject": "react-scripts eject",
+//   "start": "concurrently \"yarn start-client\" \"yarn start-server\""
+// },

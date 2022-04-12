@@ -54,12 +54,11 @@ const AddPaymentMethod = () => {
           <CheckoutForm />
         </Elements>
       )} */}
-      <Elements options={options} stripe={stripePromise}>
-        <CheckoutForm />
-      </Elements>
-      <Box textAlign="center" marginTop={2}>
+      <App />
+      {/* temporary hidden */}
+      {/* <Box textAlign="center" marginTop={2}>
         <MoveNextButton label="NEXT" link="/ordersummary" />
-      </Box>
+      </Box> */}
     </ContainerUI>
   );
 };

@@ -90,6 +90,7 @@ const HeroSearchBar = (props) => {
           <SearchIcon
             sx={{
               color: "secondary",
+              zIndex: 1,
             }}
           />
         </SearchIconWrapper>

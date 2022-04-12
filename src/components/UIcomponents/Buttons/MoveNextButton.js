@@ -16,6 +16,9 @@ const MoveNextButton = (props) => {
         [theme.breakpoints.up("sm")]: {
           width: "70%",
         },
+        [theme.breakpoints.up(900)]: {
+          width: "45%",
+        },
         borderRadius: "50px",
         bgcolor: "background.paper",
         padding: "0.7rem 0",

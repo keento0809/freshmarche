@@ -7,8 +7,10 @@ import { styled } from "@mui/system";
 
 const ImageComponent = styled("img")({
   // original code
-  width: "100%",
-  height: "100%",
+  // width: "100%",
+  // height: "100%",
+  width: "382px",
+  height: "328px",
   padding: "0.5rem",
   // original code
   margin: "1rem auto",
@@ -16,7 +18,7 @@ const ImageComponent = styled("img")({
 });
 
 const imageDivStyle = {
-  display: "inline-block",
+  // display: "inline-block",
   width: "100%",
   height: "100%",
   text: "center",

@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-// import Menu from "@mui/material/Menu";
 import Button from "@mui/material/Button";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
@@ -17,12 +16,13 @@ import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoginIcon from "@mui/icons-material/Login";
 import AuthContext from "../../../contexts/auth-context";
-import { styled } from "@mui/material/styles";
+import { useTheme } from "@mui/material";
 
 const pages = [`FAVORITES`, `CART`, `LOGOUT`];
 const iconsArray = [<HomeIcon />, <FavoriteIcon />, <ShoppingCartIcon />];
 
 const AppBarUI = (props) => {
+  const theme = useTheme();
   // declare useState
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -93,8 +93,15 @@ const AppBarUI = (props) => {
                 noWrap
                 component="div"
                 sx={{
+                  cursor: "pointer",
+                  fontSize: "0.9rem",
                   mr: 2,
                   display: { xs: "none", md: "flex" },
+                  // [theme.breakpoints.up(900)]: {
+                  //   "&.MuiTypography-root:hover": {
+                  //     transform: "scale(1.2)",
+                  //   },
+                  // },
                 }}
                 color="primary"
               >

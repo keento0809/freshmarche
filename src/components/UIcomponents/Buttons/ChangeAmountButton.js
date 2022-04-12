@@ -85,6 +85,9 @@ const ChangeAmountButton = (props) => {
         [theme.breakpoints.up("sm")]: {
           width: "40%",
         },
+        [theme.breakpoints.up(900)]: {
+          width: "25%",
+        },
         maxWidth: "400px",
         borderRadius: "50px",
         justifyContent: "space-around",

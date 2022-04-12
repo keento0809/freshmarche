@@ -10,40 +10,12 @@ import Fade from "@mui/material/Fade";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
-
-const style = {
-  position: "fixed",
-  top: "56px",
-  left: "0%",
-  // transform: "translate(-50%, -50%)",
-  // Original code
-  // width: 400,
-  width: "100%",
-  // test
-  minHeight: "198px",
-  bgcolor: "background.default",
-  border: "2px solid primary",
-  boxShadow: 24,
-  textAlign: "center",
-  listStyle: "none",
-  textDecoration: "none",
-};
-
-const UlStyle = styled("ul")({
-  padding: "1.9rem 0",
-  listStyle: "none",
-  margin: 0,
-});
-
-const closeIconStyle = {
-  position: "fixed",
-  top: "7%",
-  left: "27px",
-  color: "primary.main",
-};
+import { useTheme } from "@mui/material";
 
 const OriginalModal = (props) => {
   const authCtx = React.useContext(AuthContext);
+
+  const theme = useTheme();
 
   const history = useHistory();
 
@@ -53,6 +25,46 @@ const OriginalModal = (props) => {
     // ???
     // history.replaceState("/signup");
   };
+
+  const style = {
+    position: "fixed",
+    top: "56px",
+    left: "0%",
+    // transform: "translate(-50%, -50%)",
+    // Original code
+    // width: 400,
+    width: "100%",
+    // test
+    minHeight: "184px",
+    bgcolor: "background.default",
+    border: "2px solid primary",
+    boxShadow: 24,
+    textAlign: "center",
+    listStyle: "none",
+    textDecoration: "none",
+    [theme.breakpoints.up("sm")]: {
+      minHeight: "258px",
+    },
+  };
+
+  const closeIconStyle = {
+    position: "fixed",
+    top: "7%",
+    left: "27px",
+    color: "primary.main",
+    [theme.breakpoints.up("sm")]: {
+      left: "6%",
+    },
+  };
+
+  const UlStyle = styled("ul")({
+    padding: "1.3rem 0",
+    listStyle: "none",
+    margin: 0,
+    [theme.breakpoints.up("sm")]: {
+      padding: "3rem 0",
+    },
+  });
 
   return (
     <div>
@@ -73,7 +85,7 @@ const OriginalModal = (props) => {
         }}
       >
         <Fade in={props.isOpen}>
-          <Box sx={style}>
+          <Box sx={style} className="これかいな">
             <CloseIcon sx={closeIconStyle} onClick={props.onClose} />
             <UlStyle>
               {!authCtx.isLoggedIn && (

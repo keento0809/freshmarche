@@ -1,4 +1,6 @@
 import { Link as RouterLink } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../../../contexts/cart-context";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../Buttons/MoveNextButton";
@@ -6,7 +8,17 @@ import { useHistory } from "react-router-dom";
 import { useTheme } from "@mui/material";
 
 const CartSummaryUI = (props) => {
+  const cartCtx = useContext(CartContext);
+
   const theme = useTheme();
+
+  const handleValidate = () => {
+    console.log("Validating");
+    if (cartCtx.totalQuantity < 1) {
+      alert("Invalid checkout. Please add products to cart.");
+      return;
+    }
+  };
 
   return (
     <Box sx={{ pt: "1.7rem", pb: "64px" }}>
@@ -40,7 +52,13 @@ const CartSummaryUI = (props) => {
         </Box>
       </Box>
       <Box textAlign="center" mt={3} mb={8}>
-        <MoveNextButton label={props.label} link={props.link} />
+        <MoveNextButton
+          label={props.label}
+          // original code
+          // link={props.link}
+          link={cartCtx.totalQuantity > 0 ? props.link : "/"}
+          onClick={handleValidate}
+        />
       </Box>
     </Box>
   );

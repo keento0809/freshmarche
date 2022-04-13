@@ -16,6 +16,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoginIcon from "@mui/icons-material/Login";
 import AuthContext from "../../../contexts/auth-context";
+import CartContext from "../../../contexts/cart-context";
+import FavoriteContext from "../../../contexts/favorite-context";
 import { useTheme } from "@mui/material";
 
 const pages = [`FAVORITES`, `CART`, `LOGOUT`];
@@ -31,6 +33,8 @@ const AppBarUI = (props) => {
 
   // declare useContext
   const authCtx = useContext(AuthContext);
+  const favoriteCtx = useContext(FavoriteContext);
+  const cartCtx = useContext(CartContext);
 
   const history = useHistory();
 
@@ -216,8 +220,9 @@ const AppBarUI = (props) => {
                     },
                   }}
                 >
-                  {page}
-                  {/* {index} */}
+                  {page}&thinsp;
+                  {page === "FAVORITES" && `${favoriteCtx.totalQuantity}`}
+                  {page === "CART" && `${cartCtx.totalQuantity}`}
                 </Button>
               ))}
           </Box>

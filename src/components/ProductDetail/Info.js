@@ -45,7 +45,7 @@ const Info = (props) => {
     }
     favoriteCtx.addToFavoriteList(product);
     setIsInFavoriteList(true);
-    notifyCtx.notifyNow("Product added to favorite list!");
+    notifyCtx.notifyNow("Product added to favorite list!", "success");
     // test
     // history.push("/");
   };
@@ -62,10 +62,11 @@ const Info = (props) => {
     history.push("/");
   };
 
-  const handleTry = (id) => {
+  const handleRemoveFromFavorite = (id) => {
     console.log("I gutta toggle favorite icon.");
     favoriteCtx.removeFromFavoriteList(id);
     setIsInFavoriteList(false);
+    notifyCtx.notifyNow("Product removed from favorite.", "warning");
   };
 
   useEffect(() => {
@@ -113,7 +114,7 @@ const Info = (props) => {
         {isInFavoriteList && (
           <FavoriteIcon
             sx={{ color: "violet", cursor: "pointer" }}
-            onClick={() => handleTry(props.id)}
+            onClick={() => handleRemoveFromFavorite(props.id)}
           />
         )}
       </Box>

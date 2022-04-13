@@ -8,7 +8,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CartContext from "../../../contexts/cart-context";
 import FavoriteContext from "../../../contexts/favorite-context";
 import NotifyContext from "../../../contexts/notify-context";
-// import ChangeAmountButton from "../Buttons/changeAmountButton";
+import { styled } from "@mui/system";
 
 const CartProductUI = (props) => {
   const cartCtx = useContext(CartContext);
@@ -61,6 +61,13 @@ const CartProductUI = (props) => {
     }
   };
 
+  const ImageComponent = styled("img")({
+    display: "inline-block",
+    width: "20px",
+    height: "auto",
+    marginLeft: "0.5rem",
+  });
+
   return (
     <Box bgcolor="white" borderRadius="12px" margin="1rem 0">
       <Box
@@ -71,9 +78,10 @@ const CartProductUI = (props) => {
         padding="0.5rem 1.2rem"
       >
         <Box>
-          <Typography variant="h5" component="h5" color="text.primary">
+          <Typography variant="h5" component="span" color="text.primary">
             {props.name}
           </Typography>
+          <ImageComponent src={props.imageUrl} alt="product" />
         </Box>
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography variant="h5" component="h5" color="primary">

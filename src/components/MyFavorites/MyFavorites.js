@@ -23,8 +23,8 @@ const MyFavorites = () => {
       <Box
         sx={{
           padding: "0.5rem 0",
-          [theme.breakpoints.up(900)]: { width: "90%", mx: "auto" },
-          [theme.breakpoints.up(1300)]: { width: "80%", mx: "auto" },
+          [theme.breakpoints.up(900)]: { width: "70%", mx: "auto" },
+          [theme.breakpoints.up(1300)]: { width: "58%", mx: "auto" },
         }}
       >
         <FavoritesList />

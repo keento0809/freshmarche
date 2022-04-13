@@ -34,6 +34,8 @@ const Info = (props) => {
     price: props.price,
     quantity: orderQuantity,
     subTotalPrice: props.price * orderQuantity,
+    // test
+    imageUrl: props.imageUrl,
   };
 
   const handleAddToFavorites = (product) => {

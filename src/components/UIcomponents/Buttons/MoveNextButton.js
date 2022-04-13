@@ -28,9 +28,6 @@ const MoveNextButton = (props) => {
           transform: "scale(1.05)",
           // bgcolor: "red",
         },
-        [theme.breakpoints.up(900)]: {
-          width: "35%",
-        },
         borderRadius: "50px",
         bgcolor: "background.paper",
         padding: "0.7rem 0",

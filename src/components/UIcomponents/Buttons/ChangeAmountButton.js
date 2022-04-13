@@ -89,7 +89,7 @@ const ChangeAmountButton = (props) => {
           width: "25%",
         },
         [theme.breakpoints.up(1300)]: {
-          width: "20%",
+          width: "22%",
         },
         maxWidth: "400px",
         borderRadius: "50px",

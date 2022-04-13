@@ -17,17 +17,28 @@ const MyCartComponent = () => {
   return (
     <ContainerUI>
       <TitleUI title="My Cart" />
-      <CheckoutStepper activeStep={0} />
       <Box
         sx={{
-          [theme.breakpoints.up(900)]: { width: "90%", mx: "auto" },
-          [theme.breakpoints.up(1300)]: { width: "80%", mx: "auto" },
+          [theme.breakpoints.up(900)]: { width: "75%", mx: "auto" },
+          [theme.breakpoints.up(1300)]: { width: "60%", mx: "auto" },
         }}
       >
+        <CheckoutStepper activeStep={0} />
         <CartList />
         <CartSummaryComponent />
       </Box>
-      {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
+      <Box
+        sx={{
+          fontWeight: "bold",
+          width: "95%",
+          mx: "auto",
+          position: "fixed",
+          bottom: "100px",
+          left: "2%",
+        }}
+      >
+        {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
+      </Box>
     </ContainerUI>
   );
 };

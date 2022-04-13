@@ -63,6 +63,7 @@ const HomeHero = (props) => {
           // paddingTop:"",paddingBottom:""
           sx={{
             textAlign: "left",
+            [theme.breakpoints.up("sm")]: { paddingTop: 13, paddingBottom: 4 },
             [theme.breakpoints.up(900)]: { paddingTop: 18, paddingBottom: 4 },
           }}
         >

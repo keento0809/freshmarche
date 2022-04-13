@@ -5,6 +5,7 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import FavoritesList from "./FavoritesList";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
+import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 import { useTheme } from "@mui/material";
 
 const MyFavorites = () => {
@@ -31,7 +32,18 @@ const MyFavorites = () => {
           <MoveNextButton label="ADDMORE" link="/" />
         </Box>
       </Box>
-      {/* {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />} */}
+      <Box
+        sx={{
+          fontWeight: "bold",
+          width: "95%",
+          mx: "auto",
+          position: "fixed",
+          bottom: "100px",
+          left: "2%",
+        }}
+      >
+        {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
+      </Box>
     </ContainerUI>
   );
 };

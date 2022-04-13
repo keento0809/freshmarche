@@ -29,8 +29,8 @@ const DetailHero = (props) => {
     margin: "1rem auto",
     objectFit: "cover",
     [theme.breakpoints.up("sm")]: {
-      width: "482px",
-      height: "428px",
+      width: "372px",
+      height: "318px",
     },
     [theme.breakpoints.up(1300)]: {
       width: "382px",
@@ -44,9 +44,9 @@ const DetailHero = (props) => {
 
   return (
     <div>
-      <Box sx={{ width: "95%", mx: "auto" }}>
+      {/* <Box sx={{ width: "95%", mx: "auto" }}>
         {notifyCtx.isNotifying && <AlertSnackBar />}
-      </Box>
+      </Box> */}
       <TitleUI title={props.name} />
       <Box textAlign="center">
         <ImageComponent src={props.imageUrl} alt="product" />

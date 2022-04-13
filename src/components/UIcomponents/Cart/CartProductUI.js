@@ -54,7 +54,7 @@ const CartProductUI = (props) => {
   const handleDeleteProduct = (productInfo) => {
     if (productInfo.isFavorite) {
       favoriteCtx.removeFromFavoriteList(productInfo.id);
-      notifyCtx.notifyNow("Product deleted from FavoriteList.", "warning");
+      notifyCtx.notifyNow("Product deleted from favoriteList.", "warning");
     } else {
       cartCtx.removeFromCart(productInfo.id);
       notifyCtx.notifyNow("Product deleted from your cart.", "warning");

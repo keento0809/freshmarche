@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
 import CartContext from "../../../contexts/cart-context";
+import FavoriteContext from "../../../contexts/favorite-context";
 import { Link as RouterLink } from "react-router-dom";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
@@ -12,6 +13,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 const BottomNavigationUI = () => {
   const cartCtx = useContext(CartContext);
+  const favoriteCtx = useContext(FavoriteContext);
   const theme = useTheme();
   // const matches = useMediaQuery(theme.breakpoints.up("xl"));
 
@@ -50,7 +52,9 @@ const BottomNavigationUI = () => {
       {/* <NavLink to="/mypage"> */}
       {/* </NavLink> */}
       <BottomNavigationAction
-        label="Favorites"
+        // original code
+        // label="Favorites"
+        label={`Favorites ${favoriteCtx.totalQuantity}`}
         value="favorites"
         component={RouterLink}
         to="/favorites"

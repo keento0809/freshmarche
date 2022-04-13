@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import ChangeAmountButton from "../UIcomponents/Buttons/ChangeAmountButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Typography from "@mui/material/Typography";
+import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 
 const Info = (props) => {
   const history = useHistory();
@@ -155,6 +156,18 @@ const Info = (props) => {
           label="ADDTOCART"
           productInfo={productInfo}
         />
+      </Box>
+      <Box
+        sx={{
+          fontWeight: "bold",
+          width: "95%",
+          mx: "auto",
+          position: "fixed",
+          bottom: "100px",
+          left: "2%",
+        }}
+      >
+        {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
       </Box>
     </div>
     // </MainBoxUI>

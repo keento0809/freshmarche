@@ -60,7 +60,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/complete",
+        return_url: "http://localhost:3000/ordersummary",
       },
     });
 
@@ -86,19 +86,15 @@ export default function CheckoutForm() {
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button> */}
-      <Box sx={{ textAlign: "center", pt: 6 }}>
+      <Box sx={{ textAlign: "center", pt: 8 }}>
         <MoveNextButton
-          label="PAY NOW"
+          label="NEXT"
           disabled={isLoading || !stripe || !elements}
           id="submit"
           onClick={handleSubmit}
         >
           <span id="button-text">
-            {isLoading ? (
-              <div className="spinner" id="spinner"></div>
-            ) : (
-              "Pay now"
-            )}
+            {isLoading ? <div className="spinner" id="spinner"></div> : ""}
           </span>
         </MoveNextButton>
       </Box>

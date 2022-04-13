@@ -2,6 +2,7 @@ const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
       const addingProduct = action.payload;
+      console.log(addingProduct);
       const updatedTotalQuantity = state.totalQuantity + addingProduct.quantity;
       // original code. DO NOT Delete
       // const updatedTotalPrice =

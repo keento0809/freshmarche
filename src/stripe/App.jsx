@@ -3,7 +3,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
-import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -14,6 +15,7 @@ const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
 
 export default function App() {
   const [clientSecret, setClientSecret] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -30,7 +32,7 @@ export default function App() {
     theme: "stripe",
     variables: {
       colorPrimary: "#76ff03",
-      colorBackground: "#3e2724",
+      colorBackground: "#3f2625",
       colorText: "#ffffff",
     },
   };
@@ -40,12 +42,14 @@ export default function App() {
   };
 
   return (
-    <div className="App">
-      {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )}
+    <div className="stripe-form">
+      <Box className="stripe-wrapper ストライプやで" width="95%" mx="auto">
+        {clientSecret && (
+          <Elements options={options} stripe={stripePromise}>
+            <CheckoutForm />
+          </Elements>
+        )}
+      </Box>
     </div>
   );
 }

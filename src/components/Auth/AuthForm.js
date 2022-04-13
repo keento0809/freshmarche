@@ -355,6 +355,10 @@ const AuthForm = (props) => {
               mb: 4,
               borderRadius: "50px",
               padding: "1rem 2rem",
+              transition: "all 0.2s ease",
+              "&.MuiButtonBase-root:hover": {
+                transform: "scale(1.02)",
+              },
               [theme.breakpoints.up(1023)]: { mt: 10 },
             }}
           >

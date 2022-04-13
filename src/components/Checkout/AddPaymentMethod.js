@@ -44,21 +44,13 @@ const AddPaymentMethod = () => {
 
   return (
     <ContainerUI>
-      <TitleUI title="Payment Method" />
+      <TitleUI title="Add Credit Card" />
       <Box padding="0.5rem 0">
         <CheckoutStepper activeStep={1} />
       </Box>
-      {/* original code */}
-      {/* {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm />
-        </Elements>
-      )} */}
-      <App />
-      {/* temporary hidden */}
-      {/* <Box textAlign="center" marginTop={2}>
-        <MoveNextButton label="NEXT" link="/ordersummary" />
-      </Box> */}
+      <Box py={4}>
+        <App />
+      </Box>
     </ContainerUI>
   );
 };

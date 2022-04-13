@@ -24,6 +24,8 @@ const CartList = () => {
             subTotalPrice={product.subTotalPrice}
             quantity={product.quantity}
             isFavorite={product.isFavorite}
+            // test
+            imageUrl={product.imageUrl}
           />
         );
       })
@@ -36,6 +38,7 @@ const CartList = () => {
       component="p"
       color="primary"
       textAlign="center"
+      pt={2}
     >
       No Products fond in your cart.
     </Typography>

@@ -34,7 +34,7 @@ const FavoriteReducer = (state, action) => {
         state.totalQuantity === 0
           ? state.totalQuantity
           : state.totalQuantity - 1;
-      console.log(changedTotalQuantity);
+      console.log(changedListProducts);
 
       return {
         listProducts: changedListProducts,

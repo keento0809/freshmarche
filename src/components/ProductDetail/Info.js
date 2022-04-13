@@ -62,8 +62,10 @@ const Info = (props) => {
     history.push("/");
   };
 
-  const handleTry = () => {
+  const handleTry = (id) => {
     console.log("I gutta toggle favorite icon.");
+    favoriteCtx.removeFromFavoriteList(id);
+    setIsInFavoriteList(false);
   };
 
   useEffect(() => {
@@ -111,7 +113,7 @@ const Info = (props) => {
         {isInFavoriteList && (
           <FavoriteIcon
             sx={{ color: "violet", cursor: "pointer" }}
-            onClick={() => handleTry()}
+            onClick={() => handleTry(props.id)}
           />
         )}
       </Box>

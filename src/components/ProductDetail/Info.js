@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import FavoriteContext from "../../contexts/favorite-context";
 import CartContext from "../../contexts/cart-context";
 import NotifyContext from "../../contexts/notify-context";
+import AuthContext from "../../contexts/auth-context";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
@@ -20,6 +21,7 @@ const Info = (props) => {
   const favoriteCtx = useContext(FavoriteContext);
   const cartCtx = useContext(CartContext);
   const notifyCtx = useContext(NotifyContext);
+  const authCtx = useContext(AuthContext);
 
   // manage the quantity of the product
   const [orderQuantity, setOrderQuantity] = useState(1);
@@ -35,6 +37,10 @@ const Info = (props) => {
   };
 
   const handleAddToFavorites = (product) => {
+    if (!authCtx.isLoggedIn) {
+      alert("Please signup to add products to favorites.");
+      return;
+    }
     favoriteCtx.addToFavoriteList(product);
     setIsInFavoriteList(true);
     notifyCtx.notifyNow("Product added to favorite list!");
@@ -43,6 +49,10 @@ const Info = (props) => {
   };
 
   const handleAddToCart = (product) => {
+    if (!authCtx.isLoggedIn) {
+      alert("Please signup to add products to cart.");
+      return;
+    }
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
     // original code DO NOT Delete!

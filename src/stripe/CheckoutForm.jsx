@@ -81,12 +81,12 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit} className="こんにちは">
-      {isLoading && (
+      {/* {isLoading && (
         <Typography variant="h4" component="h4" color="primary">
           Loading ...
         </Typography>
-      )}
-      {!isLoading && <PaymentElement id="payment-element" />}
+      )} */}
+      <PaymentElement id="payment-element" />
       {/* original code */}
       {/* <PaymentElement id="payment-element" /> */}
       <Box sx={{ textAlign: "center", pt: 8 }}>

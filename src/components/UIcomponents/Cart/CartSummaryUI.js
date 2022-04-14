@@ -1,5 +1,5 @@
 import { Link as RouterLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import CartContext from "../../../contexts/cart-context";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -10,6 +10,23 @@ import { useTheme } from "@mui/material";
 const CartSummaryUI = (props) => {
   const cartCtx = useContext(CartContext);
 
+  // test
+  const [totalCartPrice, setTotalCartPrice] = useState(0);
+
+  // test
+  useEffect(() => {
+    // original code
+    // setTotalCartPrice(cartCtx.totalPrice);
+
+    // test
+    const initialTotalPrice =
+      cartCtx.totalPrice == 0 ? localStorage.getItem("totalCartPrice") : 0;
+    console.log(initialTotalPrice);
+    setTotalCartPrice(initialTotalPrice);
+    // test
+    localStorage.setItem("totalCartPrice", cartCtx.totalPrice);
+  }, [cartCtx.totalPrice]);
+
   const theme = useTheme();
 
   const handleValidate = () => {
@@ -19,6 +36,10 @@ const CartSummaryUI = (props) => {
       return;
     }
   };
+
+  useEffect(() => {
+    console.log("re-rendering");
+  }, []);
 
   return (
     <Box sx={{ pt: "1.7rem", pb: "64px" }}>
@@ -31,7 +52,9 @@ const CartSummaryUI = (props) => {
             Sub-total
           </Typography>
           <Typography variant="body1" component="p" color="white">
-            ${props.totalCartPrice}
+            {/* original code */}
+            {/* ${props.totalCartPrice} */}
+            {/* test */}${totalCartPrice}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="space-between">
@@ -47,7 +70,8 @@ const CartSummaryUI = (props) => {
             Total
           </Typography>
           <Typography variant="h4" component="h4" color="white">
-            ${props.totalCartPrice}
+            {/* ${props.totalCartPrice} */}
+            {/* test */}${totalCartPrice}
           </Typography>
         </Box>
       </Box>

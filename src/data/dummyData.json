@@ -61,9 +61,9 @@
   },
   {
     "id": "p11",
-    "name": "Strawberry",
-    "price": 4.99,
-    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/strawberries_web.png?w=1680&rev=7fff9255366349428a2edc38fb69c1b6&hash=C98F6628CA41DCDF4E301CA4AAE4DF92"
+    "name": "Mangoes",
+    "price": 10.99,
+    "image": "https://www.dole.com/-/media/project/dole/produce-images/fruit/mangos_cut_web.png?w=1680&rev=6442097cc8b24e47aea47572f876529f&hash=C813D04DCCD976AB20C514B9F2931B6B"
   },
   {
     "id": "p12",

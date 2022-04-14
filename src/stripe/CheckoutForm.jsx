@@ -5,6 +5,7 @@ import {
   useElements,
 } from "@stripe/react-stripe-js";
 import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
 import MoveNextButton from "../components/UIcomponents/Buttons/MoveNextButton";
 
 export default function CheckoutForm() {
@@ -80,12 +81,14 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit} className="こんにちは">
-      <PaymentElement id="payment-element" />
-      {/* <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button> */}
+      {isLoading && (
+        <Typography variant="h4" component="h4" color="primary">
+          Loading ...
+        </Typography>
+      )}
+      {!isLoading && <PaymentElement id="payment-element" />}
+      {/* original code */}
+      {/* <PaymentElement id="payment-element" /> */}
       <Box sx={{ textAlign: "center", pt: 8 }}>
         <MoveNextButton
           label="NEXT"

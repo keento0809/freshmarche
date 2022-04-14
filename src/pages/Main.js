@@ -73,17 +73,23 @@ const Main = () => {
               <App />
             </Route> */}
             {/* temporary */}
-            <Route path="/payment" exact>
-              <PaymentMethod />
-            </Route>
+            {authCtx.isLoggedIn && (
+              <Route path="/payment" exact>
+                <PaymentMethod />
+              </Route>
+            )}
             {/* temporary */}
-            <Route path="/ordersummary" exact>
-              <OrderSummary />
-            </Route>
+            {authCtx.isLoggedIn && (
+              <Route path="/ordersummary" exact>
+                <OrderSummary />
+              </Route>
+            )}
             {/* temporary */}
-            <Route path="/complete" exact>
-              <OrderComplete />
-            </Route>
+            {authCtx.isLoggedIn && (
+              <Route path="/complete" exact>
+                <OrderComplete />
+              </Route>
+            )}
             <Route path="*">
               <NotFound />
               {/* test */}

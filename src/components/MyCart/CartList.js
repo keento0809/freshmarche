@@ -5,10 +5,15 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material";
 
+// test
+const defaultCartItems = localStorage.getItem("cartItems")
+  ? localStorage.getItem("cartItems")
+  : "";
+
 const CartList = () => {
   const cartCtx = useContext(CartContext);
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(defaultCartItems);
 
   const theme = useTheme();
 

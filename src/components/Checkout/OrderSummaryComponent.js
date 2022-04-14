@@ -10,8 +10,6 @@ const OrderSummaryComponent = () => {
   const cartCtx = useContext(CartContext);
   const [orderTotalPrice, setOrderTotalPrice] = useState(cartCtx.totalPrice);
 
-  console.log(cartCtx.totalPrice);
-
   useEffect(() => {
     setOrderTotalPrice(cartCtx.totalPrice);
   }, [cartCtx.totalPrice]);

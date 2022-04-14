@@ -83,7 +83,6 @@ const AuthForm = (props) => {
       // add validation
       if (enteredFullName === "") return;
       if (enteredPassword !== enteredPasswordConfirmation) {
-        console.log("password invalid");
         return;
       }
     }
@@ -97,8 +96,6 @@ const AuthForm = (props) => {
       url = isSignUp
         ? "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI"
         : "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
-
-      console.log(url);
 
       let enteredFullName;
 
@@ -150,7 +147,6 @@ const AuthForm = (props) => {
         // jump to home page
         history.replace("/");
       } catch (error) {
-        console.log(error.message);
         setError(error.message);
       }
       setIsLoading(false);

@@ -11,7 +11,8 @@ const ProductDetailComponent = (props) => {
     <ContainerUI>
       {/* test box */}
       <Box
-        paddingBottom="100px"
+        sx={{ pb: "130px", [theme.breakpoints.up("sm")]: { pb: "200px" } }}
+        // paddingBottom:"110px"
         // sx={{
         //   [theme.breakpoints.up(1023)]: {
         //     display: "flex",

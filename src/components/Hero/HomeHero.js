@@ -32,7 +32,7 @@ const HomeHero = (props) => {
 
   return (
     <HeroBox sx={{ position: "relative" }}>
-      <ContainerUI sx={{ position: "relative" }}>
+      <ContainerUI sx={{ position: "relative" }} isHero={true}>
         <Box
           variant="body1"
           component="p"

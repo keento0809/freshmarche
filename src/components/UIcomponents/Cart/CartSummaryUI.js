@@ -10,20 +10,21 @@ import { useTheme } from "@mui/material";
 const CartSummaryUI = (props) => {
   const cartCtx = useContext(CartContext);
 
+  const history = useHistory();
+
   // test
   const [displayTotalPrice, setDisplayTotalPrice] = useState(
     cartCtx.totalPrice
   );
 
   let confirmationTotalPrice;
-  let confirmationTotalQuantity;
+  let isPlaceOrder;
+  let linkValue;
   let isCartInfo;
   // let displayTotalPrice;
 
   // test
   useEffect(() => {
-    console.log("re-rendering");
-    console.log(Boolean(localStorage.getItem("cartInfo")));
     if (Boolean(localStorage.getItem("cartInfo"))) {
       isCartInfo = Boolean(localStorage.getItem("cartInfo"));
       const data = localStorage.getItem("cartInfo");
@@ -35,18 +36,29 @@ const CartSummaryUI = (props) => {
         ? confirmationTotalPrice
         : cartCtx.totalPrice
     );
-    console.log(displayTotalPrice);
+    isPlaceOrder = props.label === "PLACE ORDER" ? true : false;
+    console.log(isPlaceOrder);
+    if (!isPlaceOrder && displayTotalPrice > 0) {
+      linkValue = props.link;
+    } else if (isPlaceOrder && displayTotalPrice > 0) {
+      linkValue = "";
+    } else {
+      linkValue = "/";
+    }
+    console.log(linkValue);
   }, []);
 
   const theme = useTheme();
 
-  const handleValidate = () => {
+  const handleProcedure = () => {
     // original code
     // if (cartCtx.totalPrice === 0) {
     if (displayTotalPrice === 0) {
       alert("Invalid checkout. Please add products to cart.");
       console.log("something's wrong");
       return;
+    }
+    if (props.label === "PLACE ORDER") {
     }
   };
 
@@ -91,7 +103,7 @@ const CartSummaryUI = (props) => {
           // original code
           // link={props.link}
           link={displayTotalPrice > 0 ? props.link : "/"}
-          onClick={handleValidate}
+          onClick={handleProcedure}
         />
       </Box>
     </Box>

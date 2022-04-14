@@ -7,12 +7,22 @@ import { useTheme } from "@mui/material";
 const ContainerUI = (props) => {
   const theme = useTheme();
 
+  const styleMinHeight = props.isHero === undefined ? "100vh" : "none";
+  console.log(props.isHero);
+
   return (
     <React.Fragment>
       <CssBaseline />
       <Container
         maxWidth="sm"
         sx={{
+          // test
+          minHeight: props.isHero ? "0" : "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "stretch",
+          height: "100%",
           [theme.breakpoints.up(900)]: {
             maxWidth: "md",
           },

@@ -11,35 +11,44 @@ const CartSummaryUI = (props) => {
   const cartCtx = useContext(CartContext);
 
   // test
-  const [totalCartPrice, setTotalCartPrice] = useState(0);
+  const [displayTotalPrice, setDisplayTotalPrice] = useState(
+    cartCtx.totalPrice
+  );
+
+  let confirmationTotalPrice;
+  let confirmationTotalQuantity;
+  let isCartInfo;
+  // let displayTotalPrice;
 
   // test
   useEffect(() => {
-    // original code
-    // setTotalCartPrice(cartCtx.totalPrice);
-
-    // test
-    const initialTotalPrice =
-      cartCtx.totalPrice == 0 ? localStorage.getItem("totalCartPrice") : 0;
-    console.log(initialTotalPrice);
-    setTotalCartPrice(initialTotalPrice);
-    // test
-    localStorage.setItem("totalCartPrice", cartCtx.totalPrice);
-  }, [cartCtx.totalPrice]);
+    console.log("re-rendering");
+    console.log(Boolean(localStorage.getItem("cartInfo")));
+    if (Boolean(localStorage.getItem("cartInfo"))) {
+      isCartInfo = Boolean(localStorage.getItem("cartInfo"));
+      const data = localStorage.getItem("cartInfo");
+      console.log(JSON.parse(data).cartTotalPrice);
+      confirmationTotalPrice = JSON.parse(data).cartTotalPrice;
+    }
+    setDisplayTotalPrice(
+      Boolean(localStorage.getItem("cartInfo"))
+        ? confirmationTotalPrice
+        : cartCtx.totalPrice
+    );
+    console.log(displayTotalPrice);
+  }, []);
 
   const theme = useTheme();
 
   const handleValidate = () => {
-    console.log("Validating");
-    if (cartCtx.totalQuantity < 1) {
+    // original code
+    // if (cartCtx.totalPrice === 0) {
+    if (displayTotalPrice === 0) {
       alert("Invalid checkout. Please add products to cart.");
+      console.log("something's wrong");
       return;
     }
   };
-
-  useEffect(() => {
-    console.log("re-rendering");
-  }, []);
 
   return (
     <Box sx={{ pt: "1.7rem", pb: "64px" }}>
@@ -53,8 +62,8 @@ const CartSummaryUI = (props) => {
           </Typography>
           <Typography variant="body1" component="p" color="white">
             {/* original code */}
-            {/* ${props.totalCartPrice} */}
-            {/* test */}${totalCartPrice}
+            {/* ${cartCtx.totalPrice} */}
+            {/* test */}${displayTotalPrice}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="space-between">
@@ -70,8 +79,9 @@ const CartSummaryUI = (props) => {
             Total
           </Typography>
           <Typography variant="h4" component="h4" color="white">
-            {/* ${props.totalCartPrice} */}
-            {/* test */}${totalCartPrice}
+            {/* original code */}
+            {/* ${cartCtx.totalPrice} */}
+            {/* test */}${displayTotalPrice}
           </Typography>
         </Box>
       </Box>
@@ -80,7 +90,7 @@ const CartSummaryUI = (props) => {
           label={props.label}
           // original code
           // link={props.link}
-          link={cartCtx.totalQuantity > 0 ? props.link : "/"}
+          link={displayTotalPrice > 0 ? props.link : "/"}
           onClick={handleValidate}
         />
       </Box>

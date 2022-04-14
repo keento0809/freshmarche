@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import NotifyContext from "../../contexts/notify-context";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import CartSummaryComponent from "./CartSummaryComponent";
@@ -13,6 +13,11 @@ const MyCartComponent = () => {
   const notifyCtx = useContext(NotifyContext);
 
   const theme = useTheme();
+
+  useEffect(() => {
+    if (Boolean(localStorage.getItem("cartInfo")))
+      localStorage.removeItem("cartInfo");
+  }, []);
 
   return (
     <ContainerUI>

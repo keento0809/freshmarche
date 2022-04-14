@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import CartContext from "../../contexts/cart-context";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
@@ -17,6 +18,8 @@ const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
 const AddPaymentMethod = () => {
   const [clientSecret, setClientSecret] = useState("");
 
+  const cartCtx = useContext(CartContext);
+
   // codes regarding stripe
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -27,6 +30,16 @@ const AddPaymentMethod = () => {
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
+  }, []);
+
+  useEffect(() => {
+    const cartInfo = {
+      cartList: cartCtx.cartList,
+      cartTotalPrice: cartCtx.totalPrice,
+      cartTotalQuantity: cartCtx.totalQuantity,
+    };
+    console.log(cartInfo);
+    localStorage.setItem("cartInfo", JSON.stringify(cartInfo));
   }, []);
 
   const appearance = {

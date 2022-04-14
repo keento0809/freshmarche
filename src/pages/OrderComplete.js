@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ContainerUI from "../components/UIcomponents/Container/ContainerUI";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -12,6 +13,11 @@ const OrderComplete = () => {
     left: "50%",
     transform: "translate(-50%,-50%)",
   };
+
+  useEffect(() => {
+    if (Boolean(localStorage.getItem("cartInfo")))
+      localStorage.removeItem("cartInfo");
+  }, []);
 
   return (
     <ContainerUI>

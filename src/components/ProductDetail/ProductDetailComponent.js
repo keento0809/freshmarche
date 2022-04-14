@@ -8,7 +8,7 @@ const ProductDetailComponent = (props) => {
   const theme = useTheme();
 
   return (
-    <ContainerUI>
+    <ContainerUI isProductDetail={true}>
       {/* test box */}
       <Box
         sx={{ pb: "130px", [theme.breakpoints.up("sm")]: { pb: "200px" } }}

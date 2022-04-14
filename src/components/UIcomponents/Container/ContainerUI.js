@@ -7,8 +7,7 @@ import { useTheme } from "@mui/material";
 const ContainerUI = (props) => {
   const theme = useTheme();
 
-  const styleMinHeight = props.isHero === undefined ? "100vh" : "none";
-  console.log(props.isHero);
+  // const styleMinHeight = props.isProductDetail === undefined ? "100vh" : "none";
 
   return (
     <React.Fragment>
@@ -17,7 +16,7 @@ const ContainerUI = (props) => {
         maxWidth="sm"
         sx={{
           // test
-          minHeight: props.isHero ? "0" : "100vh",
+          minHeight: props.isProductDetail ? "100vh" : "",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

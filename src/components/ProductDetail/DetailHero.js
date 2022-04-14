@@ -22,8 +22,8 @@ const DetailHero = (props) => {
     // original code
     // width: "100%",
     // height: "100%",
-    width: "382px",
-    height: "328px",
+    width: "352px",
+    height: "298px",
     padding: "0.5rem",
     // original code
     margin: "1rem auto",

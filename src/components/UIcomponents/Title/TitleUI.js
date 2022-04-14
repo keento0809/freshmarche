@@ -19,7 +19,7 @@ const TitleUI = (props) => {
         component="h4"
         color="secondary"
         sx={{
-          fontSize: "1.5rem",
+          fontSize: "1.7rem",
           [theme.breakpoints.up("sm")]: { fontSize: "2rem" },
           [theme.breakpoints.up(900)]: { fontSize: "2.5rem" },
           // [theme.breakpoints.up(1300)]: { fontSize: "3rem" },

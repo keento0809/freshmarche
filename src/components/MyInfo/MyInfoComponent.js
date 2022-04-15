@@ -23,8 +23,12 @@ const MyInfoComponent = () => {
 
   // original code
   const userInfoInLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
-  const usernameInLocalStorage = localStorage.getItem("username");
-  const userAddressInLocalStorage = localStorage.getItem("address");
+  // temporary
+  const usernameInLocalStorage = userInfoInLocalStorage.username
+    ? userInfoInLocalStorage.username
+    : localStorage.getItem("username");
+  const userAddressInLocalStorage =
+    localStorage.getItem("address") && localStorage.getItem("address");
 
   const currentUsername = usernameInLocalStorage
     ? usernameInLocalStorage

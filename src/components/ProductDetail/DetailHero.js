@@ -44,9 +44,6 @@ const DetailHero = (props) => {
 
   return (
     <div>
-      {/* <Box sx={{ width: "95%", mx: "auto" }}>
-        {notifyCtx.isNotifying && <AlertSnackBar />}
-      </Box> */}
       <TitleUI title={props.name} />
       <Box textAlign="center">
         <ImageComponent src={props.imageUrl} alt="product" />

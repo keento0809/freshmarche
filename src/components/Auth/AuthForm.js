@@ -67,6 +67,8 @@ const AuthForm = (props) => {
     return newId;
   }
 
+  console.log(generateUserId(16));
+
   // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -111,6 +113,7 @@ const AuthForm = (props) => {
             "Content-Type": "application/json",
           },
         });
+        console.log(response);
         if (!response.ok) {
           const errorMessage = "Authorization failed. Please try it again.";
           alert(errorMessage);
@@ -139,13 +142,17 @@ const AuthForm = (props) => {
 
         if (isSignUp) {
           notifyCtx.notifyNow("Sing up succeeded !!");
+          // history.push("/authentication");
+          console.log("Singup success??");
         }
 
         if (!isSignUp) {
           notifyCtx.notifyNow("Login succeeded !!");
+          history.replace("/");
         }
+        // original code
         // jump to home page
-        history.replace("/");
+        // history.replace("/");
       } catch (error) {
         setError(error.message);
       }
@@ -155,6 +162,53 @@ const AuthForm = (props) => {
   };
 
   // test
+  const handleSignInAsGuestUser = () => {
+    console.log("Guest login.");
+    const guestUserEmail = process.env.GUEST_USER_EMAIL;
+    const guestUserPassword = process.env.GUEST_USER_PASSWORD;
+
+    setIsLoading(true);
+    setError(null);
+
+    fetch(
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          email: guestUserEmail,
+          password: guestUserPassword,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error("Guest login failed.");
+        return res.json();
+      })
+      .then((data) => {
+        const setId = generateUserId(userIdLength);
+        const userInfo = {
+          id: setId,
+          username: "Guest User",
+          address: "",
+          email: guestUserEmail,
+          password: "*********",
+        };
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        const expirationTime = new Date(
+          new Date().getTime() + +data.expiresIn * 1000
+        );
+        authCtx.login(data.idToken, expirationTime);
+
+        notifyCtx.notifyNow("Login succeeded !!");
+        history.replace("/");
+      })
+      .catch((error) => setError(error.message));
+    setIsLoading(false);
+  };
   // const handleLoginAsGuestUser = (e) => {
   //   e.preventDefault();
   //   console.log("Guest login now");
@@ -322,9 +376,23 @@ const AuthForm = (props) => {
             /> */}
           {!isSignUp && (
             <Box textAlign="center" sx={{ mt: 2 }}>
-              <Link href="#" variant="body2">
+              {/* original code */}
+              {/* <Link href="#" variant="body2">
                 Forgot password?
-              </Link>
+              </Link> */}
+              <Typography
+                variant="body2"
+                component="span"
+                sx={{
+                  color: "primary.main",
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                  fontSize: "1.2rem",
+                }}
+                onClick={handleSignInAsGuestUser}
+              >
+                Login as Guest user
+              </Typography>
             </Box>
           )}
 

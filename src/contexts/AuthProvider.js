@@ -62,6 +62,7 @@ const AuthProvider = (props) => {
     const remainingTime = calculateRemainingTime(expirationTime);
 
     logoutTimer = setTimeout(handleLogout, remainingTime);
+    console.log("login complete");
   };
 
   useEffect(() => {

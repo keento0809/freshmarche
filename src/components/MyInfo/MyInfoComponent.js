@@ -108,7 +108,6 @@ const MyInfoComponent = () => {
           <MoveNextButton label="Logout" onClick={handleLogout} />
         </Box>
       </Box>
-      {/* <img src="../../assets/images/pear-img-removebg-preview.png" alt="" /> */}
     </ContainerUI>
   );
 };

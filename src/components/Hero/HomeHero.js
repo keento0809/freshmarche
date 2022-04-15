@@ -51,6 +51,9 @@ const HomeHero = (props) => {
             mx: "auto",
             position: "fixed",
             bottom: "90px",
+            [theme.breakpoints.up("md")]: {
+              bottom: "20px",
+            },
             left: "2%",
           }}
         >

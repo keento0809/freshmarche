@@ -43,7 +43,7 @@ const OriginalModal = (props) => {
     listStyle: "none",
     textDecoration: "none",
     [theme.breakpoints.up("sm")]: {
-      minHeight: "258px",
+      minHeight: "271px",
     },
   };
 

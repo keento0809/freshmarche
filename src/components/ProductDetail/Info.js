@@ -13,9 +13,11 @@ import ChangeAmountButton from "../UIcomponents/Buttons/ChangeAmountButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Typography from "@mui/material/Typography";
 import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
+import { useTheme } from "@mui/system";
 
 const Info = (props) => {
   const history = useHistory();
+  const theme = useTheme();
 
   // contexts
   const favoriteCtx = useContext(FavoriteContext);
@@ -179,6 +181,7 @@ const Info = (props) => {
           mx: "auto",
           position: "fixed",
           bottom: "100px",
+          [theme.breakpoints.up("md")]: { bottom: "20px" },
           left: "2%",
         }}
       >

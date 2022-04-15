@@ -36,21 +36,21 @@ const HomeHero = (props) => {
         <Box
           variant="body1"
           component="p"
-          // original code
-          // sx={{
-          //   color: "red",
-          //   fontWeight: "bold",
-          //   position: "absolute",
-          //   top: "70px",
-          //   left: "10%",
-          // }}
           // test
           sx={{
-            color: "red",
+            // original code
+            // color: "red",
+            // fontWeight: "bold",
+            // width: "95%",
+            // mx: "auto",
+            // position: "fixed",
+            // left: "2%",
+            // test
             fontWeight: "bold",
             width: "95%",
             mx: "auto",
             position: "fixed",
+            bottom: "90px",
             left: "2%",
           }}
         >

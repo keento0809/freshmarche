@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import NotifyContext from "../../contexts/notify-context";
 import AuthContext from "../../contexts/auth-context";
@@ -15,16 +15,32 @@ const MyInfoComponent = () => {
   const notifyCtx = useContext(NotifyContext);
   const authCtx = useContext(AuthContext);
 
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState(null);
+
   const theme = useTheme();
   const history = useHistory();
 
+  // original code
   const userInfoInLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
+  const usernameInLocalStorage = localStorage.getItem("username");
+  const userAddressInLocalStorage = localStorage.getItem("address");
+
+  const currentUsername = usernameInLocalStorage
+    ? usernameInLocalStorage
+    : "Add your fullName !";
+  const currentAddress = userAddressInLocalStorage
+    ? userAddressInLocalStorage
+    : "Add your address !";
+
   const currentUserInfo = {
-    username: userInfoInLocalStorage.username,
-    address: userInfoInLocalStorage.address,
+    username: currentUsername,
+    address: currentAddress,
     email: userInfoInLocalStorage.email,
     password: userInfoInLocalStorage.password,
   };
+
+  const [displayUsername, setDisplayUsername] = useState(currentUsername);
 
   const handleLogout = () => {
     authCtx.logout();
@@ -32,8 +48,35 @@ const MyInfoComponent = () => {
     history.push("/authentication");
   };
 
+  // const sendGetRequest = async () => {
+  //   setIsLoading(true);
+  //   setError(null);
+
+  //   try {
+  //     const res = await fetch(
+  //       "https://react-costum-components-default-rtdb.firebaseio.com/userInfo.json"
+  //     );
+  //     if (!res.ok) {
+  //       throw new Error("Request failed.");
+  //     }
+
+  //     const data = await res.json();
+  //     const parsedData = await JSON.parse(data);
+  //     console.log(parsedData);
+  //     console.log("何でconsole.logされん？？？");
+  //     // return parsedData;
+  //   } catch (error) {
+  //     setError(error);
+  //   }
+  //   setIsLoading(false);
+  // };
+
   useEffect(() => {
+    console.log("MyInfoComponent re-rendering");
     notifyCtx.resetNotification();
+    // const temporaryData = localStorage.getItem("username");
+    // setDisplayUsername(temporaryData);
+    // console.log(val);
   }, []);
 
   return (
@@ -48,12 +91,12 @@ const MyInfoComponent = () => {
         <UserInfoBox
           label="Username"
           val={currentUserInfo.username}
-          type="text"
+          type="username"
         />
         <UserInfoBox
           label="Address"
           val={currentUserInfo.address}
-          type="text"
+          type="address"
         />
         <UserInfoBox label="Email" val={currentUserInfo.email} type="email" />
         <UserInfoBox
@@ -65,7 +108,7 @@ const MyInfoComponent = () => {
           <MoveNextButton label="Logout" onClick={handleLogout} />
         </Box>
       </Box>
-      <img src="../../assets/images/pear-img-removebg-preview.png" alt="" />
+      {/* <img src="../../assets/images/pear-img-removebg-preview.png" alt="" /> */}
     </ContainerUI>
   );
 };

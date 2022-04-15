@@ -23,6 +23,31 @@ const UpdateUserInfoForm = (props) => {
     const updatedValue = updatedValueInputRef.current.value;
     let url;
     let bodyPayload;
+    let setValueType = props.type;
+    console.log(setValueType);
+    // test
+    if (props.type === "username") {
+      localStorage.setItem("username", updatedValue);
+      alert("Sorry, I'm working on adding edit username feature.");
+      return;
+    }
+    if (props.type === "address") {
+      localStorage.setItem("address", updatedValue);
+      alert("Sorry, I'm working on adding edit address feature.");
+      return;
+    }
+    // if (props.type === "username") {
+    //   url =
+    //     // test
+    //     "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
+    //   bodyPayload = {
+    //     idToken: updatedValue,
+    //     username: setValueType,
+    //     photoUrl: "",
+    //     deleteAttribute: [],
+    //     returnSecureToken: false,
+    //   };
+    // }
     if (props.type === "email") {
       console.log(updatedValue);
       url =
@@ -56,6 +81,7 @@ const UpdateUserInfoForm = (props) => {
       .catch((error) => {
         console.log("update failed");
         setError(error.message);
+        alert(error.message);
       });
     setIsLoading(false);
   };

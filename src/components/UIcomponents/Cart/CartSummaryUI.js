@@ -16,6 +16,7 @@ const CartSummaryUI = (props) => {
   const [displayTotalPrice, setDisplayTotalPrice] = useState(
     cartCtx.totalPrice
   );
+  const [isProcessing, setIsProcessing] = useState(false);
 
   let confirmationTotalPrice;
   let isPlaceOrder;
@@ -36,16 +37,17 @@ const CartSummaryUI = (props) => {
         ? confirmationTotalPrice
         : cartCtx.totalPrice
     );
-    isPlaceOrder = props.label === "PLACE ORDER" ? true : false;
-    console.log(isPlaceOrder);
-    if (!isPlaceOrder && displayTotalPrice > 0) {
-      linkValue = props.link;
-    } else if (isPlaceOrder && displayTotalPrice > 0) {
-      linkValue = "";
-    } else {
-      linkValue = "/";
-    }
-    console.log(linkValue);
+    // test
+    // isPlaceOrder = props.label === "PLACE ORDER" ? true : false;
+    // console.log(isPlaceOrder);
+    // if (!isPlaceOrder && displayTotalPrice > 0) {
+    //   linkValue = props.link;
+    // } else if (isPlaceOrder && displayTotalPrice > 0) {
+    //   linkValue = "";
+    // } else {
+    //   linkValue = "/";
+    // }
+    // console.log(linkValue);
   }, []);
 
   const theme = useTheme();
@@ -59,6 +61,11 @@ const CartSummaryUI = (props) => {
       return;
     }
     if (props.label === "PLACE ORDER") {
+      setIsProcessing(true);
+      setTimeout(() => {
+        console.log("delaying place order");
+        history.replace("/complete");
+      }, 2000);
     }
   };
 

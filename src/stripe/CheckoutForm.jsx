@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import {
   PaymentElement,
   useStripe,
@@ -14,6 +14,12 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const ref = createRef(null);
+
+  useEffect(() => {
+    console.log(ref);
+  }, [ref]);
 
   useEffect(() => {
     if (!stripe) {
@@ -86,7 +92,7 @@ export default function CheckoutForm() {
           Loading ...
         </Typography>
       )} */}
-      <PaymentElement id="payment-element" />
+      <PaymentElement id="payment-element" onReady={(el) => console.log(el)} />
       {/* original code */}
       {/* <PaymentElement id="payment-element" /> */}
       <Box sx={{ textAlign: "center", pt: 8 }}>

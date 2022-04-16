@@ -5,6 +5,7 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
 import CartSummaryUI from "../UIcomponents/Cart/CartSummaryUI";
+import LoadingButtonUI from "../UIcomponents/Buttons/LoadingButton";
 
 const OrderSummaryComponent = () => {
   const cartCtx = useContext(CartContext);
@@ -22,10 +23,12 @@ const OrderSummaryComponent = () => {
       </Box>
       <CartSummaryUI
         label="PLACE ORDER"
-        link={"/complete"}
+        // test
+        // link={"/complete"}
         totalCartPrice={orderTotalPrice.toFixed(2)}
         deliveryFee={0}
       />
+      <LoadingButtonUI />
     </ContainerUI>
   );
 };

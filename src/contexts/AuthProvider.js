@@ -47,6 +47,8 @@ const AuthProvider = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("userInfo");
     localStorage.removeItem("expirationTime");
+    if (localStorage.getItem("username")) localStorage.removeItem("username");
+    if (localStorage.getItem("address")) localStorage.removeItem("address");
     // setIsLoggedIn(false);
 
     if (logoutTimer) {
@@ -55,6 +57,7 @@ const AuthProvider = (props) => {
   }, []);
 
   const handleLogin = (idToken, expirationTime) => {
+    console.log(idToken, expirationTime);
     setToken(idToken);
     localStorage.setItem("token", idToken);
     localStorage.setItem("expirationTime", expirationTime);

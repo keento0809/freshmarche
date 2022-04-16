@@ -55,6 +55,8 @@ const AuthForm = (props) => {
 
   const theme = useTheme();
 
+  console.log("aaa re-rendering");
+
   // create userId for new user
   function generateUserId(length) {
     var newId = "";
@@ -67,20 +69,18 @@ const AuthForm = (props) => {
     return newId;
   }
 
-  console.log(generateUserId(16));
-
+  const userIdLength = 16;
   // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const userIdLength = 16;
+    const dataMui = new FormData(event.currentTarget);
 
-    const enteredEmail = data.get("email");
-    const enteredPassword = data.get("password");
+    const enteredEmail = dataMui.get("email");
+    const enteredPassword = dataMui.get("password");
 
     if (isSignUp) {
-      const enteredFullName = data.get("fullName");
-      const enteredPasswordConfirmation = data.get("passwordConfirmation");
+      const enteredFullName = dataMui.get("fullName");
+      const enteredPasswordConfirmation = dataMui.get("passwordConfirmation");
 
       // add validation
       if (enteredFullName === "") return;
@@ -101,71 +101,69 @@ const AuthForm = (props) => {
 
       let enteredFullName;
 
-      try {
-        const response = await fetch(url, {
-          method: "POST",
-          body: JSON.stringify({
-            email: enteredEmail,
-            password: enteredPassword,
-            returnSecureToken: true,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        console.log(response);
-        if (!response.ok) {
-          const errorMessage = "Authorization failed. Please try it again.";
-          alert(errorMessage);
-          throw new Error(errorMessage);
-        }
-
-        const data = await response.json();
-
-        if (isSignUp) enteredFullName = data.get("fullName");
-        else enteredFullName = "";
-
-        const setId = generateUserId(userIdLength);
-        const userInfo = {
-          id: setId,
-          username: enteredFullName,
-          address: "",
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify({
           email: enteredEmail,
-          password: "*********",
-        };
+          password: enteredPassword,
+          returnSecureToken: true,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          if (isSignUp) enteredFullName = dataMui.get("fullName");
+          else enteredFullName = "";
 
-        localStorage.setItem("userInfo", JSON.stringify(userInfo));
-        const expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
-        );
-        authCtx.login(data.idToken, expirationTime.toISOString());
+          const setId = generateUserId(userIdLength);
+          const userInfo = {
+            id: setId,
+            username: enteredFullName,
+            address: "",
+            email: enteredEmail,
+            password: "*********",
+          };
 
-        if (isSignUp) {
-          notifyCtx.notifyNow("Sing up succeeded !!");
-          // history.push("/authentication");
-          console.log("Singup success??");
-        }
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+          const expirationTime = new Date(
+            new Date().getTime() + +data.expiresIn * 1000
+          );
 
-        if (!isSignUp) {
-          notifyCtx.notifyNow("Login succeeded !!");
-          history.replace("/");
-        }
-        // original code
-        // jump to home page
-        // history.replace("/");
-      } catch (error) {
-        setError(error.message);
-      }
+          authCtx.login(data.idToken, expirationTime.toISOString());
+
+          if (isSignUp && data.idToken) {
+            notifyCtx.notifyNow("Sing up succeeded !!");
+            console.log("Singup success!?");
+            history.replace("/");
+          }
+          if (!isSignUp) {
+            notifyCtx.notifyNow("Login succeeded !!");
+            history.replace("/");
+          }
+        })
+        .catch((error) => setError(error.message));
       setIsLoading(false);
     };
     sendRequest();
   };
 
   // test
-  const handleSignInAsGuestUser = () => {
-    console.log("Guest login.");
-    const guestUserEmail = process.env.GUEST_USER_EMAIL;
-    const guestUserPassword = process.env.GUEST_USER_PASSWORD;
+  const handleSignInAsGuestUser = (e) => {
+    e.preventDefault();
+    // process.env doesn't work
+    // original code
+    // const guestUserEmail = process.env.GUEST_USER_EMAIL;
+    const guestUserEmail = "guestUser@test.com";
+    // original code
+    // const guestUserPassword = process.env.GUEST_USER_PASSWORD;
+    const guestUserPassword = "IPPd5QschJNRt4Li";
 
     setIsLoading(true);
     setError(null);
@@ -209,16 +207,6 @@ const AuthForm = (props) => {
       .catch((error) => setError(error.message));
     setIsLoading(false);
   };
-  // const handleLoginAsGuestUser = (e) => {
-  //   e.preventDefault();
-  //   console.log("Guest login now");
-
-  //   const sentGuestLoginRequest = async () => {
-  //     setIsLoading(true);
-  //     setError(null);
-  //   };
-  //   sentGuestLoginRequest();
-  // };
 
   // test 2
   useEffect(() => {

@@ -45,7 +45,11 @@ export default function App() {
     <div className="stripe-form">
       <Box className="stripe-wrapper ストライプやで" width="95%" mx="auto">
         {clientSecret && (
-          <Elements options={options} stripe={stripePromise}>
+          <Elements
+            options={options}
+            stripe={stripePromise}
+            onReady={(el) => console.log(el)}
+          >
             <CheckoutForm />
           </Elements>
         )}

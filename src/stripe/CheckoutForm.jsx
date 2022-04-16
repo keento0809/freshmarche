@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import {
   PaymentElement,
   useStripe,
@@ -14,14 +14,23 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  const ref = createRef(null);
-
-  useEffect(() => {
-    console.log(ref);
-  }, [ref]);
+  const [isOnReady, setIsOnReady] = useState(false);
 
   useEffect(() => {
+    // test
+    setIsLoading(true);
+    setIsOnReady(true);
+    setTimeout(() => {
+      console.log("どこ処理しとるん？？");
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  console.log(isOnReady, "Checkout form, re-rendering");
+
+  useEffect(() => {
+    // setIsLoading(true);
+
     if (!stripe) {
       return;
     }
@@ -33,6 +42,8 @@ export default function CheckoutForm() {
     if (!clientSecret) {
       return;
     }
+
+    if (clientSecret) console.log("We got the client secret");
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
@@ -61,8 +72,6 @@ export default function CheckoutForm() {
       return;
     }
 
-    setIsLoading(true);
-
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
@@ -81,34 +90,48 @@ export default function CheckoutForm() {
     } else {
       setMessage("An unexpected error occured.");
     }
-
-    setIsLoading(false);
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit} className="こんにちは">
-      {/* {isLoading && (
+    <Fragment>
+      {isLoading && isOnReady && (
         <Typography variant="h4" component="h4" color="primary">
           Loading ...
         </Typography>
-      )} */}
-      <PaymentElement id="payment-element" onReady={(el) => console.log(el)} />
-      {/* original code */}
-      {/* <PaymentElement id="payment-element" /> */}
-      <Box sx={{ textAlign: "center", pt: 8 }}>
-        <MoveNextButton
-          label="NEXT"
-          disabled={isLoading || !stripe || !elements}
-          id="submit"
-          onClick={handleSubmit}
-        >
-          <span id="button-text">
-            {isLoading ? <div className="spinner" id="spinner"></div> : ""}
-          </span>
-        </MoveNextButton>
-      </Box>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
-    </form>
+      )}
+      {!isLoading && (
+        <form id="payment-form" onSubmit={handleSubmit} className="こんにちは">
+          <div>
+            <PaymentElement
+              id="payment-element"
+              onReady={(el) => {
+                console.log("DONE !!!!!!!!");
+                // setIsOnReady(false);
+                // console.log(textText);
+              }}
+            />
+            {}
+            <Box sx={{ textAlign: "center", pt: 8 }}>
+              <MoveNextButton
+                label="NEXT"
+                disabled={isLoading || !stripe || !elements}
+                id="submit"
+                onClick={handleSubmit}
+              >
+                <span id="button-text">
+                  {isLoading ? (
+                    <div className="spinner" id="spinner"></div>
+                  ) : (
+                    ""
+                  )}
+                </span>
+              </MoveNextButton>
+            </Box>
+          </div>
+          {/* Show any error or success messages */}
+          {message && <div id="payment-message">{message}</div>}
+        </form>
+      )}
+    </Fragment>
   );
 }

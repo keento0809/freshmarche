@@ -18,6 +18,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     // Create PaymentIntent as soon as the page loads
     fetch("/create-payment-intent", {
       method: "POST",
@@ -25,7 +26,10 @@ export default function App() {
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
     })
       .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
+      .then((data) => {
+        setClientSecret(data.clientSecret);
+        setIsLoading(false);
+      });
   }, []);
 
   const appearance = {
@@ -44,12 +48,13 @@ export default function App() {
   return (
     <div className="stripe-form">
       <Box className="stripe-wrapper ストライプやで" width="95%" mx="auto">
-        {clientSecret && (
-          <Elements
-            options={options}
-            stripe={stripePromise}
-            onReady={(el) => console.log(el)}
-          >
+        {/* {isLoading && (
+          <Typography variant="body2" component="p" color="primary">
+            Loading ...
+          </Typography>
+        )} */}
+        {clientSecret && stripePromise && (
+          <Elements options={options} stripe={stripePromise}>
             <CheckoutForm />
           </Elements>
         )}

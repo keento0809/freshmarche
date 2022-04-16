@@ -6,10 +6,13 @@ import Box from "@mui/material/Box";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
 import CartSummaryUI from "../UIcomponents/Cart/CartSummaryUI";
 import LoadingButtonUI from "../UIcomponents/Buttons/LoadingButton";
+import { useTheme } from "@mui/material/styles";
 
 const OrderSummaryComponent = () => {
   const cartCtx = useContext(CartContext);
   const [orderTotalPrice, setOrderTotalPrice] = useState(cartCtx.totalPrice);
+
+  const theme = useTheme();
 
   useEffect(() => {
     setOrderTotalPrice(cartCtx.totalPrice);
@@ -18,17 +21,23 @@ const OrderSummaryComponent = () => {
   return (
     <ContainerUI>
       <TitleUI title="Order Summary" />
-      <Box padding="0.5rem 0">
+      <Box
+        padding="0.5rem 0"
+        sx={{
+          [theme.breakpoints.up(900)]: { width: "75%", mx: "auto" },
+          [theme.breakpoints.up(1300)]: { width: "60%", mx: "auto" },
+        }}
+      >
         <CheckoutStepper activeStep={2} />
+        <CartSummaryUI
+          label="PLACE ORDER"
+          // test
+          // link={"/complete"}
+          totalCartPrice={orderTotalPrice.toFixed(2)}
+          deliveryFee={0}
+        />
+        <LoadingButtonUI />
       </Box>
-      <CartSummaryUI
-        label="PLACE ORDER"
-        // test
-        // link={"/complete"}
-        totalCartPrice={orderTotalPrice.toFixed(2)}
-        deliveryFee={0}
-      />
-      <LoadingButtonUI />
     </ContainerUI>
   );
 };

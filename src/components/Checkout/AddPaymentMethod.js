@@ -103,7 +103,10 @@ const AddPaymentMethod = () => {
           </Typography>
           <Box
             sx={{
-              pt: 4,
+              mt: 4,
+              padding: "0.5rem 1.2rem",
+              border: "1px solid #76FF03",
+              borderRadius: "8px",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",

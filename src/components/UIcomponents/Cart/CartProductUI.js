@@ -41,12 +41,15 @@ const CartProductUI = (props) => {
     isFavorite: props.isFavorite,
   };
 
-  useEffect(() => {
-    // test
-    console.log(props.isFavorite);
-  }, [favoriteCtx.favoriteList]);
+  console.log("CartProduct re-rendering??");
+
+  // useEffect(() => {
+  //   // test
+  //   console.log(props.isFavorite);
+  // }, [favoriteCtx.favoriteList]);
 
   const handleUpdateOrderQuantity = (product, text) => {
+    // add code here !!!!
     if (text === "plus") console.log("Plus counts.");
     if (text === "minus") console.log("Minus counts.");
   };
@@ -92,7 +95,6 @@ const CartProductUI = (props) => {
             component="h5"
             color="primary"
             sx={{ paddingLeft: "1rem" }}
-            // paddingleft="1rem"
           >
             ${props.subTotalPrice.toFixed(2)}
           </Typography>
@@ -127,9 +129,11 @@ const CartProductUI = (props) => {
             // default code. Do not delete !!
             // quantity={props.quantity}
             quantity={updatedOrderQuantity}
+            // test
             onClick={handleUpdateOrderQuantity}
             productInfo={productInfo}
             productInfoSingle={productInfoSingle}
+            isInProductDetail={false}
           />
         )}
         <DeleteIcon

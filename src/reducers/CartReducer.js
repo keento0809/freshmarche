@@ -12,7 +12,7 @@ const CartReducer = (state, action) => {
           (state.totalPrice + addingProduct.quantity * addingProduct.price) *
             100
         ) / 100;
-      console.log(updatedTotalPrice);
+      // console.log(updatedTotalPrice);
       // state.totalPrice + addingProduct.quantity * addingProduct.price;
       const updatedCartProducts = state.cartProducts.find(
         (product) => product.id === addingProduct.id
@@ -46,10 +46,19 @@ const CartReducer = (state, action) => {
         (product) => product.id === subtractingProductId
       );
       const newTotalQuantity = state.totalQuantity - 1;
-      const newTotalPrice = state.totalPrice - subtractingProduct.price;
+      // test
+      const newTotalPrice =
+        Math.floor((state.totalPrice - subtractingProduct.price) * 100) / 100;
 
-      subtractingProduct.quantity--;
-      subtractingProduct.subTotalPrice -= subtractingProduct.price;
+      subtractingProduct.quantity = subtractingProduct.quantity - 1;
+      subtractingProduct.subTotalPrice -=
+        Math.floor(subtractingProduct.price * 100) / 100;
+      // test
+      if (subtractingProduct.subTotalPrice <= 0)
+        // const numObj = 12345.6789
+        // test
+        subtractingProduct.totalPrice = (1.23e-10).toFixed(2);
+      // console.log(subtractingProduct.subTotalPrice);
       const newCartProducts =
         subtractingProduct.quantity === 0
           ? state.cartProducts.filter(

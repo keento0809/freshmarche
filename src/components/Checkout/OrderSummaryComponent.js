@@ -32,7 +32,7 @@ const OrderSummaryComponent = () => {
         <CartSummaryUI
           label="PLACE ORDER"
           // test
-          // link={"/complete"}
+          isOrderSummary={true}
           totalCartPrice={orderTotalPrice.toFixed(2)}
           deliveryFee={0}
         />

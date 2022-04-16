@@ -9,7 +9,7 @@ import MuiAlert from "@mui/material/Alert";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return (
     <MuiAlert
-      sx={{ color: "red" }}
+      sx={{ color: "red", zIndex: "5" }}
       elevation={6}
       ref={ref}
       variant="filled"
@@ -39,7 +39,7 @@ const AlertSnackBar = (props) => {
         // original code. Do Not Delete
         // severity="success"
         severity={notifyCtx.severity}
-        sx={{ width: "100%", bgColor: "background.secondary" }}
+        sx={{ width: "100%", bgColor: "background.secondary", zIndex: "5" }}
       >
         {/* Product successfully added! */}
         {/* {props.label} */}

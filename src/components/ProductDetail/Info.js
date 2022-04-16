@@ -126,6 +126,7 @@ const Info = (props) => {
           onClick={setOrderQuantity}
           productInfo={productInfo}
           isAddCartPushed={isAddCartPushed}
+          isInProductDetail={true}
           onCheck={setIsAddCartPushed}
         />
         <Typography

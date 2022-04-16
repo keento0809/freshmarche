@@ -17,6 +17,7 @@ const CartSummaryComponent = () => {
       label="CHECKOUT"
       link={"/payment"}
       // test
+      isOrderSummary={false}
       // totalCartPrice={totalCartPrice.toFixed(2)}
       deliveryFee={0}
     />

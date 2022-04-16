@@ -24,19 +24,28 @@ const CartSummaryUI = (props) => {
   let isCartInfo;
   // let displayTotalPrice;
 
+  useEffect(() => {
+    console.log(props.isOrderSummary);
+  }, []);
+
   // test
   useEffect(() => {
-    if (Boolean(localStorage.getItem("cartInfo"))) {
-      isCartInfo = Boolean(localStorage.getItem("cartInfo"));
-      const data = localStorage.getItem("cartInfo");
-      console.log(JSON.parse(data).cartTotalPrice);
-      confirmationTotalPrice = JSON.parse(data).cartTotalPrice;
+    if (props.isOrderSummary) {
+      if (Boolean(localStorage.getItem("cartInfo"))) {
+        isCartInfo = Boolean(localStorage.getItem("cartInfo"));
+        const data = localStorage.getItem("cartInfo");
+        console.log(JSON.parse(data).cartTotalPrice);
+        confirmationTotalPrice = JSON.parse(data).cartTotalPrice;
+      }
+      setDisplayTotalPrice(
+        Boolean(localStorage.getItem("cartInfo"))
+          ? confirmationTotalPrice
+          : cartCtx.totalPrice
+      );
     }
-    setDisplayTotalPrice(
-      Boolean(localStorage.getItem("cartInfo"))
-        ? confirmationTotalPrice
-        : cartCtx.totalPrice
-    );
+    if (!props.isOrderSummary) {
+      setDisplayTotalPrice(cartCtx.totalPrice);
+    }
     // test
     // isPlaceOrder = props.label === "PLACE ORDER" ? true : false;
     // console.log(isPlaceOrder);
@@ -48,7 +57,7 @@ const CartSummaryUI = (props) => {
     //   linkValue = "/";
     // }
     // console.log(linkValue);
-  }, []);
+  }, [cartCtx.totalPrice]);
 
   const theme = useTheme();
 

@@ -16,6 +16,7 @@ const ChangeAmountButton = (props) => {
   // console.log(props.quantity);
 
   const handleAddProductOne = () => {
+    console.log(props.quantity);
     if (props.quantity > 9) {
       alert("You can add cart ten at the maximum.");
       return;
@@ -28,13 +29,16 @@ const ChangeAmountButton = (props) => {
     if (props.productInfoSingle) cartCtx.addToCart(props.productInfoSingle);
 
     if (props.isAddCartPushed) {
-      setDisplayQuantity(1);
-      props.onClick(2);
+      if (props.isInProductDetail) {
+        setDisplayQuantity(1);
+        props.onClick(2);
+      }
     }
     if (props.onCheck) props.onCheck(false);
   };
 
   const handleSubtractProductOne = () => {
+    console.log(props.quantity);
     if (props.quantity < 2) {
       alert("You cannot subtract this product more.");
       return;
@@ -45,11 +49,16 @@ const ChangeAmountButton = (props) => {
     setDisplayQuantity(displayQuantity - 1);
 
     // change the quantity of cartProduct on cartList
-    if (props.productInfoSingle) cartCtx.subtractFromCart(props.productInfo);
+    // test
+    if (props.productInfoSingle)
+      cartCtx.subtractFromCart(props.productInfoSingle);
 
     if (props.isAddCartPushed) {
-      setDisplayQuantity(1);
-      props.onClick(2);
+      // test
+      if (props.isInProductDetail) {
+        setDisplayQuantity(1);
+        props.onClick(2);
+      }
     }
 
     if (props.isAddCartPushed) setDisplayQuantity(1);

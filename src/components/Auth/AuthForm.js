@@ -215,7 +215,7 @@ const AuthForm = (props) => {
 
   return (
     // <ThemeProvider theme={theme}>
-    <ContainerUI>
+    <ContainerUI isProductDetail={true}>
       {/* <Container component="main" maxWidth="xs"> */}
       <Box sx={{ py: 4, [theme.breakpoints.up(1023)]: { py: 1 } }}>
         <TitleUI title={props.title} />

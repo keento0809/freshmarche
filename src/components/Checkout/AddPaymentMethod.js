@@ -62,83 +62,95 @@ const AddPaymentMethod = () => {
   return (
     <ContainerUI>
       <TitleUI title="Add Credit Card" />
-      <Box padding="0.5rem 0">
-        <CheckoutStepper activeStep={1} />
-      </Box>
-      <Box py={4}>
-        <App />
-      </Box>
       <Box
-        textAlign="center"
+        padding="0.5rem 0"
         sx={{
-          pt: 4,
-          pb: "120px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          [theme.breakpoints.up("md")]: {
-            pb: 4,
-          },
+          [theme.breakpoints.up(900)]: { width: "75%", mx: "auto" },
+          [theme.breakpoints.up(1300)]: { width: "60%", mx: "auto" },
         }}
       >
-        <Typography
-          variant="body1"
-          component="h5"
-          sx={{ fontWeight: "bold", color: "primary.main" }}
-        >
-          ※Since this checkout form is dummy, please enter the credit card
-          information below.
-        </Typography>
+        <CheckoutStepper activeStep={1} />
+        <Box py={4}>
+          <App />
+        </Box>
         <Box
+          textAlign="center"
           sx={{
             pt: 4,
+            pb: "120px",
             display: "flex",
             flexDirection: "column",
-            alignItems: "flex-start",
             justifyContent: "center",
+            alignItems: "center",
+            [theme.breakpoints.up("md")]: {
+              pb: 4,
+            },
           }}
         >
           <Typography
             variant="body1"
-            component="p"
-            fontWeight="normal"
-            color="white"
+            component="h5"
+            sx={{ fontWeight: "bold", color: "primary.main" }}
           >
-            Card Number - 4242 4242 4242 4242
+            ※Since this checkout form is dummy,
           </Typography>
           <Typography
             variant="body1"
-            component="p"
-            fontWeight="normal"
-            color="white"
+            component="h5"
+            sx={{ fontWeight: "bold", color: "primary.main" }}
           >
-            Expiration - 10/25
+            please enter the credit card information below.
           </Typography>
-          <Typography
-            variant="body1"
-            component="p"
-            fontWeight="normal"
-            color="white"
+          <Box
+            sx={{
+              pt: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              justifyContent: "center",
+            }}
           >
-            CVC - 999
-          </Typography>
-          <Typography
-            variant="body1"
-            component="p"
-            fontWeight="normal"
-            color="white"
-          >
-            Country - Canada
-          </Typography>
-          <Typography
-            variant="body1"
-            component="p"
-            fontWeight="normal"
-            color="white"
-          >
-            ZIP CODE - M5T 1R4
-          </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              fontWeight="normal"
+              color="white"
+            >
+              Card Number - 4242 4242 4242 4242
+            </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              fontWeight="normal"
+              color="white"
+            >
+              Expiration - 10/25
+            </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              fontWeight="normal"
+              color="white"
+            >
+              CVC - 999
+            </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              fontWeight="normal"
+              color="white"
+            >
+              Country - Canada
+            </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              fontWeight="normal"
+              color="white"
+            >
+              ZIP CODE - M5T 1R4
+            </Typography>
+          </Box>
         </Box>
       </Box>
     </ContainerUI>

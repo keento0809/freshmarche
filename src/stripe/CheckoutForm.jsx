@@ -7,6 +7,7 @@ import {
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import MoveNextButton from "../components/UIcomponents/Buttons/MoveNextButton";
+import CircularProgressUI from "../components/UIcomponents/Progress/CircularProgressUI";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -16,18 +17,7 @@ export default function CheckoutForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingEl, setIsLoadingEl] = useState(true);
 
-  // useEffect(() => {
-  //   // test
-  //   setIsLoading(true);
-  //   setTimeout(() => {
-  //     console.log("どこ処理しとるん？？");
-  //     setIsLoading(false);
-  //   }, 1000);
-  // }, []);
-
   useEffect(() => {
-    // setIsLoading(true);
-
     if (!stripe) {
       return;
     }
@@ -91,29 +81,26 @@ export default function CheckoutForm() {
 
   return (
     <Fragment>
-      {/* {isLoading && isOnReady && (
-        <Typography variant="h4" component="h4" color="primary">
-          Loading ...
-        </Typography>
-      )} */}
       <form id="payment-form" onSubmit={handleSubmit}>
         <div>
           {isLoadingEl && (
             <Box
               sx={{
                 display: "flex",
-                textAlign: "center",
+                justifyContent: "center",
+                alignItems: "center",
                 color: "primary.main",
+                minHeight: "300px",
               }}
             >
               <Typography
                 variant="h4"
                 component="h4"
-                sx={{ fontWeight: "bold", textAlign: "center" }}
+                sx={{ fontWeight: "normal", textAlign: "center", pr: "1rem" }}
               >
                 Loading...
               </Typography>
-              {/* <Spin size="large" /> */}
+              <CircularProgressUI />
             </Box>
           )}
           <PaymentElement

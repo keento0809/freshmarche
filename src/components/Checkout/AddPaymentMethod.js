@@ -5,7 +5,7 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
-import App from "../../stripe/Stripe";
+import Stripe from "../../stripe/Stripe";
 
 // codes regarding stripe
 import { loadStripe } from "@stripe/stripe-js";
@@ -19,6 +19,7 @@ const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
 
 const AddPaymentMethod = () => {
   const [clientSecret, setClientSecret] = useState("");
+  const [isProcess, setIsProcess] = useState(false);
 
   const cartCtx = useContext(CartContext);
 
@@ -71,9 +72,17 @@ const AddPaymentMethod = () => {
       >
         <CheckoutStepper activeStep={1} />
         {/* test */}
-        <Box className="stripe-wrapper" sx={{ minHeight: "477px" }}>
+        <Box
+          className="stripe-wrapper"
+          sx={{
+            // original code
+            minHeight: "477px",
+            [theme.breakpoints.up("sm")]: { minHeight: "417px" },
+            [theme.breakpoints.up("md")]: { minHeight: "367px" },
+          }}
+        >
           <Box py={4}>
-            <App />
+            <Stripe />
           </Box>
         </Box>
         <Box

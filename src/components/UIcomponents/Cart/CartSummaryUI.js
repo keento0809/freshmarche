@@ -16,7 +16,6 @@ const CartSummaryUI = (props) => {
   const [displayTotalPrice, setDisplayTotalPrice] = useState(
     cartCtx.totalPrice
   );
-  const [isProcessing, setIsProcessing] = useState(false);
 
   let confirmationTotalPrice;
   let isPlaceOrder;
@@ -70,16 +69,19 @@ const CartSummaryUI = (props) => {
       return;
     }
     if (props.label === "PLACE ORDER") {
-      setIsProcessing(true);
+      props.setIsProcessing(true);
       setTimeout(() => {
         console.log("delaying place order");
         history.replace("/complete");
+        props.setIsProcessing(false);
       }, 2000);
     }
   };
 
+  const setPb = props.isOrderSummary ? 0 : "64px";
+
   return (
-    <Box sx={{ pt: "1.7rem", pb: "64px" }}>
+    <Box sx={{ pt: "1.7rem", pb: setPb }}>
       <Box
         margin="0 auto"
         sx={{ width: "90%", [theme.breakpoints.up("sm")]: { width: "100%" } }}

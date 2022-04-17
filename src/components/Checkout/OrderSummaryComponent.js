@@ -6,11 +6,14 @@ import Box from "@mui/material/Box";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
 import CartSummaryUI from "../UIcomponents/Cart/CartSummaryUI";
 import { useTheme } from "@mui/material/styles";
-import OrderSummaryList from "../UIcomponents/Checkout/OrderSummaryList";
+import OrderSummaryList from "../Checkout/OrderSummaryList";
+import CircularProgressUI from "../UIcomponents/Progress/CircularProgressUI";
 
 const OrderSummaryComponent = () => {
   const cartCtx = useContext(CartContext);
+
   const [orderTotalPrice, setOrderTotalPrice] = useState(cartCtx.totalPrice);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const theme = useTheme();
 
@@ -34,9 +37,19 @@ const OrderSummaryComponent = () => {
           label="PLACE ORDER"
           // test
           isOrderSummary={true}
+          setIsProcessing={setIsProcessing}
           totalCartPrice={orderTotalPrice.toFixed(2)}
           deliveryFee={0}
         />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {isProcessing && <CircularProgressUI />}
+        </Box>
       </Box>
     </ContainerUI>
   );

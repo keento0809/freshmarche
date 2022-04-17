@@ -1,6 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import OrderSummaryProduct from "./OrderSummaryProduct";
+import OrderSummaryProduct from "../UIcomponents/Checkout/OrderSummaryProduct";
+import { useTheme } from "@mui/material";
 
 const OrderSummaryList = () => {
   const orderSummaryData = JSON.parse(localStorage.getItem("cartInfo"));
@@ -18,7 +19,20 @@ const OrderSummaryList = () => {
     />
   ));
 
-  return <Box sx={{ color: "primary" }}>{mapping}</Box>;
+  const theme = useTheme();
+
+  return (
+    <Box
+      sx={{
+        color: "primary",
+        maxHeight: "390px",
+        overflow: "scroll",
+        [theme.breakpoints.up("sm")]: { maxHeight: "480px" },
+      }}
+    >
+      {mapping}
+    </Box>
+  );
 };
 
 export default OrderSummaryList;

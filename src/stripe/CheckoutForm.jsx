@@ -52,7 +52,7 @@ export default function CheckoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setIsLoading(true);
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
@@ -119,7 +119,11 @@ export default function CheckoutForm() {
               >
                 <span id="button-text">
                   {isLoading ? (
-                    <div className="spinner" id="spinner"></div>
+                    <div
+                      className="spinner"
+                      id="spinner"
+                      style={{ color: "red" }}
+                    ></div>
                   ) : (
                     ""
                   )}

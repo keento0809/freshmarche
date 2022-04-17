@@ -5,8 +5,8 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
 import CartSummaryUI from "../UIcomponents/Cart/CartSummaryUI";
-import LoadingButtonUI from "../UIcomponents/Buttons/LoadingButton";
 import { useTheme } from "@mui/material/styles";
+import OrderSummaryList from "../UIcomponents/Checkout/OrderSummaryList";
 
 const OrderSummaryComponent = () => {
   const cartCtx = useContext(CartContext);
@@ -29,6 +29,7 @@ const OrderSummaryComponent = () => {
         }}
       >
         <CheckoutStepper activeStep={2} />
+        <OrderSummaryList />
         <CartSummaryUI
           label="PLACE ORDER"
           // test
@@ -36,7 +37,6 @@ const OrderSummaryComponent = () => {
           totalCartPrice={orderTotalPrice.toFixed(2)}
           deliveryFee={0}
         />
-        <LoadingButtonUI />
       </Box>
     </ContainerUI>
   );

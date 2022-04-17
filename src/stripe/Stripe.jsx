@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 // Sign in to see your own test API key embedded in code samples.
 const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
 
-export default function App() {
+export default function Stripe() {
   const [clientSecret, setClientSecret] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,12 +47,7 @@ export default function App() {
 
   return (
     <div className="stripe-form">
-      <Box className="stripe-wrapper ストライプやで" width="95%" mx="auto">
-        {/* {isLoading && (
-          <Typography variant="body2" component="p" color="primary">
-            Loading ...
-          </Typography>
-        )} */}
+      <Box className="stripe-wrapper" width="95%" mx="auto">
         {clientSecret && stripePromise && (
           <Elements options={options} stripe={stripePromise}>
             <CheckoutForm />

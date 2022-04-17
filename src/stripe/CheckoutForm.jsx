@@ -14,19 +14,16 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [isOnReady, setIsOnReady] = useState(false);
+  const [isLoadingEl, setIsLoadingEl] = useState(true);
 
-  useEffect(() => {
-    // test
-    setIsLoading(true);
-    setIsOnReady(true);
-    setTimeout(() => {
-      console.log("どこ処理しとるん？？");
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
-  console.log(isOnReady, "Checkout form, re-rendering");
+  // useEffect(() => {
+  //   // test
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     console.log("どこ処理しとるん？？");
+  //     setIsLoading(false);
+  //   }, 1000);
+  // }, []);
 
   useEffect(() => {
     // setIsLoading(true);
@@ -94,23 +91,38 @@ export default function CheckoutForm() {
 
   return (
     <Fragment>
-      {isLoading && isOnReady && (
+      {/* {isLoading && isOnReady && (
         <Typography variant="h4" component="h4" color="primary">
           Loading ...
         </Typography>
-      )}
-      {!isLoading && (
-        <form id="payment-form" onSubmit={handleSubmit} className="こんにちは">
-          <div>
-            <PaymentElement
-              id="payment-element"
-              onReady={(el) => {
-                console.log("DONE !!!!!!!!");
-                // setIsOnReady(false);
-                // console.log(textText);
+      )} */}
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <div>
+          {isLoadingEl && (
+            <Box
+              sx={{
+                display: "flex",
+                textAlign: "center",
+                color: "primary.main",
               }}
-            />
-            {}
+            >
+              <Typography
+                variant="h4"
+                component="h4"
+                sx={{ fontWeight: "bold", textAlign: "center" }}
+              >
+                Loading...
+              </Typography>
+              {/* <Spin size="large" /> */}
+            </Box>
+          )}
+          <PaymentElement
+            id="payment-element"
+            onReady={() => {
+              setIsLoadingEl(false);
+            }}
+          />
+          {!isLoadingEl && (
             <Box sx={{ textAlign: "center", pt: 8 }}>
               <MoveNextButton
                 label="NEXT"
@@ -127,11 +139,11 @@ export default function CheckoutForm() {
                 </span>
               </MoveNextButton>
             </Box>
-          </div>
-          {/* Show any error or success messages */}
-          {message && <div id="payment-message">{message}</div>}
-        </form>
-      )}
+          )}
+        </div>
+        {/* Show any error or success messages */}
+        {message && <div id="payment-message">{message}</div>}
+      </form>
     </Fragment>
   );
 }

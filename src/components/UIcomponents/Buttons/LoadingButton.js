@@ -8,23 +8,11 @@ const LoadingButtonUI = () => {
     <div>
       <LoadingButton
         loading
-        // loadingPosition="start"
         variant="outlined"
-        sx={{ color: "primary" }}
+        sx={{ color: "primary", bgcolor: "transparent", border: "none" }}
       >
         S
       </LoadingButton>
-      {/* <LoadingButton loading loadingIndicator="Loading..." variant="outlined">
-        Fetch data
-      </LoadingButton>
-      <LoadingButton
-        loading
-        loadingPosition="start"
-        startIcon={<SaveIcon />}
-        variant="outlined"
-      >
-        Save
-      </LoadingButton> */}
     </div>
   );
 };

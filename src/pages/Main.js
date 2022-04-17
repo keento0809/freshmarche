@@ -9,7 +9,7 @@ import AuthContext from "../contexts/auth-context";
 import Home from "./Home";
 // import OrderComplete from "./OrderComplete";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
-import App from "../stripe/App";
+// import App from "../stripe/App";
 
 const NotFound = React.lazy(() => import("./NotFound"));
 const ProductDetail = React.lazy(() => import("./ProductDetail"));

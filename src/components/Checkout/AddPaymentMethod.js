@@ -5,7 +5,7 @@ import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
-import App from "../../stripe/App";
+import App from "../../stripe/Stripe";
 
 // codes regarding stripe
 import { loadStripe } from "@stripe/stripe-js";
@@ -70,8 +70,11 @@ const AddPaymentMethod = () => {
         }}
       >
         <CheckoutStepper activeStep={1} />
-        <Box py={4}>
-          <App />
+        {/* test */}
+        <Box className="stripe-wrapper" sx={{ minHeight: "477px" }}>
+          <Box py={4}>
+            <App />
+          </Box>
         </Box>
         <Box
           textAlign="center"

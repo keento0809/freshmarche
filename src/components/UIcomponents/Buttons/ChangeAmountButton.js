@@ -17,7 +17,7 @@ const ChangeAmountButton = (props) => {
 
   const handleAddProductOne = () => {
     console.log(props.quantity);
-    if (props.quantity > 9) {
+    if (!props.isInProductDetail && props.quantity > 9) {
       alert("You can add cart ten at the maximum.");
       return;
     }
@@ -39,7 +39,8 @@ const ChangeAmountButton = (props) => {
 
   const handleSubtractProductOne = () => {
     console.log(props.quantity);
-    if (props.quantity < 2) {
+    // test
+    if (!props.isInProductDetail && props.quantity < 2) {
       alert("You cannot subtract this product more.");
       return;
     }

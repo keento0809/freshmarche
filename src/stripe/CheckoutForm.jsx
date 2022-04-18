@@ -110,7 +110,16 @@ export default function CheckoutForm() {
             }}
           />
           {!isLoadingEl && (
-            <Box sx={{ textAlign: "center", pt: 8 }}>
+            <Box
+              sx={{
+                textAlign: "center",
+                pt: 8,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "center",
+              }}
+            >
               <MoveNextButton
                 label="NEXT"
                 disabled={isLoading || !stripe || !elements}
@@ -119,16 +128,25 @@ export default function CheckoutForm() {
               >
                 <span id="button-text">
                   {isLoading ? (
-                    <div
-                      className="spinner"
-                      id="spinner"
-                      style={{ color: "red" }}
-                    ></div>
+                    <div className="spinner" id="spinner"></div>
                   ) : (
                     ""
                   )}
                 </span>
               </MoveNextButton>
+              <Box sx={{ minHeight: "90px" }}>
+                {isLoading && (
+                  <Box
+                    sx={{
+                      display: "inline-block",
+                      lineHeight: "60px",
+                      pt: "0.8rem",
+                    }}
+                  >
+                    <CircularProgressUI />
+                  </Box>
+                )}
+              </Box>
             </Box>
           )}
         </div>

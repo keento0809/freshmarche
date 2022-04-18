@@ -78,7 +78,7 @@ const AddPaymentMethod = () => {
             // original code
             minHeight: "477px",
             [theme.breakpoints.up("sm")]: { minHeight: "417px" },
-            [theme.breakpoints.up("md")]: { minHeight: "367px" },
+            [theme.breakpoints.up("md")]: { minHeight: "427px" },
           }}
         >
           <Box py={4}>

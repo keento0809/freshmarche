@@ -19,7 +19,7 @@ const ContainerUI = (props) => {
           minHeight: props.isProductDetail ? "100vh" : "",
           display: "flex",
           flexDirection: "column",
-          justifyContent: props.isProductDetail ? "flex-start" : "center",
+          justifyContent: "center",
           alignItems: "stretch",
           height: "100%",
           [theme.breakpoints.up(900)]: {
@@ -30,7 +30,6 @@ const ContainerUI = (props) => {
           },
         }}
         className="ここここれですかい"
-        // sx={{ paddingBottom: "64px" }}
       >
         <Box
           sx={{

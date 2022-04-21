@@ -50,7 +50,7 @@ const HomeHero = (props) => {
             width: "95%",
             mx: "auto",
             position: "fixed",
-            bottom: "90px",
+            bottom: "68px",
             [theme.breakpoints.up("md")]: {
               bottom: "20px",
             },

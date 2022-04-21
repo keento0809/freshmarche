@@ -19,7 +19,7 @@ const ContainerUI = (props) => {
           minHeight: props.isProductDetail ? "100vh" : "",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          justifyContent: props.isProductDetail ? "flex-start" : "center",
           alignItems: "stretch",
           height: "100%",
           [theme.breakpoints.up(900)]: {

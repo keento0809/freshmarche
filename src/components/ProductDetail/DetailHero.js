@@ -22,11 +22,11 @@ const DetailHero = (props) => {
     // original code
     // width: "100%",
     // height: "100%",
-    width: "352px",
-    height: "298px",
+    width: "302px",
+    height: "248px",
     padding: "0.5rem",
     // original code
-    margin: "1rem auto",
+    margin: "0.5rem auto",
     objectFit: "cover",
     [theme.breakpoints.up("sm")]: {
       width: "372px",

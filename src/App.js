@@ -6,6 +6,7 @@ import FavoriteProvider from "./contexts/FavoriteProvider";
 import CartProvider from "./contexts/CartProvider";
 import NotifyProvider from "./contexts/NotifyProvider";
 import AuthProvider from "./contexts/AuthProvider";
+import CheckoutProvider from "./contexts/CheckoutProvider";
 
 function App() {
   return (
@@ -14,9 +15,11 @@ function App() {
         <FavoriteProvider>
           <CartProvider>
             <NotifyProvider>
-              <div className="App">
-                <Main />
-              </div>
+              <CheckoutProvider>
+                <div className="App">
+                  <Main />
+                </div>
+              </CheckoutProvider>
             </NotifyProvider>
           </CartProvider>
         </FavoriteProvider>

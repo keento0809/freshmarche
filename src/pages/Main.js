@@ -6,10 +6,9 @@ import {
 } from "react-router-dom";
 import React, { Suspense, useContext } from "react";
 import AuthContext from "../contexts/auth-context";
+import CheckoutContext from "../contexts/checkout-context";
 import Home from "./Home";
-// import OrderComplete from "./OrderComplete";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
-// import App from "../stripe/App";
 
 const NotFound = React.lazy(() => import("./NotFound"));
 const ProductDetail = React.lazy(() => import("./ProductDetail"));
@@ -24,6 +23,7 @@ const Signup = React.lazy(() => import("./Signup"));
 
 const Main = () => {
   const authCtx = useContext(AuthContext);
+  const checkoutCtx = useContext(CheckoutContext);
 
   return (
     <Router>
@@ -73,19 +73,19 @@ const Main = () => {
               <App />
             </Route> */}
             {/* temporary */}
-            {authCtx.isLoggedIn && (
+            {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
               <Route path="/payment" exact>
                 <PaymentMethod />
               </Route>
             )}
             {/* temporary */}
-            {authCtx.isLoggedIn && (
+            {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
               <Route path="/ordersummary" exact>
                 <OrderSummary />
               </Route>
             )}
             {/* temporary */}
-            {authCtx.isLoggedIn && (
+            {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
               <Route path="/complete" exact>
                 <OrderComplete />
               </Route>

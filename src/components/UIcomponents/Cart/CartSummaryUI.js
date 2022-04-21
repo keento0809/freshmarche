@@ -1,6 +1,7 @@
 import { Link as RouterLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../../../contexts/cart-context";
+import CheckoutContext from "../../../contexts/checkout-context";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import MoveNextButton from "../Buttons/MoveNextButton";
@@ -9,6 +10,7 @@ import { useTheme } from "@mui/material";
 
 const CartSummaryUI = (props) => {
   const cartCtx = useContext(CartContext);
+  const checkoutCtx = useContext(CheckoutContext);
 
   const history = useHistory();
 
@@ -61,6 +63,10 @@ const CartSummaryUI = (props) => {
   const theme = useTheme();
 
   const handleProcedure = () => {
+    if (props.label === "CHECKOUT") {
+      console.log("checking out ~~~~");
+      checkoutCtx.setCheckedOut();
+    }
     // original code
     // if (cartCtx.totalPrice === 0) {
     if (displayTotalPrice === 0) {
@@ -70,6 +76,7 @@ const CartSummaryUI = (props) => {
     }
     if (props.label === "PLACE ORDER") {
       props.setIsProcessing(true);
+      checkoutCtx.removeCheckedOut();
       setTimeout(() => {
         console.log("delaying place order");
         history.replace("/complete");

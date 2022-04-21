@@ -41,6 +41,7 @@ const OriginalModal = (props) => {
     boxShadow: 24,
     textAlign: "center",
     listStyle: "none",
+    outline: "none",
     textDecoration: "none",
     [theme.breakpoints.up("sm")]: {
       minHeight: "271px",

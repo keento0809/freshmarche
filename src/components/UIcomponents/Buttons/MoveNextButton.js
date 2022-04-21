@@ -26,7 +26,6 @@ const MoveNextButton = (props) => {
         "&.MuiButtonBase-root:hover": {
           bgcolor: "background.paper",
           transform: "scale(1.05)",
-          // bgcolor: "red",
         },
         borderRadius: "50px",
         bgcolor: "background.paper",

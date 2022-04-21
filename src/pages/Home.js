@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import MainHeader from "../components/Header/MainHeader";
 import HomeHero from "../components/Hero/HomeHero";
 import HomeMain from "../components/Main/HomeMain";
 import MainFooter from "../components/Footer/MainFooter";
 import HomeProducts from "../components/Products/HomeProducts";
 import OriginalModal from "../components/UIcomponents/Modal/OriginalModal";
+import CheckoutContext from "../contexts/checkout-context";
 import { styled } from "@mui/system";
 
 const HomeComponent = styled("div")({
@@ -14,6 +15,8 @@ const HomeComponent = styled("div")({
 const Home = () => {
   // state
   const [open, setOpen] = useState(false);
+
+  const checkoutCtx = useContext(CheckoutContext);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -28,6 +31,10 @@ const Home = () => {
   ) : (
     ""
   );
+
+  useEffect(() => {
+    checkoutCtx.removeCheckedOut();
+  }, []);
 
   return (
     <HomeComponent>

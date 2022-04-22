@@ -57,8 +57,8 @@ const CartReducer = (state, action) => {
       if (subtractingProduct.subTotalPrice <= 0)
         // const numObj = 12345.6789
         // test
-        // subtractingProduct.totalPrice = (1.23e-10).toFixed(2);
-        Math.floor(subtractingProduct.totalPrice * 100) / 100;
+        subtractingProduct.totalPrice = (1.23e-10).toFixed(2);
+      // Math.floor(subtractingProduct.totalPrice * 100) / 100;
       // console.log(subtractingProduct.subTotalPrice);
       const newCartProducts =
         subtractingProduct.quantity === 0

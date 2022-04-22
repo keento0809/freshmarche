@@ -10,10 +10,7 @@ const stripe = require("stripe")("sk_test_Hrs6SAopgFPF0bZXSN3f6ELN");
 app.use(express.static("public"));
 app.use(express.json());
 
-const corsOptions = {
-  origin: "https://freshmarche-dwi3a9d45-keento0809.vercel.app/",
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 const calculateOrderAmount = (items) => {
   // Replace this constant with a calculation of the order's amount

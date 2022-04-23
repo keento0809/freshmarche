@@ -15,7 +15,7 @@ import { Typography } from "@mui/material";
 import { useTheme } from "@mui/system";
 
 // codes regarding stripe
-const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
+// const stripePromise = loadStripe("pk_test_A7jK4iCYHL045qgjjfzAfPxu");
 
 const AddPaymentMethod = () => {
   const [clientSecret, setClientSecret] = useState("");
@@ -26,16 +26,15 @@ const AddPaymentMethod = () => {
   const theme = useTheme();
 
   // codes regarding stripe
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-    })
-      .then((res) => res.json())
-      .then((data) => setClientSecret(data.clientSecret));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/create-payment-intent", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setClientSecret(data.clientSecret));
+  // }, []);
 
   useEffect(() => {
     const cartInfo = {

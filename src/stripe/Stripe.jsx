@@ -25,7 +25,11 @@ export default function Stripe() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
     })
-      .then((res) => res.json())
+      // .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        res.json();
+      })
       .then((data) => {
         setClientSecret(data.clientSecret);
         setIsLoading(false);

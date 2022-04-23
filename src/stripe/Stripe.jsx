@@ -20,7 +20,9 @@ export default function Stripe() {
   useEffect(() => {
     setIsLoading(true);
     // Create PaymentIntent as soon as the page loads
-    fetch("https://server-retry.herokuapp.com/create-payment-intent", {
+    // original code
+    // fetch("https://server-retry.herokuapp.com/create-payment-intent", {
+    fetch("https://freshmarche-server.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),

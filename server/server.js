@@ -1,5 +1,13 @@
 const express = require("express");
 const app = express();
+
+const corsOptions = {
+  // original code
+  // origin: "https://server-retry.herokuapp.com",
+  origin: "https://freshmarche-server.herokuapp.com",
+};
+
+app.use(cors(corsOptions));
 require("dotenv").config();
 // This is a public sample test API key.
 // Don’t submit any personally identifiable information in requests made with this key.
@@ -8,7 +16,6 @@ const stripe = require("stripe")("sk_test_Hrs6SAopgFPF0bZXSN3f6ELN");
 
 app.use(express.static("public"));
 app.use(express.json());
-app.use(cors());
 
 const calculateOrderAmount = (items) => {
   // Replace this constant with a calculation of the order's amount

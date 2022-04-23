@@ -3,14 +3,10 @@ import CartContext from "../../contexts/cart-context";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
-import MoveNextButton from "../UIcomponents/Buttons/MoveNextButton";
 import CheckoutStepper from "../UIcomponents/Checkout/Stepper";
 import Stripe from "../../stripe/Stripe";
 
 // codes regarding stripe
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckoutForm from "../../stripe/CheckoutForm";
 import { Typography } from "@mui/material";
 import { useTheme } from "@mui/system";
 

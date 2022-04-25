@@ -16,6 +16,7 @@ const Loading = (props) => {
           alignItems: "center",
           minHeight: "100vh",
           paddingBottom: "120px",
+          bgcolor: "background.default",
         }}
       >
         <Box

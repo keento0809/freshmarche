@@ -89,7 +89,7 @@ const Main = () => {
             )}
             {/* temporary */}
             {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
-              <Route path="/complete" exact>
+              <Route path="/complete">
                 <OrderComplete />
               </Route>
             )}

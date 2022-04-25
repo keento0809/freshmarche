@@ -76,9 +76,10 @@ const CartSummaryUI = (props) => {
     }
     if (props.label === "PLACE ORDER") {
       props.setIsProcessing(true);
-      checkoutCtx.removeCheckedOut();
+      // history.replace("/complete");
+      // props.setIsProcessing(false);
+      // original code
       setTimeout(() => {
-        console.log("delaying place order");
         history.replace("/complete");
         props.setIsProcessing(false);
       }, 2000);

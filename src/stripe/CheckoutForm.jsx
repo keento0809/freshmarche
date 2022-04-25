@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import MoveNextButton from "../components/UIcomponents/Buttons/MoveNextButton";
 import CircularProgressUI from "../components/UIcomponents/Progress/CircularProgressUI";
+import { Link as RouterLink, useHistory } from "react-router-dom";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -50,6 +51,7 @@ export default function CheckoutForm() {
     });
   }, [stripe]);
 
+  const history = useHistory();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -79,6 +81,12 @@ export default function CheckoutForm() {
     } else {
       setMessage("An unexpected error occured.");
     }
+    history.push("/ordersummary");
+  };
+
+  const handleSubmitTest = (e) => {
+    e.preventDefault();
+    history.push("/ordersummary");
   };
 
   return (
@@ -126,7 +134,9 @@ export default function CheckoutForm() {
                 label="NEXT"
                 disabled={isLoading || !stripe || !elements}
                 id="submit"
-                onClick={handleSubmit}
+                // original code
+                // onClick={handleSubmit}
+                onClick={handleSubmitTest}
               >
                 <span id="button-text">
                   {isLoading ? (

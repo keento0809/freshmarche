@@ -63,6 +63,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
+        // I need to fix this for production
         return_url: "http://localhost:3000/ordersummary",
       },
     });

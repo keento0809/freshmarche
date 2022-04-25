@@ -94,9 +94,9 @@ const Main = () => {
               </Route>
             )}
             {/* test */}
-            {/* <Route path="/loading">
+            <Route path="/loading">
               <Loading />
-            </Route> */}
+            </Route>
             <Route path="*">
               <NotFound />
               {/* <Redirect to="/" /> */}

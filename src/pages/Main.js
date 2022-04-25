@@ -9,6 +9,7 @@ import AuthContext from "../contexts/auth-context";
 import CheckoutContext from "../contexts/checkout-context";
 import Home from "./Home";
 import ScopedCssBaseline from "@mui/material/ScopedCssBaseline";
+import Loading from "./Loading";
 
 const NotFound = React.lazy(() => import("./NotFound"));
 const ProductDetail = React.lazy(() => import("./ProductDetail"));
@@ -27,7 +28,9 @@ const Main = () => {
 
   return (
     <Router>
-      <Suspense fallback={<p>Loading...</p>}>
+      {/* test */}
+      {/* <Suspense fallback={<p>Loading...</p>}> */}
+      <Suspense fallback={<Loading />}>
         <ScopedCssBaseline>
           <Switch>
             <Route path="/" exact>
@@ -90,9 +93,12 @@ const Main = () => {
                 <OrderComplete />
               </Route>
             )}
+            {/* test */}
+            {/* <Route path="/loading">
+              <Loading />
+            </Route> */}
             <Route path="*">
               <NotFound />
-              {/* test */}
               {/* <Redirect to="/" /> */}
             </Route>
           </Switch>

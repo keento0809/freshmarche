@@ -21,8 +21,6 @@ const ProductList = (props) => {
       paddingLeft: "1rem",
     },
   });
-  // test
-  // console.log(props.value.length > 0);
   const filtering = dummyData.filter((product) =>
     product.name.toLowerCase().includes(props.value.toLowerCase())
   );

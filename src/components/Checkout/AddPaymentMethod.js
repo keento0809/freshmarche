@@ -38,7 +38,6 @@ const AddPaymentMethod = () => {
       cartTotalPrice: cartCtx.totalPrice,
       cartTotalQuantity: cartCtx.totalQuantity,
     };
-    console.log(cartInfo);
     localStorage.setItem("cartInfo", JSON.stringify(cartInfo));
   }, []);
 

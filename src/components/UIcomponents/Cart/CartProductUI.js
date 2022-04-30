@@ -41,17 +41,10 @@ const CartProductUI = (props) => {
     isFavorite: props.isFavorite,
   };
 
-  console.log("CartProduct re-rendering??");
-
-  // useEffect(() => {
-  //   // test
-  //   console.log(props.isFavorite);
-  // }, [favoriteCtx.favoriteList]);
-
   const handleUpdateOrderQuantity = (product, text) => {
     // add code here !!!!
-    if (text === "plus") console.log("Plus counts.");
-    if (text === "minus") console.log("Minus counts.");
+    // if (text === "plus") console.log("Plus counts.");
+    // if (text === "minus") console.log("Minus counts.");
   };
 
   const handleDeleteProduct = (productInfo) => {

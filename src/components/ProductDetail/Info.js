@@ -65,7 +65,6 @@ const Info = (props) => {
   };
 
   const handleRemoveFromFavorite = (id) => {
-    console.log("I gutta toggle favorite icon.");
     favoriteCtx.removeFromFavoriteList(id);
     setIsInFavoriteList(false);
     notifyCtx.notifyNow("Product removed from favorite.", "warning");
@@ -84,17 +83,24 @@ const Info = (props) => {
 
   return (
     // <MainBoxUI>
-    <div
-      sx={{
-        width: "100%",
-        height: "auto",
-        bgcolor: "background.default",
-        backgroundSize: "cover",
-        textAlign: "center",
-      }}
+    <Box
+      // sx={{
+      //   width: "100%",
+      //   height: "auto",
+      //   bgColor: "background.default",
+      //   backgroundSize: "cover",
+      //   textAlign: "center",
+      // }}
       margin={props.margin}
       paddingTop={2}
       paddingBottom={2}
+      sx={{
+        flexGrow: "2",
+        width: "100%",
+        [theme.breakpoints.up(1023)]: {
+          maxWidth: "480px",
+        },
+      }}
     >
       <Box
         display="flex"
@@ -188,7 +194,7 @@ const Info = (props) => {
       >
         {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
       </Box>
-    </div>
+    </Box>
     // </MainBoxUI>
   );
 };

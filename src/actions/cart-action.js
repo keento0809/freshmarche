@@ -18,3 +18,9 @@ export const removeAction = (id) => {
     payload: id,
   };
 };
+
+export const resetAction = () => {
+  return {
+    type: "RESET",
+  };
+};

@@ -4,6 +4,7 @@ import {
   addAction,
   subtractAction,
   removeAction,
+  resetAction,
 } from "../actions/cart-action";
 import CartReducer from "../reducers/CartReducer";
 
@@ -28,6 +29,10 @@ const CartProvider = (props) => {
     dispatchAction(removeAction(id));
   };
 
+  const handleResetCart = () => {
+    dispatchAction(resetAction());
+  };
+
   const cartContext = {
     cartList: cartState.cartProducts,
     totalQuantity: cartState.totalQuantity,
@@ -35,6 +40,7 @@ const CartProvider = (props) => {
     addToCart: handleAddToCart,
     subtractFromCart: handleSubtractFromCart,
     removeFromCart: handleRemoveFromCart,
+    resetCart: handleResetCart,
   };
 
   return (

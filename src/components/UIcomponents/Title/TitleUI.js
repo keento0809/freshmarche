@@ -7,6 +7,7 @@ const TitleUI = (props) => {
 
   return (
     <Box
+      className="className,頼みまっせ"
       textAlign="center"
       sx={{
         padding: "1rem 0",
@@ -22,7 +23,6 @@ const TitleUI = (props) => {
           fontSize: "1.7rem",
           [theme.breakpoints.up("sm")]: { fontSize: "2rem" },
           [theme.breakpoints.up(900)]: { fontSize: "2.5rem" },
-          // [theme.breakpoints.up(1300)]: { fontSize: "3rem" },
         }}
       >
         {props.title}

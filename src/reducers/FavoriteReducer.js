@@ -3,7 +3,6 @@ const FavoriteReducer = (state, action) => {
     case "ADD": {
       const addingProduct = action.payload;
       // test
-      console.log(addingProduct);
       const isExisting = state.listProducts.find(
         (product) => product.id === addingProduct.id
       );
@@ -17,7 +16,6 @@ const FavoriteReducer = (state, action) => {
         const updatedListProduct = [...state.listProducts, action.payload];
         const updatedTotalQuantity = state.totalQuantity + 1;
         addingProduct.isFavorite = true;
-        console.log(addingProduct.isFavorite);
         return {
           listProducts: updatedListProduct,
           totalQuantity: updatedTotalQuantity,
@@ -34,7 +32,6 @@ const FavoriteReducer = (state, action) => {
         state.totalQuantity === 0
           ? state.totalQuantity
           : state.totalQuantity - 1;
-      console.log(changedListProducts);
 
       return {
         listProducts: changedListProducts,

@@ -2,7 +2,6 @@ const CartReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
       const addingProduct = action.payload;
-      console.log(addingProduct);
       const updatedTotalQuantity = state.totalQuantity + addingProduct.quantity;
       // original code. DO NOT Delete
       // const updatedTotalPrice =
@@ -12,8 +11,6 @@ const CartReducer = (state, action) => {
           (state.totalPrice + addingProduct.quantity * addingProduct.price) *
             100
         ) / 100;
-      // console.log(updatedTotalPrice);
-      // state.totalPrice + addingProduct.quantity * addingProduct.price;
       const updatedCartProducts = state.cartProducts.find(
         (product) => product.id === addingProduct.id
       )
@@ -58,8 +55,6 @@ const CartReducer = (state, action) => {
         // const numObj = 12345.6789
         // test
         subtractingProduct.totalPrice = (1.23e-10).toFixed(2);
-      // Math.floor(subtractingProduct.totalPrice * 100) / 100;
-      // console.log(subtractingProduct.subTotalPrice);
       const newCartProducts =
         subtractingProduct.quantity === 0
           ? state.cartProducts.filter(
@@ -89,6 +84,13 @@ const CartReducer = (state, action) => {
         cartProducts: updateCartProducts,
         totalQuantity: updateTotalQuantity,
         totalPrice: updatedTotalPrice,
+      };
+    }
+    case "RESET": {
+      return {
+        cartProducts: [],
+        totalQuantity: 0,
+        totalPrice: 0,
       };
     }
   }

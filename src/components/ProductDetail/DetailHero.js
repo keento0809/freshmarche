@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import NotifyContext from "../../contexts/notify-context";
 import TitleUI from "../UIcomponents/Title/TitleUI";
 import Box from "@mui/material/Box";
@@ -19,13 +19,9 @@ const DetailHero = (props) => {
   const theme = useTheme();
 
   const ImageComponent = styled("img")({
-    // original code
-    // width: "100%",
-    // height: "100%",
     width: "302px",
     height: "248px",
     padding: "0.5rem",
-    // original code
     margin: "0.5rem auto",
     objectFit: "cover",
     [theme.breakpoints.up("sm")]: {
@@ -40,15 +36,25 @@ const DetailHero = (props) => {
 
   useEffect(() => {
     notifyCtx.resetNotification();
+    if (window.innerWidth > 1023) {
+      props.setIs1024up(true);
+    }
   }, []);
 
   return (
-    <div>
-      <TitleUI title={props.name} />
+    <Box
+      sx={{
+        flexGrow: "2",
+        [theme.breakpoints.up(1023)]: {
+          maxWidth: "372px",
+        },
+      }}
+    >
+      {/* {!props.is1024up && <TitleUI title={props.name} className="わけわかめ" />} */}
       <Box textAlign="center">
         <ImageComponent src={props.imageUrl} alt="product" />
       </Box>
-    </div>
+    </Box>
   );
 };
 

@@ -13,10 +13,7 @@ const ChangeAmountButton = (props) => {
 
   const theme = useTheme();
 
-  // console.log(props.quantity);
-
   const handleAddProductOne = () => {
-    console.log(props.quantity);
     if (props.isInProductDetail && props.quantity > 9) {
       alert("You can add cart ten at the maximum.");
       return;
@@ -38,8 +35,6 @@ const ChangeAmountButton = (props) => {
   };
 
   const handleSubtractProductOne = () => {
-    console.log(props.quantity);
-    // test
     if (props.isInProductDetail && props.quantity < 2) {
       alert("You cannot subtract this product more.");
       return;
@@ -96,10 +91,10 @@ const ChangeAmountButton = (props) => {
           width: "40%",
         },
         [theme.breakpoints.up(900)]: {
-          width: "25%",
+          // width: "50%",
         },
         [theme.breakpoints.up(1300)]: {
-          width: "22%",
+          // width: "22%",
         },
         maxWidth: "400px",
         borderRadius: "50px",

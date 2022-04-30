@@ -24,7 +24,6 @@ const UpdateUserInfoForm = (props) => {
     let url;
     let bodyPayload;
     let setValueType = props.type;
-    console.log(setValueType);
     // test
     if (props.type === "username") {
       localStorage.setItem("username", updatedValue);
@@ -36,20 +35,8 @@ const UpdateUserInfoForm = (props) => {
       alert("Sorry, I'm working on adding edit address feature.");
       return;
     }
-    // if (props.type === "username") {
-    //   url =
-    //     // test
-    //     "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
-    //   bodyPayload = {
-    //     idToken: updatedValue,
-    //     username: setValueType,
-    //     photoUrl: "",
-    //     deleteAttribute: [],
-    //     returnSecureToken: false,
-    //   };
-    // }
+
     if (props.type === "email") {
-      console.log(updatedValue);
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
       bodyPayload = {
@@ -76,10 +63,8 @@ const UpdateUserInfoForm = (props) => {
     })
       .then((res) => {
         if (!res.ok) throw new Error("Post request failed.");
-        console.log("update successful");
       })
       .catch((error) => {
-        console.log("update failed");
         setError(error.message);
         alert(error.message);
       });
@@ -89,8 +74,6 @@ const UpdateUserInfoForm = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedValue = updatedValueInputRef.current.value;
-    console.log(props.type);
-
     // add validation
     if (updatedValue.length === 0) {
       alert("Invalid ! It must not be empty.");

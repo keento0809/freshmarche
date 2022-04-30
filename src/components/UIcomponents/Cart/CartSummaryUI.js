@@ -23,7 +23,6 @@ const CartSummaryUI = (props) => {
   let isPlaceOrder;
   let linkValue;
   let isCartInfo;
-  // let displayTotalPrice;
 
   useEffect(() => {
     console.log(props.isOrderSummary);
@@ -35,7 +34,6 @@ const CartSummaryUI = (props) => {
       if (Boolean(localStorage.getItem("cartInfo"))) {
         isCartInfo = Boolean(localStorage.getItem("cartInfo"));
         const data = localStorage.getItem("cartInfo");
-        console.log(JSON.parse(data).cartTotalPrice);
         confirmationTotalPrice = JSON.parse(data).cartTotalPrice;
       }
       setDisplayTotalPrice(
@@ -47,41 +45,26 @@ const CartSummaryUI = (props) => {
     if (!props.isOrderSummary) {
       setDisplayTotalPrice(cartCtx.totalPrice);
     }
-    // test
-    // isPlaceOrder = props.label === "PLACE ORDER" ? true : false;
-    // console.log(isPlaceOrder);
-    // if (!isPlaceOrder && displayTotalPrice > 0) {
-    //   linkValue = props.link;
-    // } else if (isPlaceOrder && displayTotalPrice > 0) {
-    //   linkValue = "";
-    // } else {
-    //   linkValue = "/";
-    // }
-    // console.log(linkValue);
   }, [cartCtx.totalPrice]);
 
   const theme = useTheme();
 
   const handleProcedure = () => {
     if (props.label === "CHECKOUT") {
-      console.log("checking out ~~~~");
       checkoutCtx.setCheckedOut();
     }
     // original code
     // if (cartCtx.totalPrice === 0) {
     if (displayTotalPrice === 0) {
       alert("Invalid checkout. Please add products to cart.");
-      console.log("something's wrong");
       return;
     }
     if (props.label === "PLACE ORDER") {
       props.setIsProcessing(true);
-      // history.replace("/complete");
-      // props.setIsProcessing(false);
       // original code
       setTimeout(() => {
-        history.replace("/complete");
         props.setIsProcessing(false);
+        history.replace("/complete");
       }, 2000);
     }
   };

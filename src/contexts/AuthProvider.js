@@ -57,7 +57,6 @@ const AuthProvider = (props) => {
   }, []);
 
   const handleLogin = (idToken, expirationTime) => {
-    console.log(idToken, expirationTime);
     setToken(idToken);
     localStorage.setItem("token", idToken);
     localStorage.setItem("expirationTime", expirationTime);
@@ -65,12 +64,10 @@ const AuthProvider = (props) => {
     const remainingTime = calculateRemainingTime(expirationTime);
 
     logoutTimer = setTimeout(handleLogout, remainingTime);
-    console.log("login complete");
   };
 
   useEffect(() => {
     if (tokenData) {
-      console.log(tokenData.duration);
       logoutTimer = setTimeout(handleLogout, tokenData.duration);
     }
   }, [tokenData, handleLogout]);

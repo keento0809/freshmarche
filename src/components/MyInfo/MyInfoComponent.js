@@ -15,15 +15,11 @@ const MyInfoComponent = () => {
   const notifyCtx = useContext(NotifyContext);
   const authCtx = useContext(AuthContext);
 
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(null);
-
   const theme = useTheme();
   const history = useHistory();
 
   // original code
   const userInfoInLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
-  // temporary
   const usernameInLocalStorage = userInfoInLocalStorage.username
     ? userInfoInLocalStorage.username
     : localStorage.getItem("username");
@@ -52,35 +48,8 @@ const MyInfoComponent = () => {
     history.push("/authentication");
   };
 
-  // const sendGetRequest = async () => {
-  //   setIsLoading(true);
-  //   setError(null);
-
-  //   try {
-  //     const res = await fetch(
-  //       "https://react-costum-components-default-rtdb.firebaseio.com/userInfo.json"
-  //     );
-  //     if (!res.ok) {
-  //       throw new Error("Request failed.");
-  //     }
-
-  //     const data = await res.json();
-  //     const parsedData = await JSON.parse(data);
-  //     console.log(parsedData);
-  //     console.log("何でconsole.logされん？？？");
-  //     // return parsedData;
-  //   } catch (error) {
-  //     setError(error);
-  //   }
-  //   setIsLoading(false);
-  // };
-
   useEffect(() => {
-    console.log("MyInfoComponent re-rendering");
     notifyCtx.resetNotification();
-    // const temporaryData = localStorage.getItem("username");
-    // setDisplayUsername(temporaryData);
-    // console.log(val);
   }, []);
 
   return (

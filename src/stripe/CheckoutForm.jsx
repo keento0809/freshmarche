@@ -17,6 +17,7 @@ export default function CheckoutForm() {
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingEl, setIsLoadingEl] = useState(true);
+  const [isSpin, setIsSpin] = useState(false);
 
   useEffect(() => {
     if (!stripe) {
@@ -30,8 +31,6 @@ export default function CheckoutForm() {
     if (!clientSecret) {
       return;
     }
-
-    if (clientSecret) console.log("We got the client secret");
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
@@ -86,7 +85,11 @@ export default function CheckoutForm() {
 
   const handleSubmitTest = (e) => {
     e.preventDefault();
-    history.push("/ordersummary");
+    setIsSpin(true);
+    setTimeout(() => {
+      history.push("/ordersummary");
+      setIsSpin(false);
+    }, 1500);
   };
 
   return (
@@ -147,7 +150,7 @@ export default function CheckoutForm() {
                 </span>
               </MoveNextButton>
               <Box sx={{ minHeight: "90px" }}>
-                {isLoading && (
+                {isSpin && (
                   <Box
                     sx={{
                       display: "inline-block",

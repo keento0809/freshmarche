@@ -55,8 +55,6 @@ const AuthForm = (props) => {
 
   const theme = useTheme();
 
-  console.log("aaa re-rendering");
-
   // create userId for new user
   function generateUserId(length) {
     var newId = "";
@@ -118,7 +116,6 @@ const AuthForm = (props) => {
           }
         })
         .then((data) => {
-          console.log(data);
           if (isSignUp) enteredFullName = dataMui.get("fullName");
           else enteredFullName = "";
 
@@ -140,7 +137,6 @@ const AuthForm = (props) => {
 
           if (isSignUp && data.idToken) {
             notifyCtx.notifyNow("Sing up succeeded !!");
-            console.log("Singup success!?");
             history.replace("/");
           }
           if (!isSignUp) {

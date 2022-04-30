@@ -9,7 +9,6 @@ const NotifyProvider = (props) => {
   const [severity, setSeverity] = useState(defaultSeverity);
 
   const handleDoNotification = (alertText, severity) => {
-    console.log(alertText);
     setIsNotifying(true);
     if (severity) setSeverity(severity);
     setNotificationText(alertText);

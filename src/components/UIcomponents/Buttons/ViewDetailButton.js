@@ -13,8 +13,8 @@ const ViewDetailButton = (props) => {
         width: "64px",
         margin: "1rem auto 0",
         textAlign: "center",
+        zIndex: 1,
       }}
-      // variant="outlined"
       variant="contained"
       component={RouterLink}
       to={`/products/${props.id}`}

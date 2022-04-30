@@ -14,7 +14,6 @@ const CartSummaryUI = (props) => {
 
   const history = useHistory();
 
-  // test
   const [displayTotalPrice, setDisplayTotalPrice] = useState(
     cartCtx.totalPrice
   );
@@ -28,7 +27,6 @@ const CartSummaryUI = (props) => {
     console.log(props.isOrderSummary);
   }, []);
 
-  // test
   useEffect(() => {
     if (props.isOrderSummary) {
       if (Boolean(localStorage.getItem("cartInfo"))) {
@@ -53,15 +51,12 @@ const CartSummaryUI = (props) => {
     if (props.label === "CHECKOUT") {
       checkoutCtx.setCheckedOut();
     }
-    // original code
-    // if (cartCtx.totalPrice === 0) {
     if (displayTotalPrice === 0) {
       alert("Invalid checkout. Please add products to cart.");
       return;
     }
     if (props.label === "PLACE ORDER") {
       props.setIsProcessing(true);
-      // original code
       setTimeout(() => {
         props.setIsProcessing(false);
         history.replace("/complete");
@@ -109,8 +104,6 @@ const CartSummaryUI = (props) => {
       <Box textAlign="center" mt={3} mb={8}>
         <MoveNextButton
           label={props.label}
-          // original code
-          // link={props.link}
           link={displayTotalPrice > 0 ? props.link : "/"}
           onClick={handleProcedure}
         />

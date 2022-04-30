@@ -9,8 +9,6 @@ import { useTheme } from "@mui/material/styles";
 import ContainerUI from "../UIcomponents/Container/ContainerUI";
 import Box from "@mui/material/Box";
 
-// #3E2723
-
 const HomeHero = (props) => {
   const notifyCtx = useContext(NotifyContext);
   const theme = useTheme();
@@ -36,16 +34,7 @@ const HomeHero = (props) => {
         <Box
           variant="body1"
           component="p"
-          // test
           sx={{
-            // original code
-            // color: "red",
-            // fontWeight: "bold",
-            // width: "95%",
-            // mx: "auto",
-            // position: "fixed",
-            // left: "2%",
-            // test
             fontWeight: "bold",
             width: "95%",
             mx: "auto",
@@ -55,15 +44,14 @@ const HomeHero = (props) => {
               bottom: "20px",
             },
             left: "2%",
+            zIndex: 5,
           }}
         >
           {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
         </Box>
         <Box
-          className="パディングつける用"
           paddingTop={6}
           paddingBottom={2}
-          // paddingTop:"",paddingBottom:""
           sx={{
             textAlign: "left",
             [theme.breakpoints.up("sm")]: { paddingTop: 13, paddingBottom: 4 },

@@ -45,12 +45,10 @@ const ChangeAmountButton = (props) => {
     setDisplayQuantity(displayQuantity - 1);
 
     // change the quantity of cartProduct on cartList
-    // test
     if (props.productInfoSingle)
       cartCtx.subtractFromCart(props.productInfoSingle);
 
     if (props.isAddCartPushed) {
-      // test
       if (props.isInProductDetail) {
         setDisplayQuantity(1);
         props.onClick(2);
@@ -74,27 +72,17 @@ const ChangeAmountButton = (props) => {
     <Button
       variant="contained"
       startIcon={
-        // original code. Do not delete!!
         <RemoveIcon
           onClick={() => handleSubtractProductOne(props.productInfo)}
         />
       }
       endIcon={
-        // original code. Do not delete!!
         <AddIcon onClick={() => handleAddProductOne(props.productInfo)} />
       }
       sx={{
-        // original code
         width: "50%",
-        // width: "100%",
         [theme.breakpoints.up("sm")]: {
           width: "40%",
-        },
-        [theme.breakpoints.up(900)]: {
-          // width: "50%",
-        },
-        [theme.breakpoints.up(1300)]: {
-          // width: "22%",
         },
         maxWidth: "400px",
         borderRadius: "50px",
@@ -107,8 +95,6 @@ const ChangeAmountButton = (props) => {
         },
       }}
     >
-      {/* default code. Do not delete! */}
-      {/* {props.quantity} */}
       {displayQuantity}
     </Button>
   );

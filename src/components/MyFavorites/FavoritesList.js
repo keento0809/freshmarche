@@ -24,7 +24,6 @@ const FavoritesList = () => {
             isFavorite={product.isFavorite}
             quantity=""
             onClick={favoriteCtx.removeFromFavoriteList}
-            // test
             imageUrl={product.imageUrl}
           />
         );

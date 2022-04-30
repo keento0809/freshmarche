@@ -36,7 +36,6 @@ const Info = (props) => {
     price: props.price,
     quantity: orderQuantity,
     subTotalPrice: props.price * orderQuantity,
-    // test
     imageUrl: props.imageUrl,
   };
 
@@ -48,8 +47,6 @@ const Info = (props) => {
     favoriteCtx.addToFavoriteList(product);
     setIsInFavoriteList(true);
     notifyCtx.notifyNow("Product added to favorite list!", "success");
-    // test
-    // history.push("/");
   };
 
   const handleAddToCart = (product) => {
@@ -59,7 +56,6 @@ const Info = (props) => {
     }
     cartCtx.addToCart(product);
     setIsAddCartPushed(true);
-    // original code DO NOT Delete!
     notifyCtx.notifyNow("Product added to cart!");
     history.push("/");
   };
@@ -82,15 +78,7 @@ const Info = (props) => {
   }, [favoriteCtx.favoriteList]);
 
   return (
-    // <MainBoxUI>
     <Box
-      // sx={{
-      //   width: "100%",
-      //   height: "auto",
-      //   bgColor: "background.default",
-      //   backgroundSize: "cover",
-      //   textAlign: "center",
-      // }}
       margin={props.margin}
       paddingTop={2}
       paddingBottom={2}

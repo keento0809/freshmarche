@@ -24,10 +24,7 @@ const ProductList = (props) => {
   const filtering = dummyData.filter((product) =>
     product.name.toLowerCase().includes(props.value.toLowerCase())
   );
-  // original code
-  // const products = DUMMY_PRODUCTS.map((product, index) => {
   let products = filtering.map((product, index) => {
-    // const products = dummyData.map((product, index) => {
     return (
       <Product
         key={index}

@@ -18,7 +18,6 @@ const MyInfoComponent = () => {
   const theme = useTheme();
   const history = useHistory();
 
-  // original code
   const userInfoInLocalStorage = JSON.parse(localStorage.getItem("userInfo"));
   const usernameInLocalStorage = userInfoInLocalStorage.username
     ? userInfoInLocalStorage.username

@@ -15,9 +15,7 @@ const CartProductUI = (props) => {
   const favoriteCtx = useContext(FavoriteContext);
   const notifyCtx = useContext(NotifyContext);
 
-  // params
   const params = useParams();
-  // const linkToProductDetail =
 
   const [updatedOrderQuantity, setUpdatedOrderQuantity] = useState(
     props.quantity
@@ -107,7 +105,6 @@ const CartProductUI = (props) => {
           <Typography
             variant="body2"
             component={RouterLink}
-            // to="/"
             to={`/products/${props.id}`}
             sx={{ textDecoration: "none", color: "text.primary" }}
           >
@@ -119,10 +116,7 @@ const CartProductUI = (props) => {
         {!props.isFavorite && (
           <ChangeAmountButton
             sx={{ width: "80%" }}
-            // default code. Do not delete !!
-            // quantity={props.quantity}
             quantity={updatedOrderQuantity}
-            // test
             onClick={handleUpdateOrderQuantity}
             productInfo={productInfo}
             productInfoSingle={productInfoSingle}

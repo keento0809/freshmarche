@@ -75,16 +75,11 @@ const ColorlibStepIconRoot = styled("div")(({ theme, ownerState }) => ({
   alignItems: "center",
   ...(ownerState.active && {
     backgroundImage:
-      // default code
-      // "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
-      // "linear-gradient( 136deg, rgb(118, 255, 3) 0%, rgb(118, 255, 3) 50%, rgb(138,35,135) 100%)",
       "linear-gradient( 136deg, rgb(118, 255, 3) 0%, rgb(118, 255, 3) 50%, rgb(118,255,3) 100%)",
     boxShadow: "0 4px 10px 0 rgba(0,0,0,.25)",
   }),
   ...(ownerState.completed && {
     backgroundImage:
-      // default code
-      // "linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)",
       "linear-gradient( 136deg, rgb(118, 255, 3) 0%, rgb(118, 255, 3) 50%, rgb(118,255,3) 100%)",
   }),
 }));
@@ -130,7 +125,6 @@ const steps = ["View your cart", "Add credit card", "Order summary"];
 
 const StepperUI = (props) => {
   return (
-    // <Stack sx={{ width: "100%" }} spacing={4}>
     <Stepper
       alternativeLabel
       activeStep={props.activeStep}
@@ -142,13 +136,10 @@ const StepperUI = (props) => {
           <StepLabel
             sx={{ color: "green" }}
             StepIconComponent={ColorlibStepIcon}
-          >
-            {/* {label} */}
-          </StepLabel>
+          ></StepLabel>
         </Step>
       ))}
     </Stepper>
-    // </Stack>
   );
 };
 

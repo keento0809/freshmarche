@@ -19,27 +19,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { ConstructionOutlined } from "@mui/icons-material";
 import { useTheme } from "@mui/material";
 
-// Copy right form. Do not delete just in case.
-// function Copyright(props) {
-//   return (
-//     <Typography
-//       variant="body2"
-//       color="text.secondary"
-//       align="center"
-//       {...props}
-//     >
-//       {"Copyright © "}
-//       <Link color="inherit" href="https://mui.com/">
-//         Your Website
-//       </Link>{" "}
-//       {new Date().getFullYear()}
-//       {"."}
-//     </Typography>
-//   );
-// }
-
-// const theme = createTheme();
-
 const AuthForm = (props) => {
   // declare useState
   const [isSignUp, setIsSignUp] = useState(false);
@@ -204,34 +183,24 @@ const AuthForm = (props) => {
     setIsLoading(false);
   };
 
-  // test 2
   useEffect(() => {
     setIsSignUp(props.isSignUp);
   }, []);
 
   return (
-    // <ThemeProvider theme={theme}>
     <ContainerUI isProductDetail={true}>
-      {/* <Container component="main" maxWidth="xs"> */}
       <Box sx={{ py: 4, [theme.breakpoints.up(1023)]: { py: 1 } }}>
         <TitleUI title={props.title} />
       </Box>
       {/* <CssBaseline /> */}
       <Box
         sx={{
-          // marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
         className="トップ"
       >
-        {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography> */}
         <Box
           className="セカンド"
           component="form"
@@ -251,11 +220,8 @@ const AuthForm = (props) => {
               required
               fullWidth
               id="fullName"
-              //   label="Email Address"
               name="fullName"
               placeholder="Full Name"
-              //   autoComplete="email"
-              //   autoFocus
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -270,7 +236,6 @@ const AuthForm = (props) => {
                 padding: "0.9rem 1.8rem",
                 mt: 1.5,
               }}
-              // ref={enteredFullName}
             />
           )}
           <TextField
@@ -279,11 +244,8 @@ const AuthForm = (props) => {
             required
             fullWidth
             id="email"
-            //   label="Email Address"
             name="email"
             placeholder="Email"
-            //   autoComplete="email"
-            //   autoFocus
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -298,7 +260,6 @@ const AuthForm = (props) => {
               padding: "0.9rem 1.8rem",
               mt: 1.5,
             }}
-            // ref={enteredEmail}
           />
           <TextField
             variant="standard"
@@ -309,7 +270,6 @@ const AuthForm = (props) => {
             placeholder="Password"
             type="password"
             id="password"
-            // autoComplete="current-password"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -324,7 +284,6 @@ const AuthForm = (props) => {
               padding: "0.9rem 1.8rem",
               mt: 1.5,
             }}
-            // ref={enteredPassword}
           />
           {isSignUp && (
             <TextField
@@ -336,7 +295,6 @@ const AuthForm = (props) => {
               placeholder="Repeat password"
               type="password"
               id="passwordConfirmation"
-              // autoComplete="current-password"
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -351,13 +309,8 @@ const AuthForm = (props) => {
                 padding: "0.9rem 1.8rem",
                 mt: 1.5,
               }}
-              // ref={enteredPasswordConfirmation}
             />
           )}
-          {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
           {!isSignUp && (
             <Box textAlign="center" sx={{ mt: 2 }}>
               {/* original code */}
@@ -380,19 +333,6 @@ const AuthForm = (props) => {
             </Box>
           )}
 
-          {/* test */}
-          {/* <Box textAlign="center">
-            <Button
-              type="submit"
-              variant="outlined"
-              color="primary"
-              onSubmit={handleLoginAsGuestUser}
-              sx={{ fontWeight: "normal" }}
-            >
-              Login As Guest
-            </Button>
-          </Box> */}
-
           <Button
             type="submit"
             fullWidth
@@ -413,29 +353,7 @@ const AuthForm = (props) => {
             {props.btnLabel}
             {/* Sign In */}
           </Button>
-          {/* <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"CREATE ACCOUNT"}
-                </Link>
-              </Grid>
-            </Grid> */}
-
           <Box textAlign="center">
-            {/* original code. DO NOT Delete */}
-            {/* <Link
-              href={props.isSignup ? "/authentication" : "/signup"}
-              variant="body2"
-            >
-              {props.isSignup ? "SIGN IN" : "CREATE ACCOUNT"}
-            </Link> */}
-
-            {/* test */}
             <Typography
               variant="body2"
               component={RouterLink}
@@ -445,17 +363,13 @@ const AuthForm = (props) => {
                 textDecoration: "none",
                 fontSize: "1rem",
               }}
-              // color="red"
             >
               {isSignUp ? "SIGN IN" : "CREATE ACCOUNT"}
             </Typography>
           </Box>
         </Box>
       </Box>
-      {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
-      {/* </Container> */}
     </ContainerUI>
-    // </ThemeProvider>
   );
 };
 

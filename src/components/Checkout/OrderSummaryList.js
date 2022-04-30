@@ -14,7 +14,6 @@ const OrderSummaryList = () => {
       subTotalPrice={product.subTotalPrice}
       quantity={product.quantity}
       isFavorite={product.isFavorite}
-      // test
       imageUrl={product.imageUrl}
     />
   ));

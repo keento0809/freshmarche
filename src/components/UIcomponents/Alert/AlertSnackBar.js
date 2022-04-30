@@ -33,19 +33,16 @@ const AlertSnackBar = (props) => {
   };
 
   return (
-    <Stack>
-      <Alert
-        onClose={handleClose}
-        // original code. Do Not Delete
-        // severity="success"
-        severity={notifyCtx.severity}
-        sx={{ width: "100%", bgColor: "background.secondary", zIndex: "5" }}
-      >
-        {/* Product successfully added! */}
-        {/* {props.label} */}
-        {notifyCtx.notificationText}
-      </Alert>
-    </Stack>
+    <Alert
+      onClose={handleClose}
+      severity={notifyCtx.severity}
+      sx={{
+        width: "100%",
+        bgColor: "background.secondary",
+      }}
+    >
+      {notifyCtx.notificationText}
+    </Alert>
   );
 };
 

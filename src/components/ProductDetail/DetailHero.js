@@ -7,7 +7,6 @@ import { styled } from "@mui/system";
 import { useTheme } from "@mui/material";
 
 const imageDivStyle = {
-  // display: "inline-block",
   width: "100%",
   height: "100%",
   text: "center",

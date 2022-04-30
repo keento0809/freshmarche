@@ -35,7 +35,6 @@ const OrderSummaryComponent = () => {
         <OrderSummaryList />
         <CartSummaryUI
           label="PLACE ORDER"
-          // test
           isOrderSummary={true}
           setIsProcessing={setIsProcessing}
           totalCartPrice={orderTotalPrice.toFixed(2)}

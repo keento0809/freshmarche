@@ -7,15 +7,12 @@ import { useTheme } from "@mui/material";
 const ContainerUI = (props) => {
   const theme = useTheme();
 
-  // const styleMinHeight = props.isProductDetail === undefined ? "100vh" : "none";
-
   return (
     <React.Fragment>
       <CssBaseline />
       <Container
         maxWidth="sm"
         sx={{
-          // test
           minHeight: props.isProductDetail ? "100vh" : "",
           display: "flex",
           flexDirection: "column",
@@ -29,7 +26,6 @@ const ContainerUI = (props) => {
             maxWidth: "lg",
           },
         }}
-        className="ここここれですかい"
       >
         <Box
           sx={{

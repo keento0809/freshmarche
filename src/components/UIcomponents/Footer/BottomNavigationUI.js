@@ -27,6 +27,7 @@ const BottomNavigationUI = () => {
     <BottomNavigation
       showLabels
       sx={{
+        zIndex: 10,
         width: "100%",
         height: "auto",
         position: "fixed",

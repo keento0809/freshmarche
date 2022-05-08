@@ -24,8 +24,7 @@ const DetailHero = (props) => {
     margin: "0.5rem auto",
     objectFit: "cover",
     [theme.breakpoints.up("sm")]: {
-      width: "372px",
-      height: "318px",
+      height: "218px",
     },
     [theme.breakpoints.up(1300)]: {
       width: "382px",

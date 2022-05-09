@@ -51,13 +51,18 @@ const CartSummaryUI = (props) => {
       alert("Invalid checkout. Please add products to cart.");
       return;
     }
-    if (props.label === "PLACE ORDER") {
-      props.setIsProcessing(true);
-      setTimeout(() => {
-        props.setIsProcessing(false);
-        history.replace("/complete");
-      }, 2000);
-    }
+    // temporary dismissed
+    // if (props.label === "PLACE ORDER") {
+    //   console.log("What the hell is going on ???");
+    //   props.setIsProcessing(true);
+    //   setTimeout(() => {
+    //     props.setIsProcessing(false);
+    //     history.replace("/complete");
+    //   }, 2000);
+
+    //   test
+    //   history.replace("/complete");
+    // }
   };
 
   const setPb = props.isOrderSummary ? 0 : "64px";
@@ -100,7 +105,13 @@ const CartSummaryUI = (props) => {
       <Box textAlign="center" mt={3} mb={8}>
         <MoveNextButton
           label={props.label}
-          link={displayTotalPrice > 0 ? props.link : "/"}
+          // original
+          // link={displayTotalPrice > 0 ? props.link : "/"}
+          link={
+            displayTotalPrice > 0 || props.label === "PLACE ORDER"
+              ? props.link
+              : "/"
+          }
           onClick={handleProcedure}
         />
       </Box>

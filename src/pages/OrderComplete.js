@@ -5,9 +5,12 @@ import Box from "@mui/material/Box";
 import MoveNextButton from "../components/UIcomponents/Buttons/MoveNextButton";
 import imageUrl from "../assets/images/alexander-schimmeck-JS8E0jTQSsM-unsplash.jpg";
 import CartContext from "../contexts/cart-context";
+import { useTheme } from "@mui/material";
 
 const OrderComplete = () => {
   const cartCtx = useContext(CartContext);
+
+  const theme = useTheme();
 
   const style = {
     textAlign: "center",
@@ -33,9 +36,13 @@ const OrderComplete = () => {
           <img
             src={`${imageUrl}`}
             alt=""
-            width="400px"
-            height="auto"
             style={{
+              width: "250px",
+              mx: "auto",
+              [theme.breakpoints.up("sm")]: {
+                width: "400px",
+              },
+              height: "auto",
               borderRadius: "8px",
               boxShadow: "rgb(255 255 255) 0px 0px 8px 5px",
             }}

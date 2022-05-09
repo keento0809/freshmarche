@@ -39,7 +39,9 @@ const OrderSummaryComponent = () => {
           setIsProcessing={setIsProcessing}
           totalCartPrice={orderTotalPrice.toFixed(2)}
           deliveryFee={0}
-          link=""
+          // original
+          // link=""
+          link="/complete"
         />
         <Box
           sx={{

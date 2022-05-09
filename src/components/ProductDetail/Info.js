@@ -14,22 +14,10 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Typography from "@mui/material/Typography";
 import AlertSnackBar from "../UIcomponents/Alert/AlertSnackBar";
 import { useTheme } from "@mui/system";
-// test
-import { useDispatch, useSelector } from "react-redux";
-import { favoriteAction } from "../../store/favorite-slice";
 
 const Info = (props) => {
   const history = useHistory();
   const theme = useTheme();
-
-  // test redux-toolkit
-  // const favoriteListProducts = useSelector(
-  //   (state) => state.favorite.listProducts
-  // );
-  // const favoriteTotalQuantity = useSelector(
-  //   (state) => state.favorite.totalQuantity
-  // );
-  const dispatch = useDispatch();
 
   // contexts
   const favoriteCtx = useContext(FavoriteContext);

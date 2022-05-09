@@ -137,6 +137,7 @@ export default function CheckoutForm() {
                 label="NEXT"
                 disabled={isLoading || !stripe || !elements}
                 id="submit"
+                link=""
                 // original code
                 // onClick={handleSubmit}
                 onClick={handleSubmitTest}

@@ -5,6 +5,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import CircularProgressUI from "../components/UIcomponents/Progress/CircularProgressUI";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -51,6 +52,26 @@ export default function Stripe() {
   return (
     <div className="stripe-form">
       <Box className="stripe-wrapper" width="95%" mx="auto">
+        {isLoading && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "primary.main",
+              minHeight: "300px",
+            }}
+          >
+            <Typography
+              variant="h4"
+              component="h4"
+              sx={{ fontWeight: "normal", textAlign: "center", pr: "1rem" }}
+            >
+              Loading...
+            </Typography>
+            <CircularProgressUI />
+          </Box>
+        )}
         {clientSecret && stripePromise && (
           <Elements options={options} stripe={stripePromise}>
             <CheckoutForm />

@@ -45,6 +45,8 @@ const Info = (props) => {
       return;
     }
     favoriteCtx.addToFavoriteList(product);
+    // test redux-toolkit
+    // dispatch(favoriteAction.addToFavoriteList(product));
     setIsInFavoriteList(true);
     notifyCtx.notifyNow("Product added to favorite list!", "success");
   };
@@ -167,6 +169,7 @@ const Info = (props) => {
           onClick={() => handleAddToCart(productInfo)}
           label="ADDTOCART"
           productInfo={productInfo}
+          link=""
         />
       </Box>
       <Box

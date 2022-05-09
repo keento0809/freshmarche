@@ -69,14 +69,14 @@ const UserInfoBox = (props) => {
         </Box>
       </Box>
       <Box sx={style}>
-        <Typography variant="h4" component="h4" color="white">
-          <UpdateUserInfoForm
-            onClick={handleEditUserInfo}
-            val={props.val}
-            label={props.label}
-            type={props.type}
-          />
-        </Typography>
+        {/* <Typography variant="h4" component="h4" color="white"> */}
+        <UpdateUserInfoForm
+          onClick={handleEditUserInfo}
+          val={props.val}
+          label={props.label}
+          type={props.type}
+        />
+        {/* </Typography> */}
       </Box>
     </Fragment>
   );

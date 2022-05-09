@@ -24,10 +24,6 @@ const CartSummaryUI = (props) => {
   let isCartInfo;
 
   useEffect(() => {
-    console.log(props.isOrderSummary);
-  }, []);
-
-  useEffect(() => {
     if (props.isOrderSummary) {
       if (Boolean(localStorage.getItem("cartInfo"))) {
         isCartInfo = Boolean(localStorage.getItem("cartInfo"));

@@ -191,7 +191,7 @@ const OriginalModal = (props) => {
               )}
               {authCtx.isLoggedIn && (
                 <NavLink
-                  to="#"
+                  to="/"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <Typography

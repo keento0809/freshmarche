@@ -77,7 +77,7 @@ const MyInfoComponent = () => {
           type="password"
         />
         <Box py={6} textAlign="center">
-          <MoveNextButton label="Logout" onClick={handleLogout} />
+          <MoveNextButton label="Logout" onClick={handleLogout} link="" />
         </Box>
       </Box>
     </ContainerUI>

@@ -181,6 +181,7 @@ const Info = (props) => {
           onClick={() => handleAddToCart(productInfo)}
           label="ADDTOCART"
           productInfo={productInfo}
+          link=""
         />
       </Box>
       <Box

@@ -37,8 +37,7 @@ const UpdateUserInfoForm = (props) => {
     }
 
     if (props.type === "email") {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${process.env.REACT_APP_FIREBASE_KEY}`;
       bodyPayload = {
         idToken: authCtx.token,
         email: updatedValue,
@@ -46,8 +45,7 @@ const UpdateUserInfoForm = (props) => {
       };
     }
     if (props.type === "password") {
-      url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI";
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${process.env.REACT_APP_FIREBASE_KEY}`;
       bodyPayload = {
         idToken: authCtx.token,
         password: updatedValue,

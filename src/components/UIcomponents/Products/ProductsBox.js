@@ -7,7 +7,7 @@ const ProductsBox = (props) => {
     <Box
       sx={{ width: "100%", height: "100%", bgcolor: "background.default" }}
       paddingTop={3}
-      paddingBottom="53px"
+      paddingBottom="56px"
     >
       <ContainerUI>{props.children}</ContainerUI>
     </Box>

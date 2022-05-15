@@ -216,7 +216,7 @@ const AuthForm = (props) => {
           noValidate
           sx={{
             paddingY: !isSignUp ? 14 : 2,
-            [theme.breakpoints.up("sm")]: { width: "85%", mx: "auto" },
+            [theme.breakpoints.up("sm")]: { width: "85%", mx: "auto", pt: 6 },
             [theme.breakpoints.up(1023)]: { width: "70%", mx: "auto" },
             [theme.breakpoints.up(1300)]: { width: "50%", mx: "auto" },
           }}

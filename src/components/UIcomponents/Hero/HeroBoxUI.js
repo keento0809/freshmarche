@@ -9,6 +9,8 @@ const HeroBox = (props) => {
   return (
     <Box
       sx={{
+        pt: "64px",
+        pb: 1,
         width: "100%",
         height: "auto",
         bgcolor: "background.paper",
@@ -27,8 +29,8 @@ const HeroBox = (props) => {
         textAlign: "center",
       }}
       margin={props.margin}
-      paddingTop={1}
-      paddingBottom={1}
+
+      // paddingBottom={1}
     >
       {props.children}
     </Box>

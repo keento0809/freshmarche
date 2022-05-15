@@ -53,31 +53,33 @@ const MyInfoComponent = () => {
 
   return (
     <ContainerUI>
-      <TitleUI title="My Info" />
-      <Box
-        sx={{
-          [theme.breakpoints.up(900)]: { width: "80%", mx: "auto" },
-          [theme.breakpoints.up(1300)]: { width: "65%", mx: "auto" },
-        }}
-      >
-        <UserInfoBox
-          label="Username"
-          val={currentUserInfo.username}
-          type="username"
-        />
-        <UserInfoBox
-          label="Address"
-          val={currentUserInfo.address}
-          type="address"
-        />
-        <UserInfoBox label="Email" val={currentUserInfo.email} type="email" />
-        <UserInfoBox
-          label="Password"
-          val={currentUserInfo.password}
-          type="password"
-        />
-        <Box py={6} textAlign="center">
-          <MoveNextButton label="Logout" onClick={handleLogout} link="" />
+      <Box sx={{ minHeight: "100vh" }}>
+        <TitleUI title="My Info" />
+        <Box
+          sx={{
+            [theme.breakpoints.up(900)]: { width: "80%", mx: "auto" },
+            [theme.breakpoints.up(1300)]: { width: "65%", mx: "auto" },
+          }}
+        >
+          <UserInfoBox
+            label="Username"
+            val={currentUserInfo.username}
+            type="username"
+          />
+          <UserInfoBox
+            label="Address"
+            val={currentUserInfo.address}
+            type="address"
+          />
+          <UserInfoBox label="Email" val={currentUserInfo.email} type="email" />
+          <UserInfoBox
+            label="Password"
+            val={currentUserInfo.password}
+            type="password"
+          />
+          <Box py={6} textAlign="center">
+            <MoveNextButton label="Logout" onClick={handleLogout} link="" />
+          </Box>
         </Box>
       </Box>
     </ContainerUI>

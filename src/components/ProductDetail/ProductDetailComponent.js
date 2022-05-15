@@ -12,7 +12,7 @@ const ProductDetailComponent = (props) => {
 
   return (
     <ContainerUI isProductDetail={true}>
-      <Box sx={{ pb: "130px", [theme.breakpoints.up("sm")]: { pb: "200px" } }}>
+      <Box sx={{ pb: "62px", [theme.breakpoints.up("sm")]: { pb: "200px" } }}>
         {!is1024up && <TitleUI title={props.name} />}
         {is1024up && (
           <Box sx={{ pb: 8 }}>

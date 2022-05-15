@@ -14,8 +14,10 @@ const ContainerUI = (props) => {
         maxWidth="sm"
         sx={{
           // original
-          // minHeight: props.isProductDetail ? "" : "",
+          // paddingTop: props.isProductDetail ? "56px" : "",
+          // test
           paddingTop: props.isProductDetail ? "56px" : "",
+          // py: "56px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",

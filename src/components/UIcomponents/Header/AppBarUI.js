@@ -85,8 +85,18 @@ const AppBarUI = (props) => {
   }, []);
 
   return (
-    // <AppBar position="static" sx={{ bgcolor: "background.default" }}>
-    <AppBar position="sticky" sx={{ bgcolor: "background.default" }}>
+    // original
+    // <AppBar position="sticky" sx={{ bgcolor: "background.default" }}>
+    // test
+    <AppBar
+      sx={{
+        position: "fixed",
+        top: "0",
+        left: "0",
+        width: "100%",
+        bgcolor: "background.default",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* test */}

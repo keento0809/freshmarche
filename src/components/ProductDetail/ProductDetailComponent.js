@@ -12,7 +12,16 @@ const ProductDetailComponent = (props) => {
 
   return (
     <ContainerUI isProductDetail={true}>
-      <Box sx={{ pb: "62px", [theme.breakpoints.up("sm")]: { pb: "200px" } }}>
+      {/* original */}
+      {/* <Box sx={{ pb: "62px", [theme.breakpoints.up("sm")]: { pb: "200px" } }}> */}
+      {/* test */}
+      <Box
+        sx={{
+          // minHeight: "94vh",
+          pb: "62px",
+          // [theme.breakpoints.up("sm")]: { minHeight: 0 },
+        }}
+      >
         {!is1024up && <TitleUI title={props.name} />}
         {is1024up && (
           <Box sx={{ pb: 8 }}>

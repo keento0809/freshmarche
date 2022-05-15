@@ -17,6 +17,7 @@ const ContainerUI = (props) => {
           // paddingTop: props.isProductDetail ? "56px" : "",
           // test
           paddingTop: props.isProductDetail ? "56px" : "",
+          minHeight: props.isProductDetail ? "100vh" : "",
           // py: "56px",
           display: "flex",
           flexDirection: "column",
@@ -27,6 +28,7 @@ const ContainerUI = (props) => {
             maxWidth: "md",
             // test
             paddingTop: 0,
+            minHeight: 0,
           },
           [theme.breakpoints.up(1023)]: {
             minHeight: props.isProductDetail ? "100vh" : "",

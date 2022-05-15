@@ -25,6 +25,8 @@ const AuthForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  console.log(isSignUp);
+
   // declare useContext
   const authCtx = useContext(AuthContext);
   const notifyCtx = useContext(NotifyContext);
@@ -215,7 +217,7 @@ const AuthForm = (props) => {
           onSubmit={handleSubmit}
           noValidate
           sx={{
-            paddingY: !isSignUp ? 14 : 2,
+            paddingY: !isSignUp ? 0 : 2,
             [theme.breakpoints.up("sm")]: { width: "85%", mx: "auto", pt: 6 },
             [theme.breakpoints.up(1023)]: { width: "70%", mx: "auto" },
             [theme.breakpoints.up(1300)]: { width: "50%", mx: "auto" },
@@ -346,8 +348,11 @@ const AuthForm = (props) => {
             fullWidth
             variant="contained"
             startIcon={<ArrowForwardIosIcon />}
+            // mt={isSignUp ? 20 : "40px"}
             sx={{
-              mt: 20,
+              // original code
+              // mt: 20,
+              mt: isSignUp ? 8 : 20,
               mb: 4,
               borderRadius: "50px",
               padding: "1rem 2rem",

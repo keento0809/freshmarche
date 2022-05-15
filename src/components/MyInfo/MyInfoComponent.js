@@ -54,7 +54,9 @@ const MyInfoComponent = () => {
   return (
     <ContainerUI>
       <Box sx={{ minHeight: "100vh" }}>
-        <TitleUI title="My Info" />
+        <Box sx={{ pt: "64px" }}>
+          <TitleUI title="My Info" />
+        </Box>
         <Box
           sx={{
             [theme.breakpoints.up(900)]: { width: "80%", mx: "auto" },

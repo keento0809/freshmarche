@@ -18,8 +18,8 @@ const DetailHero = (props) => {
   const theme = useTheme();
 
   const ImageComponent = styled("img")({
-    width: "302px",
-    height: "248px",
+    width: "252px",
+    height: "198px",
     padding: "0.5rem",
     margin: "0.5rem auto",
     objectFit: "cover",

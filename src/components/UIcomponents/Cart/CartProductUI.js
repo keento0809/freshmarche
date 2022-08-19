@@ -49,6 +49,8 @@ const CartProductUI = (props) => {
     }
   };
 
+  const handleUpdateQuantity = () => {};
+
   const ImageComponent = styled("img")({
     display: "inline-block",
     width: "20px",
@@ -110,6 +112,7 @@ const CartProductUI = (props) => {
           <ChangeAmountButton
             sx={{ width: "80%" }}
             quantity={updatedOrderQuantity}
+            onClick={handleUpdateQuantity}
             productInfo={productInfo}
             productInfoSingle={productInfoSingle}
             isInProductDetail={false}

@@ -24,15 +24,12 @@ const UpdateUserInfoForm = (props) => {
     let url;
     let bodyPayload;
     let setValueType = props.type;
-    // test
     if (props.type === "username") {
       localStorage.setItem("username", updatedValue);
-      alert("Sorry, I'm working on adding edit username feature.");
       return;
     }
     if (props.type === "address") {
       localStorage.setItem("address", updatedValue);
-      alert("Sorry, I'm working on adding edit address feature.");
       return;
     }
 
@@ -98,7 +95,6 @@ const UpdateUserInfoForm = (props) => {
       <Box component="form" onSubmit={handleSubmit}>
         <TextField
           type={props.type}
-          // use InputRef in mui, not ref
           inputRef={updatedValueInputRef}
           variant="standard"
           margin="normal"
@@ -108,7 +104,6 @@ const UpdateUserInfoForm = (props) => {
           name={`${props.value}`}
           placeholder={props.val}
           InputProps={{
-            // add minLength into InputProps
             minLength: 5,
             endAdornment: (
               <InputAdornment position="start">

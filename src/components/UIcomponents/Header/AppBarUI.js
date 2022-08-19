@@ -39,28 +39,12 @@ const AppBarUI = (props) => {
   const history = useHistory();
 
   const handleOpenNavMenu = (event) => {
-    // if (!authCtx.isLoggedIn) {
-    //   alert("Please login.");
-    //   return;
-    // }
     setAnchorElNav(event.currentTarget);
     isHomePage && props.onOpen();
     !isHomePage && history.push("/");
   };
-  // const handleOpenSearchBar = (event) => {
-  //   setAnchorElUser(event.currentTarget);
-  // };
-
-  // const handleCloseNavMenu = () => {
-  //   setAnchorElNav(null);
-  // };
-
-  // const handleCloseSearchBar = () => {
-  //   setAnchorElUser(null);
-  // };
 
   const handleOpenUserInfo = () => {
-    // test code
     if (!authCtx.isLoggedIn) history.push("/authentication");
     else history.push("/mypage");
   };
@@ -68,8 +52,6 @@ const AppBarUI = (props) => {
   const handleJumpToLink = (page) => {
     if (page === "FAVORITES") history.push("/favorites");
     if (page === "CART") history.push("/mycart");
-    // test
-    // if (page === "LOGOUT") history.push("/authentication");
     if (page === "LOGOUT") {
       authCtx.logout();
       history.push("/authentication");
@@ -85,9 +67,6 @@ const AppBarUI = (props) => {
   }, []);
 
   return (
-    // original
-    // <AppBar position="sticky" sx={{ bgcolor: "background.default" }}>
-    // test
     <AppBar
       sx={{
         position: "fixed",
@@ -99,9 +78,8 @@ const AppBarUI = (props) => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* test */}
           <Box>
-            <NavLink to="/">
+            <NavLink to="/" style={{ textDecoration: "none" }}>
               <Typography
                 variant="h6"
                 noWrap
@@ -111,11 +89,6 @@ const AppBarUI = (props) => {
                   fontSize: "0.9rem",
                   mr: 2,
                   display: { xs: "none", md: "flex" },
-                  // [theme.breakpoints.up(900)]: {
-                  //   "&.MuiTypography-root:hover": {
-                  //     transform: "scale(1.2)",
-                  //   },
-                  // },
                 }}
                 color="primary"
               >
@@ -170,8 +143,6 @@ const AppBarUI = (props) => {
 
           <Box sx={{ flexGrow: 24, display: { xs: "none", md: "flex" } }}>
             {!authCtx.isLoggedIn && (
-              // test code
-              // I gutta refactor this
               <Button
                 sx={{
                   my: 2,
@@ -243,17 +214,11 @@ const AppBarUI = (props) => {
                 <AccountCircleIcon color="primary" cursor="pointer" />
               </IconButton>
             )}
-            {/* <IconButton size="large" onClick={handleOpenUserInfo}>
-              <AccountCircleIcon color="primary" cursor="pointer" />
-            </IconButton> */}
             {!authCtx.isLoggedIn && (
               <IconButton size="large" onClick={handleOpenUserInfo}>
                 <LoginIcon color="primary" cursor="pointer" />
               </IconButton>
             )}
-            {/* <IconButton size="large" onClick={handleOpenUserInfo}>
-              <AccountCircleIcon color="primary" cursor="pointer" />
-            </IconButton> */}
           </Box>
         </Toolbar>
       </Container>

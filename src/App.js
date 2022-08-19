@@ -6,7 +6,6 @@ import CartProvider from "./contexts/CartProvider";
 import NotifyProvider from "./contexts/NotifyProvider";
 import AuthProvider from "./contexts/AuthProvider";
 import CheckoutProvider from "./contexts/CheckoutProvider";
-// test redux-toolkit
 
 function App() {
   return (

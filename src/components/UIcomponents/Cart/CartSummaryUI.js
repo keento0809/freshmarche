@@ -19,8 +19,6 @@ const CartSummaryUI = (props) => {
   );
 
   let confirmationTotalPrice;
-  let isPlaceOrder;
-  let linkValue;
   let isCartInfo;
 
   useEffect(() => {
@@ -51,18 +49,6 @@ const CartSummaryUI = (props) => {
       alert("Invalid checkout. Please add products to cart.");
       return;
     }
-    // temporary dismissed
-    // if (props.label === "PLACE ORDER") {
-    //   console.log("What the hell is going on ???");
-    //   props.setIsProcessing(true);
-    //   setTimeout(() => {
-    //     props.setIsProcessing(false);
-    //     history.replace("/complete");
-    //   }, 2000);
-
-    //   test
-    //   history.replace("/complete");
-    // }
   };
 
   const setPb = props.isOrderSummary ? 0 : "64px";
@@ -78,9 +64,7 @@ const CartSummaryUI = (props) => {
             Sub-total
           </Typography>
           <Typography variant="body1" component="p" color="white">
-            {/* original code */}
-            {/* ${cartCtx.totalPrice} */}
-            {/* test */}${displayTotalPrice}
+            ${displayTotalPrice}
           </Typography>
         </Box>
         <Box display="flex" justifyContent="space-between">
@@ -96,17 +80,13 @@ const CartSummaryUI = (props) => {
             Total
           </Typography>
           <Typography variant="h4" component="h4" color="white">
-            {/* original code */}
-            {/* ${cartCtx.totalPrice} */}
-            {/* test */}${displayTotalPrice}
+            ${displayTotalPrice}
           </Typography>
         </Box>
       </Box>
       <Box textAlign="center" mt={3} mb={8}>
         <MoveNextButton
           label={props.label}
-          // original
-          // link={displayTotalPrice > 0 ? props.link : "/"}
           link={
             displayTotalPrice > 0 || props.label === "PLACE ORDER"
               ? props.link

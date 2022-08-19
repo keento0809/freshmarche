@@ -25,8 +25,6 @@ const AuthForm = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log(isSignUp);
-
   // declare useContext
   const authCtx = useContext(AuthContext);
   const notifyCtx = useContext(NotifyContext);
@@ -49,7 +47,6 @@ const AuthForm = (props) => {
   }
 
   const userIdLength = 16;
-  // submitHandler
   const handleSubmit = (event) => {
     event.preventDefault();
     const dataMui = new FormData(event.currentTarget);
@@ -61,7 +58,6 @@ const AuthForm = (props) => {
       const enteredFullName = dataMui.get("fullName");
       const enteredPasswordConfirmation = dataMui.get("passwordConfirmation");
 
-      // add validation
       if (enteredFullName === "") return;
       if (enteredPassword !== enteredPasswordConfirmation) {
         return;
@@ -73,17 +69,9 @@ const AuthForm = (props) => {
       setError(null);
 
       let url;
-
-      // AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI
-
       url = isSignUp
-        ? // original
-          // ? `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`
-          `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI`
-        : // original
-          // : `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`;
-          `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI`;
-
+        ? `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_FIREBASE_KEY}`
+        : `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`;
       let enteredFullName;
 
       fetch(url, {
@@ -137,24 +125,17 @@ const AuthForm = (props) => {
     sendRequest();
   };
 
-  // test
   const handleSignInAsGuestUser = (e) => {
     e.preventDefault();
-    // process.env doesn't work
-    // original code
-    // const guestUserEmail = process.env.GUEST_USER_EMAIL;
-    const guestUserEmail = "guestUser@test.com";
-    // original code
-    // const guestUserPassword = process.env.GUEST_USER_PASSWORD;
-    const guestUserPassword = "IPPd5QschJNRt4Li";
+    const guestUserEmail = process.env.REACT_APP_GUEST_USER_EMAIL;
+    const guestUserPassword = process.env.REACT_APP_GUEST_USER_PASSWORD;
 
     setIsLoading(true);
     setError(null);
 
     fetch(
-      // original
-      // `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`,
-      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI`,
+      `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`,
+      // `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI`,
       {
         method: "POST",
         body: JSON.stringify({
@@ -202,17 +183,14 @@ const AuthForm = (props) => {
       <Box sx={{ py: 4, [theme.breakpoints.up(1023)]: { py: 1 } }}>
         <TitleUI title={props.title} />
       </Box>
-      {/* <CssBaseline /> */}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
-        className="トップ"
       >
         <Box
-          className="セカンド"
           component="form"
           onSubmit={handleSubmit}
           noValidate
@@ -323,10 +301,6 @@ const AuthForm = (props) => {
           )}
           {!isSignUp && (
             <Box textAlign="center" sx={{ mt: 2 }}>
-              {/* original code */}
-              {/* <Link href="#" variant="body2">
-                Forgot password?
-              </Link> */}
               <Typography
                 variant="body2"
                 component="span"
@@ -348,10 +322,7 @@ const AuthForm = (props) => {
             fullWidth
             variant="contained"
             startIcon={<ArrowForwardIosIcon />}
-            // mt={isSignUp ? 20 : "40px"}
             sx={{
-              // original code
-              // mt: 20,
               mt: isSignUp ? 8 : 20,
               mb: 4,
               borderRadius: "50px",
@@ -364,7 +335,6 @@ const AuthForm = (props) => {
             }}
           >
             {props.btnLabel}
-            {/* Sign In */}
           </Button>
           <Box textAlign="center">
             <Typography

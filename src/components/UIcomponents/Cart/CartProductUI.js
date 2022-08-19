@@ -39,12 +39,6 @@ const CartProductUI = (props) => {
     isFavorite: props.isFavorite,
   };
 
-  const handleUpdateOrderQuantity = (product, text) => {
-    // add code here !!!!
-    // if (text === "plus") console.log("Plus counts.");
-    // if (text === "minus") console.log("Minus counts.");
-  };
-
   const handleDeleteProduct = (productInfo) => {
     if (productInfo.isFavorite) {
       favoriteCtx.removeFromFavoriteList(productInfo.id);
@@ -109,7 +103,6 @@ const CartProductUI = (props) => {
             sx={{ textDecoration: "none", color: "text.primary" }}
           >
             <ArrowForwardIosIcon sx={{ width: "0.8rem", height: "0.8rem" }} />{" "}
-            {/* I need to add the link jumping to the productDetail page */}
             View Detail
           </Typography>
         )}
@@ -117,7 +110,6 @@ const CartProductUI = (props) => {
           <ChangeAmountButton
             sx={{ width: "80%" }}
             quantity={updatedOrderQuantity}
-            onClick={handleUpdateOrderQuantity}
             productInfo={productInfo}
             productInfoSingle={productInfoSingle}
             isInProductDetail={false}

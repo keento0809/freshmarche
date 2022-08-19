@@ -9,8 +9,6 @@ import { useTheme } from "@mui/material";
 
 const OrderComplete = () => {
   const cartCtx = useContext(CartContext);
-  const [openImage, setOpenImage] = useState(false);
-
   const theme = useTheme();
 
   const style = {
@@ -29,18 +27,11 @@ const OrderComplete = () => {
     cartCtx.resetCart();
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setOpenImage(true);
-    }, 1500);
-  }, []);
-
   return (
     <ContainerUI>
       <Box sx={style}>
-        {/* test */}
         <Box sx={{ paddingBottom: "2rem" }}>
-          {openImage && (
+          {
             <img
               src={`${imageUrl}`}
               alt=""
@@ -55,10 +46,10 @@ const OrderComplete = () => {
                 boxShadow: "rgb(255 255 255) 0px 0px 8px 5px",
               }}
             />
-          )}
+          }
         </Box>
         <Typography variant="h5" component="h5" color="primary">
-          Your order is successful.
+          Your order is completed.
         </Typography>
         <Typography variant="h5" component="h5" color="primary">
           Thank you for choosing us!

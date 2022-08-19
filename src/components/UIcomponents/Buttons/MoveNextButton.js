@@ -12,10 +12,11 @@ const MoveNextButton = (props) => {
       variant="contained"
       startIcon={props.label === "ADDTOCART" ? <AddShoppingCartIcon /> : ""}
       sx={{
-        width: "90%",
+        width: "100%",
         [theme.breakpoints.up("sm")]: {
           width: "70%",
         },
+        maxWidth: "280px",
         borderRadius: "50px",
         bgcolor: "background.paper",
         padding: "0.7rem 0",

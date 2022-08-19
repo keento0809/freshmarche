@@ -220,7 +220,7 @@ const AuthForm = (props) => {
               sx={{
                 borderRadius: "50px",
                 backgroundColor: "background.grey",
-                padding: "0.9rem 1.8rem",
+                padding: "0.6rem 1.5rem",
                 mt: 1.5,
               }}
             />
@@ -244,7 +244,7 @@ const AuthForm = (props) => {
             sx={{
               borderRadius: "50px",
               backgroundColor: "background.grey",
-              padding: "0.9rem 1.8rem",
+              padding: "0.6rem 1.5rem",
               mt: 1.5,
             }}
           />
@@ -268,7 +268,7 @@ const AuthForm = (props) => {
             sx={{
               borderRadius: "50px",
               backgroundColor: "background.grey",
-              padding: "0.9rem 1.8rem",
+              padding: "0.6rem 1.5rem",
               mt: 1.5,
             }}
           />
@@ -293,7 +293,7 @@ const AuthForm = (props) => {
               sx={{
                 borderRadius: "50px",
                 backgroundColor: "background.grey",
-                padding: "0.9rem 1.8rem",
+                padding: "0.6rem 1.5rem",
                 mt: 1.5,
               }}
             />

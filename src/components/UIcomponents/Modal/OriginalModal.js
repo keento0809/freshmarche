@@ -1,12 +1,10 @@
 import * as React from "react";
-import { useContext } from "react";
 import AuthContext from "../../../contexts/auth-context";
 import { NavLink, useHistory } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-// import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/system";
@@ -22,19 +20,13 @@ const OriginalModal = (props) => {
   const handleLogout = () => {
     props.onClose();
     authCtx.logout();
-    // ???
-    // history.replaceState("/signup");
   };
 
   const style = {
     position: "fixed",
     top: "56px",
     left: "0%",
-    // transform: "translate(-50%, -50%)",
-    // Original code
-    // width: 400,
     width: "100%",
-    // test
     minHeight: "184px",
     bgcolor: "background.default",
     border: "2px solid primary",
@@ -69,15 +61,10 @@ const OriginalModal = (props) => {
 
   return (
     <div>
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        // original code
-        // open={open}
         open={props.isOpen}
-        // original code
-        // onClose={handleClose}
         onClose={props.onClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -198,7 +185,6 @@ const OriginalModal = (props) => {
                     variant="body1"
                     component="p"
                     display="block"
-                    // paddingBottom="1rem"
                     cursor="pointer"
                     color="primary"
                     onClick={handleLogout}

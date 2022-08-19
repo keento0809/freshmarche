@@ -3,9 +3,6 @@ const CartReducer = (state, action) => {
     case "ADD": {
       const addingProduct = action.payload;
       const updatedTotalQuantity = state.totalQuantity + addingProduct.quantity;
-      // original code. DO NOT Delete
-      // const updatedTotalPrice =
-      //   state.totalPrice + addingProduct.quantity * addingProduct.price;
       const updatedTotalPrice =
         Math.floor(
           (state.totalPrice + addingProduct.quantity * addingProduct.price) *
@@ -17,7 +14,6 @@ const CartReducer = (state, action) => {
         ? [...state.cartProducts]
         : [...state.cartProducts, addingProduct];
 
-      // I need refactoring!!
       let sample;
       if (
         state.cartProducts.find((product) => product.id === addingProduct.id)
@@ -26,8 +22,6 @@ const CartReducer = (state, action) => {
           (product) => product.id === addingProduct.id
         );
         sample.quantity += action.payload.quantity;
-        // original code. Do Not Delete!
-        // sample.subTotalPrice += action.payload.subTotalPrice;
         sample.subTotalPrice +=
           Math.floor(action.payload.subTotalPrice * 100) / 100;
       }
@@ -43,17 +37,13 @@ const CartReducer = (state, action) => {
         (product) => product.id === subtractingProductId
       );
       const newTotalQuantity = state.totalQuantity - 1;
-      // test
       const newTotalPrice =
         Math.floor((state.totalPrice - subtractingProduct.price) * 100) / 100;
 
       subtractingProduct.quantity = subtractingProduct.quantity - 1;
       subtractingProduct.subTotalPrice -=
         Math.floor(subtractingProduct.price * 100) / 100;
-      // test
       if (subtractingProduct.subTotalPrice <= 0)
-        // const numObj = 12345.6789
-        // test
         subtractingProduct.totalPrice = (1.23e-10).toFixed(2);
       const newCartProducts =
         subtractingProduct.quantity === 0
@@ -67,7 +57,6 @@ const CartReducer = (state, action) => {
         totalPrice: newTotalPrice,
       };
     }
-    // temporary !!
     case "REMOVE": {
       const removingProductId = action.payload;
       const removingProduct = state.cartProducts.find(

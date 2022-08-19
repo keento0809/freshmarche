@@ -32,8 +32,6 @@ const HomeHero = (props) => {
     <HeroBox sx={{ position: "relative" }}>
       <ContainerUI sx={{ position: "relative" }}>
         <Box
-          // variant="body1"
-          // component=""
           sx={{
             fontWeight: "bold",
             width: "95%",

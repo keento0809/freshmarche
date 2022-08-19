@@ -37,7 +37,6 @@ const BottomNavigationUI = () => {
           display: "none",
         },
       }}
-      // {`theme.breakpoints.up('xl') matches: display:none;`}
       value={value}
       onChange={handleChange}
     >
@@ -49,11 +48,7 @@ const BottomNavigationUI = () => {
         icon={<HomeIcon />}
         sx={{ color: "primary.main" }}
       />
-      {/* <NavLink to="/mypage"> */}
-      {/* </NavLink> */}
       <BottomNavigationAction
-        // original code
-        // label="Favorites"
         label={`Favorites ${favoriteCtx.totalQuantity}`}
         value="favorites"
         component={RouterLink}

@@ -45,8 +45,6 @@ const Info = (props) => {
       return;
     }
     favoriteCtx.addToFavoriteList(product);
-    // test redux-toolkit
-    // dispatch(favoriteAction.addToFavoriteList(product));
     setIsInFavoriteList(true);
     notifyCtx.notifyNow("Product added to favorite list!", "success");
   };
@@ -156,7 +154,6 @@ const Info = (props) => {
           >
             Description
           </Typography>
-          {/* original code */}
           <KeyboardArrowDownIcon
             display="inline-block"
             color="secondary"
@@ -186,7 +183,6 @@ const Info = (props) => {
         {notifyCtx.isNotifying && <AlertSnackBar sx={{ width: "100%" }} />}
       </Box>
     </Box>
-    // </MainBoxUI>
   );
 };
 

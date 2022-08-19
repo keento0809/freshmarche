@@ -13,7 +13,6 @@ const HomeComponent = styled("div")({
 });
 
 const Home = () => {
-  // state
   const [open, setOpen] = useState(false);
 
   const checkoutCtx = useContext(CheckoutContext);

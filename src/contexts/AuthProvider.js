@@ -36,10 +36,6 @@ const AuthProvider = (props) => {
     initialToken = tokenData.token;
   }
   const [token, setToken] = useState(initialToken);
-  // original code
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // test
   const userIsLoggedIn = !!token;
 
   const handleLogout = useCallback(() => {
@@ -49,8 +45,6 @@ const AuthProvider = (props) => {
     localStorage.removeItem("expirationTime");
     if (localStorage.getItem("username")) localStorage.removeItem("username");
     if (localStorage.getItem("address")) localStorage.removeItem("address");
-    // setIsLoggedIn(false);
-
     if (logoutTimer) {
       clearTimeout(logoutTimer);
     }

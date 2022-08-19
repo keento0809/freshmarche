@@ -8,7 +8,6 @@ const ProductPaper = (props) => {
       sx={{
         width: 120,
         "& > :not(style)": {
-          // m: 1,
           width: "100%",
           height: 200,
         },
@@ -17,7 +16,6 @@ const ProductPaper = (props) => {
         bgcolor: "transparent",
         boxShadow: "1px 1px 5px #000",
         margin: "0.2rem",
-        // "&:hover": "transform:scale(1.2)",
       }}
     >
       <Paper

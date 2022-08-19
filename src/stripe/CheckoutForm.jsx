@@ -64,8 +64,6 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        // I need to fix this for production
-        // return_url: "http://localhost:3000/ordersummary",
         return_url: "https://freshmarche.vercel.app/ordersummary",
       },
     });
@@ -138,8 +136,6 @@ export default function CheckoutForm() {
                 disabled={isLoading || !stripe || !elements}
                 id="submit"
                 link=""
-                // original code
-                // onClick={handleSubmit}
                 onClick={handleSubmitTest}
               >
                 <span id="button-text">
@@ -166,7 +162,6 @@ export default function CheckoutForm() {
             </Box>
           )}
         </div>
-        {/* Show any error or success messages */}
         {message && <div id="payment-message">{message}</div>}
       </form>
     </Fragment>

@@ -135,7 +135,6 @@ const AuthForm = (props) => {
 
     fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_FIREBASE_KEY}`,
-      // `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDlQG4PcAv2n1MoE_c1CVcK3tYRb-Z7VUI`,
       {
         method: "POST",
         body: JSON.stringify({

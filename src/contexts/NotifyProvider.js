@@ -19,8 +19,6 @@ const NotifyProvider = (props) => {
   };
 
   const handleResetNotification = () => {
-    // test temporary disabled
-    // setIsNotifying(false);
     setSeverity(defaultSeverity);
   };
 

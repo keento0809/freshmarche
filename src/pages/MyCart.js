@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-// import SecondHeader from "../components/Header/SecondHeader";
 import MainHeader from "../components/Header/MainHeader";
 import MainFooter from "../components/Footer/MainFooter";
 import MyCartComponent from "../components/MyCart/MyCartComponent";

@@ -20,17 +20,13 @@ const HeroBox = (props) => {
         [theme.breakpoints.up("sm")]: { minHeight: "250px" },
         [theme.breakpoints.up(900)]: {
           minHeight: "350px",
-          // backgroundPosition: "center center",
         },
         [theme.breakpoints.up(1300)]: {
           backgroundPosition: "top 25% left 50%",
         },
-        // option
         textAlign: "center",
       }}
       margin={props.margin}
-
-      // paddingBottom={1}
     >
       {props.children}
     </Box>

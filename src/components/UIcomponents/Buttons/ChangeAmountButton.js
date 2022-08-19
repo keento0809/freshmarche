@@ -21,7 +21,6 @@ const ChangeAmountButton = (props) => {
     // change the quantity of product on productDetail page
     props.onClick(props.quantity + 1);
     setDisplayQuantity(displayQuantity + 1);
-
     // change the quantity of cartProduct on cartList
     if (props.productInfoSingle) cartCtx.addToCart(props.productInfoSingle);
 
@@ -43,7 +42,6 @@ const ChangeAmountButton = (props) => {
     // change the quantity of product on productDetail page
     props.onClick(props.quantity - 1);
     setDisplayQuantity(displayQuantity - 1);
-
     // change the quantity of cartProduct on cartList
     if (props.productInfoSingle)
       cartCtx.subtractFromCart(props.productInfoSingle);

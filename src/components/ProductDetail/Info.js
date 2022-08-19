@@ -95,12 +95,7 @@ const Info = (props) => {
         justifyContent="center"
         alignItems="center"
         textAlign="center"
-        className="フレックスなう"
       >
-        {/* test */}
-        {/* <Typography variant="body1" component="span" color="secondary">
-          {props.name}
-        </Typography> */}
         {!isInFavoriteList && (
           <FavoriteBorderOutlinedIcon
             sx={{ color: "violet", cursor: "pointer" }}
@@ -114,7 +109,7 @@ const Info = (props) => {
           />
         )}
       </Box>
-      <Box className="これやな" paddingY={2} textAlign="center">
+      <Box paddingY={2} textAlign="center">
         <ChangeAmountButton
           quantity={orderQuantity}
           onClick={setOrderQuantity}
@@ -146,19 +141,11 @@ const Info = (props) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography
-            variant="span"
-            component="p"
-            color="secondary"
-            paddingLeft={1.6}
-          >
-            Description
+          <Typography variant="span" component="p" color="secondary">
+            {/* Description */}
+            SubTotal: $
+            {Math.floor(props.price * productInfo.quantity * 100) / 100}
           </Typography>
-          <KeyboardArrowDownIcon
-            display="inline-block"
-            color="secondary"
-            sx={{ fontSize: "1.5rem" }}
-          />
         </Box>
       </Box>
       <Box margin="2rem 0" sx={{ textAlign: "center" }}>

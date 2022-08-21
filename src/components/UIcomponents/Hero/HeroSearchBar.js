@@ -67,6 +67,7 @@ const HeroSearchBar = (props) => {
         bgcolor: "background.secondary",
         borderRadius: "8px",
         width: "90%",
+        maxWidth: "500px",
         margin: "0 auto",
         boxShadow: "1px 1px 7px #000",
         bgcolor: "background.paper",
@@ -81,7 +82,6 @@ const HeroSearchBar = (props) => {
           marginLeft: "0.5rem",
         },
       }}
-      className="ツールバー"
     >
       <Search>
         <SearchIconWrapper>

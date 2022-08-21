@@ -129,7 +129,7 @@ const StepperUI = (props) => {
       alternativeLabel
       activeStep={props.activeStep}
       connector={<ColorlibConnector />}
-      sx={{ paddingY: "1.5rem" }}
+      sx={{ paddingY: "1.5rem", maxWidth: "500px", mx: "auto" }}
     >
       {steps.map((label) => (
         <Step key={label}>

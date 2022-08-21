@@ -43,6 +43,8 @@ const FavoritesList = () => {
     <Box
       textAlign="center"
       sx={{
+        maxWidth: "550px",
+        mx: "auto",
         maxHeight: "570px",
         overflow: "scroll",
         [theme.breakpoints.up("sm")]: { maxHeight: "670px" },

@@ -28,8 +28,6 @@ const Main = () => {
 
   return (
     <Router>
-      {/* test */}
-      {/* <Suspense fallback={<p>Loading...</p>}> */}
       <Suspense fallback={<Loading />}>
         <ScopedCssBaseline>
           <Switch>
@@ -71,35 +69,23 @@ const Main = () => {
             <Route path="/products/:productId">
               <ProductDetail />
             </Route>
-            {/* temporary & test */}
-            {/* <Route path="/testing">
-              <App />
-            </Route> */}
-            {/* temporary */}
             {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
               <Route path="/payment" exact>
                 <PaymentMethod />
               </Route>
             )}
-            {/* temporary */}
             {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
               <Route path="/ordersummary" exact>
                 <OrderSummary />
               </Route>
             )}
-            {/* temporary */}
             {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
               <Route path="/complete">
                 <OrderComplete />
               </Route>
             )}
-            {/* test */}
-            {/* <Route path="/loading">
-              <Loading />
-            </Route> */}
             <Route path="*">
               <NotFound />
-              {/* <Redirect to="/" /> */}
             </Route>
           </Switch>
         </ScopedCssBaseline>

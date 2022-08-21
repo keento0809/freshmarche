@@ -43,6 +43,7 @@ const AuthProvider = (props) => {
     localStorage.removeItem("token");
     localStorage.removeItem("userInfo");
     localStorage.removeItem("expirationTime");
+    localStorage.removeItem("firstLoad");
     if (localStorage.getItem("username")) localStorage.removeItem("username");
     if (localStorage.getItem("address")) localStorage.removeItem("address");
     if (logoutTimer) {

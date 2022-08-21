@@ -19,7 +19,7 @@ Access this project at [FreshMarche](https://freshmarche.vercel.app/home)!
 
 ## About The App
 
-[FreshMarche](https://freshmarche.vercel.app/home) is one of my personal projects.
+[FreshMarche](https://freshmarche.vercel.app/home) is one of my personal projects containing features that general e-commerce web applications have such as adding items to the cart, managing items in it, and checking out items (placing orders). This application focuses on buying fruits and vegetables as the products.
 
 ## Screenshots
 

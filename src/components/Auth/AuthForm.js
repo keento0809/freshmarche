@@ -194,6 +194,10 @@ const AuthForm = (props) => {
           onSubmit={handleSubmit}
           noValidate
           sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "90%",
+            mx: "auto",
             paddingY: !isSignUp ? 0 : 2,
             [theme.breakpoints.up("sm")]: { width: "85%", mx: "auto", pt: 6 },
             [theme.breakpoints.up(1023)]: { width: "70%", mx: "auto" },
@@ -221,7 +225,9 @@ const AuthForm = (props) => {
                 borderRadius: "50px",
                 backgroundColor: "background.grey",
                 padding: "0.6rem 1.5rem",
+                maxWidth: "450px",
                 mt: 1.5,
+                mx: "auto",
               }}
             />
           )}
@@ -245,7 +251,9 @@ const AuthForm = (props) => {
               borderRadius: "50px",
               backgroundColor: "background.grey",
               padding: "0.6rem 1.5rem",
+              maxWidth: "450px",
               mt: 1.5,
+              mx: "auto",
             }}
           />
           <TextField
@@ -269,7 +277,9 @@ const AuthForm = (props) => {
               borderRadius: "50px",
               backgroundColor: "background.grey",
               padding: "0.6rem 1.5rem",
+              maxWidth: "450px",
               mt: 1.5,
+              mx: "auto",
             }}
           />
           {isSignUp && (
@@ -294,7 +304,9 @@ const AuthForm = (props) => {
                 borderRadius: "50px",
                 backgroundColor: "background.grey",
                 padding: "0.6rem 1.5rem",
+                maxWidth: "450px",
                 mt: 1.5,
+                mx: "auto",
               }}
             />
           )}
@@ -308,6 +320,7 @@ const AuthForm = (props) => {
                   cursor: "pointer",
                   textDecoration: "underline",
                   fontSize: "1.2rem",
+                  mx: 0,
                 }}
                 onClick={handleSignInAsGuestUser}
               >
@@ -325,7 +338,9 @@ const AuthForm = (props) => {
               mt: isSignUp ? 8 : 20,
               mb: 4,
               borderRadius: "50px",
-              padding: "1rem 2rem",
+              padding: "0.6rem 1.5rem",
+              maxWidth: "400px",
+              mx: "auto",
               transition: "all 0.2s ease",
               "&.MuiButtonBase-root:hover": {
                 transform: "scale(1.02)",

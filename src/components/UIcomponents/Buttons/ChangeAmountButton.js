@@ -79,10 +79,7 @@ const ChangeAmountButton = (props) => {
       }
       sx={{
         width: "50%",
-        [theme.breakpoints.up("sm")]: {
-          width: "40%",
-        },
-        maxWidth: "200px",
+        maxWidth: "160px",
         borderRadius: "50px",
         justifyContent: "space-around",
         color: "text.primary",

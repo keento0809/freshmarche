@@ -75,7 +75,7 @@ const CartProductUI = (props) => {
         </Box>
         <Box display="flex" flexDirection="row" justifyContent="space-between">
           <Typography variant="h5" component="h5" color="primary">
-            {props.quantity}
+            {props.quantity} lb
           </Typography>
           <Typography
             variant="h5"
@@ -120,6 +120,7 @@ const CartProductUI = (props) => {
         )}
         <DeleteIcon
           color="text.primary"
+          sx={{ cursor: "pointer" }}
           onClick={() => handleDeleteProduct(productInfo)}
         />
       </Box>

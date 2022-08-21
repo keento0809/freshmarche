@@ -26,7 +26,7 @@ const OrderSummaryList = () => {
         color: "primary",
         maxHeight: "390px",
         overflow: "scroll",
-        [theme.breakpoints.up("sm")]: { maxHeight: "480px" },
+        [theme.breakpoints.up("sm")]: { maxHeight: "300px" },
       }}
     >
       {mapping}

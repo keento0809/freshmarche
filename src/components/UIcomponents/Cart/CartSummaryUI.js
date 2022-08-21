@@ -54,7 +54,7 @@ const CartSummaryUI = (props) => {
   const setPb = props.isOrderSummary ? 0 : "64px";
 
   return (
-    <Box sx={{ pt: "1.7rem", pb: setPb }}>
+    <Box sx={{ pt: "1.7rem", pb: setPb, maxWidth: "550px", mx: "auto" }}>
       <Box
         margin="0 auto"
         sx={{ width: "90%", [theme.breakpoints.up("sm")]: { width: "100%" } }}

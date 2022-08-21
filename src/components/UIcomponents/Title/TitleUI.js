@@ -7,12 +7,9 @@ const TitleUI = (props) => {
 
   return (
     <Box
-      className="className,頼みまっせ"
       textAlign="center"
       sx={{
-        padding: "1rem 0",
-        [theme.breakpoints.up("sm")]: { padding: "1.5rem 0" },
-        [theme.breakpoints.up(1023)]: { padding: "2.5rem 0" },
+        paddingTop: "6rem",
       }}
     >
       <Typography
@@ -20,9 +17,9 @@ const TitleUI = (props) => {
         component="h4"
         color="secondary"
         sx={{
-          fontSize: "1.7rem",
-          [theme.breakpoints.up("sm")]: { fontSize: "2rem" },
-          // [theme.breakpoints.up(900)]: { fontSize: "2.5rem" },
+          fontSize: "1.5rem",
+          paddingBottom: "0.5rem",
+          [theme.breakpoints.up(1024)]: { fontSize: "1.7rem" },
         }}
       >
         {props.title}

@@ -38,6 +38,7 @@ const AlertSnackBar = (props) => {
       severity={notifyCtx.severity}
       sx={{
         width: "100%",
+        maxWidth: "400px",
         bgColor: "background.secondary",
       }}
     >

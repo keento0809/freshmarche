@@ -38,14 +38,14 @@ const Home = () => {
   );
 
   const handleCloseBackdrop = () => {
-    if (!isLoggedIn || (isLoggedIn && localStorage.getItem("firstLoad"))) {
+    if (localStorage.getItem("firstLoad")) {
       setBackdropOpen(false);
       return;
     }
     setTimeout(() => {
       setBackdropOpen(false);
       localStorage.setItem("firstLoad", "loaded");
-    }, 2000);
+    }, 3000);
   };
 
   useEffect(() => {

@@ -52,9 +52,11 @@ const CartList = () => {
   return (
     <Box
       sx={{
+        maxWidth: "550px",
+        mx: "auto",
         maxHeight: "390px",
         overflow: "scroll",
-        [theme.breakpoints.up("sm")]: { maxHeight: "480px" },
+        [theme.breakpoints.up("sm")]: { maxHeight: "320px" },
       }}
     >
       {content}

@@ -22,7 +22,7 @@ const TitleUI = (props) => {
         sx={{
           fontSize: "1.7rem",
           [theme.breakpoints.up("sm")]: { fontSize: "2rem" },
-          [theme.breakpoints.up(900)]: { fontSize: "2.5rem" },
+          // [theme.breakpoints.up(900)]: { fontSize: "2.5rem" },
         }}
       >
         {props.title}

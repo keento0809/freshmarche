@@ -1,6 +1,6 @@
 # FreshMarche
 
-A web application memorizing countries where you've ever been before and analyzing them visually with React and Typescript.
+An e-commerce-like application for purchasing fresh groceries online, making the best of ReactJS, and having user authentication and a dummy checkout form.
 
 ## Demo link:
 
@@ -19,7 +19,7 @@ Access this project at [FreshMarche](https://freshmarche.vercel.app/home)!
 
 ## About The App
 
-[FreshMarche](https://freshmarche.vercel.app/home) is one of my personal projects.
+[FreshMarche](https://freshmarche.vercel.app/home) is one of my personal projects containing features that general e-commerce web applications have such as adding items to the cart, managing items in it, and checking out items (placing orders). This application focuses on buying fruits and vegetables as the products.
 
 ## Screenshots
 
@@ -39,11 +39,10 @@ Access this project at [FreshMarche](https://freshmarche.vercel.app/home)!
 
 ## Approach
 
-- Utilize React.js and Redux with Typescript to make state management easier and improve the efficiency of developing the application thanks to the power of Typescript.
-- Introducing `react-simple-map`, a library for React.js showcasing the world map with countries filled with colors where users have been before.
-- Users can search countries using the search bar on the nav section or looking for them from regions via the 'countries' link on the home page.
-- Adding features such as registrations to add countries to the bucket list (list of countries where users would like to visit in their future) and to the records (list of countries where users have been to) respectively utilizing the cloud firestore (firebase) as the database.
-- Being considered to have a good user interface and is designed by `TailWind CSS` and `DaisyUI`, a third-party library for Tailwind CSS.
+- Utilize React-router in order to route multiple pages consisting the application
+- Managing various types of state by Context API to optimize the state management as much as possible
+- In terms of user authentication, this project has adopted firebase authentication to simplify the authentication process in the application.
+- Stripe API enables the application to implement a dummy checkout form (users can input credit card information to check out their purchases) and complete their shopping.
 
 ## Status
 

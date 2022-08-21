@@ -73,7 +73,7 @@ const OriginalModal = (props) => {
         }}
       >
         <Fade in={props.isOpen}>
-          <Box sx={style} className="これかいな">
+          <Box sx={style}>
             <CloseIcon sx={closeIconStyle} onClick={props.onClose} />
             <UlStyle>
               {!authCtx.isLoggedIn && (

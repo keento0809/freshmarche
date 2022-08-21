@@ -144,7 +144,8 @@ const Info = (props) => {
           <Typography variant="span" component="p" color="secondary">
             {/* Description */}
             SubTotal: $
-            {Math.floor(props.price * productInfo.quantity * 100) / 100}
+            {Math.floor(props.price * productInfo.quantity * 100) / 100} (
+            {productInfo.quantity} lb)
           </Typography>
         </Box>
       </Box>

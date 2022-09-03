@@ -45,7 +45,7 @@ const Home = () => {
     setTimeout(() => {
       setBackdropOpen(false);
       localStorage.setItem("firstLoad", "loaded");
-    }, 3000);
+    }, 5000);
   };
 
   useEffect(() => {

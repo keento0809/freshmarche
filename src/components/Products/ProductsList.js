@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, Suspense } from "react";
 import Product from "./Product";
 import { styled } from "@mui/system";
 import dummyData from "../../data/dummyData.json";

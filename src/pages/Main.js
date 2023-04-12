@@ -28,68 +28,66 @@ const Main = () => {
 
   return (
     <Router>
-      <Suspense fallback={<Loading />}>
-        <ScopedCssBaseline>
-          <Switch>
-            <Route path="/" exact>
-              <Redirect to="/home" />
+      <ScopedCssBaseline>
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/home" />
+          </Route>
+          <Route path="/home" exact>
+            <Home />
+          </Route>
+          {!authCtx.isLoggedIn && (
+            <Route path="/authentication" exact>
+              <AuthPage />
             </Route>
-            <Route path="/home" exact>
-              <Home />
+          )}
+          {!authCtx.isLoggedIn && (
+            <Route path="/signup" exact>
+              <Signup />
             </Route>
-            {!authCtx.isLoggedIn && (
-              <Route path="/authentication" exact>
-                <AuthPage />
-              </Route>
-            )}
-            {!authCtx.isLoggedIn && (
-              <Route path="/signup" exact>
-                <Signup />
-              </Route>
-            )}
-            {/* temporary */}
-            {authCtx.isLoggedIn && (
-              <Route path="/mypage" exact>
-                <MyInfo />
-              </Route>
-            )}
-            {/* temporary */}
-            {authCtx.isLoggedIn && (
-              <Route path="/mycart" exact>
-                <MyCart />
-              </Route>
-            )}
-            {/* temporary */}
-            {authCtx.isLoggedIn && (
-              <Route path="/favorites" exact>
-                <Favorites />
-              </Route>
-            )}
-            {/* temporary */}
-            <Route path="/products/:productId">
-              <ProductDetail />
+          )}
+          {/* temporary */}
+          {authCtx.isLoggedIn && (
+            <Route path="/mypage" exact>
+              <MyInfo />
             </Route>
-            {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
-              <Route path="/payment" exact>
-                <PaymentMethod />
-              </Route>
-            )}
-            {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
-              <Route path="/ordersummary" exact>
-                <OrderSummary />
-              </Route>
-            )}
-            {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
-              <Route path="/complete">
-                <OrderComplete />
-              </Route>
-            )}
-            <Route path="*">
-              <NotFound />
+          )}
+          {/* temporary */}
+          {authCtx.isLoggedIn && (
+            <Route path="/mycart" exact>
+              <MyCart />
             </Route>
-          </Switch>
-        </ScopedCssBaseline>
-      </Suspense>
+          )}
+          {/* temporary */}
+          {authCtx.isLoggedIn && (
+            <Route path="/favorites" exact>
+              <Favorites />
+            </Route>
+          )}
+          {/* temporary */}
+          <Route path="/products/:productId">
+            <ProductDetail />
+          </Route>
+          {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
+            <Route path="/payment" exact>
+              <PaymentMethod />
+            </Route>
+          )}
+          {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
+            <Route path="/ordersummary" exact>
+              <OrderSummary />
+            </Route>
+          )}
+          {authCtx.isLoggedIn && checkoutCtx.isCheckedOut && (
+            <Route path="/complete">
+              <OrderComplete />
+            </Route>
+          )}
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </ScopedCssBaseline>
     </Router>
   );
 };
